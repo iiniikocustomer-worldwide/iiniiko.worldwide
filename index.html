@@ -22,6 +22,12 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Fixed-header offset fix + smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px; 
+        }
+
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
@@ -625,8 +631,6 @@
         // --- SIDEBAR DRAWER MECHANICS ---
         function toggleSidebar() {
             const sidebar = document.getElementById('mainSidebar');
-            const shield = document.getElementById('uiShield');
-            
             sidebar.classList.toggle('active');
             evalShieldState();
         }
@@ -634,7 +638,6 @@
         // --- BUCKET LIST DRAWER MECHANICS ---
         function toggleBucketList() {
             const bucketDrawer = document.getElementById('bucketSidebar');
-            
             bucketDrawer.classList.toggle('active');
             evalShieldState();
         }
@@ -667,8 +670,6 @@
             
             bucketListArray.push(productionObject);
             renderBucketDOM();
-            
-            // Subtle alert indicator instead of default intrusive prompt
             console.log(`${itemName} queued.`);
         }
 
@@ -681,10 +682,7 @@
             const targetContainer = document.getElementById('bucketItemsList');
             const badgeCounter = document.getElementById('bucketCount');
             
-            // Update counter value metric
             badgeCounter.innerText = bucketListArray.length;
-            
-            // Flush old HTML layouts
             targetContainer.innerHTML = '';
             
             if(bucketListArray.length === 0) {
@@ -692,7 +690,6 @@
                 return;
             }
             
-            // Populate dynamically
             bucketListArray.forEach(item => {
                 const li = document.createElement('li');
                 li.className = 'bucket-item';
@@ -717,7 +714,6 @@
                 modalTextBox.innerText = "Querying live coordinates via satellite array...";
                 navigator.geolocation.getCurrentPosition(
                     (pos) => {
-                        // User allowed location tracking query execution
                         modalTextBox.innerHTML = `
                             <strong>Terminal Coordinates Confirmed.</strong><br><br>
                             Lat: ${pos.coords.latitude.toFixed(4)}<br>
@@ -726,7 +722,6 @@
                         `;
                     },
                     (error) => {
-                        // Denied or timed out - Fallback gracefully to default base hub location
                         modalTextBox.innerHTML = `
                             <strong>Distribution Point Locked.</strong><br><br>
                             Location permissions restricted or unavailable. Default routing set to core operating center:<br><br>
