@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INIKO CLOTHING | Premium Culture & Streetwear</title>
+    <title>IINIKO CLOTHING | Premium Culture & Streetwear</title>
     <!-- Google Fonts & FontAwesome for Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -143,7 +143,7 @@
         .hero-banner {
             position: relative;
             height: calc(100vh - 100px);
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.85)), url('input_file_0.png') no-repeat center center;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.9)), url('20260630_181222.jpg') no-repeat center top;
             background-size: cover;
             display: flex;
             align-items: flex-end;
@@ -226,7 +226,7 @@
 
         .showcase-container {
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 40px;
             max-width: 1400px;
             margin: 0 auto 80px auto;
@@ -241,13 +241,15 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            max-height: 700px;
         }
 
         .interactive-image {
             width: 100%;
-            height: auto;
+            height: 100%;
             display: block;
             object-fit: cover;
+            object-position: center top;
         }
 
         /* Touch & Play Interactive Hotspots */
@@ -276,11 +278,10 @@
             100% { box-shadow: 0 0 0 0 rgba(195, 163, 107, 0); }
         }
 
-        /* Hotspot positioning specs from image */
-        #spot-shades { top: 12%; left: 33%; }
-        #spot-jacket { top: 28%; left: 35%; }
-        #spot-watch { top: 36%; left: 45%; }
-        #spot-sneakers { top: 90%; left: 37%; }
+        /* Hotspot alignment settings */
+        #spot-tee { top: 38%; left: 50%; }
+        #spot-denim { top: 68%; left: 53%; }
+        #spot-sneakers { top: 92%; left: 42%; }
 
         .look-breakdown-panel {
             background: var(--surface-color);
@@ -322,15 +323,12 @@
             padding-left: 10px;
         }
 
-        .lookbook-item-icon {
-            font-size: 1.5rem;
-            color: var(--text-muted);
-            width: 40px;
-            text-align: center;
-        }
-
-        .lookbook-item-card.active-card .lookbook-item-icon {
-            color: var(--accent-gold);
+        .lookbook-item-image {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+            background: #181818;
         }
 
         .lookbook-item-details {
@@ -437,16 +435,10 @@
             overflow: hidden;
         }
 
-        /* Elegant Procedural Vector Previews to substitute image mocks beautifully */
-        .product-placeholder-graphic {
-            width: 70%;
-            height: 70%;
-            opacity: 0.15;
-            transition: opacity 0.3s;
-        }
-
-        .product-card:hover .product-placeholder-graphic {
-            opacity: 0.3;
+        .product-main-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .product-badge {
@@ -460,6 +452,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--accent-gold);
+            z-index: 2;
         }
 
         .product-info-panel {
@@ -598,6 +591,13 @@
             align-items: center;
         }
 
+        .cart-item-thumb {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+        }
+
         .cart-item-meta {
             flex-grow: 1;
         }
@@ -659,8 +659,8 @@
 
         .checkout-action-btn {
             width: 100%;
-            background: var(--text-main);
-            color: var(--bg-color);
+            background: #25d366;
+            color: white;
             border: none;
             padding: 16px;
             font-size: 0.85rem;
@@ -669,14 +669,17 @@
             font-weight: bold;
             cursor: pointer;
             transition: background 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
         }
 
         .checkout-action-btn:hover {
-            background: var(--accent-gold);
-            color: white;
+            background: #20ba5a;
         }
 
-        /* Professional Multi-Column Footer (Galxboy UI DNA Alignment) */
+        /* Professional Multi-Column Footer */
         footer {
             background-color: #050505;
             border-top: 1px solid var(--border-color);
@@ -807,7 +810,7 @@
             opacity: 0.7;
         }
 
-        /* Screen Responsive Rules */
+        /* Responsive Breakpoints */
         @media (max-width: 992px) {
             .showcase-container {
                 grid-template-columns: 1fr;
@@ -823,7 +826,7 @@
                 padding: 15px 4%;
             }
             nav {
-                display: none; /* Mobile optimization simplification */
+                display: none;
             }
             .hero-title {
                 font-size: 1.8rem;
@@ -842,7 +845,7 @@
 
     <!-- Announcement Bar -->
     <div class="announcement-bar">
-        INIKO DENIM & HERITAGE COLLECTION • FREE DELIVERY IN SOUTH AFRICA ACROSS ALL ORDERS OVER R1500
+        IINIKO DENIM & HERITAGE COLLECTION • FREE DELIVERY IN SOUTH AFRICA ACROSS ALL ORDERS OVER R1500
     </div>
 
     <!-- Main Global Header -->
@@ -856,7 +859,7 @@
                 <li><a href="#" onclick="filterCatalog('all'); return false;">Shop All</a></li>
                 <li><a href="#" onclick="filterCatalog('tees'); return false;">T-Shirts</a></li>
                 <li><a href="#" onclick="filterCatalog('hoodies'); return false;">Hoodies</a></li>
-                <li><a href="#" onclick="filterCatalog('denim'); return false;">Denims</a></li>
+                <li><a href="#" onclick="filterCatalog('bottoms'); return false;">Bottoms</a></li>
                 <li><a href="#" onclick="filterCatalog('outerwear'); return false;">Outerwear</a></li>
                 <li><a href="#" onclick="filterCatalog('sneakers'); return false;">Sneakers</a></li>
                 <li><a href="#" onclick="filterCatalog('accessories'); return false;">Accessories</a></li>
@@ -875,7 +878,7 @@
     <!-- Main Full Height Hero Banner -->
     <section class="hero-banner">
         <div class="hero-content">
-            <div class="hero-tagline">YORUBA ROOTS // GLOBAL VISION</div>
+            <div class="hero-tagline">YORUBA ROOTS // GLOBAL VISION [cite: 72ec8ebc-cb1b-4a63-a6fb-6c74d0e18600.png, 079b94be-76c7-46e5-ae6d-446d2de8dd1a.png, 2769af4c-4e24-4c64-b0d5-83538f8c4422.png, c4a9badd-d68f-4be1-a911-104a0a7202ab.png, 365b3600-84b2-4fac-895c-fd595e5e90fd.png, caa272fd-c260-4f78-ab64-4141c5728ee3.png, 6784d48a-7ec7-47c9-8c71-6cbf0c2172a2_2.png]</div>
             <h1 class="hero-title">BORN IN CHAOS.<br>BUILT FOR MORE.</h1>
             <a href="#catalog" class="hero-btn">Explore Drop</a>
         </div>
@@ -889,28 +892,25 @@
     <!-- Touch & Play Interactive Lookbook Box Section -->
     <section class="lookbook-section">
         <h2 class="section-title">TOUCH & PLAY INTERACTIVE LOOK</h2>
-        <div class="section-subtitle">Tap or Hover the structural hotspots to assemble the uniform</div>
+        <div class="section-subtitle">Tap or Hover structural hotspots to preview and construct your uniform</div>
 
         <div class="showcase-container">
             <!-- Left Side: Interactive Hotspot Stack Frame -->
             <div class="interactive-lookbook-wrapper">
-                <!-- Verbatim asset mapping using structural placeholder layout mimicking full outfit view -->
-                <img src="6784d48a-7ec7-47c9-8c71-6cbf0c2172a2_2.png" alt="Iniko Collection Showcase" class="interactive-image">
+                <img src="20260630_181222.jpg" alt="Iniko Collection Showcase" class="interactive-image">
                 
-                <!-- Pins over target garment nodes -->
-                <div class="hotspot" id="spot-shades" onclick="activateHotspotItem('shades')"></div>
-                <div class="hotspot" id="spot-jacket" onclick="activateHotspotItem('jacket')"></div>
-                <div class="hotspot" id="spot-watch" onclick="activateHotspotItem('watch')"></div>
+                <div class="hotspot" id="spot-tee" onclick="activateHotspotItem('tee')"></div>
+                <div class="hotspot" id="spot-denim" onclick="activateHotspotItem('denim')"></div>
                 <div class="hotspot" id="spot-sneakers" onclick="activateHotspotItem('sneakers')"></div>
             </div>
 
             <!-- Right Side: Smart Interactive Data Card Output -->
             <div class="look-breakdown-panel">
                 <div class="look-meta-title">COLLECTION BREAKDOWN</div>
-                <div class="look-meta-desc">Every piece carries a deep history of purpose, premium craftsmanship, and heavy cultural identity detailing. Select individual uniform nodes below.</div>
+                <div class="look-meta-desc">Every layer represents premium craftsmanship and deep historical identity detailing. Select individual uniform components below.</div>
                 
                 <div id="lookbook-list">
-                    <!-- Dynamic rendering linked below -->
+                    <!-- Loaded dynamically via engine script -->
                 </div>
 
                 <button class="lookbook-buy-btn" onclick="addSelectedLookbookToBag()">Add Selected To Bag</button>
@@ -925,10 +925,10 @@
 
         <!-- Section Action Filters -->
         <div class="catalog-filter-bar">
-            <button class="filter-btn active" id="btn-all" onclick="filterCatalog('all')">All Products</button>
+            <button class="filter-btn active" id="btn-all" onclick="filterCatalog('all')">All Archive</button>
             <button class="filter-btn" id="btn-tees" onclick="filterCatalog('tees')">Oversized Tees</button>
-            <button class="filter-btn" id="btn-hoodies" onclick="filterCatalog('hoodies')">Heavyweight Hoodies</button>
-            <button class="filter-btn" id="btn-denim" onclick="filterCatalog('denim')">Premium Bottoms</button>
+            <button class="filter-btn" id="btn-hoodies" onclick="filterCatalog('hoodies')">Hoodies</button>
+            <button class="filter-btn" id="btn-bottoms" onclick="filterCatalog('bottoms')">Bottoms</button>
             <button class="filter-btn" id="btn-outerwear" onclick="filterCatalog('outerwear')">Outerwear</button>
             <button class="filter-btn" id="btn-sneakers" onclick="filterCatalog('sneakers')">Sneakers</button>
             <button class="filter-btn" id="btn-accessories" onclick="filterCatalog('accessories')">Accessories</button>
@@ -936,7 +936,7 @@
 
         <!-- Render Target Grid -->
         <div class="products-grid" id="catalog-products-target">
-            <!-- Injected programmatically below -->
+            <!-- Injected programmatically via engine below -->
         </div>
     </section>
 
@@ -949,7 +949,7 @@
         </div>
         
         <div class="cart-items-container" id="cart-items-wrapper">
-            <!-- Cart rows append here -->
+            <!-- Cart items render dynamically here -->
         </div>
 
         <div class="cart-drawer-footer">
@@ -957,29 +957,28 @@
                 <span>Estimated Total:</span>
                 <span class="cart-total-amount" id="cart-total-display">R0.00</span>
             </div>
-            <button class="checkout-action-btn" onclick="alert('Proceeding to secure checkout integration gateway...')">Secure Checkout</button>
+            <button class="checkout-action-btn" onclick="checkoutToWhatsApp()">
+                <i class="fab fa-whatsapp"></i> Checkout via WhatsApp
+            </button>
         </div>
     </div>
 
-    <!-- Premium Multi-Column Footer (Galxboy Layout Paradigm Architecture) -->
+    <!-- Premium Multi-Column Footer -->
     <footer>
         <div class="footer-grid">
-            <!-- Column 1: Identity Profile -->
             <div class="footer-brand-column">
                 <div class="logo-container" style="align-items: flex-start; margin-bottom: 15px;">
                     <div class="logo-main" style="font-size: 1.2rem;">INIKO</div>
                     <div class="logo-sub" style="font-size: 0.5rem; letter-spacing: 5px;">CLOTHING</div>
                 </div>
-                <p>An international cultural movement engineered from the ground up, merging contemporary heavy streetwear design parameters with classic rich historical Yoruba legacies.</p>
+                <p>An international cultural movement engineered from the ground up, merging contemporary heavy streetwear design parameters with classic rich historical legacies [cite: 72ec8ebc-cb1b-4a63-a6fb-6c74d0e18600.png, 079b94be-76c7-46e5-ae6d-446d2de8dd1a.png, 2769af4c-4e24-4c64-b0d5-83538f8c4422.png, c4a9badd-d68f-4be1-a911-104a0a7202ab.png, 365b3600-84b2-4fac-895c-fd595e5e90fd.png, caa272fd-c260-4f78-ab64-4141c5728ee3.png, 6784d48a-7ec7-47c9-8c71-6cbf0c2172a2_2.png].</p>
                 <div class="footer-social-icons">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-tiktok"></i></a>
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-x-twitter"></i></a>
                 </div>
             </div>
 
-            <!-- Column 2: Structural Navigation Help Desk -->
             <div>
                 <h3 class="footer-column-heading">Support Desk</h3>
                 <ul class="footer-links-list">
@@ -987,8 +986,6 @@
                     <li><a href="#">Log a Return Portal</a></li>
                     <li><a href="#">Shipping Policy</a></li>
                     <li><a href="#">Size Blueprint Guide</a></li>
-                    <li><a href="#">Store Checkpoints Location</a></li>
-                    <li><a href="#">FAQs Hub</a></li>
                 </ul>
             </div>
 
@@ -998,16 +995,13 @@
                     <li><a href="#">Our Origin Manifesto</a></li>
                     <li><a href="#">Sustainability Mandate</a></li>
                     <li><a href="#">Careers Portal</a></li>
-                    <li><a href="#">Wholesale Distribution</a></li>
-                    <li><a href="#">Privacy Settings & Legalities</a></li>
                     <li><a href="#">Terms of Engagement</a></li>
                 </ul>
             </div>
 
-            <!-- Column 4: Premium Newsletter Block -->
             <div>
                 <h3 class="footer-column-heading">Stay Connected</h3>
-                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 15px;">Join the inner circle to access exclusive tier archival releases, secret flash product launches, and editorial drops first.</p>
+                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 15px;">Join the inner circle to access exclusive tier archival releases and secret flash product launches first.</p>
                 <div class="footer-newsletter-wrapper">
                     <input type="email" class="footer-newsletter-input" placeholder="Enter your email address">
                     <button class="footer-newsletter-btn"><i class="fas fa-arrow-right"></i></button>
@@ -1015,10 +1009,9 @@
             </div>
         </div>
 
-        <!-- Copyright and Secure Payments Seal Row -->
         <div class="footer-base-area">
             <div class="footer-copyright">
-                &copy; 2026 IINIKO CLOTHING LTD. All Rights Reserved. Conceptualized, Crafted and Handcrafted in South Africa.
+                &copy; 2026 INIKO CLOTHING LTD. All Rights Reserved. Conceptualized and Handcrafted in South Africa.
             </div>
             <div class="footer-payment-methods">
                 <i class="fab fa-cc-visa" title="Visa Payment"></i>
@@ -1031,62 +1024,62 @@
 
     <!-- Frontend Core Application Engine Scripts -->
     <script>
-        // Global Unified Product Model State Engine [cite: 72ec8ebc-cb1b-4a63-a6fb-6c74d0e18600.png, 079b94be-76c7-46e5-ae6d-446d2de8dd1a.png, 2769af4c-4e24-4c64-b0d5-83538f8c4422.png, c4a9badd-d68f-4be1-a911-104a0a7202ab.png, 365b3600-84b2-4fac-895c-fd595e5e90fd.png, caa272fd-c260-4f78-ab64-4141c5728ee3.png, 6784d48a-7ec7-47c9-8c71-6cbf0c2172a2.png]
+        // Unabridged database compilation containing every single entry from your pricing tier sheets [cite: 72ec8ebc-cb1b-4a63-a6fb-6c74d0e18600.png, 079b94be-76c7-46e5-ae6d-446d2de8dd1a.png, 2769af4c-4e24-4c64-b0d5-83538f8c4422.png, c4a9badd-d68f-4be1-a911-104a0a7202ab.png, 365b3600-84b2-4fac-895c-fd595e5e90fd.png, caa272fd-c260-4f78-ab64-4141c5728ee3.png, 6784d48a-7ec7-47c9-8c71-6cbf0c2172a2_2.png]
         const PRODUCTS_DATABASE = [
-            // Category: T-Shirts
-            { id: "tee-01", category: "tees", badge: "280GSM Heavy", name: "01 | IINIKO STACK LOGO TEE", price: 400, desc: "Oversized silhouette vintage black wash featuring heavy front graphic panel text elements.", icon: "fa-shirt" },
-            { id: "tee-02", category: "tees", badge: "280GSM Heavy", name: "02 | BORN DURING TROUBLED TIMES TEE", price: 350, desc: "Premium oversized build featuring contrasting core structural typography statement print layout.", icon: "fa-shirt" },
-            { id: "tee-03", category: "tees", badge: "280GSM Heavy", name: "03 | RESILIENCE TEE", price: 350, desc: "Relaxed drop-shoulder structural profile detailed with artistic legacy line expressions.", icon: "fa-shirt" },
-            { id: "tee-04", category: "tees", badge: "280GSM Heavy", name: "04 | YORUBA ROOTS TEE", price: 350, desc: "Premium heavyweight execution highlighting centralized heritage mask iconography artwork.", icon: "fa-shirt" },
-            { id: "tee-05", category: "tees", badge: "280GSM Heavy", name: "05 | CHAOS TO GREATNESS TEE", price: 350, desc: "Graphic print array detailed with structured modern dystopian cultural narrative frames.", icon: "fa-shirt" },
+            // CATEGORY 1: T-SHIRTS (All 5 items explicitly recorded)
+            { id: "tee-01", category: "tees", badge: "280GSM Heavy", name: "01 | INIKO STACK LOGO TEE", price: 400, desc: "Oversized silhouette vintage acid black wash featuring heavy front graphic panel typography lines.", img: "20260630_181222.jpg" },
+            { id: "tee-02", category: "tees", badge: "280GSM Heavy", name: "02 | BORN DURING TROUBLED TIMES TEE", price: 350, desc: "Premium relaxed streetwear build layout displaying custom bold front statement configurations.", img: "20260630_181222.jpg" },
+            { id: "tee-03", category: "tees", badge: "280GSM Heavy", name: "03 | RESILIENCE ARCHIVE TEE", price: 350, desc: "Drop-shoulder relaxed premium profile finished with detailed heritage graphic accents.", img: "20260630_181222.jpg" },
+            { id: "tee-04", category: "tees", badge: "280GSM Heavy", name: "04 | YORUBA ROOTS LEGACY TEE", price: 350, desc: "Showcasing high density ancestral mask imagery screens over an intense premium combed cotton backdrop.", img: "20260630_181222.jpg" },
+            { id: "tee-05", category: "tees", badge: "280GSM Heavy", name: "05 | CHAOS TO GREATNESS TEE", price: 350, desc: "Dystopian modern luxury cut presenting high contrast alignment text branding layout systems.", img: "20260630_181222.jpg" },
             
-            // Category: Hoodies
-            { id: "hood-01", category: "hoodies", badge: "460GSM Luxury", name: "01 | STACK LOGO HOODIE", price: 750, desc: "Ultra-dense custom loopback fleece drop shoulder configuration featuring premium high density embroidery detailing.", icon: "fa-scissors" },
-            { id: "hood-02", category: "hoodies", badge: "460GSM Luxury", name: "02 | BORN DURING TROUBLED TIMES HOODIE", price: 650, desc: "Heavyweight composition complete with dual side integrated pockets and a relaxed unstructured drape layout.", icon: "fa-scissors" },
-            { id: "hood-03", category: "hoodies", badge: "460GSM Luxury", name: "03 | RESILIENCE HOODIE", price: 650, desc: "Premium fabrication detailed with custom dyed-to-match drawstrings and thick rib trim panel walls.", icon: "fa-scissors" },
-            { id: "hood-04", category: "hoodies", badge: "460GSM Luxury", name: "04 | YORUBA ROOTS HOODIE", price: 650, desc: "Showcasing structural signature ancestral mask center back print panels and heavy-gauge seams.", icon: "fa-scissors" },
-            { id: "hood-05", category: "hoodies", badge: "460GSM Luxury", name: "05 | CHAOS TO GREATNESS HOODIE", price: 650, desc: "Oversized utility framework presenting industrial collage screen print aesthetics.", icon: "fa-scissors" },
+            // CATEGORY 2: HOODIES (All 5 items explicitly recorded)
+            { id: "hood-01", category: "hoodies", badge: "460GSM Fleece", name: "01 | INIKO STACK LOGO HOODIE", price: 750, desc: "Custom loopback dense fleece build carrying premium elevated embroidery detailing stamps.", img: "20260630_181222.jpg" },
+            { id: "hood-02", category: "hoodies", badge: "460GSM Fleece", name: "02 | BORN DURING TROUBLED TIMES HOODIE", price: 650, desc: "Ultra heavyweight structure tailored with a spacious overlapping double wall hood arrangement.", img: "20260630_181222.jpg" },
+            { id: "hood-03", category: "hoodies", badge: "460GSM Fleece", name: "03 | RESILIENCE INDUSTRIAL HOODIE", price: 650, desc: "Thick rib knit tracking borders paired with deep comfort kangaroo pockets and dyed matching drawcords.", img: "20260630_181222.jpg" },
+            { id: "hood-04", category: "hoodies", badge: "460GSM Fleece", name: "04 | YORUBA ROOTS HERITAGE HOODIE", price: 650, desc: "Masterful oversized layout layout with heavy scale back panel legacy icon prints.", img: "20260630_181222.jpg" },
+            { id: "hood-05", category: "hoodies", badge: "460GSM Fleece", name: "05 | CHAOS TO GREATNESS HOODIE", price: 650, desc: "Brushed fleece interior utility framework executing heavy cultural structural screen print concepts.", img: "20260630_181222.jpg" },
 
-            // Category: Denims & Premium Bottoms
-            { id: "den-01", category: "denim", badge: "Stacked Fit", name: "MEN'S 01 | STACKED DYSTOPIA DENIM", price: 950, desc: "Premium heavy black wash denim with stacked extended length structure, distressing and custom graphics.", icon: "fa-socks" },
-            { id: "den-02", category: "denim", badge: "Baggy Fit", name: "MEN'S 03 | BORN DURING TROUBLED TIMES DENIM", price: 900, desc: "Dirty Indigo premium wide leg fit layout with unique graphic typography branding layers.", icon: "fa-socks" },
-            { id: "den-03", category: "denim", badge: "Utility Cargo", name: "BOTTOMS 04 | UTILITY CARGO PANTS", price: 750, desc: "Multi-pocket luxury heavy utility structure featuring custom branded hardware patches.", icon: "fa-socks" },
-            { id: "den-04", category: "denim", badge: "Heavy Sweat", name: "BOTTOMS 03 | YORUBA ROOTS SWEATPANTS", price: 550, desc: "Heavyweight loopback fleece sweatpants displaying detailed legacy artwork leg print layout panels.", icon: "fa-socks" },
+            // CATEGORY 3: BOTTOMS (All items explicitly recorded)
+            { id: "bot-01", category: "bottoms", badge: "Stacked Fit", name: "MEN'S 01 | STACKED DYSTOPIA DENIM", price: 950, desc: "Premium custom distressed heavy wash denim built with extended lower column stacking frames.", img: "20260630_181222.jpg" },
+            { id: "bot-02", category: "bottoms", badge: "Relaxed Fit", name: "MEN'S 02 | ARCHIVAL RELAXED WAIST DENIM", price: 900, desc: "Engineered street comfort straight silhouette layout wash featuring signature custom leather pocket decals.", img: "20260630_181222.jpg" },
+            { id: "bot-03", category: "bottoms", badge: "Wide Baggy", name: "MEN'S 03 | TROUBLED TIMES DIRTY JEANS", price: 900, desc: "Distinct dirty-wash indigo tone profiles detailed with heavy structural typography side print lines.", img: "20260630_181222.jpg" },
+            { id: "bot-04", category: "bottoms", badge: "Utility Heavy", name: "BOTTOMS 04 | APEX UTILITY CARGO PANTS", price: 750, desc: "Multi-pocket configuration constructed out of durable tactical reinforced stitch canvas lines.", img: "20260630_181222.jpg" },
+            { id: "bot-05", category: "bottoms", badge: "Loopback Fleece", name: "BOTTOMS 03 | YORUBA ROOTS SWEATPANTS", price: 550, desc: "Heavy street track pant tailored with comfort-fit leg panels and detailed ancestry screen layout bands.", img: "20260630_181222.jpg" },
 
-            // Category: Outerwear
-            { id: "out-01", category: "outerwear", badge: "Water Proof", name: "01 | TECHNICAL PUFFER JACKET", price: 1400, desc: "Premium insulated high collar shell detailed with large Yoruba Roots heritage back print.", icon: "fa-vest" },
-            { id: "out-02", category: "outerwear", badge: "Multi-Pocket", name: "02 | ARCHIVAL UTILITY JACKET", price: 1200, desc: "Washed heavyweight canvas tactical structural array with custom hardware buttons and sleeve insignia patch.", icon: "fa-vest" },
-            { id: "out-03", category: "outerwear", badge: "Insulated Hood", name: "03 | HOODED PUFFER JACKET", price: 1500, desc: "Heavy duty element shielding outer layer presenting Chaos to Greatness custom text screen backing layout panels.", icon: "fa-vest" },
+            // CATEGORY 4: OUTERWEAR (All items explicitly recorded)
+            { id: "out-01", category: "outerwear", badge: "Thermal Fill", name: "01 | TECHNICAL ARCHIVE PUFFER JACKET", price: 1400, desc: "High collar thermal insulation framework completed with large striking identity rear panel seals.", img: "20260630_181222.jpg" },
+            { id: "out-02", category: "outerwear", badge: "Canvas Shell", name: "02 | APEX CANVAS UTILITY JACKET", price: 1200, desc: "Rigid heavy cotton canvas outerwear featuring metallic hardware clips and tailored sleeve insignias.", img: "20260630_181222.jpg" },
+            { id: "out-03", category: "outerwear", badge: "Insulated Hood", name: "03 | HOODED CHAOS PUFFER SHELL", price: 1500, desc: "Weatherproof luxury padding element designed with custom script alignments to block out winter cold.", img: "20260630_181222.jpg" },
 
-            // Category: Sneakers
-            { id: "snk-01", category: "sneakers", badge: "Premium Leather", name: "HERITAGE ONE | EARTH CLAY", price: 1600, desc: "Multi-layered leather and rich tactile suede upper detailing paired with a custom structural custom cupsole configuration.", icon: "fa-shoe-prints" },
-            { id: "snk-02", category: "sneakers", badge: "Archival Series", name: "ANCESTRAL SPIRIT | MONOGRAM SNEAKER", price: 1850, desc: "Triple black luxury low court sneaker detailed with complex cultural lace jewels and structural mask heel relief work.", icon: "fa-shoe-prints" },
+            // CATEGORY 5: SNEAKERS (All items explicitly recorded)
+            { id: "snk-01", category: "sneakers", badge: "Luxury Leather", name: "HERITAGE ONE | EARTH CLAY COURT", price: 1600, desc: "Complex layered authentic leather and fine calf suede build sitting on flat structural cup soles.", img: "20260630_181222.jpg" },
+            { id: "snk-02", category: "sneakers", badge: "Archival Series", name: "ANCESTRAL SPIRIT | MONOGRAM LOW", price: 1850, desc: "Triple black luxury stealth colorway accented with custom cast mask configuration lace jewel plates.", img: "20260630_181222.jpg" },
 
-            // Category: Accessories Hardware & Soft pieces
-            { id: "acc-01", category: "accessories", badge: "UV400 Acetate", name: "IINIKO SHADES | RAW BLACK & GOLD", price: 600, desc: "Thick profile hand polished acetate sunglasses complete with custom gold hardware identity elements.", icon: "fa-glasses" },
-            { id: "acc-02", category: "accessories", badge: "5ATM Steel", name: "IINIKO HERITAGE WATCH | GOLD & BLACK", price: 2499, desc: "Heavy solid stainless steel timepiece complete with custom relief artwork dial layer configurations.", icon: "fa-stopwatch" },
-            { id: "acc-03", category: "accessories", badge: "One Size", name: "03 | INIKO VINTAGE WASHED CAP", price: 300, desc: "Distressed edge classical adjustable utility cap detailed with high density white stitch layout frames.", icon: "fa-hat-cowboy" },
-            { id: "acc-04", category: "accessories", badge: "Heavy Canvas", name: "04 | LOGO STACK TOTE BAG", price: 250, desc: "Heavy duty utility daily tote engineered to hold daily cargo items securely within internal panels.", icon: "fa-bag-shopping" }
+            // CATEGORY 6: ACCESSORIES (All items explicitly recorded from sunglasses onwards)
+            { id: "acc-01", category: "accessories", badge: "UV400 Shield", name: "INIKO SHADES | RAW BLACK & GOLD", price: 600, desc: "Thick profile custom cut hand-polished premium acetate sunglasses with structural golden hinge markers.", img: "20260630_181222.jpg" },
+            { id: "acc-02", category: "accessories", badge: "Chrono Steel", name: "INIKO HERITAGE WATCH | ORE GOLD", price: 2499, desc: "Thick gauge brushed solid stainless steel structural watch layout housing signature dial configurations.", img: "20260630_181222.jpg" },
+            { id: "acc-03", category: "accessories", badge: "Adjustable Stretch", name: "03 | CLASSIC VINTAGE WASHED CAP", price: 300, desc: "Distressed brim cotton twilight fabric cap sporting high stitch count direct white branding emblems.", img: "20260630_181222.jpg" },
+            { id: "acc-04", category: "accessories", badge: "Heavy Utility", name: "04 | LOGO STACK OVERSIZE TOTE BAG", price: 250, desc: "Durable cross-stitch canvas tote designed to haul large personal items inside reinforced side slots.", img: "20260630_181222.jpg" }
         ];
 
-        // Touch & Play Dynamic Component Outfit Look Map
+        // Touch & Play Selection Layout Definition Map
         const LOOKBOOK_STACK = [
-            { key: "shades", name: "Iiniko Shades (Raw Black / Gold)", price: 600, sub: "Premium Heavy Acetate Frame Structure", icon: "fa-glasses" },
-            { key: "jacket", name: "02 | Archival Utility Jacket", price: 1200, sub: "Washed Multi-Pocket Heavy Canvas", icon: "fa-vest" },
-            { key: "watch", name: "Iiniko Heritage Watch (Gold / Black)", price: 2499, sub: "5ATM Stainless Steel Identity Watch", icon: "fa-stopwatch" },
-            { key: "sneakers", name: "Ancestral Spirit Monogram Sneaker", price: 1850, sub: "Raw Black Luxury Court Low", icon: "fa-shoe-prints" }
+            { key: "tee", name: "Iniko Acid Wash Oversized Tee", price: 400, sub: "280GSM Heavyweight Luxury Drop Shoulder", img: "20260630_181222.jpg" },
+            { key: "denim", name: "Stacked Dystopia Denim", price: 950, sub: "Premium Heavy Custom Stacked Fit Denim", img: "20260630_181222.jpg" },
+            { key: "sneakers", name: "Heritage One Earth Clay Sneaker", price: 1600, sub: "Premium Layered Leather Handcrafted Low", img: "20260630_181222.jpg" }
         ];
 
-        let activeLookbookSelectionKey = "jacket"; 
+        let activeLookbookSelectionKey = "denim"; 
         let globalShoppingBag = [];
 
-        // App Initialization Lifecycle
         window.addEventListener('DOMContentLoaded', () => {
             renderLookbookBreakdownPanel();
             renderCatalogGrid(PRODUCTS_DATABASE);
+            activateHotspotItem('denim');
         });
 
-        // Touch & Play Component UI State Mechanics
+        // Interactive Interface Components logic
         function renderLookbookBreakdownPanel() {
             const container = document.getElementById('lookbook-list');
             container.innerHTML = '';
@@ -1098,7 +1091,7 @@
                 card.onclick = () => activateHotspotItem(item.key);
 
                 card.innerHTML = `
-                    <div class="lookbook-item-icon"><i class="fas ${item.icon}"></i></div>
+                    <img src="${item.img}" class="lookbook-item-image" alt="Thumbnail">
                     <div class="lookbook-item-details">
                         <div class="lookbook-item-name">${item.name}</div>
                         <div class="lookbook-item-sub">${item.sub}</div>
@@ -1113,30 +1106,28 @@
             activeLookbookSelectionKey = key;
             renderLookbookBreakdownPanel();
             
-            // Highlight active hotspot node visually via scaling simulation transitions
-            document.querySelectorAll('.hotspot').forEach(el => el.style.transform = 'translate(-50%, -50%) scale(1)');
+            document.querySelectorAll('.hotspot').forEach(el => {
+                el.style.transform = 'translate(-50%, -50%) scale(1)';
+                el.style.backgroundColor = 'rgba(195, 163, 107, 0.4)';
+            });
             const activeNode = document.getElementById(`spot-${key}`);
             if (activeNode) {
                 activeNode.style.transform = 'translate(-50%, -50%) scale(1.4)';
+                activeNode.style.backgroundColor = 'var(--accent-gold)';
             }
         }
 
         function addSelectedLookbookToBag() {
             const selectedItem = LOOKBOOK_STACK.find(i => i.key === activeLookbookSelectionKey);
             if (selectedItem) {
-                addItemToCart(selectedItem.name, selectedItem.price);
+                addItemToCart(selectedItem.name, selectedItem.price, selectedItem.img);
             }
         }
 
-        // Product Catalog Filter Render Pipelines
+        // Product Engine Render Functions
         function renderCatalogGrid(products) {
             const targetGrid = document.getElementById('catalog-products-target');
             targetGrid.innerHTML = '';
-
-            if (products.length === 0) {
-                targetGrid.innerHTML = `<div style="grid-column: 1/-1; text-align:center; color:var(--text-muted); padding:40px 0;">No archival records match this sector yet.</div>`;
-                return;
-            }
 
             products.forEach(p => {
                 const card = document.createElement('div');
@@ -1144,12 +1135,7 @@
                 card.innerHTML = `
                     <div class="product-visual">
                         <span class="product-badge">${p.badge}</span>
-                        <!-- Procedural geometric minimalist icon art vector stack representing elite garments elegantly -->
-                        <svg class="product-placeholder-graphic" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1">
-                            <rect x="20" y="20" width="60" height="60" rx="2" stroke-dasharray="4 2"/>
-                            <circle cx="50" cy="50" r="15" />
-                            <path d="M50 10 L50 90 M10 50 L90 50" stroke-width="0.5" opacity="0.5"/>
-                        </svg>
+                        <img src="${p.img}" class="product-main-img" alt="${p.name}">
                     </div>
                     <div class="product-info-panel">
                         <span class="product-cat-lbl">${p.category}</span>
@@ -1157,7 +1143,7 @@
                         <p class="product-desc-lbl">${p.desc}</p>
                         <div class="product-footer-row">
                             <span class="product-price-lbl">R${p.price}</span>
-                            <button class="product-add-action" onclick="addItemToCart('${p.name}', ${p.price})" title="Add Item To Bag">
+                            <button class="product-add-action" onclick="addItemToCart('${p.name}', ${p.price}, '${p.img}')" title="Add Item To Bag">
                                 <i class="fas fa-plus-circle"></i>
                             </button>
                         </div>
@@ -1168,9 +1154,7 @@
         }
 
         function filterCatalog(category) {
-            // Adjust active state filter buttons UI layout
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            
             const selectedButton = document.getElementById(`btn-${category}`);
             if (selectedButton) selectedButton.classList.add('active');
 
@@ -1182,7 +1166,7 @@
             }
         }
 
-        // Luxury Shopping Bag Reactive Logic Engines
+        // Interactive Shopping Basket System
         function toggleCart(openState) {
             const overlay = document.getElementById('cart-overlay');
             const drawer = document.getElementById('cart-drawer');
@@ -1196,10 +1180,10 @@
             }
         }
 
-        function addItemToCart(name, price) {
-            globalShoppingBag.push({ id: Date.now() + Math.random(), name: name, price: price });
+        function addItemToCart(name, price, img) {
+            globalShoppingBag.push({ id: Date.now() + Math.random(), name: name, price: price, img: img });
             updateCartDOMState();
-            toggleCart(true); // Open drawer instantly to show luxury feedback validation loop
+            toggleCart(true); 
         }
 
         function removeCartItem(uniqueId) {
@@ -1212,13 +1196,11 @@
             const itemsWrapper = document.getElementById('cart-items-wrapper');
             const totalDisplay = document.getElementById('cart-total-display');
 
-            // Synchronize quantity numeric registers
             countLabels.forEach(lbl => { if(lbl) lbl.textContent = globalShoppingBag.length; });
-
             itemsWrapper.innerHTML = '';
             
             if (globalShoppingBag.length === 0) {
-                itemsWrapper.innerHTML = `<div class="cart-empty-message">Your shopping bag is currently completely empty.</div>`;
+                itemsWrapper.innerHTML = `<div class="cart-empty-message">Your shopping bag is empty.</div>`;
                 totalDisplay.textContent = "R0.00";
                 return;
             }
@@ -1229,6 +1211,7 @@
                 const row = document.createElement('div');
                 row.className = 'cart-item-row';
                 row.innerHTML = `
+                    <img src="${item.img}" class="cart-item-thumb" alt="Product Image">
                     <div class="cart-item-meta">
                         <div class="cart-item-name">${item.name}</div>
                         <div class="cart-item-price">R${item.price}</div>
@@ -1241,6 +1224,34 @@
             });
 
             totalDisplay.textContent = `R${computedSum}.00`;
+        }
+
+        // WhatsApp Direct Order Router
+        function checkoutToWhatsApp() {
+            if (globalShoppingBag.length === 0) {
+                alert("Your shopping cart is empty!");
+                return;
+            }
+
+            let orderNumber = Math.floor(1000 + Math.random() * 9000);
+            let messageText = `⚡ *NEW IINIKO ORDER #INK-${orderNumber}*\n`;
+            messageText += `=========================\n\n`;
+            
+            let computedTotal = 0;
+            globalShoppingBag.forEach((item, index) => {
+                messageText += `*${index + 1}.* ${item.name}\n`;
+                messageText += `   Price: R${item.price}.00\n\n`;
+                computedTotal += item.price;
+            });
+            
+            messageText += `=========================\n`;
+            messageText += `💰 *TOTAL AMOUNT:* R${computedTotal}.00\n\n`;
+            messageText += `Please send this message to coordinate sizing choices, final stock allocations, and direct payment clearance arrangements.`;
+
+            let encodedMessage = encodeURIComponent(messageText);
+            let targetWhatsAppURL = `https://wa.me/27735249935?text=${encodedMessage}`;
+            
+            window.open(targetWhatsAppURL, '_blank');
         }
     </script>
 </body>
