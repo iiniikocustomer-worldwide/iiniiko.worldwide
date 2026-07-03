@@ -3,571 +3,744 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IINIKO CLOTHINGS | Born In Chaos. Built For More.</title>
-    <!-- Google Fonts for Gothic & Premium Streetwear Typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>INIKO CLOTHING | GLOBAL VISION</title>
     <style>
-        /* --- DESIGN SYSTEM & BRAND IDENTITY --- */
         :root {
-            --bg-color: #000000;
-            --surface-color: #0b0b0b;
-            --accent-color: #ffffff;
-            --text-primary: #ffffff;
-            --text-muted: #888888;
-            --whatsapp-green: #25D366;
-            --font-sans: 'Montserrat', sans-serif;
-            --font-display: 'Space Grotesk', sans-serif;
-            --border-color: rgba(255, 255, 255, 0.1);
+            --bg-color: #0a0a0a;
+            --card-bg: #121212;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --accent: #ffffff;
+            --accent-hover: #333333;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            scroll-behavior: smooth;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-primary);
-            font-family: var(--font-sans);
+            color: var(--text-main);
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
         }
 
-        /* --- TOP ANNOUNCEMENT MARQUEE BANNER --- */
-        .announcement-bar {
-            background-color: #0f0f0f;
-            color: var(--text-primary);
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 12px 20px;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .announcement-bar span { margin: 0 auto; }
-
-        /* --- STICKY MINIMALIST HEADER --- */
+        /* --- HEADER & NAVIGATION --- */
         header {
-            background-color: rgba(0, 0, 0, 0.95);
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px 25px;
+            left: 0;
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 20px 40px;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid #1a1a1a;
         }
-        .menu-toggle { font-size: 20px; cursor: pointer; }
-        .logo h1 {
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 28px;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            text-align: center;
-        }
-        .nav-icons { display: flex; gap: 22px; font-size: 18px; }
-        .nav-icons i { cursor: pointer; transition: color 0.2s; }
-        .nav-icons i:hover { color: var(--text-muted); }
 
-        /* --- HERO LOOKBOOK BANNER --- */
-        .hero-section {
-            position: relative;
-            height: calc(85vh - 85px);
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: center;
-            text-align: center;
-            padding-bottom: 80px;
-        }
-        .brand-motto {
-            font-size: 11px;
+        .logo {
+            font-weight: 900;
             letter-spacing: 4px;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-            text-transform: uppercase;
+            font-size: 24px;
+            cursor: pointer;
         }
-        .hero-title {
-            font-family: var(--font-display);
-            font-size: 40px;
-            font-weight: 700;
+
+        .nav-right {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 14px;
             letter-spacing: 2px;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-        }
-        .btn-shop-outline {
-            background: transparent;
-            color: var(--text-primary);
-            border: 1px solid var(--text-primary);
-            padding: 15px 45px;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 3px;
             text-transform: uppercase;
             cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .btn-shop-outline:hover {
-            background-color: var(--text-primary);
-            color: var(--bg-color);
+            position: relative;
+            padding: 5px 0;
         }
 
-        /* --- CONCEPT EXPLANATION BAR --- */
-        .brand-concept-bar {
-            background-color: var(--surface-color);
-            padding: 40px 25px;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
+        .nav-btn span.badge {
+            background: #ffffff;
+            color: #000000;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 10px;
+            margin-left: 5px;
+            vertical-align: middle;
         }
-        .brand-concept-bar h2 {
-            font-family: var(--font-display);
-            font-size: 14px;
+
+        /* --- SIDEBAR NAVIGATION --- */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -350px;
+            width: 350px;
+            height: 100%;
+            background: #0d0d0d;
+            box-shadow: -5px 0 25px rgba(0,0,0,0.5);
+            z-index: 200;
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid #1a1a1a;
+        }
+
+        .sidebar.active {
+            right: 0;
+        }
+
+        .sidebar-close {
+            align-self: flex-end;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 24px;
+            cursor: pointer;
+            margin-bottom: 40px;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .sidebar-menu a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 18px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            margin-bottom: 12px;
+            font-weight: 300;
+            transition: color 0.3s;
         }
-        .brand-concept-bar p {
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 12px;
+
+        .sidebar-menu a:hover {
             color: var(--text-muted);
-            line-height: 1.8;
-            letter-spacing: 0.5px;
         }
 
-        /* --- COLLECTIONS MAIN CONTAINER --- */
-        .collections-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 60px 20px;
+        /* --- HERO BANNER --- */
+        .hero {
+            margin-top: 80px;
+            width: 100%;
+            height: 60vh;
+            position: relative;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
-        .section-header {
-            font-family: var(--font-display);
-            font-size: 20px;
-            letter-spacing: 4px;
+
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+        }
+
+        .hero-title {
+            position: absolute;
+            text-align: center;
+            letter-spacing: 10px;
             text-transform: uppercase;
-            margin-bottom: 40px;
-            border-left: 3px solid #fff;
-            padding-left: 15px;
         }
 
-        /* Product Grid Structural Layout */
-        .products-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
+        .hero-title h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        /* --- MAIN CATALOG CONTENT --- */
+        main {
+            padding: 60px 40px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .section-header h2 {
+            font-size: 24px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .catalog-container {
             margin-bottom: 80px;
         }
+
+        .master-display-img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid #1a1a1a;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        /* --- BUCKET LIST ITEMS --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
         .product-card {
-            background-color: var(--surface-color);
-            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            border: 1px solid #1a1a1a;
+            border-radius: 4px;
             padding: 20px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-        }
-        .product-img-box {
-            width: 100%;
-            height: 400px;
-            background-color: #111;
-            overflow: hidden;
-            margin-bottom: 15px;
             position: relative;
         }
-        .product-img-box img {
+
+        .product-card h3 {
+            font-size: 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .product-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .action-btn {
+            background: #ffffff;
+            color: #000000;
+            border: none;
             width: 100%;
+            padding: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .action-btn:hover {
+            background: #cccccc;
+        }
+
+        /* --- BUCKET LIST DRAWERS --- */
+        .bucket-sidebar {
+            position: fixed;
+            top: 0;
+            left: -400px;
+            width: 400px;
             height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
+            background: #0d0d0d;
+            box-shadow: 5px 0 25px rgba(0,0,0,0.5);
+            z-index: 200;
+            transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #1a1a1a;
         }
-        .product-card:hover .product-img-box img {
-            transform: scale(1.03);
+
+        .bucket-sidebar.active {
+            left: 0;
         }
-        .product-meta {
+
+        .bucket-items-list {
+            list-style: none;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        .bucket-item {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 15px;
-        }
-        .product-name {
-            font-family: var(--font-display);
-            font-size: 15px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        .product-price {
-            font-weight: 600;
-            font-size: 14px;
-            color: var(--text-primary);
-        }
-        .product-desc {
-            font-size: 11px;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            line-height: 1.5;
+            align-items: center;
+            background: #151515;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #222;
         }
 
-        /* --- TOUCH & PLAY INTERACTIVE EXPLORER --- */
-        .interactive-explorer {
-            background-color: #ffffff;
-            color: #000000;
-            padding: 80px 25px;
-            text-align: center;
-        }
-        .interactive-container {
-            max-width: 650px;
-            margin: 0 auto;
-            position: relative;
-            border: 1px solid #eeeeee;
-        }
-        .interactive-container img {
-            width: 100%;
-            display: block;
-        }
-        .hotspot {
-            position: absolute;
-            width: 24px;
-            height: 24px;
-            background-color: #000;
-            border: 3px solid #fff;
-            border-radius: 50%;
+        .remove-item-btn {
+            background: none;
+            border: none;
+            color: #ff4a4a;
             cursor: pointer;
-            animation: pulse 2s infinite;
-        }
-        .spot-1 { top: 20%; left: 50%; }
-        .spot-2 { top: 55%; left: 45%; }
-        
-        /* --- DIGITAL FOOTER WITH BRAND DIRECTORIES --- */
-        footer {
-            background-color: #050505;
-            border-top: 1px solid var(--border-color);
-            padding: 60px 25px;
             font-size: 12px;
-        }
-        .footer-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-        }
-        .footer-brand h3 {
-            font-family: var(--font-display);
-            font-size: 20px;
-            letter-spacing: 4px;
-            margin-bottom: 15px;
-        }
-        .footer-brand p {
-            color: var(--text-muted);
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
-        .footer-links h4 {
-            font-family: var(--font-display);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-        .footer-links ul { list-style: none; }
-        .footer-links li { margin-bottom: 10px; }
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .footer-links a:hover { color: #fff; }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
-            color: var(--text-muted);
-        }
-        .contact-item i { width: 16px; color: #fff; }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 40px auto 0 auto;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 11px;
             letter-spacing: 1px;
         }
 
-        /* --- FLOATING CONSTANTS --- */
-        .members-only-badge {
+        /* --- MODAL DIALOGS (LOCATION) --- */
+        .modal-overlay {
             position: fixed;
-            bottom: 25px;
-            left: 25px;
-            background-color: #111111;
-            color: #ffffff;
-            padding: 12px 20px;
-            border-radius: 2px;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 2px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 300;
             display: flex;
             align-items: center;
-            gap: 10px;
-            z-index: 90;
-            border: 1px solid var(--border-color);
-        }
-        .members-only-badge i { color: #ffd700; }
-
-        .whatsapp-float {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background-color: #ffffff;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
             justify-content: center;
-            align-items: center;
-            font-size: 24px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-box {
+            background: #0d0d0d;
+            border: 1px solid #222;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .modal-box h3 {
+            font-size: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .modal-box p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .close-modal-btn {
+            background: transparent;
+            border: 1px solid #ffffff;
+            color: #ffffff;
+            padding: 10px 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 12px;
             cursor: pointer;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            z-index: 90;
-            transition: transform 0.3s;
-        }
-        .whatsapp-float:hover { transform: scale(1.1); }
-
-        /* --- ANIMATIONS KEYFRAMES --- */
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(255,255,255,0); }
-            100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+            transition: all 0.3s;
         }
 
-        /* --- RESPONSIVE SCREEN ADJUSTMENTS --- */
-        @media (min-width: 768px) {
-            .hero-title { font-size: 60px; }
-            .products-grid { grid-template-columns: repeat(2, 1fr); }
-            .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+        .close-modal-btn:hover {
+            background: #ffffff;
+            color: #000000;
         }
-        @media (min-width: 1024px) {
-            .products-grid { grid-template-columns: repeat(3, 1fr); }
+
+        /* --- BACKDROP SHIELD --- */
+        .shield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: 150;
+            display: none;
+        }
+
+        .shield.active {
+            display: block;
         }
     </style>
 </head>
 <body>
 
-    <!-- TOP ANNOUNCEMENT LINE -->
-    <div class="announcement-bar">
-        <i class="fa-solid fa-arrow-left"></i>
-        <span>STRENGTH IS NOT THE ABSENCE OF STRUGGLE, IT IS THE EXISTENCE OF PURPOSE.</span>
-        <i class="fa-solid fa-arrow-right"></i>
-    </div>
+    <!-- Backdrop UI Shield -->
+    <div class="shield" id="uiShield" onclick="closeAllDrawers()"></div>
 
-    <!-- MAIN HEADER BAR -->
+    <!-- MAIN HEADER -->
     <header>
-        <div class="nav-container">
-            <div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
-            <div class="logo"><h1>IINIKO</h1></div>
-            <div class="nav-icons">
-                <i class="fa-solid fa-location-dot"></i>
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <i class="fa-solid fa-bag-shopping"></i>
-            </div>
+        <div class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">INIKO</div>
+        <div class="nav-right">
+            <button class="nav-btn" onclick="toggleBucketList()">Bucket List <span class="badge" id="bucketCount">0</span></button>
+            <button class="nav-btn" onclick="openLocationModal()">Location</button>
+            <button class="nav-btn" onclick="toggleSidebar()">Menu ☰</button>
         </div>
     </header>
 
-    <!-- RUNWAY HERO SPLASH -->
-    <section class="hero-section">
-        <div class="brand-motto">YORUBA ROOTS • GLOBAL VISION</div>
-        <h2 class="hero-title">BORN IN CHAOS<br>BUILT FOR MORE</h2>
-        <button class="btn-shop-outline" onclick="document.getElementById('catalog').scrollIntoView();">Explore Drops</button>
-    </section>
-
-    <!-- ETHOS & IDENTIFIER STRIP -->
-    <div class="brand-concept-bar">
-        <h2>INIKO MEANS: BEING BORN DURING TROUBLED TIMES</h2>
-        <p>Stemming from the Yoruba culture, IINIKO encapsulates the meaning of being born during troubled times. Conditioned through hardship and chaos, then to evolve in wisdom and usage. The name serves as a testament to the strength and perseverance of those who wear it.</p>
+    <!-- SIDEBAR MENU -->
+    <div class="sidebar" id="mainSidebar">
+        <button class="sidebar-close" onclick="toggleSidebar()">×</button>
+        <ul class="sidebar-menu">
+            <li><a href="#tshirts" onclick="toggleSidebar()">01 // Heavyweight Tees</a></li>
+            <li><a href="#hoodies" onclick="toggleSidebar()">02 // Heavywear Hoodies</a></li>
+            <li><a href="#bottoms" onclick="toggleSidebar()">03 // Casual Bottoms</a></li>
+            <li><a href="#denim-men" onclick="toggleSidebar()">04 // Denim Men</a></li>
+            <li><a href="#denim-women" onclick="toggleSidebar()">05 // Denim Women</a></li>
+            <li><a href="#womenswear" onclick="toggleSidebar()">06 // Womens Specialized</a></li>
+            <li><a href="#outerwear" onclick="toggleSidebar()">07 // Premium Outerwear</a></li>
+        </ul>
     </div>
 
-    <!-- PRODUCT CATALOG BY COLLECTIONS -->
-    <div class="collections-container" id="catalog">
-        
-        <!-- DROP SECTION 01: OVERSIZED HEAVYWEIGHT T-SHIRTS -->
-        <h3 class="section-header">01 // Heavyweight T-Shirts (280GSM)</h3>
-        <div class="products-grid">
+    <!-- BUCKET LIST SIDEBAR -->
+    <div class="bucket-sidebar" id="bucketSidebar">
+        <button class="sidebar-close" onclick="toggleBucketList()">×</button>
+        <h2 style="letter-spacing: 2px; text-transform: uppercase; font-size: 20px;">Your Bucket List</h2>
+        <ul class="bucket-items-list" id="bucketItemsList">
+            <!-- Dynamically populated via Javascript -->
+        </ul>
+        <button class="action-btn" style="margin-top: 20px;" onclick="alert('Proceeding to order placement via WhatsApp/Portal Integration.')">Submit Order Request</button>
+    </div>
+
+    <!-- LOCATION MODAL -->
+    <div class="modal-overlay" id="locationModal">
+        <div class="modal-box">
+            <h3>Distribution Hub</h3>
+            <p id="locationText">Fetching live regional terminal metrics...</p>
+            <button class="close-modal-btn" onclick="closeLocationModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- HERO MASTER FRAME -->
+    <div class="hero">
+        <img src="5269295e-5745-4fea-869b-678511e90fcd_2.png" alt="Iniko Master Collection Poster">
+        <div class="hero-title">
+            <h1>INIKO CLOTHING</h1>
+            <p style="letter-spacing: 4px; color: #a0a0a0;">YORUBA ROOTS // GLOBAL VISION</p>
+        </div>
+    </div>
+
+    <!-- CORE CATALOG ENTRIES -->
+    <main>
+
+        <!-- 01 // T-SHIRTS -->
+        <div class="catalog-container" id="tshirts">
+            <div class="section-header">
+                <h2>01 // Heavyweight T-Shirts (280GSM)</h2>
+                <span style="color: var(--text-muted);">Collection Lineup</span>
+            </div>
+            <img class="master-display-img" src="72ec8ebc-cb1b-4a63-a6fb-6c74d0e18600_2.png" alt="T-Shirt Catalog Grid">
             
-            <div class="product-card">
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600&auto=format&fit=crop" alt="Iiniko Stack Logo Tee">
+            <div class="product-grid">
+                <div class="product-card">
+                    <div>
+                        <h3>Iniko Stack Logo Tee</h3>
+                        <p>Oversized Heavyweight - R400</p>
+                    </div>
+                    <button class="action-btn" onclick="addToBucket('Iniko Stack Logo Tee', 'R400')">+ Add To Bucket</button>
                 </div>
-                <div class="product-meta">
-                    <span class="product-name">IINIKO STACK LOGO TEE</span>
-                    <span class="product-price">R400</span>
+                <div class="product-card">
+                    <div>
+                        <h3>Born During Troubled Times Tee</h3>
+                        <p>Oversized Heavyweight - R350</p>
+                    </div>
+                    <button class="action-btn" onclick="addToBucket('Born During Troubled Times Tee', 'R350')">+ Add To Bucket</button>
                 </div>
-                <p class="product-desc">Oversized fit architectural screen-printed text styling on luxury stonewashed premium weave core jersey.</p>
-                <button class="btn-shop-outline" style="width:100%; padding:10px 0;" onclick="orderProduct('Iiniko Stack Logo Tee - R400')">Secure Drop</button>
+                <div class="product-card">
+                    <div>
+                        <h3>Resilience Graphic Tee</h3>
+                        <p>Oversized Heavyweight - R350</p>
+                    </div>
+                    <button class="action-btn" onclick="addToBucket('Resilience Graphic Tee', 'R350')">+ Add To Bucket</button>
+                </div>
             </div>
-
-            <div class="product-card">
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600&auto=format&fit=crop" alt="Born During Troubled Times Tee">
-                </div>
-                <div class="product-meta">
-                    <span class="product-name">BORN DURING TROUBLED TIMES</span>
-                    <span class="product-price">R350</span>
-                </div>
-                <p class="product-desc">Deep vintage black finish featuring iconic central portrait mapping high contrast digital art elements.</p>
-                <button class="btn-shop-outline" style="width:100%; padding:10px 0;" onclick="orderProduct('Born During Troubled Times Tee - R350')">Secure Drop</button>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=600&auto=format&fit=crop" alt="Yoruba Roots Tee">
-                </div>
-                <div class="product-meta">
-                    <span class="product-name">YORUBA ROOTS DROP TEE</span>
-                    <span class="product-price">R350</span>
-                </div>
-                <p class="product-desc">Rooted in heritage, engineered for the future landscape. Masterfully placed cultural line works detailing graphics on the reverse.</p>
-                <button class="btn-shop-outline" style="width:100%; padding:10px 0;" onclick="orderProduct('Yoruba Roots Drop Tee - R350')">Secure Drop</button>
-            </div>
-
         </div>
 
-        <!-- DROP SECTION 02: PREMIUM HOODIES & BOTTOMS -->
-        <h3 class="section-header">02 // Heavywear Hoodies & Bottoms (460GSM)</h3>
-        <div class="products-grid">
+        <!-- 02 // HOODIES -->
+        <div class="catalog-container" id="hoodies">
+            <div class="section-header">
+                <h2>02 // Heavywear Hoodies &amp; Sweaters (460GSM)</h2>
+                <span style="color: var(--text-muted);">Premium Garments</span>
+            </div>
+            <img class="master-display-img" src="079b94be-76c7-46e5-ae6d-446d2de8dd1a_2.png" alt="Hoodies Catalog Grid">
             
-            <div class="product-card">
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=600&auto=format&fit=crop" alt="Chaos To Greatness Hoodie">
+            <div class="product-grid">
+                <div class="product-card">
+                    <div>
+                        <h3>Yoruba Roots Heavy Hoodie</h3>
+                        <p>Oversized Acid Wash - R850</p>
+                    </div>
+                    <button class="action-btn" onclick="addToBucket('Yoruba Roots Heavy Hoodie', 'R850')">+ Add To Bucket</button>
                 </div>
-                <div class="product-meta">
-                    <span class="product-name">CHAOS TO GREATNESS HOODIE</span>
-                    <span class="product-price">R850</span>
-                </div>
-                <p class="product-desc">Ultra-thick custom blend construct drop-shoulder pullover detailed with rear lineage patch layouts.</p>
-                <button class="btn-shop-outline" style="width:100%; padding:10px 0;" onclick="orderProduct('Chaos To Greatness Hoodie - R850')">Secure Drop</button>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?q=80&w=600&auto=format&fit=crop" alt="Heritage Roots Denim">
-                </div>
-                <div class="product-meta">
-                    <span class="product-name">HERITAGE ROOTS VINTAGE DENIM</span>
-                    <span class="product-price">R950</span>
-                </div>
-                <p class="product-desc">Premium quality custom hardware architecture, structured paneling with distressed detailed back-pocket prints.</p>
-                <button class="btn-shop-outline" style="width:100%; padding:10px 0;" onclick="orderProduct('Heritage Roots Vintage Denim - R950')">Secure Drop</button>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1551854838-212c50b4c184?q=80&w=600&auto=format&fit=crop" alt="Sacred Femme Cargo Wide">
-                </div>
-                <div class="product-meta">
-                    <span class="product-name">SACRED FEMME WIDE CARGO</span>
-                    <span class="product-price">R890</span>
-                </div>
-                <p class="product-desc">Womenswear specialized relaxed utility framework featuring custom typography embroidery along down seams.</p>
-                <button class="btn-shop-outline" style="width:100%; padding:10px 0;" onclick="orderProduct('Sacred Femme Wide Cargo - R890')">Secure Drop</button>
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- LOOKBOOK DETAILED FOCUS DISCOVERY SECTION -->
-    <section class="interactive-explorer">
-        <h3 class="section-header" style="color:#000; border-left:3px solid #000; display:inline-block; margin-bottom:10px;">Touch & Play Lookbook</h3>
-        <p style="font-size:12px; color:#555; margin-bottom:30px; letter-spacing:1px;">Tap coordinates to reveal design architecture</p>
-        <div class="interactive-container">
-            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=650&auto=format&fit=crop" alt="Iiniko Style Mapping">
-            <div class="hotspot spot-1" onclick="alert('IINIKO 01 Woven Label & Custom Neck Prints - Authenticity Standard')"></div>
-            <div class="hotspot spot-2" onclick="alert('Yoruba Roots Sleeve Graphic Placement - High Density Ink')"></div>
-        </div>
-    </section>
-
-    <!-- COMPONENT FLOATS -->
-    <div class="members-only-badge">
-        <i class="fa-solid fa-crown"></i> MEMBERS ONLY
-    </div>
-
-    <div class="whatsapp-float" onclick="redirectToWhatsApp('General Inquiry')">
-        <i class="fa-brands fa-whatsapp" style="color: var(--whatsapp-green);"></i>
-    </div>
-
-    <!-- DIGITAL HUB FOOTER DIRECTORY -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <h3>IINIKO CLOTHINGS</h3>
-                <p>Premium Quality. Purposeful Design. Rooted In Culture. Shaping tomorrow's global vision out of the heart of South Africa.</p>
-                <p style="font-size:11px; color: var(--text-muted);">© 2026 IINIKO CLOTHINGS. All Rights Reserved.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Collections</h4>
-                <ul>
-                    <li><a href="#catalog">Mens Collection</a></li>
-                    <li><a href="#catalog">Womens Collection</a></li>
-                    <li><a href="#catalog">Denim Masterclass</a></li>
-                    <li><a href="#catalog">Accessories</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Brand Directory</h4>
-                <div class="contact-item">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>Mthwalume, South Coast,<br>Durban, KwaZulu-Natal</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fa-solid fa-envelope"></i>
-                    <span>iiniikocustomer@gmail.com</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>+27 73 524 9935</span>
+                <div class="product-card">
+                    <div>
+                        <h3>Chaos To Greatness Hoodie</h3>
+                        <p>Oversized Premium Luxury Knit - R850</p>
+                    </div>
+                    <button class="action-btn" onclick="addToBucket('Chaos To Greatness Hoodie', 'R850')">+ Add To Bucket</button>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            RESILIENCE IS OUR LEGACY. VICTORY IS OUR FUTURE.
-        </div>
-    </footer>
 
-    <!-- INTERACTIVE ORDER INTEGRATION LOGIC -->
+        <!-- 03 // CASUAL BOTTOMS -->
+        <div class="catalog-container" id="bottoms">
+            <div class="section-header">
+                <h2>03 // Heavyweight Sweatpants &amp; Bottoms</h2>
+                <span style="color: var(--text-muted);">Relaxed Fit</span>
+            </div>
+            <img class="master-display-img" src="2769af4c-4e24-4c64-b0d5-83538f8c4422_2.png" alt="Casual Bottoms Catalog Grid">
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div>
+                        <h3>Stack Logo Track Sweatpants</h3>
+                        <p>Heavyweight 400GSM - R600</p>
+                    </div>
+                    <button class="action-btn" onclick="addToBucket('Stack Logo Track Sweatpants', 'R600')">+ Add To Bucket</button>
+                </div>
+                <div class="product-card">
+                    <div>
+                        <h3>Yoruba Roots Fleece Bottoms</h3>
+                        <p>Heavyweight 400GSM - R600</p>
+                    </div>
+                    <button class="action-btn" onclick="addToBucket('Yoruba Roots Fleece Bottoms', 'R600')">+ Add To Bucket</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 04 // DENIM MEN -->
+        <div class="catalog-container" id="denim-men">
+            <div class="section-header">
+                <h2>04 // Premium Denim Masterclass (Men's Cuts)</h2>
+                <span style="color: var(--text-muted);">Custom Wash &amp; Artwork</span>
+            </div>
+            <img class="master-display-img" src="Jun 23, 2026, 07_34_54 PM_2.png" alt="Men Denim Collection Board 1">
+            <img class="master-display-img" src="Jun 23, 2026, 07_34_59 PM_2.png" alt="Men Denim Collection Board 2">
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div>
+                        <h3>Stacked Dystopia Wide Jeans</h3>
+                        <p>Premium Heavy Denim - R950</p>
+                    </div>
+                    <button class="action-btn" onclick="addToBucket('Stacked Dystopia Wide Jeans', 'R950')">+ Add To Bucket</button>
+                </div>
+                <div class="product-card">
+                    <div>
+                        <h3>Heritage Roots Washed Denim</h3>
+                        <p>Vintage Hand-Stitched Details - R950</p>
+                    </div>
+                    <button class="action-btn" onclick="addToBucket('Heritage Roots Washed Denim', 'R950')">+ Add To Bucket</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 05 // DENIM WOMEN -->
+        <div class="catalog-container" id="denim-women">
+            <div class="section-header">
+                <h2>05 // Premium Denim Masterclass (Women's Silhouette)</h2>
+                <span style="color: var(--text-muted);">Tailored Comfort</span>
+            </div>
+            <img class="master-display-img" src="822e19d3-e4e6-4c50-8218-c011d70c75d7_2.png" alt="Women Denim Collection Board">
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div>
+                        <h3>Sacred Femme Flare Jeans</h3>
+                        <p>High-Waist Tailored Denim - R900</p>
+                    </div>
+                    <button class="action-btn" onclick="addToBucket('Sacred Femme Flare Jeans', 'R900')">+ Add To Bucket</button>
+                </div>
+                <div class="product-card">
+                    <div>
+                        <h3>Rooted Queen Straight Jeans</h3>
+                        <p>Relaxed High-Rise Cut - R900</p>
+                    </div>
+                    <button class="action-btn" onclick="addToBucket('Rooted Queen Straight Jeans', 'R900')">+ Add To Bucket</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 06 // WOMENSWEAR SPECIALIZED -->
+        <div class="catalog-container" id="womenswear">
+            <div class="section-header">
+                <h2>06 // Women's Specialized Lookbook</h2>
+                <span style="color: var(--text-muted);">Curated Standard</span>
+            </div>
+            <img class="master-display-img" src="75b9dceb-558e-4fb7-99af-740ae2789afd_2.png" alt="Womenswear Specialized Catalog Set">
+        </div>
+
+        <!-- 07 // OUTERWEAR -->
+        <div class="catalog-container" id="outerwear">
+            <div class="section-header">
+                <h2>07 // Heavy Weather Outerwear</h2>
+                <span style="color: var(--text-muted);">Insulated Frameworks</span>
+            </div>
+            <img class="master-display-img" src="c4a9badd-d68f-4be1-a911-104a0a7202ab.png" alt="Insulated Outerwear Lineup">
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div>
+                        <h3>Iniko Insulated Puffer Jacket</h3>
+                        <p>Premium Insulation / Water Resistant - R1200</p>
+                    </div>
+                    <button class="action-btn" onclick="addToBucket('Iniko Insulated Puffer Jacket', 'R1200')">+ Add To Bucket</button>
+                </div>
+                <div class="product-card">
+                    <div>
+                        <h3>Tactical Utility Multi-Pocket Jacket</h3>
+                        <p>Heavy Duty Canvas Layering - R1100</p>
+                    </div>
+                    <button class="action-btn" onclick="addToBucket('Tactical Utility Multi-Pocket Jacket', 'R1100')">+ Add To Bucket</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- INTERACTIVE SCRIPTS -->
     <script>
-        const phone = "27735249935";
+        // State Array for the Bucket List Data Model
+        let bucketListArray = [];
 
-        function redirectToWhatsApp(messageText) {
-            const encodedText = encodeURIComponent(messageText);
-            window.open(`https://wa.me/${phone}?text=${encodedText}`, '_blank');
+        // --- SIDEBAR DRAWER MECHANICS ---
+        function toggleSidebar() {
+            const sidebar = document.getElementById('mainSidebar');
+            const shield = document.getElementById('uiShield');
+            
+            sidebar.classList.toggle('active');
+            evalShieldState();
         }
 
-        function orderProduct(productDetails) {
-            const clientMessage = `Hi IINIKO Clothings, I would like to secure and buy the following collection drop item:\n\n- ${productDetails}\n\nPlease let me know availability and payment details. Thanks!`;
-            redirectToWhatsApp(clientMessage);
+        // --- BUCKET LIST DRAWER MECHANICS ---
+        function toggleBucketList() {
+            const bucketDrawer = document.getElementById('bucketSidebar');
+            
+            bucketDrawer.classList.toggle('active');
+            evalShieldState();
+        }
+
+        function closeAllDrawers() {
+            document.getElementById('mainSidebar').classList.remove('active');
+            document.getElementById('bucketSidebar').classList.remove('active');
+            evalShieldState();
+        }
+
+        function evalShieldState() {
+            const sbActive = document.getElementById('mainSidebar').classList.contains('active');
+            const blActive = document.getElementById('bucketSidebar').classList.contains('active');
+            const shield = document.getElementById('uiShield');
+            
+            if (sbActive || blActive) {
+                shield.classList.add('active');
+            } else {
+                shield.classList.remove('active');
+            }
+        }
+
+        // --- BUCKET LIST LOGIC ENGINE ---
+        function addToBucket(itemName, itemPrice) {
+            const productionObject = {
+                id: Date.now() + Math.random().toString(36).substr(2, 5),
+                name: itemName,
+                price: itemPrice
+            };
+            
+            bucketListArray.push(productionObject);
+            renderBucketDOM();
+            
+            // Subtle alert indicator instead of default intrusive prompt
+            console.log(`${itemName} queued.`);
+        }
+
+        function removeFromBucket(itemId) {
+            bucketListArray = bucketListArray.filter(target => target.id !== itemId);
+            renderBucketDOM();
+        }
+
+        function renderBucketDOM() {
+            const targetContainer = document.getElementById('bucketItemsList');
+            const badgeCounter = document.getElementById('bucketCount');
+            
+            // Update counter value metric
+            badgeCounter.innerText = bucketListArray.length;
+            
+            // Flush old HTML layouts
+            targetContainer.innerHTML = '';
+            
+            if(bucketListArray.length === 0) {
+                targetContainer.innerHTML = `<li style="color: #666; text-align:center; margin-top:40px; font-size:14px; letter-spacing:1px;">YOUR BUCKET LIST IS EMPTY</li>`;
+                return;
+            }
+            
+            // Populate dynamically
+            bucketListArray.forEach(item => {
+                const li = document.createElement('li');
+                li.className = 'bucket-item';
+                li.innerHTML = `
+                    <div>
+                        <h4 style="font-size: 14px; letter-spacing: 1px; text-transform: uppercase;">${item.name}</h4>
+                        <p style="color: #888; font-size: 13px; margin-top: 2px;">${item.price}</p>
+                    </div>
+                    <button class="remove-item-btn" onclick="removeFromBucket('${item.id}')">Remove</button>
+                `;
+                targetContainer.appendChild(li);
+            });
+        }
+
+        // --- LIVE METRIC REGIONAL TERMINAL TRACKING (LOCATION) ---
+        function openLocationModal() {
+            const modal = document.getElementById('locationModal');
+            const modalTextBox = document.getElementById('locationText');
+            modal.classList.add('active');
+            
+            if (navigator.geolocation) {
+                modalTextBox.innerText = "Querying live coordinates via satellite array...";
+                navigator.geolocation.getCurrentPosition(
+                    (pos) => {
+                        // User allowed location tracking query execution
+                        modalTextBox.innerHTML = `
+                            <strong>Terminal Coordinates Confirmed.</strong><br><br>
+                            Lat: ${pos.coords.latitude.toFixed(4)}<br>
+                            Long: ${pos.coords.longitude.toFixed(4)}<br><br>
+                            Your dispatch orders will be prioritized out of our main <strong>Durban / KwaZulu-Natal Hub</strong> for rapid transit.
+                        `;
+                    },
+                    (error) => {
+                        // Denied or timed out - Fallback gracefully to default base hub location
+                        modalTextBox.innerHTML = `
+                            <strong>Distribution Point Locked.</strong><br><br>
+                            Location permissions restricted or unavailable. Default routing set to core operating center:<br><br>
+                            <strong>Durban Core, KwaZulu-Natal, ZA.</strong>
+                        `;
+                    }
+                );
+            } else {
+                modalTextBox.innerText = "Distribution Centralized: Durban, South Africa.";
+            }
+        }
+
+        function closeLocationModal() {
+            document.getElementById('locationModal').classList.remove('active');
         }
     </script>
 </body>
