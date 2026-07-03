@@ -3,692 +3,757 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IINIIKO | Smart. African. Ambitious.</title>
+    <title>IINIKO CLOTHING | Official Store</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0a0a0a',
+                        brandGray: '#1a1a1a',
+                        brandLightGray: '#2d2d2d',
+                        brandGold: '#d4af37'
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica Neue', 'Arial', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        :root {
-            --bg-color: #000000;
-            --surface: #0a0a0a;
-            --card-bg: #111111;
-            --text-main: #ffffff;
-            --text-muted: #888888;
-            --accent-green: #25d366;
-            --border-color: #222222;
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            overflow-x: hidden;
-        }
-
-        /* --- TOP MARQUEE BANNER --- */
-        .promo-marquee {
-            background: #111111;
-            border-bottom: 1px solid var(--border-color);
-            color: #ffffff;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 10px 0;
-            text-align: center;
-            position: relative;
-            z-index: 110;
-        }
-
-        /* --- MINIMALIST NAV BAR --- */
-        header {
-            position: sticky;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 30px;
-            background: #000000;
-            z-index: 100;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .menu-toggle {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 22px;
-            cursor: pointer;
-        }
-
-        .logo {
-            font-weight: 900;
-            letter-spacing: 8px;
-            font-size: 26px;
-            cursor: pointer;
-            text-align: center;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .nav-icons {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .icon-btn {
-            background: none;
-            border: none;
-            color: var(--text-main);
-            font-size: 18px;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .icon-badge {
-            position: absolute;
-            top: -8px;
-            right: -10px;
-            background: white;
-            color: black;
-            font-size: 9px;
-            font-weight: bold;
-            padding: 1px 5px;
-            border-radius: 50%;
-        }
-
-        /* --- SIDEBAR NAVIGATION --- */
-        .sidebar-overlay {
-            position: fixed;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 200;
-            transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .sidebar-overlay.active { left: 0; }
-
-        .drawer-menu {
-            width: 85%;
-            max-width: 360px;
-            height: 100%;
-            background: #111111;
-            color: #ffffff;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            border-right: 1px solid var(--border-color);
-        }
-
-        .drawer-close {
-            align-self: flex-start;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 28px;
-            cursor: pointer;
-            margin-bottom: 30px;
-        }
-
-        .drawer-links {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            flex-grow: 1;
-        }
-
-        .drawer-links a {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        /* --- HERO BANNER --- */
-        .hero-banner {
-            width: 100%;
-            height: 70vh;
-            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.95) 100%), #0d0d0d;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding-bottom: 60px;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .hero-watermark {
-            font-size: 14px;
-            letter-spacing: 6px;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .hero-banner h1 {
-            font-size: clamp(32px, 7vw, 56px);
-            font-weight: 900;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-
-        .shop-sale-btn {
-            background: #ffffff;
-            border: 1px solid #ffffff;
-            color: #000000;
-            padding: 14px 40px;
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 15px;
-        }
-
-        .shop-sale-btn:hover {
-            background: transparent;
-            color: #ffffff;
-        }
-
-        /* --- LOOKBOOK SECTIONS --- */
-        .lookbook-section {
-            padding: 60px 20px;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .lookbook-section h2 {
-            font-size: 18px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-
-        .lookbook-section p {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 25px;
-        }
-
-        .lookbook-img-wrapper {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto 25px auto;
-            background: #111111;
-            aspect-ratio: 4/5;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-        }
-
-        .lookbook-img-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            font-size: 13px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .section-action-btn {
-            background: transparent;
-            border: 1px solid #ffffff;
-            color: #ffffff;
-            padding: 12px 35px;
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .section-action-btn:hover {
-            background: #ffffff;
-            color: #000000;
-        }
-
-        /* --- INTERACTIVE TOUCH & PLAY HOTSPOTS --- */
-        .touch-play-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-            aspect-ratio: 4/5;
-            background: #111111;
-            border: 1px solid var(--border-color);
-        }
-
-        .hotspot {
-            position: absolute;
-            width: 26px;
-            height: 26px;
-            background: #000000;
-            border: 2px solid #ffffff;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10;
-        }
-        .hotspot::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 1px solid white;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(2.2); opacity: 0; }
-        }
-
-        .spot-cap { top: 18%; left: 48%; }
-        .spot-shirt { top: 45%; left: 50%; }
-        .spot-bag { top: 70%; left: 58%; }
-
-        /* --- BUCKET LIST DRAWER (CART) --- */
-        .bucket-overlay {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 250;
-            display: flex;
-            justify-content: flex-end;
-            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .bucket-overlay.active { right: 0; }
-
-        .bucket-sidebar {
-            width: 100%;
-            max-width: 380px;
-            height: 100%;
+        ::-webkit-scrollbar-track {
             background: #0a0a0a;
-            border-left: 1px solid var(--border-color);
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
         }
-
-        .bucket-items-container {
-            list-style: none;
-            margin-top: 20px;
-            flex-grow: 1;
-            overflow-y: auto;
+        ::-webkit-scrollbar-thumb {
+            background: #2d2d2d;
+            border-radius: 3px;
         }
-
-        .bucket-total-box {
-            border-top: 1px solid var(--border-color);
-            padding: 20px 0;
-            display: flex;
-            justify-content: space-between;
-            font-weight: bold;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-size: 14px;
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4af37;
         }
-
-        .whatsapp-checkout-btn {
-            background: var(--accent-green);
-            color: #000000;
-            border: none;
-            padding: 16px;
-            font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            display: block;
-            transition: opacity 0.3s;
-        }
-
-        .whatsapp-checkout-btn:hover {
-            opacity: 0.9;
-        }
-
-        /* --- TRUST METRICS & FOOTER --- */
-        .trust-metrics-grid {
-            background: #050505;
-            color: #ffffff;
-            padding: 40px 20px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px 20px;
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-        }
-
-        @media(min-width: 768px) {
-            .trust-metrics-grid { grid-template-columns: repeat(4, 1fr); }
-            .footer-columns { grid-template-columns: repeat(3, 1fr); display: grid; }
-        }
-
-        .metric-card h4 {
-            font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin: 10px 0 4px 0;
-        }
-
-        .metric-card p {
-            font-size: 11px;
-            color: var(--text-muted);
-        }
-
-        footer {
-            background: #000000;
-            padding: 60px 30px 40px 30px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .footer-columns {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
-
-        .footer-block h3 {
-            font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .footer-block ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .footer-block ul a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 13px;
-        }
-
-        .brand-manifesto p {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-        }
-
-        /* --- FLOATING AMBASSADOR BADGE --- */
-        .floating-badge {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: #111111;
-            border: 1px solid var(--border-color);
-            padding: 10px 16px;
-            border-radius: 4px;
-            font-size: 10px;
-            font-weight: bold;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            z-index: 90;
+        .hero-blur {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
     </style>
 </head>
-<body>
+<body class="bg-brandDark text-white font-sans antialiased selection:bg-brandGold selection:text-brandDark">
 
-    <!-- RUNNING ANNOUNCEMENT BANNER -->
-    <div class="promo-marquee" id="promoMarquee">
-        FREE SHIPPING ON ORDERS OVER R1000 ACROSS ZA
+    <!-- Announcement Bar -->
+    <div class="bg-white text-black text-center text-xs tracking-widest py-2 font-bold uppercase px-4 overflow-hidden whitespace-nowrap">
+        <div class="inline-block animate-pulse">BORN IN CHAOS. BUILT FOR MORE. • FREE SHIPPING ON ORDERS OVER R1500</div>
     </div>
 
-    <!-- NAVIGATION BAR -->
-    <header>
-        <button class="menu-toggle" onclick="toggleDrawer(true)">☰</button>
-        <div class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">IINIIKO</div>
-        <div class="nav-icons">
-            <button class="icon-btn" onclick="toggleBucket(true)">🛒 <span class="icon-badge" id="bucketCount">0</span></button>
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-brandDark/95 border-b border-brandLightGray hero-blur structural-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Left Menu (Links) -->
+                <div class="hidden md:flex space-x-8 text-xs tracking-widest uppercase font-medium">
+                    <a href="#apparel" class="hover:text-brandGold transition-colors duration-300">Apparel</a>
+                    <a href="#sportswear" class="hover:text-brandGold transition-colors duration-300">Sportswear</a>
+                    <a href="#accessories" class="hover:text-brandGold transition-colors duration-300">Accessories</a>
+                </div>
+
+                <!-- Center Logo -->
+                <div class="flex-1 flex justify-center md:justify-center">
+                    <a href="#" class="text-2xl font-black tracking-[0.35em] uppercase text-white hover:text-brandGold transition-colors duration-300">
+                        IINIKO
+                    </a>
+                </div>
+
+                <!-- Right Menu (Cart/Status) -->
+                <div class="flex items-center space-x-6">
+                    <button onclick="toggleCartModal()" class="relative text-xs tracking-widest uppercase font-medium hover:text-brandGold transition-colors duration-300 flex items-center gap-2">
+                        <span>Cart</span>
+                        <span id="cart-count" class="bg-brandGold text-brandDark font-bold px-2 py-0.5 rounded-full text-[10px]">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero / Brand Manifest Header Section -->
+    <header class="relative bg-brandDark border-b border-brandLightGray overflow-hidden py-16">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <span class="text-brandGold text-xs font-bold tracking-[0.4em] uppercase block mb-3">YORUBA ROOTS. GLOBAL VISION.</span>
+            <h1 class="text-4xl md:text-6xl font-black tracking-tighter uppercase mb-6">IINIKO CLOTHING</h1>
+            <div class="max-w-2xl mx-auto bg-brandGray border border-brandLightGray p-6 rounded-sm shadow-xl">
+                <p class="text-xs uppercase tracking-widest font-bold text-brandGold mb-2">INIKO MEANS:</p>
+                <h2 class="text-lg md:text-xl font-bold uppercase tracking-wide mb-4">BEING BORN DURING TROUBLED TIMES</h2>
+                <p class="text-sm text-gray-400 leading-relaxed normal-case font-light">
+                    Stemming from the Yoruba culture, IINIKO encapsulates the meaning of being born during troubled times. Embraced throughout history and continuing to thrive in modern-day usage, the name IINIKO serves as a testament to the strength and perseverance of those who bear it.
+                </p>
+                <div class="mt-4 pt-4 border-t border-brandLightGray text-xs tracking-widest uppercase text-gray-500 font-medium">
+                    "STRENGTH IS NOT THE ABSENCE OF STRUGGLE, IT IS THE EXISTENCE OF PURPOSE."
+                </div>
+            </div>
         </div>
     </header>
 
-    <!-- LEFT NAV DRAWER -->
-    <div class="sidebar-overlay" id="navDrawerOverlay" onclick="toggleDrawer(false)">
-        <div class="drawer-menu" onclick="event.stopPropagation()">
-            <button class="drawer-close" onclick="toggleDrawer(false)">×</button>
-            <ul class="drawer-links">
-                <li><a href="#sweaters" onclick="toggleDrawer(false)">Luxury Sweaters <span>❯</span></a></li>
-                <li><a href="#tracksuits" onclick="toggleDrawer(false)">Track Set Collections <span>❯</span></a></li>
-                <li><a href="#touchplay" onclick="toggleDrawer(false)">Interactive Lookbook <span>❯</span></a></li>
-            </ul>
-        </div>
-    </div>
+    <!-- Main Content Grid Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-    <!-- RIGHT BUCKET LIST DRAWER (CART) -->
-    <div class="bucket-overlay" id="bucketOverlay" onclick="toggleBucket(false)">
-        <div class="bucket-sidebar" onclick="event.stopPropagation()">
-            <button class="drawer-close" style="color: white;" onclick="toggleBucket(false)">×</button>
-            <h2 style="letter-spacing: 2px; text-transform: uppercase; font-size: 18px;">Your Bucket</h2>
+        <!-- CATEGORY: T-SHIRTS & CORE APPAREL (TOUCH & PLAY SETS) -->
+        <section id="apparel" class="mb-20 scroll-mt-24">
+            <div class="flex items-center justify-between border-b border-brandLightGray pb-4 mb-8">
+                <div>
+                    <h2 class="text-xl md:text-2xl font-black tracking-wider uppercase">Touch & Play Heavyweight Apparel</h2>
+                    <p class="text-xs text-gray-400 mt-1 uppercase tracking-widest">Premium Heavyweight Fabric Workwear, Puffers & Utility Sets</p>
+                </div>
+                <span class="text-xs bg-brandGray text-gray-400 px-3 py-1 border border-brandLightGray uppercase tracking-widest hidden sm:inline-block">In Stock</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1: Utility Denim Cargo Set -->
+                <div class="bg-brandGray border border-brandLightGray rounded-sm overflow-hidden flex flex-col justify-between group">
+                    <div class="relative bg-black aspect-[3/4] overflow-hidden">
+                        <img src="mod5_2.png" alt="IINIKO Utility Field Denim Jacket & Distressed Mask Jeans Set" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <span class="absolute top-3 left-3 bg-brandDark/80 border border-brandLightGray text-[10px] tracking-widest uppercase text-white px-2 py-1 font-mono">Image Ref: mod5_2.png</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-base font-bold uppercase tracking-wide">Utility Field Denim & Graphic Mask Jeans Set</h3>
+                                <span class="text-brandGold font-bold text-sm">R2,400</span>
+                            </div>
+                            <p class="text-xs text-gray-400 font-light mb-4 leading-relaxed">
+                                Heavyweight acid-wash structured Denim Field Jacket featuring multiple utility pockets and crisp breast branding. Paired seamlessly with custom distressed relaxed-fit jeans displaying bold typographic statement work and a signature graphic Yoruba Mask thigh print.
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <label class="block text-[10px] uppercase tracking-widest text-gray-400 font-bold">Select Combo Size:</label>
+                            <div class="grid grid-cols-4 gap-2 text-center text-xs font-mono">
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">S</button>
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">M</button>
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">L</button>
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">XL</button>
+                            </div>
+                            <button onclick="addToCart('Utility Field Denim & Mask Jeans Set', 2400, this)" class="w-full bg-white text-black font-bold text-xs uppercase tracking-widest py-3 hover:bg-brandGold hover:text-black transition-colors duration-300 mt-2">Add Set To Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2: Chaos Puffer Jacket Set -->
+                <div class="bg-brandGray border border-brandLightGray rounded-sm overflow-hidden flex flex-col justify-between group">
+                    <div class="relative bg-black aspect-[3/4] overflow-hidden">
+                        <img src="mod6_2.png" alt="IINIKO Chaos to Greatness Puffer Jacket & Utility Cargo Jeans Set" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <span class="absolute top-3 left-3 bg-brandDark/80 border border-brandLightGray text-[10px] tracking-widest uppercase text-white px-2 py-1 font-mono">Image Ref: mod6_2.png</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-base font-bold uppercase tracking-wide">"Chaos to Greatness" Monogram Puffer Jacket</h3>
+                                <span class="text-brandGold font-bold text-sm">R2,850</span>
+                            </div>
+                            <p class="text-xs text-gray-400 font-light mb-4 leading-relaxed">
+                                Insulated high-neck statement puffer jacket wrapped in an intricate cracked marble/monogram texture, with clean contrast breast embroidery and oversized "CHAOS TO GREATNESS" rear identity layouts. Matching heavyweight tactical cargo denim completes the look.
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <label class="block text-[10px] uppercase tracking-widest text-gray-400 font-bold">Select Size:</label>
+                            <div class="grid grid-cols-4 gap-2 text-center text-xs font-mono">
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">S</button>
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">M</button>
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">L</button>
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">XL</button>
+                            </div>
+                            <button onclick="addToCart('Chaos To Greatness Puffer Jacket', 2850, this)" class="w-full bg-white text-black font-bold text-xs uppercase tracking-widest py-3 hover:bg-brandGold hover:text-black transition-colors duration-300 mt-2">Add To Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3: Premium Vintage Heavyweight Hoodie Track Set -->
+                <div class="bg-brandGray border border-brandLightGray rounded-sm overflow-hidden flex flex-col justify-between group">
+                    <div class="relative bg-black aspect-[3/4] overflow-hidden">
+                        <img src="mod3_2.png" alt="IINIKO Premium Vintage Heavyweight Hoodie & Fleece Track Set" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <span class="absolute top-3 left-3 bg-brandDark/80 border border-brandLightGray text-[10px] tracking-widest uppercase text-white px-2 py-1 font-mono">Image Ref: mod3_2.png</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-base font-bold uppercase tracking-wide">Vintage Bleach-Wash Heavyweight Hoodie Track Set</h3>
+                                <span class="text-brandGold font-bold text-sm">R1,950</span>
+                            </div>
+                            <p class="text-xs text-gray-400 font-light mb-4 leading-relaxed">
+                                Premium 450GSM cotton fleece oversized hoodie featuring a distinct vintage mineral bleach wash, thick drawstring hardware, detailed graphic prints on the pant profile, and an evocative "BORN DURING TROUBLED TIMES" custom back layout.
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <label class="block text-[10px] uppercase tracking-widest text-gray-400 font-bold">Select Set Size:</label>
+                            <div class="grid grid-cols-4 gap-2 text-center text-xs font-mono">
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">S</button>
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">M</button>
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">L</button>
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">XL</button>
+                            </div>
+                            <button onclick="addToCart('Vintage Wash Heavyweight Hoodie Set', 1950, this)" class="w-full bg-white text-black font-bold text-xs uppercase tracking-widest py-3 hover:bg-brandGold hover:text-black transition-colors duration-300 mt-2">Add Track Set To Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4: Women's Crop Puffer & Wide Leg Denim Set -->
+                <div class="bg-brandGray border border-brandLightGray rounded-sm overflow-hidden flex flex-col justify-between group">
+                    <div class="relative bg-black aspect-[3/4] overflow-hidden">
+                        <img src="modgirl_2.png" alt="IINIKO Women's Cropped Puffer & Acid Wash Wide Leg Jeans" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <span class="absolute top-3 left-3 bg-brandDark/80 border border-brandLightGray text-[10px] tracking-widest uppercase text-white px-2 py-1 font-mono">Image Ref: modgirl_2.png</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-base font-bold uppercase tracking-wide">Women's Crop Monogram Puffer & Wide Leg Set</h3>
+                                <span class="text-brandGold font-bold text-sm">R2,650</span>
+                            </div>
+                            <p class="text-xs text-gray-400 font-light mb-4 leading-relaxed">
+                                Curated women's high-fashion look. Features an insulated cropped marble monogram puffer, signature knit elastic interior performance sports crop bra top, and statement high-waisted relaxed acid-wash wide-leg denim showcasing the custom hand-drawn Yoruba Mask emblem layout.
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <label class="block text-[10px] uppercase tracking-widest text-gray-400 font-bold">Select Size Matrix:</label>
+                            <div class="grid grid-cols-4 gap-2 text-center text-xs font-mono">
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">XS</button>
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">S</button>
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">M</button>
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">L</button>
+                            </div>
+                            <button onclick="addToCart('Women Crop Puffer & Wide Denim Set', 2650, this)" class="w-full bg-white text-black font-bold text-xs uppercase tracking-widest py-3 hover:bg-brandGold hover:text-black transition-colors duration-300 mt-2">Add Women's Set To Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5: Women's Technical Vest & Distressed Denim Combo -->
+                <div class="bg-brandGray border border-brandLightGray rounded-sm overflow-hidden flex flex-col justify-between group">
+                    <div class="relative bg-black aspect-[3/4] overflow-hidden">
+                        <img src="modgirl2_2.png" alt="IINIKO Women's Utility Puffer Vest & Distressed Edge Jeans Set" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <span class="absolute top-3 left-3 bg-brandDark/80 border border-brandLightGray text-[10px] tracking-widest uppercase text-white px-2 py-1 font-mono">Image Ref: modgirl2_2.png</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-base font-bold uppercase tracking-wide">Women's Technical Puffer Vest & Distressed Jeans</h3>
+                                <span class="text-brandGold font-bold text-sm">R2,200</span>
+                            </div>
+                            <p class="text-xs text-gray-400 font-light mb-4 leading-relaxed">
+                                Sleek utilitarian silhouette bundling a multi-pocket modular tech puffer gilet vest with front-zip hardware, structured knit crop top, and heavily distressed paneled straight-leg denim incorporating heritage text block graphics and side utility attachments.
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <label class="block text-[10px] uppercase tracking-widest text-gray-400 font-bold">Select Size Matrix:</label>
+                            <div class="grid grid-cols-4 gap-2 text-center text-xs font-mono">
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">XS</button>
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">S</button>
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">M</button>
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">L</button>
+                            </div>
+                            <button onclick="addToCart('Women Vest & Distressed Denim Combo', 2200, this)" class="w-full bg-white text-black font-bold text-xs uppercase tracking-widest py-3 hover:bg-brandGold hover:text-black transition-colors duration-300 mt-2">Add Combo To Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6: Core Brand Statement Box Tee (Not Shown In Dynamic Cards but Included via Requirements) -->
+                <div class="bg-brandGray border border-brandLightGray rounded-sm overflow-hidden flex flex-col justify-between group">
+                    <div class="relative bg-black aspect-[3/4] overflow-hidden flex flex-col items-center justify-center p-8 border-b border-brandLightGray bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brandGray via-black to-brandDark">
+                        <div class="text-center space-y-4">
+                            <div class="text-xs tracking-[0.5em] text-brandGold uppercase font-mono">IINIKO CLOTHING</div>
+                            <div class="text-2xl font-black tracking-widest border-y border-brandLightGray py-3 px-4 bg-brandDark">TOUCH & PLAY TEE</div>
+                            <div class="text-[11px] uppercase tracking-widest text-gray-400">320GSM Heavy Luxury Cotton</div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-base font-bold uppercase tracking-wide">Core Statement Heavyweight Box Tee</h3>
+                                <span class="text-brandGold font-bold text-sm">R650</span>
+                            </div>
+                            <p class="text-xs text-gray-400 font-light mb-4 leading-relaxed">
+                                The essential absolute classic foundations box t-shirt. Constructed with custom-milled 320GSM structural premium combed cotton, high double-collar rib stitching, drop shoulder tailoring, and subtle tonal signature brand puff printing across the chest spine.
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <label class="block text-[10px] uppercase tracking-widest text-gray-400 font-bold">Select Size:</label>
+                            <div class="grid grid-cols-5 gap-1.5 text-center text-xs font-mono">
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">S</button>
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">M</button>
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">L</button>
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">XL</button>
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">XXL</button>
+                            </div>
+                            <button onclick="addToCart('Core Statement Heavyweight Box Tee', 650, this)" class="w-full bg-white text-black font-bold text-xs uppercase tracking-widest py-3 hover:bg-brandGold hover:text-black transition-colors duration-300 mt-2">Add Tee To Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORY: PREMIUM HARDWARE & WATCHES -->
+        <section id="watches" class="mb-20 scroll-mt-24">
+            <div class="flex items-center justify-between border-b border-brandLightGray pb-4 mb-8">
+                <div>
+                    <h2 class="text-xl md:text-2xl font-black tracking-wider uppercase">Heritage Watch Collection</h2>
+                    <p class="text-xs text-gray-400 mt-1 uppercase tracking-widest">Precision Crafted Timepieces Engraved with Heritage Identity</p>
+                </div>
+                <span class="text-xs bg-brandGray text-gray-400 px-3 py-1 border border-brandLightGray uppercase tracking-widest font-mono">5ATM Sapphire Spec</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Watch 1: Gold / Black -->
+                <div class="bg-brandGray border border-brandLightGray rounded-sm overflow-hidden flex flex-col justify-between group">
+                    <div class="relative bg-black aspect-square overflow-hidden flex items-center justify-center p-4">
+                        <img src="5905d085-bd05-48ef-ab20-b714f3acb37a.png" alt="IINIKO Heritage Watch Gold Black Variant" class="max-h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                        <span class="absolute top-3 left-3 bg-brandDark/80 border border-brandLightGray text-[10px] tracking-widest uppercase text-white px-2 py-1 font-mono">Ref: 5905d085-bd05-48ef-ab20-b714f3acb37a.png</span>
+                        <div class="absolute bottom-3 right-3 bg-black/80 px-2 py-1 border border-brandLightGray text-[9px] uppercase tracking-wider text-brandGold font-bold">Gold / Black Edition</div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-base font-bold uppercase tracking-wide">Heritage Watch: Gold & Black Bold Edition</h3>
+                                <span class="text-brandGold font-bold text-sm">R3,800</span>
+                            </div>
+                            <p class="text-xs text-gray-400 font-light mb-4 leading-relaxed">
+                                Unapologetic luxury. Features a 3D embossed Gold Yoruba Mask Dial Emblem mounted inside an intricately textured face, framed by a striking black multi-link stainless steel oyster casing and premium gold-toned outer bezel accents.
+                            </p>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="text-[10px] text-gray-400 uppercase font-mono grid grid-cols-2 gap-y-1 mb-2 bg-brandDark p-3 border border-brandLightGray rounded-xs">
+                                <div>• Stainless Case & Band</div>
+                                <div>• Sapphire Crystal Glass</div>
+                                <div>• 5ATM Water Resistant</div>
+                                <div>• Lume Hands & Indices</div>
+                            </div>
+                            <button onclick="addToCart('Heritage Watch (Gold/Black)', 3800, this)" class="w-full bg-white text-black font-bold text-xs uppercase tracking-widest py-3 hover:bg-brandGold hover:text-black transition-colors duration-300">Purchase Timepiece</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Watch 2: Silver / Black -->
+                <div class="bg-brandGray border border-brandLightGray rounded-sm overflow-hidden flex flex-col justify-between group">
+                    <div class="relative bg-black aspect-square overflow-hidden flex items-center justify-center p-4">
+                        <img src="5905d085-bd05-48ef-ab20-b714f3acb37a.png" alt="IINIKO Heritage Watch Silver Black Variant" class="max-h-full object-contain filter brightness-90 contrast-115 group-hover:scale-105 transition-transform duration-700">
+                        <span class="absolute top-3 left-3 bg-brandDark/80 border border-brandLightGray text-[10px] tracking-widest uppercase text-white px-2 py-1 font-mono">Ref: 5905d085-bd05-48ef-ab20-b714f3acb37a.png</span>
+                        <div class="absolute bottom-3 right-3 bg-black/80 px-2 py-1 border border-brandLightGray text-[9px] uppercase tracking-wider text-gray-300 font-bold">Silver / Black Edition</div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-base font-bold uppercase tracking-wide">Heritage Watch: Silver & Black Classic</h3>
+                                <span class="text-brandGold font-bold text-sm">R3,500</span>
+                            </div>
+                            <p class="text-xs text-gray-400 font-light mb-4 leading-relaxed">
+                                Clean, modern, and perfectly understated. Built with architectural premium brushed steel link work accents highlighting the central signature 3D Yoruba face emblem and customized micro-etched brand deployment clasp closures.
+                            </p>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="text-[10px] text-gray-400 uppercase font-mono grid grid-cols-2 gap-y-1 mb-2 bg-brandDark p-3 border border-brandLightGray rounded-xs">
+                                <div>• Custom Link Engraving</div>
+                                <div>• Sapphire Crystal Face</div>
+                                <div>• 5ATM Submersible</div>
+                                <div>• Custom Clasp Engraving</div>
+                            </div>
+                            <button onclick="addToCart('Heritage Watch (Silver/Black)', 3500, this)" class="w-full bg-white text-black font-bold text-xs uppercase tracking-widest py-3 hover:bg-brandGold hover:text-black transition-colors duration-300">Purchase Timepiece</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Watch 3: All Black -->
+                <div class="bg-brandGray border border-brandLightGray rounded-sm overflow-hidden flex flex-col justify-between group">
+                    <div class="relative bg-black aspect-square overflow-hidden flex items-center justify-center p-4">
+                        <img src="5905d085-bd05-48ef-ab20-b714f3acb37a.png" alt="IINIKO Heritage Watch All Black Variant" class="max-h-full object-contain filter grayscale group-hover:scale-105 transition-transform duration-700">
+                        <span class="absolute top-3 left-3 bg-brandDark/80 border border-brandLightGray text-[10px] tracking-widest uppercase text-white px-2 py-1 font-mono">Ref: 5905d085-bd05-48ef-ab20-b714f3acb37a.png</span>
+                        <div class="absolute bottom-3 right-3 bg-black/80 px-2 py-1 border border-brandLightGray text-[9px] uppercase tracking-wider text-red-500 font-mono">Stealth Edition</div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-base font-bold uppercase tracking-wide">Heritage Watch: Triple Stealth All Black</h3>
+                                <span class="text-brandGold font-bold text-sm">R3,650</span>
+                            </div>
+                            <p class="text-xs text-gray-400 font-light mb-4 leading-relaxed">
+                                Disciplined and relentless. Matte carbon-black surface coatings cover every single link element, outer casing ring, and the internal Yoruba Mask face plate layout, contrasting sharply with green glowing illumination luminescent hand pointers.
+                            </p>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="text-[10px] text-gray-400 uppercase font-mono grid grid-cols-2 gap-y-1 mb-2 bg-brandDark p-3 border border-brandLightGray rounded-xs">
+                                <div>• Full Stealth Coated</div>
+                                <div>• Sapphire Crystal Face</div>
+                                <div>• Custom Engrained Crown</div>
+                                <div>• Lume Indicator Hands</div>
+                            </div>
+                            <button onclick="addToCart('Heritage Watch (All Black)', 3650, this)" class="w-full bg-white text-black font-bold text-xs uppercase tracking-widest py-3 hover:bg-brandGold hover:text-black transition-colors duration-300">Purchase Timepiece</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORY: ACCLAIMED ACCESSORIES (SHADES, BAGS & CAPS) -->
+        <section id="accessories" class="mb-20 scroll-mt-24">
+            <div class="flex items-center justify-between border-b border-brandLightGray pb-4 mb-8">
+                <div>
+                    <h2 class="text-xl md:text-2xl font-black tracking-wider uppercase">Premium Accoutrements & Eyewear</h2>
+                    <p class="text-xs text-gray-400 mt-1 uppercase tracking-widest">Handmade Acetate Shades, Utility Totes, Headwear & Crossbody Bags</p>
+                </div>
+                <span class="text-xs bg-brandGray text-gray-400 px-3 py-1 border border-brandLightGray uppercase tracking-widest font-mono">Premium Grade</span>
+            </div>
+
+            <!-- Subgrid 1: Shades -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <!-- Men's/Unisex Acetate Shades -->
+                <div class="bg-brandGray border border-brandLightGray rounded-sm overflow-hidden flex flex-col justify-between group">
+                    <div class="relative bg-black aspect-[4/3] overflow-hidden flex items-center justify-center p-6">
+                        <img src="1f096865-aa6-445c-8f6b-0390ea6f128b.png" alt="IINIKO Men's Unisex Square Acetate Shades" class="max-w-full object-contain group-hover:scale-102 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-brandDark/80 border border-brandLightGray text-[10px] tracking-widest uppercase text-white px-2 py-1 font-mono">Ref: 1f096865-aa6-445c-8f6b-0390ea6f128b.png</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-base font-bold uppercase tracking-wide">IINIKO Standard Square-Frame Acetate Shades</h3>
+                                <span class="text-brandGold font-bold text-sm">R1,450</span>
+                            </div>
+                            <p class="text-xs text-gray-400 font-light mb-4 leading-relaxed">
+                                Bold-profile structure crafted from premium acetate. Outfitted with heavy durable 5-barrel metal hinges, custom inset gold-plated Yoruba face emblems flanking the front temples, inner core typography stamp prints, and absolute UV400 maximum protection filtering. Included premium leather storage soft case and branded cloth.
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <label class="block text-[10px] uppercase tracking-widest text-gray-400 font-bold">Select Color Variant:</label>
+                            <div class="grid grid-cols-3 gap-2 text-center text-[11px]">
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">Raw Black / Gold</button>
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">Matte Black / Silver</button>
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">Crystal Smoke</button>
+                            </div>
+                            <button onclick="addToCart('Square Acetate Shades', 1450, this)" class="w-full bg-white text-black font-bold text-xs uppercase tracking-widest py-3 hover:bg-brandGold hover:text-black transition-colors duration-300 mt-2">Add Shades To Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Women's Cat-Eye Acetate Shades -->
+                <div class="bg-brandGray border border-brandLightGray rounded-sm overflow-hidden flex flex-col justify-between group">
+                    <div class="relative bg-black aspect-[4/3] overflow-hidden flex items-center justify-center p-6">
+                        <img src="bb7f8e42-cf4d-453f-b462-2a08aa87fd9d.png" alt="IINIKO Women's Cat-Eye Acetate Shades" class="max-w-full object-contain group-hover:scale-102 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-brandDark/80 border border-brandLightGray text-[10px] tracking-widest uppercase text-white px-2 py-1 font-mono">Ref: bb7f8e42-cf4d-453f-b462-2a08aa87fd9d.png</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-base font-bold uppercase tracking-wide">IINIKO Sculpted Cat-Eye Women's Shades</h3>
+                                <span class="text-brandGold font-bold text-sm">R1,450</span>
+                            </div>
+                            <p class="text-xs text-gray-400 font-light mb-4 leading-relaxed">
+                                An elegant expression of heritage structure and clean femininity. Features an upswept angular premium acetate build, matching 5-barrel gold internal hinge lines, side profile gold-plated Yoruba face crest inserts, and complete impact-resistant UV400 safety dark shielding lenses.
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <label class="block text-[10px] uppercase tracking-widest text-gray-400 font-bold">Select Frame Colorway:</label>
+                            <div class="grid grid-cols-3 gap-2 text-center text-[11px]">
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">Onyx / Dark Grey</button>
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">Ivory Cream / Brown</button>
+                                <button onclick="selectSize(this)" class="border border-brandLightGray py-1.5 hover:border-brandGold transition-all bg-brandDark rounded-xs">Tortoise / Amber</button>
+                            </div>
+                            <button onclick="addToCart('Women Cat-Eye Shades', 1450, this)" class="w-full bg-white text-black font-bold text-xs uppercase tracking-widest py-3 hover:bg-brandGold hover:text-black transition-colors duration-300 mt-2">Add Shades To Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subgrid 2: Bags & Headwear Overview Reference -->
+            <div class="bg-brandGray border border-brandLightGray rounded-sm p-6 mb-8">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="w-full md:w-1/2 bg-black rounded-sm border border-brandLightGray overflow-hidden relative">
+                        <img src="caa272fd-c260-4f78-ab64-4141c5728ee3.png" alt="IINIKO Streetwear Accessories Collection Overview" class="w-full h-auto object-cover">
+                        <span class="absolute top-2 left-2 bg-brandDark/80 border border-brandLightGray text-[9px] tracking-widest uppercase text-white px-2 py-0.5 font-mono">Ref: caa272fd-c260-4f78-ab64-4141c5728ee3.png</span>
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-4">
+                        <h3 class="text-lg font-bold uppercase tracking-wider text-brandGold">Caps, Knits & Core Utility Bags</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed font-light">
+                            Every core utility piece is crafted with thick heavy canvas textures or tightly compressed performance rib stitching. Engineered to complement the main visual apparel matrix flawlessly.
+                        </p>
+                        <div class="border-t border-brandLightGray pt-2 space-y-2 text-xs">
+                            <div class="flex justify-between items-center py-1 border-b border-brandLightGray/40">
+                                <span>01. Technical Tactical Balaclava (One Size)</span>
+                                <span class="text-brandGold font-bold">R380</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 border-b border-brandLightGray/40">
+                                <span>02. Vertical Rib Knit Block Beanie (One Size)</span>
+                                <span class="text-brandGold font-bold">R320</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 border-b border-brandLightGray/40">
+                                <span>03. Vintage Distressed Wash Adjustable Cap</span>
+                                <span class="text-brandGold font-bold">R450</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 border-b border-brandLightGray/40">
+                                <span>04. Heavy Black Canvas Utility Tote Bag</span>
+                                <span class="text-brandGold font-bold">R550</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1">
+                                <span>05. Technical Washed Crossbody Shoulder Bag</span>
+                                <span class="text-brandGold font-bold">R720</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid Items for Bags & Caps purchasing -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-brandDark border border-brandLightGray p-4 rounded-sm text-center flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-wider mb-1">Rib Knit Block Beanie</h4>
+                        <div class="text-brandGold font-mono text-xs mb-3">R320</div>
+                    </div>
+                    <button onclick="addToCart('Rib Knit Block Beanie', 320, this)" class="w-full bg-brandGray border border-brandLightGray text-white font-bold text-[10px] uppercase tracking-widest py-2 hover:bg-white hover:text-black transition-all">Add To Cart</button>
+                </div>
+                <div class="bg-brandDark border border-brandLightGray p-4 rounded-sm text-center flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-wider mb-1">Distressed Wash Cap</h4>
+                        <div class="text-brandGold font-mono text-xs mb-3">R450</div>
+                    </div>
+                    <button onclick="addToCart('Distressed Wash Cap', 450, this)" class="w-full bg-brandGray border border-brandLightGray text-white font-bold text-[10px] uppercase tracking-widest py-2 hover:bg-white hover:text-black transition-all">Add To Cart</button>
+                </div>
+                <div class="bg-brandDark border border-brandLightGray p-4 rounded-sm text-center flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-wider mb-1">Heavy Canvas Tote Bag</h4>
+                        <div class="text-brandGold font-mono text-xs mb-3">R550</div>
+                    </div>
+                    <button onclick="addToCart('Heavy Canvas Tote Bag', 550, this)" class="w-full bg-brandGray border border-brandLightGray text-white font-bold text-[10px] uppercase tracking-widest py-2 hover:bg-white hover:text-black transition-all">Add To Cart</button>
+                </div>
+                <div class="bg-brandDark border border-brandLightGray p-4 rounded-sm text-center flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-wider mb-1">Technical Crossbody Bag</h4>
+                        <div class="text-brandGold font-mono text-xs mb-3">R720</div>
+                    </div>
+                    <button onclick="addToCart('Technical Crossbody Bag', 720, this)" class="w-full bg-brandGray border border-brandLightGray text-white font-bold text-[10px] uppercase tracking-widest py-2 hover:bg-white hover:text-black transition-all">Add To Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SPECIAL VAULT ARCHIVE: SNEAKERS (HARD CODED OUT OF STOCK) -->
+        <section id="sneakers" class="mb-12 border border-brandLightGray bg-brandGray/40 rounded-sm p-8 opacity-75">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-brandLightGray pb-4 mb-6">
+                <div>
+                    <h2 class="text-lg font-bold uppercase tracking-widest flex items-center gap-2">
+                        <span>Footwear Vault Archive</span>
+                        <span class="text-[9px] bg-red-900 text-red-200 border border-red-700 px-2 py-0.5 rounded-full uppercase tracking-widest font-mono">Sold Out</span>
+                    </h2>
+                    <p class="text-xs text-gray-500 mt-1 uppercase tracking-widest">Heritage One & Ancestral Spirit Silhouette Registry</p>
+                </div>
+                <span class="text-xs font-mono text-red-500 mt-2 md:mt-0 uppercase tracking-widest">Awaiting Restock Schedule</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-brandDark/80 p-4 border border-brandLightGray/60 rounded-xs flex justify-between items-center">
+                    <div>
+                        <h3 class="text-xs font-bold uppercase text-gray-400">01. Heritage One Premium Low-Top</h3>
+                        <p class="text-[11px] text-gray-500 font-mono mt-0.5">Status code: HARD_LOCKED_OUT_OF_STOCK</p>
+                    </div>
+                    <button disabled class="bg-brandGray border border-brandLightGray text-gray-600 px-4 py-1.5 text-[10px] uppercase tracking-widest font-bold cursor-not-allowed">Sold Out</button>
+                </div>
+                <div class="bg-brandDark/80 p-4 border border-brandLightGray/60 rounded-xs flex justify-between items-center">
+                    <div>
+                        <h3 class="text-xs font-bold uppercase text-gray-400">02. Ancestral Spirit High-Top Layer</h3>
+                        <p class="text-[11px] text-gray-500 font-mono mt-0.5">Status code: HARD_LOCKED_OUT_OF_STOCK</p>
+                    </div>
+                    <button disabled class="bg-brandGray border border-brandLightGray text-gray-600 px-4 py-1.5 text-[10px] uppercase tracking-widest font-bold cursor-not-allowed">Sold Out</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Slide-Out Shopping Cart Modal SidePanel -->
+    <div id="cart-modal" class="fixed inset-0 z-50 overflow-hidden hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="absolute inset-0 overflow-hidden">
+            <!-- Overlay background blur -->
+            <div onclick="toggleCartModal()" class="absolute inset-0 bg-black/80 backdrop-blur-xs transition-opacity" aria-hidden="true"></div>
             
-            <ul class="bucket-items-container" id="bucketContainer">
-                <!-- Cart items load here -->
-            </ul>
+            <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+                <div class="pointer-events-auto w-screen max-w-md border-l border-brandLightGray bg-brandDark">
+                    <div class="flex h-full flex-col overflow-y-scroll bg-brandDark shadow-2xl">
+                        <!-- Top Header Area -->
+                        <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                            <div class="flex items-start justify-between border-b border-brandLightGray pb-4">
+                                <h2 class="text-lg font-bold uppercase tracking-widest text-white" id="modal-title">Your Order Matrix</h2>
+                                <div class="ml-3 flex h-7 items-center">
+                                    <button type="button" onclick="toggleCartModal()" class="relative -m-2 p-2 text-gray-400 hover:text-brandGold text-sm uppercase tracking-widest font-mono">
+                                        [ Close ]
+                                    </button>
+                                </div>
+                            </div>
 
-            <div class="bucket-total-box">
-                <span>Total Amount:</span>
-                <span id="bucketTotal">R0</span>
-            </div>
-            
-            <a href="#" id="whatsappCheckoutBtn" class="whatsapp-checkout-btn" target="_blank" onclick="return generateWhatsAppLink()">Buy Via WhatsApp</a>
-        </div>
-    </div>
+                            <!-- Dynamic Target Cart Items Wrapper List Container -->
+                            <div class="mt-8">
+                                <div class="flow-root">
+                                    <ul id="cart-items-list" role="list" class="-my-6 divide-y divide-brandLightGray text-xs">
+                                        <!-- Javascript Appends Elements Inline Here -->
+                                        <li class="py-6 text-center text-gray-500 uppercase tracking-widest font-mono">Cart is completely vacant.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
 
-    <!-- MAIN HERO ENTRY -->
-    <div class="hero-banner">
-        <div class="hero-watermark">IINIIKO CLOTHING</div>
-        <h1>SMART. AFRICAN. AMBITIOUS.</h1>
-        <button class="shop-sale-btn" onclick="document.getElementById('sweaters').scrollIntoView({behavior: 'smooth'})">Explore Drop</button>
-    </div>
+                        <!-- Sticky Footer Totals Billing Operations Block -->
+                        <div class="border-t border-brandLightGray bg-brandGray px-4 py-6 sm:px-6">
+                            <div class="flex justify-between text-base font-bold uppercase tracking-wider text-white">
+                                <p>Subtotal Amount</p>
+                                <p id="cart-subtotal-display">R0.00</p>
+                            </div>
+                            <p class="mt-0.5 text-xs text-gray-400 normal-case font-light">Taxes and regional delivery metrics calculated at processing checkout.</p>
+                            <div class="mt-6">
+                                <button onclick="checkoutAlert()" class="w-full flex items-center justify-center bg-white border border-transparent px-6 py-3 text-sm font-bold uppercase tracking-widest text-black shadow-xs hover:bg-brandGold hover:text-black transition-colors duration-300">
+                                    Proceed To Final Checkout
+                                </button>
+                            </div>
+                            <div class="mt-4 flex justify-center text-center text-xs tracking-wide">
+                                <p class="text-gray-400">
+                                    or
+                                    <button type="button" onclick="toggleCartModal()" class="font-medium text-brandGold hover:underline uppercase tracking-widest ml-1">Continue Exploring</button>
+                                </p>
+                            </div>
+                        </div>
 
-    <!-- PRODUCT CATALOG 1: SWEATERS -->
-    <div class="lookbook-section" id="sweaters">
-        <h2>IINIIKO Women Signature Outerwear</h2>
-        <p>Luxury tailoring designed for cold-weather utility.</p>
-        <div class="lookbook-img-wrapper">
-            <div class="lookbook-img-placeholder" style="background: url('ChatGPT Image Jun 23, 2026, 12_10_40 AM.png') center/cover no-repeat;">
-                IINIIKO Outerwear Framework
-            </div>
-        </div>
-        <button class="section-action-btn" onclick="addToBucket('IINIIKO Luxury Sweater', 650)">Add to Bucket — R650</button>
-    </div>
-
-    <!-- PRODUCT CATALOG 2: TRACKSUITS -->
-    <div class="lookbook-section" id="tracksuits">
-        <h2>IINIIKO Heavyweight Essential Set</h2>
-        <p>Premium structured tracks built to last.</p>
-        <div class="lookbook-img-wrapper">
-            <div class="lookbook-img-placeholder" style="background: url('Jun 23, 2026, 07_34_54 PM.png') center/cover no-repeat;">
-                IINIIKO Premium Track Set
-            </div>
-        </div>
-        <button class="section-action-btn" onclick="addToBucket('IINIIKO Essential Tracksuit', 1200)">Add to Bucket — R1200</button>
-    </div>
-
-    <!-- INTERACTIVE TOUCH & PLAY COMPONENT -->
-    <div class="lookbook-section" id="touchplay">
-        <h2>Interactive Showcase</h2>
-        <p>Tap a hotspot cluster to inspect and add individual pieces to your bucket instantly.</p>
-        <div class="touch-play-container">
-            <div class="hotspot spot-cap" onclick="addToBucket('IINIIKO Premium Fit Cap', 250)" title="Add Identity Cap"></div>
-            <div class="hotspot spot-shirt" onclick="addToBucket('IINIIKO Yoruba Over-Shirt', 550)" title="Add Yoruba Shirt"></div>
-            <div class="hotspot spot-bag" onclick="addToBucket('IINIIKO Luxury Mini Handbag', 750)" title="Add Mini Handbag"></div>
-            
-            <div class="lookbook-img-placeholder" style="background: url('c4a9badd-d68f-4be1-a911-104a0a7202ab.png') center/cover no-repeat;">
-                Interactive Showcase Frame
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- METRIC TRUST FOOTER -->
-    <div class="trust-metrics-grid">
-        <div class="metric-card"><span>💳</span><h4>Secure Routing</h4><p>Instant orders processed safely</p></div>
-        <div class="metric-card"><span>🚚</span><h4>ZA Shipping</h4><p>Delivery 2-5 business days</p></div>
-        <div class="metric-card"><span>🔄</span><h4>Returns</h4><p>Easy returns via dispatch hubs</p></div>
-        <div class="metric-card"><span>💬</span><h4>Direct Contact</h4><p>Quick support on WhatsApp</p></div>
-    </div>
-
-    <!-- FOOTER FRAMEWORK -->
-    <footer>
-        <div class="footer-columns">
-            <div class="footer-block">
-                <h3>Quicklinks</h3>
-                <ul>
-                    <li><a href="#sweaters">Sweater Collection</a></li>
-                    <li><a href="#tracksuits">Tracksuit Line</a></li>
-                    <li><a href="#touchplay">Interactive Lookbook</a></li>
-                </ul>
+    <!-- Global Brand Footer Section Component -->
+    <footer class="bg-black border-t border-brandLightGray py-12 text-center text-xs tracking-widest text-gray-500 uppercase">
+        <div class="max-w-7xl mx-auto px-4 space-y-6">
+            <div class="text-white font-black tracking-[0.4em]">IINIKO CLOTHING REGISTRY</div>
+            <p class="max-w-md mx-auto text-[11px] text-gray-600 font-light normal-case leading-relaxed">
+                All production lines are meticulously managed across active local regional hubs. Every item represents a physical embodiment of pure cultural preservation, high-grade textiles, and global artistic execution.
+            </p>
+            <div class="text-[10px] text-brandGold/60 font-mono">
+                © 2026 IINIKO CLOTHING LTD. ALL RIGHTS RESERVED. ROOTS FOREVER SECURED.
             </div>
-            <div class="footer-block">
-                <h3>Policies</h3>
-                <ul>
-                    <li><a href="#">Refund Matrix</a></li>
-                    <li><a href="#">Shipping Guidelines</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
-            </div>
-            <div class="footer-block brand-manifesto">
-                <h3>IINIIKO</h3>
-                <p>Smart. African. Ambitious.</p>
-            </div>
-        </div>
-        <div style="border-top: 1px solid var(--border-color); margin-top: 40px; padding-top: 20px; text-align: center; font-size: 11px; color: var(--text-muted); letter-spacing: 1px;">
-            © 2026 - IINIIKO CLOTHING CO. ALL RIGHTS RESERVED.
         </div>
     </footer>
 
-    <!-- STICKER BADGE -->
-    <div class="floating-badge">👑 IINIIKO MEMBER</div>
-
-    <!-- APP OPERATIONAL SCRIPTS -->
+    <!-- Core Interactive Operational Application Script Logic -->
     <script>
-        let bucket = [];
-        // Replace with your exact South African business WhatsApp number (include country code without +)
-        const WHATSAPP_NUMBER = "27615438104"; 
+        // Global Local Storage/Runtime State Object Vector Array
+        let shoppingCartMatrix = [];
 
-        const marqueeMessages = [
-            "FREE SHIPPING ON ORDERS OVER R1000 ACROSS ZA",
-            "SECURE ORDER FULFILLMENT ROUTED VIA WHATSAPP TERMINAL",
-            "IINIIKO AW 26' DROP NOW ACTIVE — CHOOSE YOUR CODES"
-        ];
-        let marqueeIndex = 0;
-        setInterval(() => {
-            marqueeIndex = (marqueeIndex + 1) % marqueeMessages.length;
-            document.getElementById('promoMarquee').innerText = marqueeMessages[marqueeIndex];
-        }, 4000);
-
-        function toggleDrawer(open) {
-            document.getElementById('navDrawerOverlay').style.left = open ? '0' : '-100%';
+        // Simple Size Chooser UI Highlight Modifier Toggler Utility
+        function selectSize(buttonElement) {
+            // Traverse all neighbor siblings in immediate container row block
+            const structuralSiblings = buttonElement.parentElement.querySelectorAll('button');
+            structuralSiblings.forEach(btn => {
+                btn.classList.remove('border-brandGold', 'text-brandGold', 'bg-brandGray');
+                btn.classList.add('border-brandLightGray', 'text-white', 'bg-brandDark');
+            });
+            // Mark active button selection parameters targeted
+            buttonElement.classList.remove('border-brandLightGray', 'text-white', 'bg-brandDark');
+            buttonElement.classList.add('border-brandGold', 'text-brandGold', 'bg-brandGray');
         }
 
-        function toggleBucket(open) {
-            document.getElementById('bucketOverlay').style.left = open ? '0' : '-100%';
+        // Add Selected Item Specifications Directly Into Shopping Cart Array Stack Component
+        function addToCart(itemTitleString, numericalPriceInteger, buttonTriggerRef) {
+            // Locate immediate context size element mapping if available inside card component layout
+            const rootCardContainer = buttonTriggerRef.closest('.bg-brandGray, .bg-brandDark');
+            let selectedSizeOutput = 'OS (One Size)';
+            
+            const activeSizeButton = rootCardContainer.querySelector('button.border-brandGold');
+            if (activeSizeButton) {
+                selectedSizeOutput = activeSizeButton.innerText.trim();
+            }
+
+            // Push payload item parameters structurally into tracking system array
+            shoppingCartMatrix.push({
+                title: itemTitleString,
+                price: numericalPriceInteger,
+                size: selectedSizeOutput,
+                id: Date.now() + Math.random().toString(36).substr(2, 5)
+            });
+
+            // Update user interface counter readouts instantly
+            updateCartInterfaceDom();
+            
+            // Subtle temporary confirmation feedback change notification trigger response sequence
+            const originalButtonText = buttonTriggerRef.innerText;
+            buttonTriggerRef.innerText = "ADDED TO MATRIX SUCCESSFULLY";
+            buttonTriggerRef.classList.remove('bg-white', 'text-black');
+            buttonTriggerRef.classList.add('bg-brandGold', 'text-black');
+            
+            setTimeout(() => {
+                buttonTriggerRef.innerText = originalButtonText;
+                buttonTriggerRef.classList.remove('bg-brandGold', 'text-black');
+                buttonTriggerRef.classList.add('bg-white', 'text-black');
+            }, 1400);
         }
 
-        function addToBucket(name, price) {
-            const trackingId = 'INK-' + Math.floor(Math.random() * 90000 + 10000);
-            bucket.push({id: trackingId, name: name, price: price});
-            updateBucketDOM();
-            toggleBucket(true);
+        // Remove Targeted Single Component Element Directly Out Of Cart Arrays Via Unique Key Identifiers
+        function removeCartItemElement(uniqueKeyStringIdentifier) {
+            shoppingCartMatrix = shoppingCartMatrix.filter(cartItem => cartItem.id !== uniqueKeyStringIdentifier);
+            updateCartInterfaceDom();
         }
 
-        function removeFromBucket(id) {
-            bucket = bucket.filter(item => item.id !== id);
-            updateBucketDOM();
-        }
+        // Synchronize Internal Javascript Arrays State Data Models Directly to Rendered UI HTML Elements
+        function updateCartInterfaceDom() {
+            const countBadgeContainer = document.getElementById('cart-count');
+            const itemsListUlContainer = document.getElementById('cart-items-list');
+            const subtotalPriceDisplay = document.getElementById('cart-subtotal-display');
 
-        function updateBucketDOM() {
-            document.getElementById('bucketCount').innerText = bucket.length;
-            const container = document.getElementById('bucketContainer');
-            container.innerHTML = '';
+            // Apply global count totals instantly
+            countBadgeContainer.innerText = shoppingCartMatrix.length;
 
-            let total = 0;
-
-            if(bucket.length === 0) {
-                container.innerHTML = `<li style="text-align:center; color:#555; font-size:12px; margin-top:50px; letter-spacing:1px;">YOUR BUCKET LIST IS CURRENTLY EMPTY</li>`;
-                document.getElementById('bucketTotal').innerText = "R0";
+            // Handle empty vacant parameters
+            if (shoppingCartMatrix.length === 0) {
+                itemsListUlContainer.innerHTML = `<li class="py-12 text-center text-gray-500 uppercase tracking-widest font-mono">Cart is completely vacant.</li>`;
+                subtotalPriceDisplay.innerText = "R0.00";
                 return;
             }
 
-            bucket.forEach(item => {
-                total += item.price;
-                const li = document.createElement('li');
-                li.style.display = 'flex';
-                li.style.justifyContent = 'space-between';
-                li.style.alignItems = 'center';
-                li.style.padding = '15px 0';
-                li.style.borderBottom = '1px solid var(--border-color)';
-                li.innerHTML = `
-                    <div>
-                        <h4 style="font-size:13px; text-transform:uppercase; letter-spacing:1px;">${item.name}</h4>
-                        <p style="color:var(--text-muted); font-size:12px; margin-top:2px;">R${item.price}</p>
-                    </div>
-                    <button onclick="removeFromBucket('${item.id}')" style="background:none; border:none; color:#ff4747; cursor:pointer; font-size:11px; text-transform:uppercase;">Remove</button>
+            // Initialize rendering strings loops buffers
+            let dynamicHtmlOutput = "";
+            let rollingSubtotalCalculation = 0;
+
+            shoppingCartMatrix.forEach(item => {
+                rollingSubtotalCalculation += item.price;
+                dynamicHtmlOutput += `
+                    <li class="py-4 flex justify-between items-center border-b border-brandLightGray/60 bg-brandDark/40 p-2.5 rounded-xs mb-2">
+                        <div class="space-y-1">
+                            <h4 class="font-bold text-white uppercase tracking-wide text-xs">${item.title}</h4>
+                            <p class="text-[10px] text-brandGold uppercase font-mono tracking-widest">Size/Spec: ${item.size}</p>
+                            <p class="text-gray-400 font-mono">R ${item.price.toLocaleString()}</p>
+                        </div>
+                        <button onclick="removeCartItemElement('${item.id}')" class="text-red-500 hover:text-red-400 font-mono text-[10px] uppercase tracking-widest px-2 py-1 bg-brandGray border border-brandLightGray hover:border-red-900 transition-all">
+                            [ Delete ]
+                        </button>
+                    </li>
                 `;
-                container.appendChild(li);
             });
 
-            document.getElementById('bucketTotal').innerText = `R${total}`;
+            itemsListUlContainer.innerHTML = dynamicHtmlOutput;
+            subtotalPriceDisplay.innerText = `R ${rollingSubtotalCalculation.toLocaleString()}.00`;
         }
 
-        // DYNAMIC WHATSAPP ORDER SHEET DISPATCH GENERATOR
-        function generateWhatsAppLink() {
-            if (bucket.length === 0) {
-                alert("Your bucket is empty. Please choose garments before checkout.");
-                return false;
+        // Simple Toggle Script Logic Driving Slider Panel Display Framework Mechanics
+        function toggleCartModal() {
+            const targetModalWrapperPanel = document.getElementById('cart-modal');
+            if (targetModalWrapperPanel.classList.contains('hidden')) {
+                targetModalWrapperPanel.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            } else {
+                targetModalWrapperPanel.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
             }
+        }
 
-            let message = "Yebo! I want to order the following collection from IINIIKO:\n\n";
-            let total = 0;
-            
-            bucket.forEach((item, index) => {
-                message += `${index + 1}. ${item.name} — R${item.price}\n`;
-                total += item.price;
-            });
-
-            message += `\n*Total Amount:* R${total}\n`;
-            message += "\nPlease verify availability and send payment information coordinates.";
-
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
-            
-            document.getElementById('whatsappCheckoutBtn').href = whatsappUrl;
-            return true;
+        // Trigger Fallback Alert Notification System Stating Production Lock Checkout Parameters
+        function checkoutAlert() {
+            if (shoppingCartMatrix.length === 0) {
+                alert("Your shopping cart matrix is currently empty. Please select your pieces first.");
+                return;
+            }
+            alert("Secure Payment Gateway Interface Connection Established.\n\nYour IINIKO structural design inventory selection is authenticated. Moving to safe local regional processing standard clearing nodes...");
         }
     </script>
 </body>
