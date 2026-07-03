@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IINIKO CLOTHINGS | Official Online Store</title>
+    <!-- Google Fonts for Modern Luxury Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- DESIGN SYSTEM & CSS VARIABLES --- */
+        :root {
+            --bg-color: #0b0b0b;
+            --surface-color: #121212;
+            --accent-color: #ffffff;
+            --text-primary: #ffffff;
+            --text-secondary: #999999;
+            --whatsapp-green: #25D366;
+            --font-primary: 'Montserrat', sans-serif;
+            --font-display: 'Space Grotesk', sans-serif;
+            --border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-primary);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- ANNOUNCEMENT MARQUEE BANNER --- */
+        .announcement-bar {
+            background-color: #222222;
+            color: var(--text-primary);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 10px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .announcement-bar i {
+            margin: 0 15px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        .announcement-bar i:hover { opacity: 1; }
+
+        /* --- HEADER NAVIGATION --- */
+        header {
+            background-color: var(--bg-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .menu-toggle {
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .logo h1 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 26px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 18px;
+        }
+        .nav-icons i {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .nav-icons i:hover {
+            transform: scale(1.1);
+        }
+
+        /* --- LOOKBOOK FULL-BLEED SECTIONS --- */
+        .hero-section {
+            position: relative;
+            height: calc(100vh - 85px);
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1509281373149-e957c6296406?q=80&w=1000&auto=format&fit=crop') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            text-align: center;
+            padding-bottom: 60px;
+        }
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .hero-subtitle {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+        
+        /* Premium Outline Buttons */
+        .btn-shop {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--text-primary);
+            padding: 14px 40px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-shop:hover {
+            background-color: var(--text-primary);
+            color: var(--bg-color);
+        }
+
+        .scroll-down {
+            margin-top: 30px;
+            font-size: 24px;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        /* --- INTERACTIVE DROPS GRID (LOOKBOOKS) --- */
+        .collection-grid {
+            background-color: var(--bg-color);
+        }
+        .collection-row {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: var(--bg-color);
+            padding: 40px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .collection-img-box {
+            width: 100%;
+            max-width: 600px;
+            height: 550px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            background-color: #1a1a1a;
+        }
+        .collection-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .collection-img-box:hover img {
+            transform: scale(1.04);
+        }
+
+        /* --- SÉRAPHIN STYLE SPLIT COMPONENT --- */
+        .split-showcase {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #fff;
+            color: #000;
+        }
+        .split-title {
+            font-family: var(--font-display);
+            font-size: 24px;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        .split-container {
+            display: flex;
+            max-width: 700px;
+            margin: 0 auto 25px auto;
+            position: relative;
+            border: 1px solid #eee;
+        }
+        .split-side {
+            width: 50%;
+            height: 450px;
+            background-size: cover;
+            background-position: center;
+        }
+        .split-slider-handler {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            font-size: 12px;
+            color: #555;
+            cursor: pointer;
+        }
+        .btn-dark-shop {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 14px 40px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* --- INTERACTIVE TOUCH & PLAY COMPONENT --- */
+        .touch-play-section {
+            background-color: #fff;
+            color: #000;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .touch-play-container {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .touch-play-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        /* Hotspots */
+        .hotspot {
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            background-color: #000;
+            border: 3px solid #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            animation: pulse 2s infinite;
+        }
+        .hotspot-1 { top: 12%; left: 38%; }
+        .hotspot-2 { top: 48%; left: 52%; }
+        .hotspot-3 { top: 65%; left: 58%; }
+
+        /* --- FLOATING WHATSAPP & MEMBERS CHAT --- */
+        .members-badge {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background-color: #111;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 90;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .members-badge i { color: #d4af37; }
+
+        .whatsapp-chat-widget {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #fff;
+            color: #000;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 90;
+            transition: transform 0.3s;
+        }
+        .whatsapp-chat-widget:hover {
+            transform: scale(1.08);
+        }
+
+        /* --- PRIVACY COOKIE POPUP --- */
+        .privacy-popup {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #161616;
+            border-top: 1px solid var(--border-color);
+            padding: 30px 25px;
+            z-index: 200;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .privacy-popup h3 {
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .privacy-popup p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .privacy-popup p a {
+            color: var(--text-primary);
+            text-decoration: underline;
+        }
+        .privacy-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .btn-privacy-accept {
+            background-color: #262626;
+            color: white;
+            border: 1px solid #3a3a3a;
+            padding: 12px;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+        .btn-privacy-accept:hover { background-color: #333; }
+        .btn-privacy-decline {
+            background: transparent;
+            color: var(--text-secondary);
+            border: none;
+            padding: 8px;
+            font-size: 12px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        /* --- ANIMATIONS & KEYFRAMES --- */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255,255,255,0); }
+            100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+        }
+
+        /* --- DESKTOP RESPONSIVE TUNING --- */
+        @media (min-width: 768px) {
+            .privacy-popup {
+                max-width: 420px;
+                left: 25px;
+                bottom: 25px;
+                border: 1px solid var(--border-color);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            }
+            .hero-title { font-size: 64px; }
+            .collection-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .collection-row {
+                padding: 60px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ANNOUNCEMENT BANNER -->
+    <div class="announcement-bar">
+        <i class="fa-solid fa-chevron-left"></i>
+        <span>Delivery in 2 to 5 business days across SA</span>
+        <i class="fa-solid fa-chevron-right"></i>
+    </div>
+
+    <!-- MAIN STICKY NAVIGATION -->
+    <header>
+        <div class="nav-container">
+            <div class="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="logo">
+                <h1>IINIKO</h1>
+            </div>
+            <div class="nav-icons">
+                <i class="fa-solid fa-location-dot"></i>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-bag-shopping"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO LOOKBOOK SECTION -->
+    <section class="hero-section">
+        <h2 class="hero-title">IINIKO WINTER SALE</h2>
+        <p class="hero-subtitle">IINIKO CLOTHINGS AW 26'</p>
+        <button class="btn-shop" onclick="alert('Redirecting to Autumn/Winter Catalog...')">Shop Sale</button>
+        <div class="scroll-down" onclick="document.getElementById('catalog').scrollIntoView();">
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- STREETWEAR COLLECTIONS GRID -->
+    <main class="collection-grid" id="catalog">
+        
+        <!-- Drop 1: Sweaters -->
+        <div class="collection-row">
+            <div class="collection-img-box">
+                <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600&auto=format&fit=crop" alt="Iiniko Sweaters">
+            </div>
+            <button class="btn-shop">Shop Sweaters</button>
+        </div>
+
+        <!-- Drop 2: Premium Shirts -->
+        <div class="collection-row">
+            <div class="collection-img-box">
+                <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=600&auto=format&fit=crop" alt="Iiniko Shirts">
+            </div>
+            <button class="btn-shop">Shop Shirts</button>
+        </div>
+
+        <!-- Drop 3: Custom Jackets -->
+        <div class="collection-row">
+            <div class="collection-img-box">
+                <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=600&auto=format&fit=crop" alt="Iiniko Jackets">
+            </div>
+            <button class="btn-shop">Shop Jackets</button>
+        </div>
+
+        <!-- Drop 4: Tracksuits -->
+        <div class="collection-row">
+            <div class="collection-img-box">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=600&auto=format&fit=crop" alt="Iiniko Tracksuits">
+            </div>
+            <button class="btn-shop">Shop Tracksuits</button>
+        </div>
+
+    </main>
+
+    <!-- PREMIUM SÉRAPHIN SIDE-BY-SIDE SHOWCASE -->
+    <section class="split-showcase">
+        <h3 class="split-title">SÉRAPHIN COMPACT</h3>
+        <div class="split-container">
+            <div class="split-side" style="background-image: url('https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=500&auto=format&fit=crop');"></div>
+            <div class="split-side" style="background-image: url('https://images.unsplash.com/photo-1594534475808-b18fc33b045e?q=80&w=500&auto=format&fit=crop');"></div>
+            <div class="split-slider-handler">
+                <i class="fa-solid fa-arrows-left-right"></i>
+            </div>
+        </div>
+        <button class="btn-dark-shop">Shop Luxury Bags</button>
+    </section>
+
+    <!-- "TOUCH & PLAY" INTERACTIVE PRODUCT TAGGING -->
+    <section class="touch-play-section">
+        <h3 class="split-title" style="margin-bottom: 10px;">Touch & Play</h3>
+        <p style="font-size:12px; color:#666; margin-bottom:30px; letter-spacing:1px;">Tap the focal indicators to preview details</p>
+        <div class="touch-play-container">
+            <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600&auto=format&fit=crop" alt="Featured Outfit Look">
+            <div class="hotspot hotspot-1" onclick="alert('IINIKO Custom Street Cap - R349')"></div>
+            <div class="hotspot hotspot-2" onclick="alert('Flannel Overshirt Dusk Over - R899')"></div>
+            <div class="hotspot hotspot-3" onclick="alert('SÉRAPHIN Premium Mini Leather Tote - R1,499')"></div>
+        </div>
+        <button class="btn-dark-shop" style="margin-top: 35px;">View Full Outfit Products</button>
+    </section>
+
+    <!-- FLOATING COMPONENT BADGES -->
+    <div class="members-badge">
+        <i class="fa-solid fa-crown"></i> MEMBERS ONLY
+    </div>
+
+    <div class="whatsapp-chat-widget" onclick="window.open('https://wa.me/27123456789?text=Hi%20Iiniko%20Clothings,%20I%20am%20interested%20in%20your%20latest%20drops!', '_blank')">
+        <i class="fa-brands fa-whatsapp" style="color: var(--whatsapp-green);"></i>
+    </div>
+
+    <!-- PRIVACY & COOKIES MODAL POPUP -->
+    <div class="privacy-popup" id="privacyModal">
+        <h3>We value your privacy</h3>
+        <p>We use cookies and other tracking technologies to enhance your experience, perform tailored brand analytics, and deliver exclusive drops. Learn more in our <a href="#">Privacy Policy</a>.</p>
+        <div class="privacy-buttons">
+            <button class="btn-privacy-accept" onclick="closePrivacy()">Accept</button>
+            <button class="btn-privacy-decline" onclick="closePrivacy()">Decline</button>
+        </div>
+    </div>
+
+    <!-- LOGIC SCRIPTS -->
+    <script>
+        function closePrivacy() {
+            document.getElementById('privacyModal').style.display = 'none';
+        }
+        
+        // Auto dismiss cookie popup after 8 seconds if ignored
+        setTimeout(() => {
+            const modal = document.getElementById('privacyModal');
+            if(modal) modal.style.transition = 'opacity 0.5s';
+        }, 8000);
+    </script>
+</body>
+</html>
