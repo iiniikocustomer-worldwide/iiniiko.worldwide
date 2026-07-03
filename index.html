@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INIKO | Smart. African. Ambitious.</title>
+    <title>IINIIKO | Smart. African. Ambitious.</title>
     <style>
         :root {
             --bg-color: #000000;
             --surface: #0a0a0a;
             --card-bg: #111111;
             --text-main: #ffffff;
-            --text-muted: #777777;
-            --accent-green: #00e65b;
-            --border-color: #1a1a1a;
+            --text-muted: #888888;
+            --accent-green: #25d366;
+            --border-color: #222222;
         }
 
         * {
@@ -33,14 +33,14 @@
             overflow-x: hidden;
         }
 
-        /* --- TOP MARQUEE PROMO ANNOUNCEMENT --- */
+        /* --- TOP MARQUEE BANNER --- */
         .promo-marquee {
             background: #111111;
             border-bottom: 1px solid var(--border-color);
             color: #ffffff;
             font-size: 11px;
             font-weight: 600;
-            letter-spacing: 2.5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             padding: 10px 0;
             text-align: center;
@@ -62,12 +62,6 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .nav-left {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
         .menu-toggle {
             background: none;
             border: none;
@@ -78,7 +72,7 @@
 
         .logo {
             font-weight: 900;
-            letter-spacing: 6px;
+            letter-spacing: 8px;
             font-size: 26px;
             cursor: pointer;
             text-align: center;
@@ -114,70 +108,53 @@
             border-radius: 50%;
         }
 
-        /* --- FULL SCREEN EXPANDABLE SIDEBAR --- */
+        /* --- SIDEBAR NAVIGATION --- */
         .sidebar-overlay {
             position: fixed;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.7);
             z-index: 200;
-            transition: left 0.4s ease;
+            transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .sidebar-overlay.active { left: 0; }
 
         .drawer-menu {
             width: 85%;
-            max-width: 400px;
+            max-width: 360px;
             height: 100%;
-            background: #f4f4f4;
-            color: #000000;
+            background: #111111;
+            color: #ffffff;
             padding: 30px;
             display: flex;
             flex-direction: column;
-            position: relative;
+            border-right: 1px solid var(--border-color);
         }
 
         .drawer-close {
             align-self: flex-start;
             background: none;
             border: none;
+            color: white;
             font-size: 28px;
             cursor: pointer;
             margin-bottom: 30px;
-        }
-
-        .search-bar-container {
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid #cccccc;
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-        }
-
-        .search-input {
-            width: 100%;
-            border: none;
-            background: transparent;
-            font-size: 14px;
-            letter-spacing: 1px;
-            outline: none;
-            text-transform: uppercase;
         }
 
         .drawer-links {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 22px;
+            gap: 24px;
             flex-grow: 1;
         }
 
         .drawer-links a {
-            color: #000000;
+            color: #ffffff;
             text-decoration: none;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -185,23 +162,11 @@
             justify-content: space-between;
         }
 
-        .drawer-footer-options {
-            border-top: 1px solid #e0e0e0;
-            padding-top: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            font-size: 11px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: #555555;
-        }
-
-        /* --- HERO WINTER SALE BANNER --- */
+        /* --- HERO BANNER --- */
         .hero-banner {
             width: 100%;
-            height: 75vh;
-            background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.9) 100%), #151515;
+            height: 70vh;
+            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.95) 100%), #0d0d0d;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -212,72 +177,64 @@
         }
 
         .hero-watermark {
-            font-family: cursive, sans-serif;
-            font-size: 28px;
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 20px;
-            font-weight: 300;
+            font-size: 14px;
+            letter-spacing: 6px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            text-transform: uppercase;
         }
 
         .hero-banner h1 {
-            font-size: clamp(28px, 6vw, 48px);
-            font-weight: 700;
-            letter-spacing: 4px;
+            font-size: clamp(32px, 7vw, 56px);
+            font-weight: 900;
+            letter-spacing: 6px;
             text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-
-        .hero-banner p {
-            font-size: 13px;
-            letter-spacing: 4px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
         }
 
         .shop-sale-btn {
-            background: transparent;
+            background: #ffffff;
             border: 1px solid #ffffff;
-            color: #ffffff;
-            padding: 14px 45px;
-            font-size: 12px;
+            color: #000000;
+            padding: 14px 40px;
+            font-size: 11px;
             font-weight: bold;
             letter-spacing: 2px;
             text-transform: uppercase;
             cursor: pointer;
             transition: all 0.3s ease;
+            margin-top: 15px;
         }
 
         .shop-sale-btn:hover {
-            background: white;
-            color: black;
-        }
-
-        .scroll-down-arrow {
-            margin-top: 30px;
-            width: 40px;
-            height: 40px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: black;
-            font-weight: bold;
-            cursor: pointer;
+            background: transparent;
+            color: #ffffff;
         }
 
         /* --- LOOKBOOK SECTIONS --- */
         .lookbook-section {
-            padding: 40px 20px;
+            padding: 60px 20px;
             text-align: center;
             border-bottom: 1px solid var(--border-color);
         }
 
+        .lookbook-section h2 {
+            font-size: 18px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .lookbook-section p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
         .lookbook-img-wrapper {
             width: 100%;
-            max-width: 700px;
-            margin: 0 auto 20px auto;
+            max-width: 600px;
+            margin: 0 auto 25px auto;
             background: #111111;
             aspect-ratio: 4/5;
             overflow: hidden;
@@ -291,7 +248,7 @@
             align-items: center;
             justify-content: center;
             color: var(--text-muted);
-            font-size: 14px;
+            font-size: 13px;
             letter-spacing: 2px;
             text-transform: uppercase;
         }
@@ -305,33 +262,38 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             font-weight: 600;
-            margin-top: 10px;
             cursor: pointer;
+            transition: background 0.3s;
         }
 
-        /* --- TOUCH & PLAY INTERACTIVE HOTSPOTS --- */
+        .section-action-btn:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        /* --- INTERACTIVE TOUCH & PLAY HOTSPOTS --- */
         .touch-play-container {
             position: relative;
             width: 100%;
-            max-width: 700px;
+            max-width: 600px;
             margin: 0 auto;
             aspect-ratio: 4/5;
-            background: #151515;
+            background: #111111;
             border: 1px solid var(--border-color);
         }
 
         .hotspot {
             position: absolute;
-            width: 24px;
-            height: 24px;
+            width: 26px;
+            height: 26px;
             background: #000000;
             border: 2px solid #ffffff;
             border-radius: 50%;
             cursor: pointer;
-            box-shadow: 0 0 10px rgba(0,0,0,0.8);
             display: flex;
             align-items: center;
             justify-content: center;
+            z-index: 10;
         }
         .hotspot::after {
             content: '';
@@ -345,70 +307,106 @@
 
         @keyframes pulse {
             0% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(2); opacity: 0; }
+            100% { transform: scale(2.2); opacity: 0; }
         }
 
-        /* Hotspot Absolute Positioning Coordinates */
-        .spot-cap { top: 20%; left: 45%; }
-        .spot-shirt { top: 48%; left: 52%; }
-        .spot-bag { top: 72%; left: 60%; }
+        .spot-cap { top: 18%; left: 48%; }
+        .spot-shirt { top: 45%; left: 50%; }
+        .spot-bag { top: 70%; left: 58%; }
 
-        /* --- BUCKET LIST / CART SIDEBAR --- */
-        .bucket-sidebar {
+        /* --- BUCKET LIST DRAWER (CART) --- */
+        .bucket-overlay {
             position: fixed;
             top: 0;
             right: -100%;
             width: 100%;
-            max-width: 400px;
             height: 100%;
-            background: #000000;
-            border-left: 1px solid var(--border-color);
+            background: rgba(0,0,0,0.7);
             z-index: 250;
+            display: flex;
+            justify-content: flex-end;
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .bucket-overlay.active { right: 0; }
+
+        .bucket-sidebar {
+            width: 100%;
+            max-width: 380px;
+            height: 100%;
+            background: #0a0a0a;
+            border-left: 1px solid var(--border-color);
             padding: 30px;
             display: flex;
             flex-direction: column;
-            transition: right 0.4s ease;
         }
-        .bucket-sidebar.active { right: 0; }
 
         .bucket-items-container {
             list-style: none;
-            margin-top: 30px;
+            margin-top: 20px;
             flex-grow: 1;
             overflow-y: auto;
         }
 
-        /* --- 4-POINT TRUST METRIC FOOTER BLOCK --- */
-        .trust-metrics-grid {
-            background: #fcfcfc;
+        .bucket-total-box {
+            border-top: 1px solid var(--border-color);
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .whatsapp-checkout-btn {
+            background: var(--accent-green);
             color: #000000;
-            padding: 50px 20px;
+            border: none;
+            padding: 16px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            transition: opacity 0.3s;
+        }
+
+        .whatsapp-checkout-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* --- TRUST METRICS & FOOTER --- */
+        .trust-metrics-grid {
+            background: #050505;
+            color: #ffffff;
+            padding: 40px 20px;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 40px 20px;
+            gap: 30px 20px;
             text-align: center;
-            border-top: 1px solid #e2e2e2;
+            border-top: 1px solid var(--border-color);
         }
 
         @media(min-width: 768px) {
             .trust-metrics-grid { grid-template-columns: repeat(4, 1fr); }
+            .footer-columns { grid-template-columns: repeat(3, 1fr); display: grid; }
         }
 
         .metric-card h4 {
             font-size: 12px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin: 12px 0 6px 0;
-            font-weight: 700;
+            margin: 10px 0 4px 0;
         }
 
         .metric-card p {
             font-size: 11px;
-            color: #666666;
-            line-height: 1.5;
+            color: var(--text-muted);
         }
 
-        /* --- CORPORATE BLACK FOOTER --- */
         footer {
             background: #000000;
             padding: 60px 30px 40px 30px;
@@ -419,16 +417,13 @@
             display: flex;
             flex-direction: column;
             gap: 40px;
-            margin-bottom: 5px;
         }
 
         .footer-block h3 {
             font-size: 12px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--text-main);
             margin-bottom: 20px;
-            font-weight: 700;
         }
 
         .footer-block ul {
@@ -442,10 +437,7 @@
             color: var(--text-muted);
             text-decoration: none;
             font-size: 13px;
-            transition: color 0.2s;
         }
-
-        .footer-block ul a:hover { color: white; }
 
         .brand-manifesto p {
             font-size: 13px;
@@ -453,369 +445,166 @@
             margin-bottom: 12px;
         }
 
-        /* --- EMAIL SUBSCRIPTION PORTAL --- */
-        .subscribe-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 15px;
-            width: 100%;
-            max-width: 400px;
-        }
-
-        .email-field {
-            background: transparent;
-            border: 1px solid #333333;
-            color: white;
-            padding: 14px;
-            font-size: 13px;
-            outline: none;
-        }
-
-        .subscribe-submit-btn {
-            background: #ffffff;
-            color: #000000;
-            border: none;
-            padding: 14px;
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-        }
-
-        /* --- WHATSAPP COMMUNITY POPUP OVERLAY --- */
-        .whatsapp-popup {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.9);
-            width: 90%;
-            max-width: 400px;
-            background: #111111;
-            border: 1px solid #222222;
-            z-index: 400;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .whatsapp-popup.active {
-            opacity: 1;
-            pointer-events: auto;
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        .popup-close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        .whatsapp-join-btn {
-            background: var(--accent-green);
-            color: #000000;
-            border: none;
-            padding: 12px 30px;
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-top: 20px;
-            cursor: pointer;
-            display: inline-block;
-            text-decoration: none;
-        }
-
-        /* --- PRIVACY COOKIE CONSENT FOOTER BANNER --- */
-        .privacy-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: #181818;
-            border-top: 1px solid #252525;
-            z-index: 500;
-            padding: 25px 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            transform: translateY(100%);
-            transition: transform 0.4s ease;
-        }
-        .privacy-banner.active { transform: translateY(0); }
-
-        .privacy-banner h3 {
-            font-size: 15px;
-            letter-spacing: 1px;
-        }
-
-        .privacy-banner p {
-            font-size: 12px;
-            color: #aaaaaa;
-            line-height: 1.5;
-        }
-
-        .privacy-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .priv-btn {
-            padding: 12px;
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .priv-btn.accept { background: #ffffff; color: #000000; border: none; }
-        .priv-btn.decline { background: transparent; color: #ffffff; border: 1px solid #444444; }
-
         /* --- FLOATING AMBASSADOR BADGE --- */
         .floating-badge {
             position: fixed;
             bottom: 20px;
             left: 20px;
             background: #111111;
-            border: 1px solid #222222;
-            padding: 10px 18px;
+            border: 1px solid var(--border-color);
+            padding: 10px 16px;
             border-radius: 4px;
             font-size: 10px;
             font-weight: bold;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             z-index: 90;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        @media(min-width: 768px) {
-            .footer-columns { grid-template-columns: repeat(3, 1fr); display: grid; }
-            .privacy-banner { flex-direction: row; justify-content: space-between; align-items: center; }
-            .privacy-actions { flex-direction: row; }
         }
     </style>
 </head>
 <body>
 
-    <!-- TOP PROMO RUNNING MARQUEE BANNER -->
+    <!-- RUNNING ANNOUNCEMENT BANNER -->
     <div class="promo-marquee" id="promoMarquee">
-        DELIVERY IN 2 TO 5 BUSINESS DAYS ACROSS ZA
+        FREE SHIPPING ON ORDERS OVER R1000 ACROSS ZA
     </div>
 
-    <!-- NAVIGATION CONSOLE -->
+    <!-- NAVIGATION BAR -->
     <header>
-        <div class="nav-left">
-            <button class="menu-toggle" onclick="toggleDrawer(true)">☰</button>
-        </div>
-        <div class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">INIKO</div>
+        <button class="menu-toggle" onclick="toggleDrawer(true)">☰</button>
+        <div class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">IINIIKO</div>
         <div class="nav-icons">
-            <button class="icon-btn" onclick="alert('Search indexing optimized. Enter terminal keywords.')">⌕</button>
             <button class="icon-btn" onclick="toggleBucket(true)">🛒 <span class="icon-badge" id="bucketCount">0</span></button>
         </div>
     </header>
 
-    <!-- FULL PANEL NAVIGATION EXPANSION DRAWER -->
+    <!-- LEFT NAV DRAWER -->
     <div class="sidebar-overlay" id="navDrawerOverlay" onclick="toggleDrawer(false)">
         <div class="drawer-menu" onclick="event.stopPropagation()">
             <button class="drawer-close" onclick="toggleDrawer(false)">×</button>
-            
-            <div class="search-bar-container">
-                <input type="text" class="search-input" placeholder="Search Garments...">
-            </div>
-
             <ul class="drawer-links">
-                <li><a href="#sale" onclick="toggleDrawer(false)">New Arrivals <span>❯</span></a></li>
-                <li><a href="#sweaters" onclick="toggleDrawer(false)">Apparel <span>❯</span></a></li>
-                <li><a href="#tracksuits" onclick="toggleDrawer(false)">Accessories <span>❯</span></a></li>
-                <li><a href="#touchplay" onclick="toggleDrawer(false)">Footwear <span>❯</span></a></li>
-                <li><a href="#" onclick="toggleDrawer(false); togglePopup(true);">Members Only</a></li>
+                <li><a href="#sweaters" onclick="toggleDrawer(false)">Luxury Sweaters <span>❯</span></a></li>
+                <li><a href="#tracksuits" onclick="toggleDrawer(false)">Track Set Collections <span>❯</span></a></li>
+                <li><a href="#touchplay" onclick="toggleDrawer(false)">Interactive Lookbook <span>❯</span></a></li>
             </ul>
-
-            <div class="drawer-footer-options">
-                <span onclick="alert('Routing to internal South African locator Matrix.')">📍 Find a Store Near You</span>
-                <span>💎 Join the Community</span>
-                <span>💼 Careers</span>
-            </div>
         </div>
     </div>
 
-    <!-- BUCKET LIST DRAWER PANEL -->
-    <div class="sidebar-overlay" id="bucketOverlay" onclick="toggleBucket(false)" style="justify-content: flex-end; display: flex;">
+    <!-- RIGHT BUCKET LIST DRAWER (CART) -->
+    <div class="bucket-overlay" id="bucketOverlay" onclick="toggleBucket(false)">
         <div class="bucket-sidebar" onclick="event.stopPropagation()">
             <button class="drawer-close" style="color: white;" onclick="toggleBucket(false)">×</button>
             <h2 style="letter-spacing: 2px; text-transform: uppercase; font-size: 18px;">Your Bucket</h2>
+            
             <ul class="bucket-items-container" id="bucketContainer">
-                <!-- Programmatically populated lists placement -->
+                <!-- Cart items load here -->
             </ul>
-            <button class="subscribe-submit-btn" style="width:100%;" onclick="alert('Order sheet securely packed. Launching direct distribution route.')">Checkout Securely</button>
+
+            <div class="bucket-total-box">
+                <span>Total Amount:</span>
+                <span id="bucketTotal">R0</span>
+            </div>
+            
+            <a href="#" id="whatsappCheckoutBtn" class="whatsapp-checkout-btn" target="_blank" onclick="return generateWhatsAppLink()">Buy Via WhatsApp</a>
         </div>
     </div>
 
-    <!-- HERO COMPONENT FRAME -->
-    <div class="hero-banner" id="sale">
-        <div class="hero-watermark">MadeToLast</div>
-        <h1>INIKO WINTER SALE</h1>
-        <p>INIKO AW 26'</p>
-        <button class="shop-sale-btn" onclick="document.getElementById('sweaters').scrollIntoView({behavior: 'smooth'})">Shop Sale</button>
-        <div class="scroll-down-arrow" onclick="document.getElementById('sweaters').scrollIntoView({behavior: 'smooth'})">↓</div>
+    <!-- MAIN HERO ENTRY -->
+    <div class="hero-banner">
+        <div class="hero-watermark">IINIIKO CLOTHING</div>
+        <h1>SMART. AFRICAN. AMBITIOUS.</h1>
+        <button class="shop-sale-btn" onclick="document.getElementById('sweaters').scrollIntoView({behavior: 'smooth'})">Explore Drop</button>
     </div>
 
-    <!-- LOOKBOOK CATEGORY ENTRY: SWEATERS -->
+    <!-- PRODUCT CATALOG 1: SWEATERS -->
     <div class="lookbook-section" id="sweaters">
+        <h2>IINIIKO Women Signature Outerwear</h2>
+        <p>Luxury tailoring designed for cold-weather utility.</p>
         <div class="lookbook-img-wrapper">
             <div class="lookbook-img-placeholder" style="background: url('ChatGPT Image Jun 23, 2026, 12_10_40 AM.png') center/cover no-repeat;">
-                <!-- Fallback framework description label -->
-                Lookbook Media Frame // Specialized Women Outerwear
+                IINIIKO Outerwear Framework
             </div>
         </div>
-        <button class="section-action-btn" onclick="addToBucket('Iniko Signature Luxury Sweater', 'R650')">Shop Sweaters</button>
+        <button class="section-action-btn" onclick="addToBucket('IINIIKO Luxury Sweater', 650)">Add to Bucket — R650</button>
     </div>
 
-    <!-- LOOKBOOK CATEGORY ENTRY: TRACKSUITS -->
+    <!-- PRODUCT CATALOG 2: TRACKSUITS -->
     <div class="lookbook-section" id="tracksuits">
+        <h2>IINIIKO Heavyweight Essential Set</h2>
+        <p>Premium structured tracks built to last.</p>
         <div class="lookbook-img-wrapper">
             <div class="lookbook-img-placeholder" style="background: url('Jun 23, 2026, 07_34_54 PM.png') center/cover no-repeat;">
-                Lookbook Media Frame // Heavyweight Track Sets
+                IINIIKO Premium Track Set
             </div>
         </div>
-        <button class="section-action-btn" onclick="addToBucket('Premium Essential Tracksuit Set', 'R1200')">Shop Tracksuits</button>
+        <button class="section-action-btn" onclick="addToBucket('IINIIKO Essential Tracksuit', 1200)">Add to Bucket — R1200</button>
     </div>
 
-    <!-- TOUCH & PLAY INTERACTIVE LOOKBOOK COMPONENT -->
+    <!-- INTERACTIVE TOUCH & PLAY COMPONENT -->
     <div class="lookbook-section" id="touchplay">
-        <h3 style="letter-spacing: 3px; font-size: 14px; margin-bottom: 25px; text-transform: uppercase;">Touch &amp; Play</h3>
+        <h2>Interactive Showcase</h2>
+        <p>Tap a hotspot cluster to inspect and add individual pieces to your bucket instantly.</p>
         <div class="touch-play-container">
-            <!-- Dynamic Hotspot nodes tracking individual catalog listings -->
-            <div class="hotspot spot-cap" onclick="addToBucket('Premium Identity Fit Cap', 'R250')" title="Add Identity Cap"></div>
-            <div class="hotspot spot-shirt" onclick="addToBucket('Yoruba Flannel Classic Over-Shirt', 'R550')" title="Add Flannel Over-Shirt"></div>
-            <div class="hotspot spot-bag" onclick="addToBucket('Luxury Mini Structured Handbag', 'R750')" title="Add Mini Handbag"></div>
+            <div class="hotspot spot-cap" onclick="addToBucket('IINIIKO Premium Fit Cap', 250)" title="Add Identity Cap"></div>
+            <div class="hotspot spot-shirt" onclick="addToBucket('IINIIKO Yoruba Over-Shirt', 550)" title="Add Yoruba Shirt"></div>
+            <div class="hotspot spot-bag" onclick="addToBucket('IINIIKO Luxury Mini Handbag', 750)" title="Add Mini Handbag"></div>
             
             <div class="lookbook-img-placeholder" style="background: url('c4a9badd-d68f-4be1-a911-104a0a7202ab.png') center/cover no-repeat;">
                 Interactive Showcase Frame
             </div>
         </div>
-        <button class="section-action-btn" style="background: white; color: black;" onclick="alert('Scanning hotspot nodes collection.')">View Products</button>
     </div>
 
-    <!-- 4-POINT TRUST METRIC PLATFORM FOOTER BLOCK -->
+    <!-- METRIC TRUST FOOTER -->
     <div class="trust-metrics-grid">
-        <div class="metric-card">
-            <span style="font-size:24px;">💳</span>
-            <h4>Payments</h4>
-            <p>Buy Now. Pay Later.<br>Express Checkout</p>
-        </div>
-        <div class="metric-card">
-            <span style="font-size:24px;">🚚</span>
-            <h4>Shipping</h4>
-            <p>Delivery 2-5 business days<br>Free over R1000</p>
-        </div>
-        <div class="metric-card">
-            <span style="font-size:24px;">🔄</span>
-            <h4>Returns</h4>
-            <p>Online or in-store.<br>Log a Return</p>
-        </div>
-        <div class="metric-card">
-            <span style="font-size:24px;">💬</span>
-            <h4>Support</h4>
-            <p>support@iniko.co.za<br>FAQ's</p>
-        </div>
+        <div class="metric-card"><span>💳</span><h4>Secure Routing</h4><p>Instant orders processed safely</p></div>
+        <div class="metric-card"><span>🚚</span><h4>ZA Shipping</h4><p>Delivery 2-5 business days</p></div>
+        <div class="metric-card"><span>🔄</span><h4>Returns</h4><p>Easy returns via dispatch hubs</p></div>
+        <div class="metric-card"><span>💬</span><h4>Direct Contact</h4><p>Quick support on WhatsApp</p></div>
     </div>
 
-    <!-- MASTER CORPORATE BLACK FOOTER SYSTEM -->
+    <!-- FOOTER FRAMEWORK -->
     <footer>
         <div class="footer-columns">
-            
-            <!-- COLUMN 1: INTERACTIVE NAVIGATION REDIRECTS -->
             <div class="footer-block">
                 <h3>Quicklinks</h3>
                 <ul>
-                    <li><a href="#" onclick="alert('Routing to internal Durban Hub terminal.')">Find a Store</a></li>
-                    <li><a href="#">Track my Order</a></li>
-                    <li><a href="#">Log a Return</a></li>
-                    <li><a href="#">FAQ's</a></li>
+                    <li><a href="#sweaters">Sweater Collection</a></li>
+                    <li><a href="#tracksuits">Tracksuit Line</a></li>
+                    <li><a href="#touchplay">Interactive Lookbook</a></li>
                 </ul>
             </div>
-
-            <!-- COLUMN 2: POLICIES COMPLIANCE MATRIX -->
             <div class="footer-block">
                 <h3>Policies</h3>
                 <ul>
-                    <li><a href="#">Refund Policy</a></li>
-                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Refund Matrix</a></li>
+                    <li><a href="#">Shipping Guidelines</a></li>
                     <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
                 </ul>
             </div>
-
-            <!-- COLUMN 3: CORPORATE IDENTITY & NEWSLETTER PORTAL -->
             <div class="footer-block brand-manifesto">
-                <h3>Iniko</h3>
+                <h3>IINIIKO</h3>
                 <p>Smart. African. Ambitious.</p>
-                <a href="#" style="color:white; font-size:13px; text-transform:uppercase; letter-spacing:1px; font-weight:bold;">Our Story</a>
-                
-                <p style="margin-top:25px; font-size:12px;">For more about INIKO events, collabs and promos &gt; JOIN THE INIKO FAM below.</p>
-                
-                <form class="subscribe-form" onsubmit="event.preventDefault(); alert('Terminal subscription verified.');">
-                    <input type="email" class="email-field" placeholder="E-mail" required>
-                    <button type="submit" class="subscribe-submit-btn">Subscribe</button>
-                </form>
             </div>
-
         </div>
-
-        <div style="border-top: 1px solid #111111; margin-top: 40px; padding-top: 20px; text-align: center; font-size: 11px; color: var(--text-muted); letter-spacing: 1px;">
-            © 2026 - INIKO CLOTHING TRADING INTERNATIONALLY
+        <div style="border-top: 1px solid var(--border-color); margin-top: 40px; padding-top: 20px; text-align: center; font-size: 11px; color: var(--text-muted); letter-spacing: 1px;">
+            © 2026 - IINIIKO CLOTHING CO. ALL RIGHTS RESERVED.
         </div>
     </footer>
 
-    <!-- INTERACTIVE WHATSAPP POPUP WINDOW -->
-    <div class="whatsapp-popup" id="whatsappPopup">
-        <button class="popup-close" onclick="togglePopup(false)">×</button>
-        <h3 style="letter-spacing: 1.5px; font-size: 16px; margin-bottom: 10px; text-transform: uppercase;">Join Our Community</h3>
-        <p style="color: var(--text-muted); font-size: 12px; line-height: 1.5;">Calling all INIKO lovers, get updates on WhatsApp.<br>Don't fall behind in the cultural revolution.</p>
-        <a href="https://wa.me/#" target="_blank" class="whatsapp-join-btn">Join Whatsapp</a>
-    </div>
+    <!-- STICKER BADGE -->
+    <div class="floating-badge">👑 IINIIKO MEMBER</div>
 
-    <!-- PRIVACY VALUE STATEMENT BANNER -->
-    <div class="privacy-banner" id="privacyBanner">
-        <div>
-            <h3 style="text-transform: uppercase; margin-bottom: 4px;">We value your privacy</h3>
-            <p>We use cookies and other technologies to personalize your experience, perform marketing, and collect analytics. Learn more in our <a href="#" style="color:white;">Privacy Policy</a>.</p>
-        </div>
-        <div class="privacy-actions">
-            <button class="priv-btn accept" onclick="dismissPrivacy()">Accept</button>
-            <button class="priv-btn decline" onclick="dismissPrivacy()">Decline</button>
-        </div>
-    </div>
-
-    <!-- FLOATING MEMBERS ONLY STICKER BADGE -->
-    <div class="floating-badge">
-        <span>👑</span> Members Only
-    </div>
-
-    <!-- SYSTEM INTERFACE SCRIPTS -->
+    <!-- APP OPERATIONAL SCRIPTS -->
     <script>
         let bucket = [];
-        
-        // Loop marquee messages mirroring the reference site mechanics
+        // Replace with your exact South African business WhatsApp number (include country code without +)
+        const WHATSAPP_NUMBER = "27615438104"; 
+
         const marqueeMessages = [
-            "DELIVERY IN 2 TO 5 BUSINESS DAYS ACROSS ZA",
-            "RETURN ONLINE OR IN-STORE AT DISPATCH HUB",
-            "FREE SHIPPING ON ORDERS VALUED OVER R1000"
+            "FREE SHIPPING ON ORDERS OVER R1000 ACROSS ZA",
+            "SECURE ORDER FULFILLMENT ROUTED VIA WHATSAPP TERMINAL",
+            "IINIIKO AW 26' DROP NOW ACTIVE — CHOOSE YOUR CODES"
         ];
         let marqueeIndex = 0;
         setInterval(() => {
@@ -823,7 +612,6 @@
             document.getElementById('promoMarquee').innerText = marqueeMessages[marqueeIndex];
         }, 4000);
 
-        // UI Open/Close Toggle Handlers
         function toggleDrawer(open) {
             document.getElementById('navDrawerOverlay').style.left = open ? '0' : '-100%';
         }
@@ -832,32 +620,6 @@
             document.getElementById('bucketOverlay').style.left = open ? '0' : '-100%';
         }
 
-        function togglePopup(open) {
-            const popup = document.getElementById('whatsappPopup');
-            if(open) popup.classList.add('active');
-            else popup.classList.remove('active');
-        }
-
-        // Trigger community popup automatically on deliberate scrolling actions
-        window.addEventListener('scroll', function dynamicScrollTrigger() {
-            if(window.scrollY > 400) {
-                togglePopup(true);
-                window.removeEventListener('scroll', dynamicScrollTrigger);
-            }
-        });
-
-        // Initialize user data interaction layers
-        window.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                document.getElementById('privacyBanner').classList.add('active');
-            }, 1500);
-        });
-
-        function dismissPrivacy() {
-            document.getElementById('privacyBanner').classList.remove('active');
-        }
-
-        // Production Array Matrix Additions
         function addToBucket(name, price) {
             const trackingId = 'INK-' + Math.floor(Math.random() * 90000 + 10000);
             bucket.push({id: trackingId, name: name, price: price});
@@ -871,32 +633,62 @@
         }
 
         function updateBucketDOM() {
-            const counter = document.getElementById('bucketCount');
+            document.getElementById('bucketCount').innerText = bucket.length;
             const container = document.getElementById('bucketContainer');
-            counter.innerText = bucket.length;
             container.innerHTML = '';
+
+            let total = 0;
 
             if(bucket.length === 0) {
                 container.innerHTML = `<li style="text-align:center; color:#555; font-size:12px; margin-top:50px; letter-spacing:1px;">YOUR BUCKET LIST IS CURRENTLY EMPTY</li>`;
+                document.getElementById('bucketTotal').innerText = "R0";
                 return;
             }
 
             bucket.forEach(item => {
+                total += item.price;
                 const li = document.createElement('li');
                 li.style.display = 'flex';
                 li.style.justifyContent = 'space-between';
                 li.style.alignItems = 'center';
                 li.style.padding = '15px 0';
-                li.style.borderBottom = '1px solid #111';
+                li.style.borderBottom = '1px solid var(--border-color)';
                 li.innerHTML = `
                     <div>
                         <h4 style="font-size:13px; text-transform:uppercase; letter-spacing:1px;">${item.name}</h4>
-                        <p style="color:#666; font-size:12px; margin-top:2px;">${item.price}</p>
+                        <p style="color:var(--text-muted); font-size:12px; margin-top:2px;">R${item.price}</p>
                     </div>
                     <button onclick="removeFromBucket('${item.id}')" style="background:none; border:none; color:#ff4747; cursor:pointer; font-size:11px; text-transform:uppercase;">Remove</button>
                 `;
                 container.appendChild(li);
             });
+
+            document.getElementById('bucketTotal').innerText = `R${total}`;
+        }
+
+        // DYNAMIC WHATSAPP ORDER SHEET DISPATCH GENERATOR
+        function generateWhatsAppLink() {
+            if (bucket.length === 0) {
+                alert("Your bucket is empty. Please choose garments before checkout.");
+                return false;
+            }
+
+            let message = "Yebo! I want to order the following collection from IINIIKO:\n\n";
+            let total = 0;
+            
+            bucket.forEach((item, index) => {
+                message += `${index + 1}. ${item.name} — R${item.price}\n`;
+                total += item.price;
+            });
+
+            message += `\n*Total Amount:* R${total}\n`;
+            message += "\nPlease verify availability and send payment information coordinates.";
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+            
+            document.getElementById('whatsappCheckoutBtn').href = whatsappUrl;
+            return true;
         }
     </script>
 </body>
