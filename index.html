@@ -12,12 +12,12 @@
 
     <style>
         :root {
-            --bg-color: #0a0a0a;
-            --surface-color: #121212;
-            --border-color: #222222;
-            --text-main: #ffffff;
-            --text-muted: #888888;
-            --accent-gold: #c3a36b;
+            --bg-color: #ffffff;
+            --surface-color: #f9f9f9;
+            --border-color: #e5e5e5;
+            --text-main: #111111;
+            --text-muted: #666666;
+            --accent-gold: #b38f4f;
             --font-display: 'Syncopate', sans-serif;
             --font-body: 'Space Grotesk', sans-serif;
         }
@@ -44,7 +44,7 @@
             background: var(--bg-color);
         }
         ::-webkit-scrollbar-thumb {
-            background: #333;
+            background: #cccccc;
             border-radius: 3px;
         }
 
@@ -65,7 +65,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
             padding: 15px 5%;
@@ -121,6 +121,7 @@
             gap: 20px;
             font-size: 1.1rem;
             cursor: pointer;
+            color: var(--text-main);
         }
 
         .cart-icon-wrapper {
@@ -131,7 +132,7 @@
             position: absolute;
             top: -8px;
             right: -10px;
-            background: var(--accent-gold);
+            background: var(--text-main);
             color: var(--bg-color);
             font-size: 0.65rem;
             font-weight: bold;
@@ -142,8 +143,8 @@
         /* Hero Banner Section */
         .hero-banner {
             position: relative;
-            height: calc(100vh - 100px);
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.9)), url('20260630_181222.jpg') no-repeat center top;
+            height: calc(100vh - 80px);
+            background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.85)), url('20260630_181222.jpg') no-repeat center top;
             background-size: cover;
             display: flex;
             align-items: flex-end;
@@ -151,25 +152,34 @@
         }
 
         .hero-content {
-            max-width: 600px;
-            margin-bottom: 40px;
+            max-width: 750px;
+            margin-bottom: 20px;
         }
 
         .hero-tagline {
             font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             color: var(--accent-gold);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-weight: bold;
         }
 
         .hero-title {
             font-family: var(--font-display);
-            font-size: 2.5rem;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
+            font-size: 2.8rem;
+            line-height: 1.15;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            color: #000000;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #222222;
+            margin-bottom: 25px;
+            font-weight: 400;
         }
 
         .hero-btn {
@@ -196,6 +206,7 @@
             border-bottom: 1px solid var(--border-color);
             padding: 25px 5%;
             text-align: center;
+            background: var(--surface-color);
         }
 
         .manifesto-text {
@@ -213,6 +224,7 @@
             letter-spacing: 3px;
             margin: 60px 0 20px 0;
             padding: 0 5%;
+            color: var(--text-main);
         }
 
         .section-subtitle {
@@ -235,7 +247,7 @@
 
         .interactive-lookbook-wrapper {
             position: relative;
-            background: #111;
+            background: var(--surface-color);
             border: 1px solid var(--border-color);
             overflow: hidden;
             display: flex;
@@ -248,8 +260,9 @@
             width: 100%;
             height: 100%;
             display: block;
-            object-fit: contain;
+            object-fit: cover;
             object-position: center top;
+            cursor: zoom-in;
         }
 
         /* Touch & Play Interactive Hotspots */
@@ -257,7 +270,7 @@
             position: absolute;
             width: 24px;
             height: 24px;
-            background: rgba(195, 163, 107, 0.4);
+            background: rgba(179, 143, 79, 0.4);
             border: 2px solid var(--accent-gold);
             border-radius: 50%;
             cursor: pointer;
@@ -265,6 +278,7 @@
             box-shadow: 0 0 15px var(--accent-gold);
             animation: pulse-ring 2s infinite;
             transition: background 0.3s, transform 0.3s;
+            z-index: 10;
         }
 
         .hotspot:hover {
@@ -273,9 +287,9 @@
         }
 
         @keyframes pulse-ring {
-            0% { box-shadow: 0 0 0 0 rgba(195, 163, 107, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(195, 163, 107, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(195, 163, 107, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(179, 143, 79, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(179, 143, 79, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(179, 143, 79, 0); }
         }
 
         /* Hotspot alignment settings */
@@ -318,7 +332,7 @@
         }
 
         .lookbook-item-card.active-card {
-            background: rgba(195, 163, 107, 0.05);
+            background: rgba(179, 143, 79, 0.05);
             border-left: 3px solid var(--accent-gold);
             padding-left: 10px;
         }
@@ -326,9 +340,10 @@
         .lookbook-item-image {
             width: 50px;
             height: 50px;
-            object-fit: contain;
+            object-fit: cover;
             border: 1px solid var(--border-color);
-            background: #181818;
+            background: #ffffff;
+            cursor: zoom-in;
         }
 
         .lookbook-item-details {
@@ -340,6 +355,7 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
+            color: var(--text-main);
         }
 
         .lookbook-item-sub {
@@ -399,7 +415,7 @@
         .filter-btn.active, .filter-btn:hover {
             color: var(--text-main);
             border-color: var(--text-main);
-            background: rgba(255,255,255,0.02);
+            background: rgba(0,0,0,0.02);
         }
 
         /* Products Display Core Grid */
@@ -427,7 +443,7 @@
 
         .product-visual {
             position: relative;
-            background: #181818;
+            background: #ffffff;
             aspect-ratio: 1 / 1.1;
             display: flex;
             justify-content: center;
@@ -438,14 +454,15 @@
         .product-main-img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
+            cursor: zoom-in;
         }
 
         .product-badge {
             position: absolute;
             top: 15px;
             left: 15px;
-            background: rgba(0,0,0,0.8);
+            background: rgba(255,255,255,0.9);
             border: 1px solid var(--border-color);
             padding: 4px 10px;
             font-size: 0.65rem;
@@ -453,6 +470,7 @@
             letter-spacing: 1px;
             color: var(--accent-gold);
             z-index: 2;
+            font-weight: bold;
         }
 
         .product-info-panel {
@@ -477,6 +495,7 @@
             letter-spacing: 0.5px;
             margin-bottom: 8px;
             line-height: 1.4;
+            color: var(--text-main);
         }
 
         .product-desc-lbl {
@@ -492,7 +511,7 @@
             justify-content: space-between;
             align-items: center;
             padding-top: 10px;
-            border-top: 1px solid rgba(255,255,255,0.03);
+            border-top: 1px solid rgba(0,0,0,0.03);
         }
 
         .product-price-lbl {
@@ -522,7 +541,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(4px);
             z-index: 200;
             opacity: 0;
@@ -542,7 +561,7 @@
             width: 100%;
             max-width: 450px;
             height: 100vh;
-            background: var(--surface-color);
+            background: var(--bg-color);
             border-left: 1px solid var(--border-color);
             z-index: 201;
             display: flex;
@@ -566,6 +585,7 @@
             font-family: var(--font-display);
             font-size: 1rem;
             letter-spacing: 1px;
+            color: var(--text-main);
         }
 
         .cart-drawer-close {
@@ -594,8 +614,9 @@
         .cart-item-thumb {
             width: 60px;
             height: 60px;
-            object-fit: contain;
+            object-fit: cover;
             border: 1px solid var(--border-color);
+            cursor: zoom-in;
         }
 
         .cart-item-meta {
@@ -607,6 +628,7 @@
             text-transform: uppercase;
             font-weight: 600;
             letter-spacing: 0.5px;
+            color: var(--text-main);
         }
 
         .cart-item-price {
@@ -640,7 +662,7 @@
         .cart-drawer-footer {
             padding: 25px;
             border-top: 1px solid var(--border-color);
-            background: #161616;
+            background: var(--surface-color);
         }
 
         .cart-summary-row {
@@ -650,6 +672,7 @@
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            color: var(--text-main);
         }
 
         .cart-total-amount {
@@ -681,7 +704,7 @@
 
         /* Professional Multi-Column Footer */
         footer {
-            background-color: #050505;
+            background-color: var(--surface-color);
             border-top: 1px solid var(--border-color);
             padding: 70px 5% 30px 5%;
         }
@@ -752,7 +775,7 @@
         }
 
         .footer-newsletter-input::placeholder {
-            color: #444;
+            color: #999;
         }
 
         .footer-newsletter-btn {
@@ -810,6 +833,76 @@
             opacity: 0.7;
         }
 
+        /* Full Screen Zoom-Slide Lightbox Modal System */
+        .preview-modal-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            z-index: 500;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .lightbox-close-trigger {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            background: transparent;
+            border: none;
+            color: #111111;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 510;
+            transition: transform 0.2s;
+        }
+
+        .lightbox-close-trigger:hover {
+            transform: scale(1.1);
+        }
+
+        .lightbox-zoom-instructions {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #111111;
+            color: #ffffff;
+            padding: 8px 20px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 20px;
+            pointer-events: none;
+            z-index: 510;
+        }
+
+        .lightbox-viewport-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: grab;
+        }
+
+        .lightbox-viewport-container:active {
+            cursor: grabbing;
+        }
+
+        .lightbox-view-img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            transform-origin: center center;
+            transition: transform 0.1s ease-out;
+            will-change: transform;
+        }
+
         /* Responsive Breakpoints */
         @media (max-width: 992px) {
             .showcase-container {
@@ -829,7 +922,7 @@
                 display: none;
             }
             .hero-title {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
             .footer-grid {
                 grid-template-columns: 1fr;
@@ -880,6 +973,9 @@
         <div class="hero-content">
             <div class="hero-tagline">YORUBA ROOTS // GLOBAL VISION [Locations: Durban, South Coast, Chatsworth, KwaMashu, Mthwalume, Newlands West, Johannesburg ]</div>
             <h1 class="hero-title">BORN IN CHAOS.<br>BUILT FOR MORE.</h1>
+            <p class="hero-description">
+                Welcome to the world of IINIKO CLOTHING. Engineered at the intersection of international independent fashion parameters and uncompromising cultural craftsmanship, IINIKO represents a global vision. Each garment functions as an architectural building block for a premium streetwear uniform, offering structured heavyweight silhouettes, raw vintage textile treatments, and deep narrative expressions of resilience. Purpose-built for independent minds traversing the modern diaspora.
+            </p>
             <a href="#catalog" class="hero-btn">Explore Drop</a>
         </div>
     </section>
@@ -892,12 +988,12 @@
     <!-- Touch & Play Interactive Lookbook Box Section -->
     <section class="lookbook-section">
         <h2 class="section-title">TOUCH & PLAY INTERACTIVE LOOK</h2>
-        <div class="section-subtitle">Tap or Hover structural hotspots to preview and construct your uniform</div>
+        <div class="section-subtitle">Tap structural hotspots to preview or click images directly to enter free zoom-slide preview</div>
 
         <div class="showcase-container">
             <!-- Left Side: Interactive Hotspot Stack Frame -->
             <div class="interactive-lookbook-wrapper">
-                <img src="mod5.png" alt="Iniko Collection Showcase" class="interactive-image">
+                <img src="mod5.png" alt="Iniko Collection Showcase" class="interactive-image launch-preview">
                 
                 <div class="hotspot" id="spot-jacket" onclick="activateHotspotItem('jacket')"></div>
                 <div class="hotspot" id="spot-denim" onclick="activateHotspotItem('denim')"></div>
@@ -919,7 +1015,7 @@
     </section>
 
     <!-- Product Grid Catalog System -->
-    <section id="catalog" style="background-color: #0c0c0c; padding: 40px 0; border-top: 1px solid var(--border-color);">
+    <section id="catalog" style="background-color: var(--bg-color); padding: 40px 0; border-top: 1px solid var(--border-color);">
         <h2 class="section-title">THE ARCHIVE CATALOGUE</h2>
         <div class="section-subtitle">Premium quality. Purposeful design. Rooted in culture.</div>
 
@@ -960,6 +1056,15 @@
             <button class="checkout-action-btn" onclick="checkoutToWhatsApp()">
                 <i class="fab fa-whatsapp"></i> Checkout via WhatsApp
             </button>
+        </div>
+    </div>
+
+    <!-- Full-Screen Interactive Zoom & Free Slide Lightbox Target Container -->
+    <div class="preview-modal-lightbox" id="preview-lightbox">
+        <button class="lightbox-close-trigger" onclick="closeImagePreview()"><i class="fas fa-times"></i></button>
+        <div class="lightbox-zoom-instructions">Drag/Slide to pan • Use Mouse Wheel / Pinch to Zoom</div>
+        <div class="lightbox-viewport-container" id="lightbox-pan-viewport">
+            <img src="" class="lightbox-view-img" id="lightbox-target-img" alt="Zoom Preview Asset">
         </div>
     </div>
 
@@ -1071,10 +1176,19 @@
         let activeLookbookSelectionKey = "denim"; 
         let globalShoppingBag = [];
 
+        // Dynamic State Tracker for Lightbox Zoom/Slide Control
+        let isDraggingLightbox = false;
+        let lightboxStartPanX = 0;
+        let lightboxStartPanY = 0;
+        let lightboxCurrentOffsetX = 0;
+        let lightboxCurrentOffsetY = 0;
+        let lightboxScaleFactor = 1;
+
         window.addEventListener('DOMContentLoaded', () => {
             renderLookbookBreakdownPanel();
             renderCatalogGrid(PRODUCTS_DATABASE);
             activateHotspotItem('denim');
+            initializeLightboxControlListeners();
         });
 
         // Interactive Interface Components logic
@@ -1086,16 +1200,22 @@
                 const isActive = item.key === activeLookbookSelectionKey;
                 const card = document.createElement('div');
                 card.className = `lookbook-item-card ${isActive ? 'active-card' : ''}`;
-                card.onclick = () => activateHotspotItem(item.key);
-
+                
+                // Allow card clicks to change focus, image clicks to launch zoom modal
                 card.innerHTML = `
-                    <img src="${item.img}" class="lookbook-item-image" alt="Thumbnail">
-                    <div class="lookbook-item-details">
+                    <img src="${item.img}" class="lookbook-item-image stop-prop-preview" alt="Thumbnail">
+                    <div class="lookbook-item-details" onclick="activateHotspotItem('${item.key}')">
                         <div class="lookbook-item-name">${item.name}</div>
                         <div class="lookbook-item-sub">${item.sub}</div>
                     </div>
-                    <div class="lookbook-item-price">R${item.price}</div>
+                    <div class="lookbook-item-price" onclick="activateHotspotItem('${item.key}')">R${item.price}</div>
                 `;
+                
+                card.querySelector('.stop-prop-preview').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    openImagePreview(item.img);
+                });
+
                 container.appendChild(card);
             });
         }
@@ -1106,7 +1226,7 @@
             
             document.querySelectorAll('.hotspot').forEach(el => {
                 el.style.transform = 'translate(-50%, -50%) scale(1)';
-                el.style.backgroundColor = 'rgba(195, 163, 107, 0.4)';
+                el.style.backgroundColor = 'rgba(179, 143, 79, 0.4)';
             });
             const activeNode = document.getElementById(`spot-${key}`);
             if (activeNode) {
@@ -1133,7 +1253,7 @@
                 card.innerHTML = `
                     <div class="product-visual">
                         <span class="product-badge">${p.badge}</span>
-                        <img src="${p.img}" class="product-main-img" alt="${p.name}">
+                        <img src="${p.img}" class="product-main-img" alt="${p.name}" onclick="openImagePreview('${p.img}')">
                     </div>
                     <div class="product-info-panel">
                         <span class="product-cat-lbl">${p.category}</span>
@@ -1209,7 +1329,7 @@
                 const row = document.createElement('div');
                 row.className = 'cart-item-row';
                 row.innerHTML = `
-                    <img src="${item.img}" class="cart-item-thumb" alt="Product Image">
+                    <img src="${item.img}" class="cart-item-thumb" alt="Product Image" onclick="openImagePreview('${item.img}')">
                     <div class="cart-item-meta">
                         <div class="cart-item-name">${item.name}</div>
                         <div class="cart-item-price">R${item.price}</div>
@@ -1222,6 +1342,91 @@
             });
 
             totalDisplay.textContent = `R${computedSum}.00`;
+        }
+
+        // Setup triggers for model images
+        document.querySelectorAll('.launch-preview').forEach(img => {
+            img.addEventListener('click', () => {
+                openImagePreview(img.getAttribute('src'));
+            });
+        });
+
+        // Immersive Image Preview Lightbox Mechanics
+        function openImagePreview(imageSource) {
+            const modal = document.getElementById('preview-lightbox');
+            const targetImg = document.getElementById('lightbox-target-img');
+            
+            // Reset transforms to safe original boundaries
+            lightboxScaleFactor = 1;
+            lightboxCurrentOffsetX = 0;
+            lightboxCurrentOffsetY = 0;
+            
+            targetImg.src = imageSource;
+            targetImg.style.transform = `translate(0px, 0px) scale(1)`;
+            
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Lock down main page scroll
+        }
+
+        function closeImagePreview() {
+            document.getElementById('preview-lightbox').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Free up main layout scroll parameters
+        }
+
+        function initializeLightboxControlListeners() {
+            const viewport = document.getElementById('lightbox-pan-viewport');
+            const targetImg = document.getElementById('lightbox-target-img');
+
+            // Free Slide Pan Gesture Handlers
+            viewport.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                isDraggingLightbox = true;
+                lightboxStartPanX = e.clientX - lightboxCurrentOffsetX;
+                lightboxStartPanY = e.clientY - lightboxCurrentOffsetY;
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (!isDraggingLightbox) return;
+                lightboxCurrentOffsetX = e.clientX - lightboxStartPanX;
+                lightboxCurrentOffsetY = e.clientY - lightboxStartPanY;
+                targetImg.style.transform = `translate(${lightboxCurrentOffsetX}px, ${lightboxCurrentOffsetY}px) scale(${lightboxScaleFactor})`;
+            });
+
+            window.addEventListener('mouseup', () => {
+                isDraggingLightbox = false;
+            });
+
+            // Touch device gestures support mapping
+            viewport.addEventListener('touchstart', (e) => {
+                if (e.touches.length === 1) {
+                    isDraggingLightbox = true;
+                    lightboxStartPanX = e.touches[0].clientX - lightboxCurrentOffsetX;
+                    lightboxStartPanY = e.touches[0].clientY - lightboxCurrentOffsetY;
+                }
+            });
+
+            viewport.addEventListener('touchmove', (e) => {
+                if (!isDraggingLightbox || e.touches.length !== 1) return;
+                lightboxCurrentOffsetX = e.touches[0].clientX - lightboxStartPanX;
+                lightboxCurrentOffsetY = e.touches[0].clientY - lightboxStartPanY;
+                targetImg.style.transform = `translate(${lightboxCurrentOffsetX}px, ${lightboxCurrentOffsetY}px) scale(${lightboxScaleFactor})`;
+            });
+
+            viewport.addEventListener('touchend', () => {
+                isDraggingLightbox = false;
+            });
+
+            // Dynamic Mouse Wheel Fluid Zoom Engine
+            viewport.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                let zoomIntensity = 0.12;
+                if (e.deltaY < 0) {
+                    lightboxScaleFactor += zoomIntensity;
+                } else {
+                    lightboxScaleFactor = Math.max(0.6, lightboxScaleFactor - zoomIntensity);
+                }
+                targetImg.style.transform = `translate(${lightboxCurrentOffsetX}px, ${lightboxCurrentOffsetY}px) scale(${lightboxScaleFactor})`;
+            }, { passive: false });
         }
 
         // WhatsApp Direct Order Router
