@@ -4,6 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IINIKO CLOTHING | Premium Culture & Streetwear</title>
+
+    <!-- IINIKO Premium Icon Package Configuration -->
+    <link rel="shortcut icon" href="IINIIKO_Web_Icons_Package/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="IINIIKO_Web_Icons_Package/favicon.ico" type="image/x-icon">
+    
+    <!-- Standard PNG Favicons -->
+    <link rel="icon" type="image/png" sizes="16x16" href="IINIIKO_Web_Icons_Package/icon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="IINIIKO_Web_Icons_Package/icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="IINIIKO_Web_Icons_Package/icon-48x48.png">
+    <link rel="icon" type="image/png" sizes="57x57" href="IINIIKO_Web_Icons_Package/icon-57x57.png">
+    <link rel="icon" type="image/png" sizes="60x60" href="IINIIKO_Web_Icons_Package/icon-60x60.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="IINIIKO_Web_Icons_Package/icon-64x64.png">
+    <link rel="icon" type="image/png" sizes="72x72" href="IINIIKO_Web_Icons_Package/icon-72x72.png">
+    <link rel="icon" type="image/png" sizes="76x76" href="IINIIKO_Web_Icons_Package/icon-76x76.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="IINIIKO_Web_Icons_Package/icon-96x96.png">
+    <link rel="icon" type="image/png" sizes="114x114" href="IINIIKO_Web_Icons_Package/icon-114x114.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="IINIIKO_Web_Icons_Package/icon-120x120.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="IINIIKO_Web_Icons_Package/icon-128x128.png">
+    <link rel="icon" type="image/png" sizes="144x144" href="IINIIKO_Web_Icons_Package/icon-144x144.png">
+    <link rel="icon" type="image/png" sizes="152x152" href="IINIIKO_Web_Icons_Package/icon-152x152.png">
+    <link rel="icon" type="image/png" sizes="167x167" href="IINIIKO_Web_Icons_Package/icon-167x167.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="IINIIKO_Web_Icons_Package/icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="IINIIKO_Web_Icons_Package/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="IINIIKO_Web_Icons_Package/icon-256x256.png">
+    <link rel="icon" type="image/png" sizes="384x384" href="IINIIKO_Web_Icons_Package/icon-384x384.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="IINIIKO_Web_Icons_Package/icon-512x512.png">
+
+    <!-- Apple Touch Icons Specific Optimization -->
+    <link rel="apple-touch-icon" href="IINIIKO_Web_Icons_Package/icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="IINIIKO_Web_Icons_Package/icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="IINIIKO_Web_Icons_Package/icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="IINIIKO_Web_Icons_Package/icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="IINIIKO_Web_Icons_Package/icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="IINIIKO_Web_Icons_Package/icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="IINIIKO_Web_Icons_Package/icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="IINIIKO_Web_Icons_Package/icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="IINIIKO_Web_Icons_Package/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="IINIIKO_Web_Icons_Package/icon-167x167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="IINIIKO_Web_Icons_Package/icon-180x180.png">
+
+    <!-- PWA Webmanifest Engine Reference -->
+    <link rel="manifest" href="IINIIKO_Web_Icons_Package/site.webmanifest">
+
     <!-- Google Fonts & FontAwesome for Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1401,7 +1444,7 @@
                 if (e.touches.length === 1) {
                     isDraggingLightbox = true;
                     lightboxStartPanX = e.touches[0].clientX - lightboxCurrentOffsetX;
-                    lightboxStartPanY = e.touches[0].clientY - lightboxCurrentOffsetY;
+                    lightboxStartPanY = e.touches[0].OffsetY - lightboxCurrentOffsetY;
                 }
             });
 
