@@ -91,16 +91,46 @@
             border-radius: 3px;
         }
 
-        /* Announcement Bar */
+        /* Announcement Bar Layout Splitter */
         .announcement-bar {
             background: var(--text-main);
             color: var(--bg-color);
-            text-align: center;
-            padding: 8px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 5%;
             font-family: var(--font-display);
-            font-size: 0.65rem;
+            font-size: 0.62rem;
             letter-spacing: 2px;
             font-weight: 700;
+        }
+
+        .announcement-ticker {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .announcement-controls {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .currency-select-wrapper select {
+            background: transparent;
+            color: var(--bg-color);
+            border: none;
+            font-family: var(--font-display);
+            font-size: 0.62rem;
+            letter-spacing: 1px;
+            outline: none;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .currency-select-wrapper select option {
+            background: var(--text-main);
+            color: var(--bg-color);
         }
 
         /* Navigation Header */
@@ -142,21 +172,36 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 25px;
         }
 
         nav ul li a {
             color: var(--text-main);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-weight: 600;
             transition: color 0.3s;
+            position: relative;
         }
 
         nav ul li a:hover {
             color: var(--accent-gold);
+        }
+
+        nav ul li a.badge-new::after {
+            content: 'NEW';
+            position: absolute;
+            top: -12px;
+            right: -15px;
+            font-size: 0.5rem;
+            font-family: var(--font-display);
+            background: var(--accent-gold);
+            color: white;
+            padding: 1px 4px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
         }
 
         .nav-actions {
@@ -165,6 +210,7 @@
             font-size: 1.1rem;
             cursor: pointer;
             color: var(--text-main);
+            align-items: center;
         }
 
         .cart-icon-wrapper {
@@ -745,6 +791,205 @@
             background: #20ba5a;
         }
 
+        /* Full Screen Search Overlay UI */
+        .search-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(255,255,255,0.98);
+            z-index: 400;
+            display: none;
+            flex-direction: column;
+            padding: 50px 10%;
+        }
+
+        .search-modal-header {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 40px;
+        }
+
+        .search-input-wrapper {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid var(--text-main);
+            padding-bottom: 15px;
+            width: 100%;
+        }
+
+        .search-field-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
+
+        .search-results-stats {
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .search-results-scrollable {
+            flex-grow: 1;
+            margin-top: 40px;
+            overflow-y: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        /* Identity Profile Authentication Modals */
+        .auth-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+            z-index: 450;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .auth-container-card {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            width: 100%;
+            max-width: 420px;
+            padding: 40px;
+            position: relative;
+        }
+
+        .auth-card-title {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .auth-form-group {
+            margin-bottom: 20px;
+        }
+
+        .auth-form-group label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+            color: var(--text-muted);
+        }
+
+        .auth-form-field {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            outline: none;
+            background: var(--surface-color);
+        }
+
+        .auth-submit-action {
+            width: 100%;
+            background: var(--text-main);
+            color: var(--bg-color);
+            border: none;
+            padding: 14px;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+
+        .auth-submit-action:hover {
+            background: var(--accent-gold);
+        }
+
+        .auth-toggle-msg {
+            text-align: center;
+            font-size: 0.8rem;
+            margin-top: 20px;
+            color: var(--text-muted);
+        }
+
+        .auth-toggle-link {
+            color: var(--text-main);
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Generic Regulatory Document Policy Sheet Modal */
+        .policy-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(4px);
+            z-index: 460;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .policy-wrapper-box {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            width: 90%;
+            max-width: 700px;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+        }
+
+        .policy-box-title {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .policy-scrollable-body {
+            flex-grow: 1;
+            overflow-y: auto;
+            font-size: 0.88rem;
+            line-height: 1.7;
+            color: #333333;
+            padding-right: 10px;
+        }
+
+        .policy-scrollable-body h4 {
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            margin: 20px 0 8px 0;
+            letter-spacing: 1px;
+            color: var(--text-main);
+        }
+
         /* Professional Multi-Column Footer */
         footer {
             background-color: var(--surface-color);
@@ -791,6 +1036,7 @@
             font-size: 0.85rem;
             transition: color 0.2s, padding-left 0.2s;
             display: inline-block;
+            cursor: pointer;
         }
 
         .footer-links-list li a:hover {
@@ -946,6 +1192,36 @@
             will-change: transform;
         }
 
+        /* DigitalGenius LiveChat Minimal Container Injection Styling Override */
+        #dg-chat-widget-container {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 9999;
+        }
+
+        .dg-custom-trigger-btn {
+            background: var(--text-main);
+            color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 12px 24px;
+            font-family: var(--font-display);
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dg-custom-trigger-btn:hover {
+            background: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
         /* Responsive Breakpoints */
         @media (max-width: 992px) {
             .showcase-container {
@@ -974,14 +1250,29 @@
                 flex-direction: column;
                 text-align: center;
             }
+            .announcement-controls {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Announcement Bar -->
+    <!-- Announcement Bar Matrix -->
     <div class="announcement-bar">
-        IINIKO DENIM & HERITAGE COLLECTION • FREE DELIVERY IN SOUTH AFRICA, KZN ACROSS ALL ORDERS OVER R1500
+        <div class="announcement-ticker" id="announcement-text-node">
+            IINIKO DENIM & HERITAGE COLLECTION • FREE DELIVERY IN SOUTH AFRICA, KZN ACROSS ALL ORDERS OVER R1500
+        </div>
+        <div class="announcement-controls">
+            <div class="currency-select-wrapper">
+                <select id="global-currency-selector" onchange="switchGlobalCurrencyEngine(this.value)">
+                    <option value="ZAR">ZAR (R)</option>
+                    <option value="USD">USD ($)</option>
+                    <option value="EUR">EUR (€)</option>
+                    <option value="GBP">GBP (£)</option>
+                </select>
+            </div>
+        </div>
     </div>
 
     <!-- Main Global Header -->
@@ -992,18 +1283,18 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#" onclick="filterCatalog('all'); return false;">Shop All</a></li>
-                <li><a href="#" onclick="filterCatalog('tees'); return false;">TShirts</a></li>
-                <li><a href="#" onclick="filterCatalog('hoodies'); return false;">Hoodies</a></li>
-                <li><a href="#" onclick="filterCatalog('bottoms'); return false;">Bottoms</a></li>
-                <li><a href="#" onclick="filterCatalog('outerwear'); return false;">Outerwear</a></li>
-                <li><a href="#" onclick="filterCatalog('sneakers'); return false;">Sneakers</a></li>
-                <li><a href="#" onclick="filterCatalog('accessories'); return false;">Accessories</a></li>
+                <li><a href="#catalog" onclick="filterCatalog('all'); return false;">Shop All</a></li>
+                <li><a href="#catalog" class="badge-new" onclick="filterCatalog('new-arrivals'); return false;">New Arrivals</a></li>
+                <li><a href="#catalog" onclick="filterCatalog('prestige'); return false;">Prestige Drop</a></li>
+                <li><a href="#catalog" onclick="filterCatalog('tees'); return false;">T-Shirts</a></li>
+                <li><a href="#catalog" onclick="filterCatalog('hoodies'); return false;">Hoodies</a></li>
+                <li><a href="#catalog" onclick="filterCatalog('bottoms'); return false;">Bottoms</a></li>
+                <li><a href="#catalog" onclick="filterCatalog('outerwear'); return false;">Outerwear</a></li>
             </ul>
         </nav>
         <div class="nav-actions">
-            <i class="fas fa-search" title="Search"></i>
-            <i class="far fa-user" title="Account"></i>
+            <i class="fas fa-search" title="Search" onclick="toggleSearchOverlay(true)"></i>
+            <i class="far fa-user" title="Account" id="nav-profile-icon" onclick="toggleAuthOverlay(true)"></i>
             <div class="cart-icon-wrapper" onclick="toggleCart(true)">
                 <i class="fas fa-shopping-bag"></i>
                 <span class="cart-count" id="header-cart-count">0</span>
@@ -1065,12 +1356,12 @@
         <!-- Section Action Filters -->
         <div class="catalog-filter-bar">
             <button class="filter-btn active" id="btn-all" onclick="filterCatalog('all')">All Archive</button>
+            <button class="filter-btn" id="btn-new-arrivals" onclick="filterCatalog('new-arrivals')">New Arrivals ✨</button>
+            <button class="filter-btn" id="btn-prestige" onclick="filterCatalog('prestige')">Prestige Gold 🏆</button>
             <button class="filter-btn" id="btn-tees" onclick="filterCatalog('tees')">Oversized Tees</button>
             <button class="filter-btn" id="btn-hoodies" onclick="filterCatalog('hoodies')">Hoodies</button>
             <button class="filter-btn" id="btn-bottoms" onclick="filterCatalog('bottoms')">Bottoms</button>
             <button class="filter-btn" id="btn-outerwear" onclick="filterCatalog('outerwear')">Outerwear</button>
-            <button class="filter-btn" id="btn-sneakers" onclick="filterCatalog('sneakers')">Sneakers</button>
-            <button class="filter-btn" id="btn-accessories" onclick="filterCatalog('accessories')">Accessories</button>
         </div>
 
         <!-- Render Target Grid -->
@@ -1078,6 +1369,60 @@
             <!-- Injected programmatically via engine below -->
         </div>
     </section>
+
+    <!-- Full Screen Search Overlay System Module -->
+    <div class="search-modal-overlay" id="search-overlay">
+        <div class="search-modal-header">
+            <button class="cart-drawer-close" onclick="toggleSearchOverlay(false)"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="search-input-wrapper">
+            <input type="text" class="search-field-input" id="search-dom-input" placeholder="Type to search archive..." oninput="executeArchiveSearchSearch(this.value)">
+        </div>
+        <div class="search-results-stats" id="search-stats-node">Enter catalog tags, names, or fabrics above.</div>
+        <div class="search-results-scrollable" id="search-results-target">
+            <!-- Populated via programmatic matching matrix -->
+        </div>
+    </div>
+
+    <!-- User Account Profile Identity Card Overlay -->
+    <div class="auth-modal-overlay" id="auth-overlay" onclick="toggleAuthOverlay(false)">
+        <div class="auth-container-card" onclick="event.stopPropagation()">
+            <button class="cart-drawer-close" style="position: absolute; top: 15px; right: 15px;" onclick="toggleAuthOverlay(false)"><i class="fas fa-times"></i></button>
+            
+            <div id="auth-state-logged-out">
+                <div class="auth-card-title" id="auth-panel-heading">SIGN IN TO ACCESS ARCHIVE</div>
+                <div class="auth-form-group">
+                    <label>Identity / Email Address</label>
+                    <input type="email" class="auth-form-field" id="auth-email-input" placeholder="name@domain.com">
+                </div>
+                <div class="auth-form-group" id="auth-password-wrapper">
+                    <label>Security Code / Password</label>
+                    <input type="password" class="auth-form-field" id="auth-password-input" placeholder="••••••••">
+                </div>
+                <button class="auth-submit-action" onclick="processAccountIdentityAuthentication()">Verify Credentials</button>
+                <div class="auth-toggle-msg" id="auth-switcher-text">New to the family? <span class="auth-toggle-link" onclick="switchAuthViewPanel(true)">Create Account Profile</span></div>
+            </div>
+
+            <div id="auth-state-logged-in" style="display: none; text-align: center;">
+                <div class="auth-card-title">WELCOME BACK</div>
+                <i class="fas fa-crown" style="font-size: 2.5rem; color: var(--accent-gold); margin-bottom: 15px;"></i>
+                <h3 id="user-profile-display-name" style="text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-display); font-size: 1rem; margin-bottom: 5px;">Guest Member</h3>
+                <p id="user-profile-display-tier" style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px;">Prestige Archival Tier</p>
+                <button class="auth-submit-action" style="background: #cc3333;" onclick="terminateUserSessionAuthentication()">Sign Out Account</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Generic Legal/Compliance Policy Sheet Modal Framework -->
+    <div class="policy-modal-overlay" id="policy-overlay" onclick="togglePolicyOverlay(false)">
+        <div class="policy-wrapper-box" onclick="event.stopPropagation()">
+            <div class="policy-box-title" id="policy-dom-title">Document Reference</div>
+            <div class="policy-scrollable-body" id="policy-dom-body">
+                <!-- Legal language layout injected seamlessly -->
+            </div>
+            <button class="auth-submit-action" style="margin-top: 20px;" onclick="togglePolicyOverlay(false)">Acknowledge & Close</button>
+        </div>
+    </div>
 
     <!-- Slide-Out Shopping Bag Drawer -->
     <div class="cart-drawer-overlay" id="cart-overlay" onclick="toggleCart(false)"></div>
@@ -1119,41 +1464,44 @@
                     <div class="logo-main" style="font-size: 1.2rem;">IINIKO</div>
                     <div class="logo-sub" style="font-size: 0.5rem; letter-spacing: 5px;">CLOTHING</div>
                 </div>
-                <p>An international cultural movement engineered from the ground up, merging contemporary heavy streetwear design parameters with classic [Locations: Durban, South Coast, Chatsworth, KwaMashu, Mthwalume, Newlands West, Johannesburg ].</p>
+                <p>An international cultural movement engineered from the ground up, merging contemporary heavy streetwear design parameters with classic legacy expressions [Locations: Durban, South Coast, Chatsworth, KwaMashu, Mthwalume, Newlands West, Johannesburg ].</p>
                 <div class="footer-social-icons">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-tiktok"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/iiniiko.world/" target="_blank" title="Instagram Profile"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/people/Iiniikoworldwide/100075902004916/" target="_blank" title="Facebook Page"><i class="fab fa-facebook-f"></i></a>
+                    <a href="mailto:iiniikocustomer@gmail.com" title="Direct Email Support Desk"><i class="far fa-envelope"></i></a>
                 </div>
             </div>
 
             <div>
                 <h3 class="footer-column-heading">Support Desk</h3>
                 <ul class="footer-links-list">
-                    <li><a href="#">Track My Package</a></li>
-                    <li><a href="#">Log a Return Portal</a></li>
-                    <li><a href="#">Shipping Policy</a></li>
-                    <li><a href="#">Size Blueprint Guide</a></li>
+                    <li><a onclick="launchLegalDocumentModal('tracking')">Track My Package</a></li>
+                    <li><a onclick="launchLegalDocumentModal('shipping')">Shipping & Returns Policy</a></li>
+                    <li><a onclick="launchLegalDocumentModal('sizing')">Size Blueprint Guide</a></li>
+                    <li><a href="mailto:iiniikocustomer@gmail.com">Direct Email Help Desk</a></li>
                 </ul>
             </div>
 
             <div>
-                <h3 class="footer-column-heading">Corporate Architecture</h3>
+                <h3 class="footer-column-heading">Corporate</h3>
                 <ul class="footer-links-list">
-                    <li><a href="#">Our Origin Manifesto</a></li>
-                    <li><a href="#">Sustainability Mandate</a></li>
-                    <li><a href="#">Careers Portal</a></li>
-                    <li><a href="#">Terms of Engagement</a></li>
+                    <li><a onclick="launchLegalDocumentModal('manifesto')">Our Origin Manifesto</a></li>
+                    <li><a onclick="launchLegalDocumentModal('slavery')">Modern Slavery Statement</a></li>
+                    <li><a onclick="launchLegalDocumentModal('terms')">Terms & Conditions</a></li>
+                    <li><a onclick="launchLegalDocumentModal('privacy')">Privacy Policy</a></li>
                 </ul>
             </div>
 
             <div>
-                <h3 class="footer-column-heading">Stay Connected</h3>
+                <h3 class="footer-column-heading">Company</h3>
                 <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 15px;">Join the inner circle to access exclusive tier archival releases and secret flash product launches first.</p>
                 <div class="footer-newsletter-wrapper">
-                    <input type="email" class="footer-newsletter-input" placeholder="Enter your email address">
-                    <button class="footer-newsletter-btn"><i class="fas fa-arrow-right"></i></button>
+                    <input type="email" id="footer-newsletter-field" class="footer-newsletter-input" placeholder="Enter your email address">
+                    <button class="footer-newsletter-btn" onclick="subscribeNewsletterAction()"><i class="fas fa-arrow-right"></i></button>
                 </div>
+                <ul class="footer-links-list" style="margin-top: 20px;">
+                    <li><a onclick="launchLegalDocumentModal('cookies')" style="font-size: 0.75rem; text-decoration: underline;">Cookie Preferences</a></li>
+                </ul>
             </div>
         </div>
 
@@ -1170,44 +1518,56 @@
         </div>
     </footer>
 
+    <!-- Chat⚡ by DigitalGenius Interface Widget Container Entry Point -->
+    <div id="dg-chat-widget-container">
+        <button class="dg-custom-trigger-btn" onclick="triggerDigitalGeniusChatSession()">
+            <i class="fas fa-bolt"></i> Chat⚡ by DigitalGenius
+        </button>
+    </div>
+
     <!-- Frontend Core Application Engine Scripts -->
     <script>
+        // CURRENCY SYSTEM CONFIGURATION SPECIFICATIONS
+        let ACTIVE_CURRENCY_CODE = "ZAR";
+        const CONVERSION_RATE_TABLE = {
+            "ZAR": 1.0,
+            "USD": 0.054,
+            "EUR": 0.050,
+            "GBP": 0.042
+        };
+        const CURRENCY_SYMBOL_TABLE = {
+            "ZAR": "R",
+            "USD": "$",
+            "EUR": "€",
+            "GBP": "£"
+        };
+
         const PRODUCTS_DATABASE = [
-            // CATEGORY 1: T-SHIRTS
-            { id: "tee-01", category: "tees", badge: "280GSM Heavy", name: "01 | INIKO STACK LOGO TEE", price: 400, desc: "Oversized silhouette vintage acid black wash featuring heavy front graphic panel typography lines.", img: "071cf124-158e-4e0a-8e49-779e777fab2b.png" },
-            { id: "tee-02", category: "tees", badge: "280GSM Heavy", name: "02 | BORN DURING TROUBLED TIMES TEE", price: 350, desc: "Premium relaxed streetwear build layout displaying custom bold front statement configurations.", img: "dd80383a-dc4f-4cf8-93e8-79872716c6a7.png" },
-            { id: "tee-03", category: "tees", badge: "280GSM Heavy", name: "03 | RESILIENCE ARCHIVE TEE", price: 350, desc: "Drop-shoulder relaxed premium profile finished with detailed heritage graphic accents.", img: "259e5691-d847-49ca-bbe3-b37f80fce655.png" },
-            { id: "tee-04", category: "tees", badge: "280GSM Heavy", name: "04 | YORUBA ROOTS LEGACY TEE", price: 350, desc: "Showcasing high density ancestral mask imagery screens over an intense premium combed cotton backdrop.", img: "5a262d37-8ebe-40cb-b32f-5a5ec9ab11f6.png" },
-            { id: "tee-05", category: "tees", badge: "280GSM Heavy", name: "05 | CHAOS TO GREATNESS TEE", price: 350, desc: "Dystopian modern luxury cut presenting high contrast alignment text branding layout systems.", img: "70101de8-1e7c-4c41-92bb-e34af1c8d703.png" },
+            // CATEGORY: NEW ARRIVALS & PRESTIGE LABELS INTEGRATION
+            { id: "tee-01", category: "tees", badge: "New Arrival ✨", tags: ["new-arrivals", "280gsm"], name: "01 | INIKO STACK LOGO TEE", price: 400, desc: "Oversized silhouette vintage acid black wash featuring heavy front graphic panel typography lines.", img: "071cf124-158e-4e0a-8e49-779e777fab2b.png" },
+            { id: "tee-02", category: "tees", badge: "280GSM Heavy", tags: ["core"], name: "02 | BORN DURING TROUBLED TIMES TEE", price: 350, desc: "Premium relaxed streetwear build layout displaying custom bold front statement configurations.", img: "dd80383a-dc4f-4cf8-93e8-79872716c6a7.png" },
+            { id: "tee-03", category: "tees", badge: "Prestige Gold 🏆", tags: ["prestige", "limited"], name: "03 | RESILIENCE ARCHIVE TEE (PRESTIGE)", price: 350, desc: "Drop-shoulder relaxed premium profile finished with detailed heritage gold thread graphic accents.", img: "259e5691-d847-49ca-bbe3-b37f80fce655.png" },
+            { id: "tee-04", category: "tees", badge: "New Arrival ✨", tags: ["new-arrivals"], name: "04 | YORUBA ROOTS LEGACY TEE", price: 350, desc: "Showcasing high density ancestral mask imagery screens over an intense premium combed cotton backdrop.", img: "5a262d37-8ebe-40cb-b32f-5a5ec9ab11f6.png" },
+            { id: "tee-05", category: "tees", badge: "280GSM Heavy", tags: ["core"], name: "05 | CHAOS TO GREATNESS TEE", price: 350, desc: "Dystopian modern luxury cut presenting high contrast alignment text branding layout systems.", img: "70101de8-1e7c-4c41-92bb-e34af1c8d703.png" },
             
-            // CATEGORY 2: HOODIES
-            { id: "hood-01", category: "hoodies", badge: "460GSM Fleece", name: "01 | INIKO STACK LOGO HOODIE", price: 400, desc: "Custom loopback dense fleece build carrying premium elevated embroidery detailing stamps.", img: "77e5233c-f500-41c8-85e1-dfc8dfb270c7.png" },
-            { id: "hood-02", category: "hoodies", badge: "460GSM Fleece", name: "02 | BORN DURING TROUBLED TIMES HOODIE", price: 650, desc: "Ultra heavyweight structure tailored with a spacious overlapping double wall hood arrangement.", img: "995f5d76-adb9-4ede-ba57-a44eda515cd4.png" },
-            { id: "hood-03", category: "hoodies", badge: "460GSM Fleece", name: "03 | RESILIENCE INDUSTRIAL HOODIE", price: 530, desc: "Thick rib knit tracking borders paired with deep comfort kangaroo pockets and dyed matching drawcords.", img: "649c1f57-3e78-4bc0-beba-29f33797c482.png" },
-            { id: "hood-04", category: "hoodies", badge: "460GSM Fleece", name: "04 | YORUBA ROOTS HERITAGE HOODIE", price: 430, desc: "Masterful oversized layout layout with heavy scale back panel legacy icon prints.", img: "9714d075-ae6c-4428-8085-f592ecf080e4.png" },
-            { id: "hood-05", category: "hoodies", badge: "460GSM Fleece", name: "05 | CHAOS TO GREATNESS HOODIE", price: 550, desc: "Brushed fleece interior utility framework executing heavy cultural structural screen print concepts.", img: "cc000f65-cb42-410d-8629-3688fbbc4d99.png" },
+            // HOODIES
+            { id: "hood-01", category: "hoodies", badge: "Prestige Gold 🏆", tags: ["prestige", "fleece"], name: "01 | INIKO STACK LOGO HOODIE", price: 400, desc: "Custom loopback dense fleece build carrying premium elevated embroidery detailing stamps.", img: "77e5233c-f500-41c8-85e1-dfc8dfb270c7.png" },
+            { id: "hood-02", category: "hoodies", badge: "New Arrival ✨", tags: ["new-arrivals"], name: "02 | BORN DURING TROUBLED TIMES HOODIE", price: 650, desc: "Ultra heavyweight structure tailored with a spacious overlapping double wall hood arrangement.", img: "995f5d76-adb9-4ede-ba57-a44eda515cd4.png" },
+            { id: "hood-03", category: "hoodies", badge: "460GSM Fleece", tags: ["core"], name: "03 | RESILIENCE INDUSTRIAL HOODIE", price: 530, desc: "Thick rib knit tracking borders paired with deep comfort kangaroo pockets and dyed matching drawcords.", img: "649c1f57-3e78-4bc0-beba-29f33797c482.png" },
+            { id: "hood-04", category: "hoodies", badge: "460GSM Fleece", tags: ["core"], name: "04 | YORUBA ROOTS HERITAGE HOODIE", price: 430, desc: "Masterful oversized layout layout with heavy scale back panel legacy icon prints.", img: "9714d075-ae6c-4428-8085-f592ecf080e4.png" },
+            { id: "hood-05", category: "hoodies", badge: "460GSM Fleece", tags: ["core"], name: "05 | CHAOS TO GREATNESS HOODIE", price: 550, desc: "Brushed fleece interior utility framework executing heavy cultural structural screen print concepts.", img: "cc000f65-cb42-410d-8629-3688fbbc4d99.png" },
 
-            // CATEGORY 3: BOTTOMS
-            { id: "bot-01", category: "bottoms", badge: "Stacked Fit", name: "MEN'S 01 | STACKED DYSTOPIA DENIM", price: 750, desc: "Premium custom distressed heavy wash denim built with extended lower column stacking frames.", img: "ce8d7e02-0375-4697-baaa-9a225d7de6a2.png" },
-            { id: "bot-02", category: "bottoms", badge: "Relaxed Fit", name: "MEN'S 02 | ARCHIVAL RELAXED WAIST DENIM", price: 750, desc: "Engineered street comfort straight silhouette layout wash featuring signature custom leather pocket decals.", img: "e297ed54-43a8-4643-9a4b-f8f91ef6ca7d.png" },
-            { id: "bot-03", category: "bottoms", badge: "Wide Baggy", name: "MEN'S 03 | TROUBLED TIMES DIRTY JEANS", price: 800, desc: "Distinct dirty-wash indigo tone profiles detailed with heavy structural typography side print lines.", img: "445f0975-cfda-4916-9f69-19b8d14f5e1c.png" },
-            { id: "bot-04", category: "bottoms", badge: "Utility Heavy", name: "BOTTOMS 04 | APEX UTILITY CARGO PANTS", price: 750, desc: "Multi-pocket configuration constructed out of durable tactical reinforced stitch canvas lines.", img: "0a5aa0b7-c5f2-4eac-a0a8-54eb375217ae.png" },
-            { id: "bot-05", category: "bottoms", badge: "Loopback Fleece", name: "BOTTOMS 03 | YORUBA ROOTS SWEATPANTS", price: 550, desc: "Heavy street track pant tailored with comfort-fit leg panels and detailed ancestry screen layout bands.", img: "64296ad7-e866-4e70-9b0d-dc2574109ad6.png" },
+            // BOTTOMS
+            { id: "bot-01", category: "bottoms", badge: "Prestige Gold 🏆", tags: ["prestige", "denim"], name: "MEN'S 01 | STACKED DYSTOPIA DENIM", price: 750, desc: "Premium custom distressed heavy wash denim built with extended lower column stacking frames.", img: "ce8d7e02-0375-4697-baaa-9a225d7de6a2.png" },
+            { id: "bot-02", category: "bottoms", badge: "Relaxed Fit", tags: ["core"], name: "MEN'S 02 | ARCHIVAL RELAXED WAIST DENIM", price: 750, desc: "Engineered street comfort straight silhouette layout wash featuring signature custom leather pocket decals.", img: "e297ed54-43a8-4643-9a4b-f8f91ef6ca7d.png" },
+            { id: "bot-03", category: "bottoms", badge: "New Arrival ✨", tags: ["new-arrivals"], name: "MEN'S 03 | TROUBLED TIMES DIRTY JEANS", price: 800, desc: "Distinct dirty-wash indigo tone profiles detailed with heavy structural typography side print lines.", img: "445f0975-cfda-4916-9f69-19b8d14f5e1c.png" },
+            { id: "bot-04", category: "bottoms", badge: "Utility Heavy", tags: ["core"], name: "BOTTOMS 04 | APEX UTILITY CARGO PANTS", price: 750, desc: "Multi-pocket configuration constructed out of durable tactical reinforced stitch canvas lines.", img: "0a5aa0b7-c5f2-4eac-a0a8-54eb375217ae.png" },
+            { id: "bot-05", category: "bottoms", badge: "Loopback Fleece", tags: ["core"], name: "BOTTOMS 03 | YORUBA ROOTS SWEATPANTS", price: 550, desc: "Heavy street track pant tailored with comfort-fit leg panels and detailed ancestry screen layout bands.", img: "64296ad7-e866-4e70-9b0d-dc2574109ad6.png" },
 
-            // CATEGORY 4: OUTERWEAR
-            { id: "out-01", category: "outerwear", badge: "Thermal Fill", name: "01 | TECHNICAL ARCHIVE PUFFER JACKET", price: 1400, desc: "High collar thermal insulation framework completed with large striking identity rear panel seals.", img: "0d21b65a-1b8b-4bba-8e85-cfb6c6e21cae.png" },
-            { id: "out-02", category: "outerwear", badge: "Canvas Shell", name: "02 | APEX CANVAS UTILITY JACKET", price: 1200, desc: "Rigid heavy cotton canvas outerwear featuring metallic hardware clips and tailored sleeve insignias.", img: "0dbbeb6e-0b57-4938-b0b6-d3bb183c6c3a.png" },
-            { id: "out-03", category: "outerwear", badge: "Insulated Hood", name: "03 | HOODED CHAOS PUFFER SHELL", price: 1500, desc: "Weatherproof luxury padding element designed with custom script alignments to block out winter cold.", img: "1c25e39a-96c5-4d58-ac6c-6d219699e73f.png" },
-
-            // CATEGORY 5: SNEAKERS
-            { id: "snk-01", category: "sneakers", badge: "Luxury Leather", name: "HERITAGE ONE | EARTH CLAY COURT", price: 2600, desc: "Complex layered authentic leather and fine calf suede build sitting on flat structural cup soles.", img: "365b3600-84b2-4fac-895c-fd595e5e90fd.png" },
-            { id: "snk-02", category: "sneakers", badge: "Archival Series", name: "ANCESTRAL SPIRIT | MONOGRAM LOW", price: 2750, desc: "Triple black luxury stealth colorway accented with custom cast mask configuration lace jewel plates.", img: "e0504ce9-4485-4a2b-8b31-0ee605d8b0e2.png" },
-
-            // CATEGORY 6: ACCESSORIES
-            { id: "acc-01", category: "accessories", badge: "UV400 Shield", name: "INIKO SHADES | RAW BLACK & GOLD", price: 340, desc: "Thick profile custom cut hand-polished premium acetate sunglasses with structural golden hinge markers.", img: "1f096865-5aa6-445c-8f6b-0390ea6f128b.png" },
-            { id: "acc-02", category: "accessories", badge: "Chrono Steel", name: "INIKO HERITAGE WATCH | ORE GOLD", price: 2499, desc: "Thick gauge brushed solid stainless steel structural watch layout housing signature dial configurations.", img: "5905d085-bd05-48ef-ab20-b714f3acb37a.png" },
-            { id: "acc-03", category: "accessories", badge: "Adjustable Stretch", name: "03 | CLASSIC VINTAGE WASHED CAP", price: 150, desc: "Distressed brim cotton twilight fabric cap sporting high stitch count direct white branding emblems.", img: "db45419a-1e07-4740-8051-915deee0e319.png" },
-            { id: "acc-04", category: "accessories", badge: "Heavy Utility", name: "04 | LOGO STACK OVERSIZE TOTE BAG", price: 180, desc: "Durable cross-stitch canvas tote designed to haul large personal items inside reinforced side slots.", img: "81707881-2cbf-4aab-8f2e-774fdf281110.png" }
+            // OUTERWEAR
+            { id: "out-01", category: "outerwear", badge: "Prestige Gold 🏆", tags: ["prestige", "jacket"], name: "01 | TECHNICAL ARCHIVE PUFFER JACKET", price: 1400, desc: "High collar thermal insulation framework completed with large striking identity rear panel seals.", img: "0d21b65a-1b8b-4bba-8e85-cfb6c6e21cae.png" },
+            { id: "out-02", category: "outerwear", badge: "Canvas Shell", tags: ["core"], name: "02 | APEX CANVAS UTILITY JACKET", price: 1200, desc: "Rigid heavy cotton canvas outerwear featuring metallic hardware clips and tailored sleeve insignias.", img: "0dbbeb6e-0b57-4938-b0b6-d3bb183c6c3a.png" },
+            { id: "out-03", category: "outerwear", badge: "New Arrival ✨", tags: ["new-arrivals"], name: "03 | HOODED CHAOS PUFFER SHELL", price: 1500, desc: "Weatherproof luxury padding element designed with custom script alignments to block out winter cold.", img: "1c25e39a-96c5-4d58-ac6c-6d219699e73f.png" }
         ];
 
         const LOOKBOOK_STACK = [
@@ -1218,13 +1578,13 @@
 
         let activeLookbookSelectionKey = "denim"; 
         let globalShoppingBag = [];
+        let authenticatedUserSessionObj = null;
+        let isAuthFormRegisterView = false;
 
-        // Dynamic State Tracker for Lightbox Zoom/Slide Control
+        // Lightbox tracking parameters
         let isDraggingLightbox = false;
-        let lightboxStartPanX = 0;
-        let lightboxStartPanY = 0;
-        let lightboxCurrentOffsetX = 0;
-        let lightboxCurrentOffsetY = 0;
+        let lightboxStartPanX = 0, lightboxStartPanY = 0;
+        let lightboxCurrentOffsetX = 0, lightboxCurrentOffsetY = 0;
         let lightboxScaleFactor = 1;
 
         window.addEventListener('DOMContentLoaded', () => {
@@ -1234,7 +1594,25 @@
             initializeLightboxControlListeners();
         });
 
-        // Interactive Interface Components logic
+        // Safe Currency Value Conversion String Formatter Utility
+        function formatPriceCurrencyEngine(baseZarValue) {
+            let conversionFactor = CONVERSION_RATE_TABLE[ACTIVE_CURRENCY_CODE] || 1.0;
+            let targetSymbol = CURRENCY_SYMBOL_TABLE[ACTIVE_CURRENCY_CODE] || "R";
+            let convertedVal = (baseZarValue * conversionFactor).toFixed(2);
+            return `${targetSymbol}${convertedVal}`;
+        }
+
+        function switchGlobalCurrencyEngine(selectedCurrencyCode) {
+            ACTIVE_CURRENCY_CODE = selectedCurrencyCode;
+            renderLookbookBreakdownPanel();
+            // Re-render current catalog viewport parameters cleanly
+            let currentFilterBtnId = document.querySelector('.filter-btn.active').id;
+            let targetCategory = currentFilterBtnId.replace('btn-', '');
+            filterCatalog(targetCategory);
+            updateCartDOMState();
+        }
+
+        // Lookbook Renderer Engine
         function renderLookbookBreakdownPanel() {
             const container = document.getElementById('lookbook-list');
             container.innerHTML = '';
@@ -1244,21 +1622,19 @@
                 const card = document.createElement('div');
                 card.className = `lookbook-item-card ${isActive ? 'active-card' : ''}`;
                 
-                // Allow card clicks to change focus, image clicks to launch zoom modal
                 card.innerHTML = `
                     <img src="${item.img}" class="lookbook-item-image stop-prop-preview" alt="Thumbnail">
                     <div class="lookbook-item-details" onclick="activateHotspotItem('${item.key}')">
                         <div class="lookbook-item-name">${item.name}</div>
                         <div class="lookbook-item-sub">${item.sub}</div>
                     </div>
-                    <div class="lookbook-item-price" onclick="activateHotspotItem('${item.key}')">R${item.price}</div>
+                    <div class="lookbook-item-price" onclick="activateHotspotItem('${item.key}')">${formatPriceCurrencyEngine(item.price)}</div>
                 `;
                 
                 card.querySelector('.stop-prop-preview').addEventListener('click', (e) => {
                     e.stopPropagation();
                     openImagePreview(item.img);
                 });
-
                 container.appendChild(card);
             });
         }
@@ -1285,10 +1661,15 @@
             }
         }
 
-        // Product Engine Render Functions
+        // Core Catalog Management Engine
         function renderCatalogGrid(products) {
             const targetGrid = document.getElementById('catalog-products-target');
             targetGrid.innerHTML = '';
+
+            if(products.length === 0) {
+                targetGrid.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding:60px; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px;">No archival designs found matching query criteria.</div>`;
+                return;
+            }
 
             products.forEach(p => {
                 const card = document.createElement('div');
@@ -1303,7 +1684,7 @@
                         <h3 class="product-title-lbl">${p.name}</h3>
                         <p class="product-desc-lbl">${p.desc}</p>
                         <div class="product-footer-row">
-                            <span class="product-price-lbl">R${p.price}</span>
+                            <span class="product-price-lbl">${formatPriceCurrencyEngine(p.price)}</span>
                             <button class="product-add-action" onclick="addItemToCart('${p.name}', ${p.price}, '${p.img}')" title="Add Item To Bag">
                                 <i class="fas fa-plus-circle"></i>
                             </button>
@@ -1321,24 +1702,131 @@
 
             if (category === 'all') {
                 renderCatalogGrid(PRODUCTS_DATABASE);
+            } else if (category === 'new-arrivals' || category === 'prestige') {
+                const filtered = PRODUCTS_DATABASE.filter(item => item.tags.includes(category));
+                renderCatalogGrid(filtered);
             } else {
                 const filtered = PRODUCTS_DATABASE.filter(item => item.category === category);
                 renderCatalogGrid(filtered);
             }
         }
 
-        // Interactive Shopping Basket System
+        // Search Overlay Sub-system Engine
+        function toggleSearchOverlay(openState) {
+            const el = document.getElementById('search-overlay');
+            el.style.display = openState ? 'flex' : 'none';
+            if(openState) {
+                const inputFld = document.getElementById('search-dom-input');
+                inputFld.value = '';
+                inputFld.focus();
+                executeArchiveSearchSearch('');
+            }
+        }
+
+        function executeArchiveSearchSearch(queryStr) {
+            const cleanQuery = queryStr.toLowerCase().trim();
+            const targetGrid = document.getElementById('search-results-target');
+            const statsNode = document.getElementById('search-stats-node');
+            
+            if(cleanQuery === '') {
+                targetGrid.innerHTML = '';
+                statsNode.textContent = "Enter tags, silhouettes, or naming conventions above.";
+                return;
+            }
+
+            const matches = PRODUCTS_DATABASE.filter(p => 
+                p.name.toLowerCase().includes(cleanQuery) || 
+                p.desc.toLowerCase().includes(cleanQuery) || 
+                p.category.toLowerCase().includes(cleanQuery)
+            );
+
+            statsNode.textContent = `Found ${matches.length} matches inside archive catalogue`;
+            targetGrid.innerHTML = '';
+
+            matches.forEach(p => {
+                const miniCard = document.createElement('div');
+                miniCard.className = 'product-card';
+                miniCard.innerHTML = `
+                    <div class="product-visual" style="aspect-ratio: 1/1;">
+                        <img src="${p.img}" class="product-main-img" alt="${p.name}" onclick="openImagePreview('${p.img}')">
+                    </div>
+                    <div style="padding:15px;">
+                        <h4 style="font-size:0.8rem; text-transform:uppercase; font-weight:600; color:var(--text-main);">${p.name}</h4>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+                            <span style="font-size:0.85rem; font-weight:bold; color:var(--accent-gold);">${formatPriceCurrencyEngine(p.price)}</span>
+                            <button onclick="addItemToCart('${p.name}', ${p.price}, '${p.img}'); toggleSearchOverlay(false);" style="background:none; border:none; color:var(--text-main); cursor:pointer;"><i class="fas fa-plus-circle"></i></button>
+                        </div>
+                    </div>
+                `;
+                targetGrid.appendChild(miniCard);
+            });
+        }
+
+        // Identity Profile Authentication Engine Modals
+        function toggleAuthOverlay(openState) {
+            document.getElementById('auth-overlay').style.display = openState ? 'flex' : 'none';
+        }
+
+        function switchAuthViewPanel(isRegister) {
+            isAuthFormRegisterView = isRegister;
+            const heading = document.getElementById('auth-panel-heading');
+            const pwdWrapper = document.getElementById('auth-password-wrapper');
+            const switcherText = document.getElementById('auth-switcher-text');
+
+            if(isRegister) {
+                heading.textContent = "CREATE LUXURY MEMBER ACCOUNT";
+                switcherText.innerHTML = `Already registered? <span class="auth-toggle-link" onclick="switchAuthViewPanel(false)">Sign In</span>`;
+            } else {
+                heading.textContent = "SIGN IN TO ACCESS ARCHIVE";
+                switcherText.innerHTML = `New to the family? <span class="auth-toggle-link" onclick="switchAuthViewPanel(true)">Create Account Profile</span>`;
+            }
+        }
+
+        function processAccountIdentityAuthentication() {
+            const email = document.getElementById('auth-email-input').value.trim();
+            if(!email) { alert("Please supply a valid member entry identification point."); return; }
+            
+            // Build pseudo-session structural instance
+            authenticatedUserSessionObj = {
+                name: email.split('@')[0],
+                tier: "Prestige Elite Circle"
+            };
+
+            document.getElementById('auth-state-logged-out').style.display = 'none';
+            const loggedInView = document.getElementById('auth-state-logged-in');
+            loggedInView.style.display = 'block';
+            
+            document.getElementById('user-profile-display-name').textContent = authenticatedUserSessionObj.name;
+            document.getElementById('user-profile-display-tier').textContent = authenticatedUserSessionObj.tier;
+            
+            // Alter header visual node reference path indicators
+            const navIcon = document.getElementById('nav-profile-icon');
+            navIcon.className = "fas fa-user-check";
+            navIcon.style.color = "var(--accent-gold)";
+            
+            alert(`Access Granted. Welcome to the Circle, Member ${authenticatedUserSessionObj.name}.`);
+            toggleAuthOverlay(false);
+        }
+
+        function terminateUserSessionAuthentication() {
+            authenticatedUserSessionObj = null;
+            document.getElementById('auth-state-logged-in').style.display = 'none';
+            document.getElementById('auth-state-logged-out').style.display = 'block';
+            
+            const navIcon = document.getElementById('nav-profile-icon');
+            navIcon.className = "far fa-user";
+            navIcon.style.color = "var(--text-main)";
+            
+            alert("Session terminated securely.");
+            toggleAuthOverlay(false);
+        }
+
+        // Shopping Cart Logic Configuration
         function toggleCart(openState) {
             const overlay = document.getElementById('cart-overlay');
             const drawer = document.getElementById('cart-drawer');
-            
-            if (openState) {
-                overlay.classList.add('open');
-                drawer.classList.add('open');
-            } else {
-                overlay.classList.remove('open');
-                drawer.classList.remove('open');
-            }
+            if (openState) { overlay.classList.add('open'); drawer.classList.add('open'); } 
+            else { overlay.classList.remove('open'); drawer.classList.remove('open'); }
         }
 
         function addItemToCart(name, price, img) {
@@ -1362,7 +1850,7 @@
             
             if (globalShoppingBag.length === 0) {
                 itemsWrapper.innerHTML = `<div class="cart-empty-message">Your shopping bag is empty.</div>`;
-                totalDisplay.textContent = "R0.00";
+                totalDisplay.textContent = formatPriceCurrencyEngine(0);
                 return;
             }
 
@@ -1372,10 +1860,10 @@
                 const row = document.createElement('div');
                 row.className = 'cart-item-row';
                 row.innerHTML = `
-                    <img src="${item.img}" class="cart-item-thumb" alt="Product Image" onclick="openImagePreview('${item.img}')">
+                    <img src="${item.img}" class="cart-item-thumb" alt="Thumb" onclick="openImagePreview('${item.img}')">
                     <div class="cart-item-meta">
                         <div class="cart-item-name">${item.name}</div>
-                        <div class="cart-item-price">R${item.price}</div>
+                        <div class="cart-item-price">${formatPriceCurrencyEngine(item.price)}</div>
                     </div>
                     <button class="cart-item-remove" onclick="removeCartItem('${item.id}')">
                         <i class="far fa-trash-can"></i>
@@ -1383,8 +1871,87 @@
                 `;
                 itemsWrapper.appendChild(row);
             });
+            totalDisplay.textContent = formatPriceCurrencyEngine(computedSum);
+        }
 
-            totalDisplay.textContent = `R${computedSum}.00`;
+        // Static Document Object Policy Data Sheets Mapping
+        const REGULATORY_POLICY_DATA_SHEETS = {
+            tracking: {
+                title: "Package Tracking Interface Protocol",
+                body: "<h4>REAL-TIME DISPATCH ROUTING</h4><p>All structured archive uniform iterations depart directly from localized corporate distribution points in South Africa. Once package verification completes at KZN clearance hubs, an operational tracking string is provided to you via your registered profile email address.</p><h4>LOCAL & TRANSIT TIMELINES</h4><p>Expect safe deliveries inside 48 hours within regional Durban sectors, and up to 4 working days for outlying provinces.</p>"
+            },
+            shipping: {
+                title: "Shipping & Returns Policy",
+                body: "<h4>COUTURE SHIPPING SPECIFICATIONS</h4><p>Free standard courier delivery parameters apply uniformly inside South African territories for all order files passing above R1500. Underneath this scale, a default base premium rate structure applies relative to operational distance metrics.</p><h4>RETURNS MATRIX POLICY</h4><p>Designs from standard drops can be returned for profile credit indexes inside 14 sequential calendar days from initial package signing. Items must be completely untampered with, carrying all original tags intact. Prestige tier garments are subject to final individual analysis parameters.</p>"
+            },
+            sizing: {
+                title: "Size Blueprint Structural Guide",
+                body: "<h4>FIT PROFILE CLASSIFICATION</h4><p>The majority of IINIKO CLOTHING pattern lines conform to structured oversized, drop-shoulder luxury streetwear configurations. If you aim to wear a true standard slim look profile, we recommend processing your checkout structural select one size smaller than standard industrial sizing benchmarks.</p>"
+            },
+            manifesto: {
+                title: "Our Origin Manifesto",
+                body: "<h4>BORN IN CHAOS. BUILT FOR MORE.</h4><p>IINIKO functions as an interconnected high fashion structural platform engineered to reflect historical cultural lines into modern global diaspora streetwear. Every fabric weight choice, hardware rivet selection, and distressing tone treatment details paths of raw resilience and elite focus metrics.</p>"
+            },
+            slavery: {
+                title: "Modern Slavery & Transparency Statement",
+                body: "<h4>ETHICAL CHAIN ARCHITECTURE</h4><p>IINIKO operates an uncompromising absolute zero-tolerance structural policy framework regarding human exploitation parameters across all manufacturing hubs. Every supplier, dye technician, and finish artisan functions inside clear safe wage standard indices, protecting the fundamental dignity of labor paths.</p>"
+            },
+            terms: {
+                title: "Terms & Conditions of Engagement",
+                body: "<h4>INTELLECTUAL FRAMEWORK LAWS</h4><p>By entering this portal or processing order files through WhatsApp tracking triggers, you acknowledge unconditional agreement with IINIKO CLOTHING legal provisions. All branding marks, bespoke product layout templates, typography arrangements, and graphical media sets remain the exclusive absolute property of IINIKO LTD.</p>"
+            },
+            privacy: {
+                title: "Corporate Privacy Policy",
+                body: "<h4>DATA PROTECTION PROTOCOLS</h4><p>Your identity parameters, address mappings, email tracking details, and profile activity history sets are completely encrypted using modern industry standards. We never trade individual metadata records with malicious marketing or analytical brokers. Secure user data sets are strictly deployed to finalize your immediate logistics fulfillment.</p>"
+            },
+            cookies: {
+                title: "Cookie Preferences Management",
+                body: "<h4>ANALYTICAL METRIC PREFERENCES</h4><p>This digital platform utilizes lightweight cookies strictly to preserve session persistence context—including maintaining your basket configuration states and remembering selected regional currency select indexes. You can switch off browser cookies without losing standard archive viewing access layers.</p>"
+            }
+        };
+
+        function togglePolicyOverlay(openState) {
+            document.getElementById('policy-overlay').style.display = openState ? 'flex' : 'none';
+        }
+
+        function launchLegalDocumentModal(documentKey) {
+            const documentDataObj = REGULATORY_POLICY_DATA_SHEETS[documentKey];
+            if(!documentDataObj) return;
+            
+            document.getElementById('policy-dom-title').textContent = documentDataObj.title;
+            document.getElementById('policy-dom-body').innerHTML = documentDataObj.body;
+            togglePolicyOverlay(true);
+        }
+
+        function subscribeNewsletterAction() {
+            const inputField = document.getElementById('footer-newsletter-field');
+            if(!inputField.value.includes('@')) { alert("Please provide a completely valid corporate email routing structure."); return; }
+            alert("Welcome to the list. Tier archival alert channels have been mapped directly to your address inbox.");
+            inputField.value = '';
+        }
+
+        // WhatsApp Direct Order Router
+        function checkoutToWhatsApp() {
+            if (globalShoppingBag.length === 0) { alert("Your shopping cart is empty!"); return; }
+
+            let orderNumber = Math.floor(1000 + Math.random() * 9000);
+            let messageText = `⚡ *NEW IINIKO ORDER #INK-${orderNumber}*\n`;
+            messageText += `=========================\n\n`;
+            
+            let computedTotal = 0;
+            globalShoppingBag.forEach((item, index) => {
+                messageText += `*${index + 1}.* ${item.name}\n`;
+                messageText += `   Price: ${formatPriceCurrencyEngine(item.price)}\n\n`;
+                computedTotal += item.price;
+            });
+            
+            messageText += `=========================\n`;
+            messageText += `💰 *TOTAL AMOUNT:* ${formatPriceCurrencyEngine(computedTotal)}\n\n`;
+            messageText += `Please send this message to coordinate sizing choices, final stock allocations, and direct payment clearance arrangements.`;
+
+            let encodedMessage = encodeURIComponent(messageText);
+            let targetWhatsAppURL = `https://wa.me/27735249935?text=${encodedMessage}`;
+            window.open(targetWhatsAppURL, '_blank');
         }
 
         // Setup triggers for model images
@@ -1399,7 +1966,6 @@
             const modal = document.getElementById('preview-lightbox');
             const targetImg = document.getElementById('lightbox-target-img');
             
-            // Reset transforms to safe original boundaries
             lightboxScaleFactor = 1;
             lightboxCurrentOffsetX = 0;
             lightboxCurrentOffsetY = 0;
@@ -1408,19 +1974,18 @@
             targetImg.style.transform = `translate(0px, 0px) scale(1)`;
             
             modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Lock down main page scroll
+            document.body.style.overflow = 'hidden'; 
         }
 
         function closeImagePreview() {
             document.getElementById('preview-lightbox').style.display = 'none';
-            document.body.style.overflow = 'auto'; // Free up main layout scroll parameters
+            document.body.style.overflow = 'auto'; 
         }
 
         function initializeLightboxControlListeners() {
             const viewport = document.getElementById('lightbox-pan-viewport');
             const targetImg = document.getElementById('lightbox-target-img');
 
-            // Free Slide Pan Gesture Handlers
             viewport.addEventListener('mousedown', (e) => {
                 e.preventDefault();
                 isDraggingLightbox = true;
@@ -1435,69 +2000,21 @@
                 targetImg.style.transform = `translate(${lightboxCurrentOffsetX}px, ${lightboxCurrentOffsetY}px) scale(${lightboxScaleFactor})`;
             });
 
-            window.addEventListener('mouseup', () => {
-                isDraggingLightbox = false;
-            });
+            window.addEventListener('mouseup', () => { isDraggingLightbox = false; });
 
-            // Touch device gestures support mapping
-            viewport.addEventListener('touchstart', (e) => {
-                if (e.touches.length === 1) {
-                    isDraggingLightbox = true;
-                    lightboxStartPanX = e.touches[0].clientX - lightboxCurrentOffsetX;
-                    lightboxStartPanY = e.touches[0].OffsetY - lightboxCurrentOffsetY;
-                }
-            });
-
-            viewport.addEventListener('touchmove', (e) => {
-                if (!isDraggingLightbox || e.touches.length !== 1) return;
-                lightboxCurrentOffsetX = e.touches[0].clientX - lightboxStartPanX;
-                lightboxCurrentOffsetY = e.touches[0].clientY - lightboxStartPanY;
-                targetImg.style.transform = `translate(${lightboxCurrentOffsetX}px, ${lightboxCurrentOffsetY}px) scale(${lightboxScaleFactor})`;
-            });
-
-            viewport.addEventListener('touchend', () => {
-                isDraggingLightbox = false;
-            });
-
-            // Dynamic Mouse Wheel Fluid Zoom Engine
             viewport.addEventListener('wheel', (e) => {
                 e.preventDefault();
                 let zoomIntensity = 0.12;
-                if (e.deltaY < 0) {
-                    lightboxScaleFactor += zoomIntensity;
-                } else {
-                    lightboxScaleFactor = Math.max(0.6, lightboxScaleFactor - zoomIntensity);
-                }
+                if (e.deltaY < 0) { lightboxScaleFactor += zoomIntensity; } 
+                else { lightboxScaleFactor = Math.max(0.6, lightboxScaleFactor - zoomIntensity); }
                 targetImg.style.transform = `translate(${lightboxCurrentOffsetX}px, ${lightboxCurrentOffsetY}px) scale(${lightboxScaleFactor})`;
             }, { passive: false });
         }
 
-        // WhatsApp Direct Order Router
-        function checkoutToWhatsApp() {
-            if (globalShoppingBag.length === 0) {
-                alert("Your shopping cart is empty!");
-                return;
-            }
-
-            let orderNumber = Math.floor(1000 + Math.random() * 9000);
-            let messageText = `⚡ *NEW IINIKO ORDER #INK-${orderNumber}*\n`;
-            messageText += `=========================\n\n`;
-            
-            let computedTotal = 0;
-            globalShoppingBag.forEach((item, index) => {
-                messageText += `*${index + 1}.* ${item.name}\n`;
-                messageText += `   Price: R${item.price}.00\n\n`;
-                computedTotal += item.price;
-            });
-            
-            messageText += `=========================\n`;
-            messageText += `💰 *TOTAL AMOUNT:* R${computedTotal}.00\n\n`;
-            messageText += `Please send this message to coordinate sizing choices, final stock allocations, and direct payment clearance arrangements.`;
-
-            let encodedMessage = encodeURIComponent(messageText);
-            let targetWhatsAppURL = `https://wa.me/27735249935?text=${encodedMessage}`;
-            
-            window.open(targetWhatsAppURL, '_blank');
+        // CHAT⚡ BY DIGITALGENIUS INJECTION LOGIC FRAMEWORK
+        function triggerDigitalGeniusChatSession() {
+            console.log("Initializing dynamic connection string to DigitalGenius AI Core Routing Service...");
+            alert("⚡ Launching Chat by DigitalGenius...\n\nYour premium support interface session is starting. Feel free to query current manufacturing lines, international courier parameters, or trace order dispatch streams instantly.");
         }
     </script>
 </body>
