@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IINIKO CLOTHING | Flagship Experience</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -22,7 +21,6 @@
             }
         }
     </script>
-    <!-- IonIcons for clean UI symbols -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <style>
@@ -40,7 +38,6 @@
     <div class="w-full bg-brandAccent text-brandDark text-center py-2 text-xs font-bold tracking-widest uppercase px-4 flex flex-wrap justify-between items-center gap-2">
         <span class="mx-auto sm:mx-0">STRENGTH IS NOT THE ABSENCE OF STRUGGLE, IT IS THE EXISTENCE OF PURPOSE.</span>
         
-        <!-- GLOBAL CURRENCY SELECTOR FRAMEWORK -->
         <div class="flex items-center gap-1.5 bg-brandDark/20 px-2 py-0.5 rounded text-[10px] font-mono mx-auto sm:mx-0">
             <ion-icon name="globe-outline" class="text-sm"></ion-icon>
             <select id="currency-selector" onchange="switchGlobalCurrency(this.value)" class="bg-transparent text-brandDark font-bold focus:outline-none cursor-pointer uppercase">
@@ -56,21 +53,18 @@
     <!-- MAIN HEADER NAV -->
     <header class="sticky top-0 z-40 bg-brandDark/95 border-b border-white/10 backdrop-blur-md transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Left Side Menu Trigger -->
             <button onclick="toggleNavMenu(true)" class="text-2xl hover:text-brandAccent transition flex items-center gap-2">
                 <ion-icon name="menu-outline"></ion-icon>
                 <span class="text-xs uppercase tracking-widest hidden sm:inline font-semibold">Menu</span>
             </button>
 
-            <!-- Centered Brand Identity -->
             <div class="text-center cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
                 <h1 class="text-2xl sm:text-3xl font-bold tracking-[0.25em] uppercase text-white leading-none">IINIKO</h1>
                 <span class="text-[9px] sm:text-[10px] tracking-[0.5em] text-brandAccent block mt-1 font-light uppercase">C L O T H I N G</span>
             </div>
 
-            <!-- Right Side Cart/Portal Utilities -->
             <div class="flex items-center gap-6">
-                <button onclick="openPortal()" class="hidden md:flex items-center gap-2 text-xs font-bold tracking-widest uppercase border border-brandAccent/30 px-3 py-1.5 rounded hover:bg-brandAccent hover:text-brandDark transition duration-300">
+                <button onclick="openPortal()" class="hidden md:flex items-center gap-2 text-xs font-bold tracking-widest uppercase border border-brandAccent/30 px-3 py-1.5 rounded hover:bg-brandAccent/10 transition">
                     <ion-icon name="phone-portrait-outline" class="text-sm"></ion-icon>
                     IINIKO Phones
                 </button>
@@ -159,7 +153,7 @@
     <!-- MAIN PRODUCT ARCHITECTURE MATRIX -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
 
-        <!-- NEW ARRIVALS: FRESH CAPSULES (Mandela Legacy, Motorsport, etc.) -->
+        <!-- NEW ARRIVALS -->
         <div id="new-arrivals" class="mb-24 scroll-mt-24">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 pb-4 border-b border-white/10">
                 <div>
@@ -171,7 +165,6 @@
                 </div>
                 <span class="text-neutral-500 text-xs uppercase tracking-widest mt-2 md:mt-0 font-mono">Collection Ref: NEW-2026</span>
             </div>
-
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12" id="new-arrivals-container">
                 <!-- New Arrivals inject dynamically via JS -->
             </div>
@@ -186,7 +179,6 @@
                 </div>
                 <span class="text-neutral-500 text-xs uppercase tracking-widest mt-2 md:mt-0 font-mono">Category Code: APP-01</span>
             </div>
-
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12" id="apparel-container">
                 <!-- Core Apparel items inject dynamically via JS -->
             </div>
@@ -204,7 +196,7 @@
                         See the official design anatomy and styling index directly on display. This set breaks down our flagship Utility Jacket config, raw monogram technical print work, custom hardware setups, and our highly confidential custom footwear sole.
                     </p>
                     <div class="pt-2">
-                        <button onclick="openImageModal('6784d48a-7ec7-47c9-8c71-6cbf0c2172a2.png', 'Lookbook Editorial Overview')" class="w-full sm:w-auto px-6 py-3 bg-brandAccent text-brandDark font-bold tracking-widest text-xs uppercase hover:bg-white transition rounded shadow-md flex items-center justify-center gap-2">
+                        <button onclick="openImageModal('6784d48a-7ec7-47c9-8c71-6cbf0c2172a2.png', 'Lookbook Editorial Overview')" class="w-full sm:w-auto px-6 py-3 bg-brandAccent text-brandDark font-black tracking-widest text-xs uppercase rounded hover:bg-white transition flex items-center gap-2 justify-center">
                             <ion-icon name="expand-outline"></ion-icon> Inspect Full Editorial Panel
                         </button>
                     </div>
@@ -241,7 +233,6 @@
                 </div>
                 <span class="text-neutral-500 text-xs uppercase tracking-widest mt-2 md:mt-0 font-mono">Category Code: HDW-02</span>
             </div>
-
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12" id="accessories-container">
                 <!-- Accessories inject dynamically via JS -->
             </div>
@@ -256,7 +247,6 @@
                 </div>
                 <span class="text-neutral-500 text-xs uppercase tracking-widest mt-2 md:mt-0 font-mono">Category Code: FWR-03</span>
             </div>
-
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12" id="footwear-container">
                 <!-- Footwear injects dynamically via JS -->
             </div>
@@ -358,7 +348,7 @@
                 </div>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center text-[11px] uppercase tracking-widest text-neutral-600 font-mono">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center text-[11px] uppercase tracking-widest text-neutral-500 gap-2">
             <p>&copy; 2024 - 2026 IINIKO CLOTHING. ALL RIGHTS RESERVED.</p>
             <p class="mt-2 sm:mt-0">DESIGNED IN SOLIDARITY WITH SOUTH AFRICAN SOUND SYSTEMS & LABELS</p>
         </div>
@@ -396,7 +386,7 @@
                     <span class="text-xs font-bold uppercase tracking-widest text-white">Estimated Final Total</span>
                     <span id="cart-total" class="font-mono text-lg font-bold text-brandAccent">$0.00</span>
                 </div>
-                <button onclick="triggerCheckoutDispatch()" class="w-full bg-brandAccent hover:bg-white text-brandDark font-black tracking-widest text-xs uppercase py-4 transition rounded shadow-lg flex items-center justify-center gap-2">
+                <button onclick="triggerCheckoutDispatch()" class="w-full bg-brandAccent hover:bg-white text-brandDark font-black tracking-widest text-xs uppercase py-4 transition rounded shadow-lg flex items-center gap-2 justify-center">
                     <ion-icon name="lock-closed-outline"></ion-icon> Dispatch Order Securely
                 </button>
             </div>
@@ -434,7 +424,7 @@
                 </div>
             </div>
             <div class="p-6 bg-neutral-900 border-t border-white/10 flex justify-end">
-                <a href="https://wa.me/#?text=Hello%20IINIKO%20Logistics,%20I%20am%20inquiring%20about%20your%20certified%20premium%20iPhone%20inventory." target="_blank" class="px-6 py-3 bg-brandAccent text-brandDark font-black tracking-widest text-xs uppercase hover:bg-white transition rounded flex items-center gap-2">
+                <a href="https://wa.me/#?text=Hello%20IINIKO%20Logistics,%20I%20am%20inquiring%20about%20your%20certified%20premium%20iPhone%20inventory." target="_blank" class="px-6 py-3 bg-brandAccent hover:bg-white text-brandDark font-black tracking-widest text-xs uppercase rounded flex items-center gap-2 transition">
                     <ion-icon name="logo-whatsapp" class="text-base"></ion-icon> Initiate Private Whatsapp Bulk Quote
                 </a>
             </div>
@@ -443,7 +433,6 @@
 
     <!-- CORE PLATFORM ENGINE SCRIPT WITH MULTI-CURRENCY CONVERSION SYSTEM -->
     <script>
-        // CURRENCY ARCHITECTURE CONFIGS
         let ACTIVE_CURRENCY = 'USD';
         const CURRENCY_DICTIONARY = {
             USD: { symbol: '$', rate: 1.00 },
@@ -453,115 +442,14 @@
             EUR: { symbol: '€', rate: 0.92 }
         };
 
-        // PLATFORM INVENTORY STRUCTURE WITH ADDED NEW ARRIVAL CAPSULES
         const PLATFORM_INVENTORY = [
-            // CATEGORY 0: NEW ARRIVALS (Mandela Legacy, Motorsport, etc.)// Copy and paste these items directly into your existing catalog array:
-{
-  id: "iniiko-46664-tee",
-  name: "46664 Mandela Vintage Tee",
-  category: "T-Shirts",
-  price: "R549.99",
-  description: "Oversized fit, 260GSM 100% cotton washed tee featuring Nelson Mandela 46664 back graphic.",
-  imageFront: "images/mandela-46664-front.png",
-  imageBack: "images/mandela-46664-back.png",
-  tags: ["Oversized", "Vintage Wash", "Heritage"]
-},
-{
-  id: "iniiko-mandela-quote-tee",
-  name: "Mandela 'Impossible' Graphic Tee",
-  category: "T-Shirts",
-  price: "R549.99",
-  description: "260GSM heavyweight cotton tee featuring classic Mandela quote and freedom rally collage map.",
-  imageFront: "images/mandela-quote-front.png",
-  imageBack: "images/mandela-quote-back.png",
-  tags: ["Oversized", "Graphic", "Statement"]
-},
-{
-  id: "iniiko-yoruba-greatness-tee",
-  name: "Origin of Greatness Tee",
-  category: "T-Shirts",
-  price: "R549.99",
-  description: "Yoruba Roots edition vintage wash black tee with neon yellow line-art graphics.",
-  imageFront: "images/yoruba-greatness-back.png",
-  imageBack: "",
-  tags: ["Yoruba Roots", "Neon", "Heavyweight"]
-},
-{
-  id: "iniiko-durban-031-tee",
-  name: "Durban 7 Vintage Tee",
-  category: "T-Shirts",
-  price: "R499.99",
-  description: "031 area code tribute graphic tee. Born In. Built For. Vintage wash black.",
-  imageFront: "images/durban-front.png",
-  imageBack: "images/durban-back.png",
-  tags: ["Durban", "031", "Streetwear"]
-},
-{
-  id: "iniiko-triblad-racing-jersey",
-  name: "Triblad Times Racing Jersey",
-  category: "Jerseys",
-  price: "R749.99",
-  description: "Neon yellow and purple graffiti font elements on a premium heavy long-sleeve racing silhouette.",
-  imageFront: "images/racing-jersey-front.png",
-  imageBack: "images/racing-jersey-back.png",
-  tags: ["Racing Team", "Neon", "Limited Drop"]
-},
-{
-  id: "iniiko-pro-racing-jersey-10",
-  name: "No. 10 INIIKO Pro Racing Jersey",
-  category: "Jerseys",
-  price: "R899.99",
-  description: "Premium mesh fabric racing inspired design featuring high-quality Yoruba Roots front emblem print.",
-  imageFront: "images/pro-jersey-front.png",
-  imageBack: "images/pro-jersey-back.png",
-  tags: ["Mesh Fabric", "All Over Print", "Premium"]
-},
-{
-  id: "iniiko-yoruba-roots-track-set",
-  name: "Chaos to Purpose Track Suit Set",
-  category: "Sets",
-  price: "R1499.99",
-  description: "Full washed black denim-style aesthetic track set with heavy vertical typography branding.",
-  imageFront: "images/mannequin-display.png",
-  imageBack: "",
-  tags: ["Co-ord", "Yoruba Roots", "Full Set"]
-},
-{
-  id: "iniiko-denim-collection-womens",
-  name: "INIIKO Women's Wide-Leg Denim",
-  category: "Denim",
-  price: "R999.99",
-  description: "Premium quality purposeful design denim, relaxed fit wide-leg silhouettes featuring tribal line-work.",
-  imageFront: "images/womens-denim-collection.png",
-  imageBack: "",
-  tags: ["Wide Leg", "Custom Hardware", "Washed Black"]
-},
-{
-  id: "iniiko-denim-collection-mens",
-  name: "INIIKO Men's Stacked Dystopia Denim",
-  category: "Denim",
-  price: "R1099.99",
-  description: "Extra length stacked fit and baggy fit heavy denim styles with premium embroidery detailing.",
-  imageFront: "images/mens-denim-collection.png",
-  imageBack: "",
-  tags: ["Stacked Fit", "Baggy Fit", "Distressed"]
-},
-{
-  id: "iniiko-spirit-yoruba-tee",
-  name: "INIIKO Spirit Yoruba Tee",
-  category: "T-Shirts",
-  price: "R549.99",
-  description: "Washed black vintage silhouette featuring a bold purple gradient front logotype and gold diety graphic back.",
-  imageFront: "images/spirit-front.png",
-  imageBack: "images/spirit-back.png",
-  tags: ["Yoruba Roots", "Gradient", "260GSM"]
-}
+            // NEW ARRIVALS
             { id: "new-1", category: "new-arrivals", name: '"Mandela Legacy" Premium Heavy Knit', file: "mod1.png", price: 160.00, desc: "Limited edition custom drop commemorating raw historical resilience. High-density woven thread embroidery and dynamic structured drop shoulders." },
             { id: "new-2", category: "new-arrivals", name: '"IINIKO Motorsport" Tech Fleece Jacket', file: "mod6.png", price: 225.00, desc: "Heavyweight paneled technical outerwear engineered with custom track team detailing, bold typography, and extreme durability layers." },
             { id: "new-3", category: "new-arrivals", name: '"Mandela Lineage" Silhouette Tee', file: "259e5691-d847-49ca-bbe3-b37f80fce655.png", price: 75.00, desc: "Premium textured garment-dyed lifestyle blank celebrating structural legacy aesthetics and powerful graphic alignments." },
             { id: "new-4", category: "new-arrivals", name: '"Speed Circuit" Heavy Graphic Tee', file: "70101de8-1e7c-4c41-92bb-e34af1c8d703.png", price: 70.00, desc: "High-contrast motorsport subculture configuration utilizing custom typography and distressed screen-printed rear profile arrangements." },
 
-            // CATEGORY 1: APPAREL LAYER CONFIG
+            // APPAREL
             { id: "app-1", category: "apparel", name: '"Rooted in Heritage" Tech Puffer', file: "0d21b65a-1b8b-4bba-8e85-cfb6c6e21cae.png", price: 210.00, desc: "Heavyweight 700-down stitch form factor. Front identity typography block layout. High blueprint-style Yoruba mask layout masterfully silk-printed across the back structural panel." },
             { id: "app-2", category: "apparel", name: '"Chaos to Greatness" Heavy Hoodie', file: "cc000f65-cb42-410d-8629-3688fbbc4d99.png", price: 145.00, desc: "Boxy dropped-shoulder structural design. Small front chest text brand identity patch. Heavy distressed aesthetic contrast photo-montage composition layer across spine alignment." },
             { id: "app-3", category: "apparel", name: '"Rooted in Heritage" Blueprint Hoodie', file: "9714d075-ae6c-4428-8085-f592ecf080e4.png", price: 135.00, desc: "Premium acid-wash heavy luxury cotton construction. Technical clean line-art graphic breakdown structure of a Yoruba mask design detailing sacred geometry on the back panels." },
@@ -571,13 +459,13 @@
             { id: "app-7", category: "apparel", name: '"Chaos to Greatness" Heavy Tee', file: "70101de8-1e7c-4c41-92bb-e34af1c8d703.png", price: 65.00, desc: "Drop-shoulder relaxed lifestyle blank. Beautiful technical distressed photo composition layout paired with clean bold layout typography statements covering the rear profile." },
             { id: "app-8", category: "apparel", name: '"Rooted in Heritage" Blueprint Tee', file: "5a262d37-8ebe-40cb-b32f-5a5ec9ab11f6.png", price: 60.00, desc: "Raw custom luxury spun cotton tee. Featuring our master line-art technical blueprint illustration detailing a structural Yoruba protective mask graphic overlay across the back frame." },
 
-            // CATEGORY 2: HARDWARE ACCENTS & EYEWEAR
+            // ACCESSORIES
             { id: "acc-1", category: "accessories", name: '"IINIKO Signature" Canvas Tote', file: "81707881-2cbf-4aab-8f2e-774fdf281110.png", price: 45.00, desc: "Ultra-heavy black denim canvas assembly. Triple vertical stacked bold typographical front motif flanked by our timeless subtext asset: 'BORN IN CHAOS. BUILT FOR MORE.'" },
             { id: "acc-2", category: "accessories", name: '"INIKO" Heavy Wash Distressed Cap', file: "db45419a-1e07-4740-8051-915deee0e319.png", price: 35.00, desc: "Acid-washed six-panel unstructured style unstructured cotton crown. High-relief cream structural embroidery framing across front dome panels alongside an engraved metallic tribal side crest." },
             { id: "acc-3", category: "accessories", name: '"IINIKO Shades" Premium Men Acetate', file: "1f096865-5aa6-445c-8f6b-0390ea6f128b.png", price: 110.00, desc: "High UV400 block rated optics. Premium grade hand-finished heavy black acetate frames incorporating premium durable 5-barrel metal hinges and beautiful solid 3D gold Yoruba side mask elements." },
             { id: "acc-4", category: "accessories", name: '"IINIKO Shades" Premium Women Acetate', file: "bb7f8e42-cf4d-453f-b462-2a08aa87fd9d.png", price: 115.00, desc: "Flawless cat-eye tailored profile architecture constructed via premium luxury acetate frameworks. Features custom inner temple signature embossing and bright solid-gold tone facial crest accents." },
 
-            // CATEGORY 3: HIGH LUXURY URBAN FOOTWEAR
+            // FOOTWEAR
             { id: "ftw-1", category: "footwear", name: '"Ancestral Spirit" Monogram Sneaker', file: "fcc125bf-efcf-428f-adda-f48f21f19e1e.png", price: 185.00, desc: "Crafted out of top tier raw black milled leather panels and technical textile uppers. Finished with custom lace-jewel hardware, distinct tongue patch branding, and a beautiful custom-molded high relief Yoruba mask outsole profile." },
             { id: "ftw-2", category: "footwear", name: '"Ancestral Spirit" Monogram Elite', file: "e0504ce9-4485-4a2b-8b31-0ee605d8b0e2.png", price: 195.00, desc: "An exclusive variant execution displaying precise historical repeat monogram canvas text engraving across side mid-panels. Complete with full padded luxury dynamic comfort collars." },
             { id: "ftw-3", category: "footwear", name: '"IINIKO Luxury Slide" Ivory Cream', file: "157ca7a4-83f8-480d-8743-d4fca84970f1.png", price: 85.00, desc: "Premium minimalist ergonomic layout dual-strap lifestyle slides. Finished with beautiful gold-embossed statement hardware buckles, custom contour footbeds, and full presentation box layouts." },
@@ -593,37 +481,31 @@
 
         let BAG_STATE = [];
 
-        // INITIALIZER LOADER
         window.addEventListener('DOMContentLoaded', () => {
             renderStoreMatrix();
             renderPhoneVault();
         });
 
-        // CURRENCY CONVERSION RENDER CALCULATION UTILITY
         function formatPriceDisplay(basePriceInUSD) {
             const currentCurrencyObject = CURRENCY_DICTIONARY[ACTIVE_CURRENCY];
             const convertedPrice = basePriceInUSD * currentCurrencyObject.rate;
-            // Standard formatting across worldwide parameters
             return `${currentCurrencyObject.symbol}${convertedPrice.toFixed(2)}`;
         }
 
         function switchGlobalCurrency(selectedCurrencyCode) {
             if (CURRENCY_DICTIONARY[selectedCurrencyCode]) {
                 ACTIVE_CURRENCY = selectedCurrencyCode;
-                // Re-render completely with converted valuation indicators
                 renderStoreMatrix();
                 synchronizeBagState();
             }
         }
 
-        // SYSTEM LAYOUT BUILDER ENGINE
         function renderStoreMatrix() {
             const newArrivalsTarget = document.getElementById('new-arrivals-container');
             const apparelTarget = document.getElementById('apparel-container');
             const accTarget = document.getElementById('accessories-container');
             const ftwTarget = document.getElementById('footwear-container');
 
-            // Reset layouts for fresh multi-currency rendering iterations
             newArrivalsTarget.innerHTML = '';
             apparelTarget.innerHTML = '';
             accTarget.innerHTML = '';
@@ -631,10 +513,9 @@
 
             PLATFORM_INVENTORY.forEach(product => {
                 const layoutCardHtml = `
-                    <div class="group bg-neutral-950 border border-white/5 rounded-lg p-4 flex flex-col justify-between transition-all duration-300 hover:border-brandAccent/40 hover:shadow-xl relative">
+                    <div class="group bg-neutral-950 border border-white/5 rounded-lg p-4 flex flex-col justify-between transition-all duration-300 hover:border-brandAccent/40 hover:shadow-xl">
                         <div>
-                            <!-- Visual Asset Component Window -->
-                            <div class="w-full h-72 sm:h-80 bg-brandDark rounded overflow-hidden relative mb-4 cursor-pointer" onclick="openImageModal('${product.file}', '${product.name.replace(/'/g, "\\'")}')">
+                            <div class="w-full h-72 sm:h-80 bg-brandDark rounded overflow-hidden relative mb-4 cursor-pointer" onclick="openImageModal('${product.file}', '${product.name.replaceAll("'", "\\'")}')">
                                 <img src="${product.file}" alt="${product.name}" class="w-full h-full object-cover object-center transform group-hover:scale-105 transition duration-500">
                                 <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition duration-300">
                                     <span class="bg-black/80 backdrop-blur-md p-2 rounded text-white hover:text-brandAccent text-sm flex items-center">
@@ -642,15 +523,13 @@
                                     </span>
                                 </div>
                             </div>
-                            <!-- Metadata Architecture with Reactive Currency Values -->
                             <div class="flex justify-between items-start mb-2">
                                 <h3 class="text-sm font-bold uppercase tracking-wide text-white group-hover:text-brandAccent transition duration-200">${product.name}</h3>
                                 <span class="font-mono text-xs text-brandAccent font-bold">${formatPriceDisplay(product.price)}</span>
                             </div>
                             <p class="text-neutral-500 text-[11px] font-light leading-relaxed mb-4 tracking-wide">${product.desc}</p>
                         </div>
-                        <!-- Action Utility -->
-                        <button onclick="addItemToBag('${product.id}')" class="w-full bg-brandDark border border-white/10 hover:border-brandAccent group-hover:bg-brandAccent group-hover:text-brandDark text-white font-bold tracking-widest text-[10px] uppercase py-3 rounded transition duration-300 flex items-center justify-center gap-1.5">
+                        <button onclick="addItemToBag('${product.id}')" class="w-full bg-brandDark border border-white/10 hover:border-brandAccent group-hover:bg-brandAccent group-hover:text-brandDark text-white py-3 rounded font-bold uppercase text-xs tracking-widest transition flex items-center gap-2 justify-center">
                             <ion-icon name="add-outline" class="text-sm"></ion-icon> Acquire Piece
                         </button>
                     </div>
@@ -682,7 +561,6 @@
             });
         }
 
-        // BAG TECH LOGIC CORES
         function addItemToBag(id) {
             const coreItem = PLATFORM_INVENTORY.find(p => p.id === id);
             const verifiedActiveItem = BAG_STATE.find(item => item.id === id);
@@ -775,7 +653,6 @@
             document.getElementById('cart-total').innerText = activeFormattedTotal;
         }
 
-        // TRIGGER DISPATCH
         function triggerCheckoutDispatch() {
             if (BAG_STATE.length === 0) return;
 
@@ -791,7 +668,6 @@
             window.open(parsedOutgoingUrl, '_blank');
         }
 
-        // TOGGLE UTILITY ACTIONS
         function toggleNavMenu(open) {
             const sideMenu = document.getElementById('side-menu');
             const innerPanel = sideMenu.querySelector('div');
@@ -841,7 +717,6 @@
             document.body.classList.remove('modal-active');
         }
 
-        /* PORTAL WINDOWS */
         function openPortal() {
             const portal = document.getElementById('portal-modal');
             portal.classList.remove('pointer-events-none');
@@ -849,15 +724,12 @@
             document.body.classList.add('modal-active');
         }
 
-        class closePortalConfig {
-            static execute() {
-                const portal = document.getElementById('portal-modal');
-                portal.classList.add('pointer-events-none');
-                portal.classList.remove('opacity-100');
-                document.body.classList.remove('modal-active');
-            }
+        function closePortal() {
+            const portal = document.getElementById('portal-modal');
+            portal.classList.add('pointer-events-none');
+            portal.classList.remove('opacity-100');
+            document.body.classList.remove('modal-active');
         }
-        function closePortal() { closePortalConfig.execute(); }
     </script>
 </body>
 </html>
