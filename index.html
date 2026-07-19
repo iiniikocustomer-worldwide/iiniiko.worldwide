@@ -3,1799 +3,807 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IINIKO CLOTHING | Official Archive Portal</title>
-    <!-- FontAwesome & Google Fonts Fallbacks assuming your prior stylesheet parts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>IINIIKO CLOTHING | Rooted In Purpose</title>
+    <!-- Google Fonts: Inter for clean structural text, Syne for high-end tech-streetwear headings -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <style>
-        /* Base Styling Variables matching your system context */
         :root {
-            --bg-color: #ffffff;
-            --surface-color: #f9f9f9;
-            --border-color: #e5e5e5;
-            --text-main: #111111;
-            --text-muted: #666666;
-            --accent-gold: #b38f4f;
-            --font-display: 'Helvetica Neue', Arial, sans-serif;
-            --font-body: 'Helvetica Neue', Arial, sans-serif;
+            --bg-color: #0a0a0a;
+            --panel-bg: #121212;
+            --border-color: #1f1f1f;
+            --text-main: #f5f5f5;
+            --text-muted: #8a8a8a;
+            --brand-gold: #c5a880;
+            --brand-neon: #ccff00;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            margin: 0;
-            padding: 0;
-            font-family: var(--font-body);
-            color: var(--text-main);
             background-color: var(--bg-color);
-            overflow-x: hidden;
-        }
-
-        /* Announcement Ticker matrix styling */
-        .announcement-bar {
-            background: var(--text-main);
-            color: var(--bg-color);
-            padding: 10px 5%;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .announcement-ticker {
-            text-transform: uppercase;
-        }
-        #global-currency-selector {
-            background: transparent;
-            color: var(--bg-color);
-            border: none;
-            outline: none;
-            cursor: pointer;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-        }
-        #global-currency-selector option {
-            color: #000;
-        }
-
-        /* Main Global Header structure */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 5%;
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(5px);
-            z-index: 100;
-        }
-        .logo-container {
-            display: flex;
-            flex-direction: column;
-            line-height: 1;
-        }
-        .logo-main {
-            font-family: var(--font-display);
-            font-size: 1.8rem;
-            font-weight: 900;
-            letter-spacing: 4px;
-            text-decoration: none;
             color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
-        .logo-sub {
-            font-size: 0.6rem;
+
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--brand-gold);
+        }
+
+        /* --- Hero Section with Ken Burns Zoom Effect --- */
+        .hero-container {
+            position: relative;
+            width: 100%;
+            height: 90vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('mod6.png');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+            transform: scale(1);
+            animation: kenBurnsEffect 25s infinite alternate ease-in-out;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.95) 100%);
+            z-index: 2;
+        }
+
+        @keyframes kenBurnsEffect {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+            100% {
+                transform: scale(1.12) translate(-1%, -2%);
+            }
+        }
+
+        /* --- Header Navigation --- */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            padding: 30px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
             letter-spacing: 4px;
-            color: var(--text-muted);
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--brand-gold);
+            font-size: 0.65rem;
+            display: block;
+            letter-spacing: 2px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
             margin-top: 2px;
         }
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-            margin: 0;
-            padding: 0;
-        }
-        nav ul li a {
-            text-decoration: none;
+
+        nav a {
             color: var(--text-main);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        nav ul li a:hover {
-            color: var(--accent-gold);
-        }
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            font-size: 1.1rem;
-        }
-        .nav-actions i {
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-        .nav-actions i:hover {
-            color: var(--accent-gold);
-        }
-        .cart-icon-wrapper {
-            position: relative;
-            cursor: pointer;
-        }
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -10px;
-            background: var(--text-main);
-            color: var(--bg-color);
-            font-size: 0.6rem;
-            padding: 2px 5px;
-            border-radius: 10px;
-            min-width: 12px;
-            text-align: center;
-        }
-
-        /* Hero presentation section styling */
-        .hero-banner {
-            padding: 100px 5%;
-            background: #fdfdfd;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .hero-content {
-            max-width: 800px;
-        }
-        .hero-tagline {
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            color: var(--accent-gold);
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-        .hero-title {
-            font-family: var(--font-display);
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 25px;
-            letter-spacing: -1px;
-        }
-        .hero-description {
-            font-size: 0.95rem;
-            line-height: 1.7;
-            color: var(--text-muted);
-            margin-bottom: 35px;
-        }
-        .hero-btn {
-            display: inline-block;
-            background: var(--text-main);
-            color: var(--bg-color);
-            padding: 15px 40px;
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-weight: bold;
-            transition: background 0.2s;
-        }
-        .hero-btn:hover {
-            background: var(--accent-gold);
+            margin-left: 35px;
+            transition: color 0.3s;
+            font-weight: 500;
         }
 
-        /* Manifesto interface decoration */
-        .manifesto-stripe {
-            background: var(--surface-color);
-            border-bottom: 1px solid var(--border-color);
-            padding: 20px 5%;
-            text-align: center;
-        }
-        .manifesto-text {
-            font-family: var(--font-display);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-style: italic;
+        nav a:hover, nav a.active {
+            color: var(--brand-gold);
         }
 
-        /* Touch & Play Interactive Lookbook Box Section */
-        .lookbook-section {
-            padding: 80px 5%;
-            background: var(--bg-color);
-        }
-        .section-title {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            letter-spacing: 3px;
-            text-align: center;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-        .section-subtitle {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        .showcase-container {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 50px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .interactive-lookbook-wrapper {
+        /* --- Hero Brand Text --- */
+        .hero-content {
             position: relative;
-            border: 1px solid var(--border-color);
-            background: var(--surface-color);
+            z-index: 3;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 20px;
+            margin-top: 80px;
         }
-        .interactive-image {
-            width: 100%;
-            display: block;
-            cursor: pointer;
-        }
-        .hotspot {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: rgba(179, 143, 79, 0.4);
-            border: 2px solid var(--accent-gold);
-            border-radius: 50%;
-            cursor: pointer;
-            transform: translate(-50%, -50%);
-            transition: all 0.3s ease;
-            z-index: 10;
-        }
-        .hotspot:hover {
-            transform: translate(-50%, -50%) scale(1.3);
-            background: var(--accent-gold);
-        }
-        #spot-jacket { top: 30%; left: 50%; }
-        #spot-denim { top: 65%; left: 45%; }
-        #spot-sneakers { top: 90%; left: 52%; }
 
-        .look-breakdown-panel {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .look-meta-title {
-            font-family: var(--font-display);
-            font-size: 1rem;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-        }
-        .look-meta-desc {
-            font-size: 0.85rem;
-            line-height: 1.6;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-        }
-        .lookbook-item-card {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 15px;
-            border: 1px solid var(--border-color);
-            margin-bottom: 15px;
-            cursor: pointer;
-            transition: border-color 0.2s;
-        }
-        .lookbook-item-card.active {
-            border-color: var(--accent-gold);
-            background: var(--surface-color);
-        }
-        .lookbook-item-image {
-            width: 60px;
-            height: 60px;
-            object-fit: cover;
-            border: 1px solid var(--border-color);
-        }
-        .lookbook-item-details {
-            flex-grow: 1;
-        }
-        .lookbook-item-name {
-            font-size: 0.85rem;
-            font-weight: bold;
-            letter-spacing: 0.5px;
-        }
-        .lookbook-item-sub {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-            line-height: 1.4;
-        }
-        .lookbook-item-price {
-            font-size: 0.9rem;
-            font-weight: bold;
-            color: var(--accent-gold);
-        }
-        .lookbook-buy-btn {
-            background: var(--text-main);
-            color: var(--bg-color);
-            border: none;
-            padding: 15px;
-            font-size: 0.8rem;
+        .hero-content h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 4.5rem;
+            letter-spacing: -1px;
+            line-height: 1;
+            margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 15px;
-            transition: background 0.2s;
-        }
-        .lookbook-buy-btn:hover {
-            background: var(--accent-gold);
         }
 
-        /* Product Grid Catalogue System */
-        .catalog-filter-bar {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            letter-spacing: 3px;
+            text-transform: uppercase;
             margin-bottom: 40px;
-            padding: 0 5%;
         }
-        .filter-btn {
-            background: transparent;
-            border: 1px solid var(--border-color);
-            padding: 10px 20px;
-            font-size: 0.75rem;
+
+        .cta-btn {
+            display: inline-block;
+            padding: 16px 40px;
+            border: 1px solid var(--text-main);
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.2s;
+            letter-spacing: 3px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            background: transparent;
         }
-        .filter-btn:hover, .filter-btn.active {
-            background: var(--text-main);
+
+        .cta-btn:hover {
+            background-color: var(--text-main);
             color: var(--bg-color);
-            border-color: var(--text-main);
         }
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
+
+        /* --- Main Store Grid Layout --- */
+        main {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 5%;
+            padding: 80px 5%;
         }
-        .product-card {
-            border: 1px solid var(--border-color);
-            background: var(--bg-color);
+
+        .section-header {
+            margin-bottom: 50px;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
         }
-        .product-visual {
+
+        .section-header h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem;
+            text-transform: uppercase;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 40px;
+            row-gap: 60px;
+        }
+
+        /* --- Product Card Design --- */
+        .product-card {
+            background-color: transparent;
             position: relative;
-            background: var(--surface-color);
-            aspect-ratio: 3/4;
-            overflow: hidden;
+            transition: transform 0.4s ease;
         }
-        .product-main-img {
+
+        .product-image-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 120%; /* Premium portrait aspect ratio */
+            background-color: var(--panel-bg);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .product-image-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            cursor: pointer;
-            transition: transform 0.4s;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
         }
-        .product-main-img:hover {
-            transform: scale(1.03);
+
+        .product-card:hover .product-image-wrapper img {
+            transform: scale(1.05);
         }
-        .product-badge {
+
+        /* Premium Tag Badges */
+        .badge {
             position: absolute;
             top: 15px;
             left: 15px;
-            background: var(--text-main);
-            color: var(--bg-color);
-            font-size: 0.65rem;
-            padding: 4px 10px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            z-index: 2;
-        }
-        .product-info-panel {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-        .product-cat-lbl {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding: 6px 12px;
             font-size: 0.7rem;
             text-transform: uppercase;
-            color: var(--text-muted);
             letter-spacing: 1px;
-            margin-bottom: 5px;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+            z-index: 2;
         }
-        .product-title-lbl {
-            font-size: 0.9rem;
-            font-weight: bold;
-            margin: 0 0 10px 0;
-            letter-spacing: 0.5px;
+
+        .badge.neon {
+            color: var(--brand-neon);
+            border-color: rgba(204, 255, 0, 0.3);
         }
-        .product-desc-lbl {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-            margin: 0 0 20px 0;
-            flex-grow: 1;
+
+        .badge.gold {
+            color: var(--brand-gold);
+            border-color: rgba(197, 168, 128, 0.3);
         }
-        .product-footer-row {
+
+        .product-info {
+            margin-top: 20px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-        }
-        .product-price-lbl {
-            font-size: 1rem;
-            font-weight: bold;
-            color: var(--accent-gold);
-        }
-        .product-add-action {
-            background: none;
-            border: none;
-            font-size: 1.3rem;
-            cursor: pointer;
-            color: var(--text-main);
-            transition: color 0.2s;
-        }
-        .product-add-action:hover {
-            color: var(--accent-gold);
+            align-items: flex-start;
         }
 
-        /* Full Screen Search Overlay System Module */
-        .search-modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(255,255,255,0.98);
-            z-index: 450;
-            display: none;
-            flex-direction: column;
-            padding: 40px 5%;
-            box-sizing: border-box;
-        }
-        .search-modal-header {
-            display: flex;
-            justify-content: flex-end;
-        }
-        .search-input-wrapper {
-            max-width: 800px;
-            width: 100%;
-            margin: 40px auto 20px auto;
-        }
-        .search-field-input {
-            width: 100%;
-            background: transparent;
-            border: none;
-            border-bottom: 2px solid var(--text-main);
-            font-size: 2rem;
-            font-family: var(--font-display);
-            padding: 10px 0;
-            outline: none;
-        }
-        .search-results-stats {
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-muted);
+        .product-title {
+            font-size: 1rem;
+            font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 40px;
-        }
-        .search-results-scrollable {
-            flex-grow: 1;
-            overflow-y: auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
+            max-width: 75%;
+            line-height: 1.4;
         }
 
-        /* User Identity Profile Auth Modals */
-        .auth-modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0,0,0,0.4);
-            backdrop-filter: blur(4px);
-            z-index: 470;
-            display: none;
-            justify-content: center;
-            align-items: center;
+        .product-meta {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        .auth-container-card {
-            background: var(--bg-color);
-            border: 1px solid var(--border-color);
-            width: 90%;
-            max-width: 450px;
-            padding: 40px;
-            box-sizing: border-box;
-            position: relative;
-        }
-        .auth-card-title {
-            font-family: var(--font-display);
+
+        .product-price {
             font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            font-family: 'Syne', sans-serif;
+        }
+
+        /* --- Premium Footer --- */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 60px 5%;
+            margin-top: 100px;
+            background-color: var(--panel-bg);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.85rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            text-align: center;
             margin-bottom: 30px;
         }
-        .auth-form-group {
-            margin-bottom: 20px;
-        }
-        .auth-form-group label {
-            display: block;
+
+        .footer-copy {
             font-size: 0.75rem;
-            text-transform: uppercase;
+            color: rgba(255,255,255,0.2);
             letter-spacing: 1px;
-            margin-bottom: 8px;
-            color: var(--text-muted);
         }
-        .auth-form-field {
-            width: 100%;
-            box-sizing: border-box;
-            border: 1px solid var(--border-color);
-            padding: 12px;
-            font-size: 0.85rem;
-            outline: none;
+
+        /* --- Integrated OpenAI Premium AI Widget Window --- */
+        #chat-widget-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            font-family: 'Inter', sans-serif;
         }
-        .auth-submit-action {
-            width: 100%;
-            background: var(--text-main);
+
+        #chat-trigger {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--text-main);
             color: var(--bg-color);
             border: none;
-            padding: 14px;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: bold;
             cursor: pointer;
-            margin-top: 10px;
-            transition: background 0.2s;
-        }
-        .auth-submit-action:hover {
-            background: var(--accent-gold);
-        }
-        .auth-toggle-msg {
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 20px;
-        }
-        .auth-toggle-link {
-            color: var(--text-main);
-            text-decoration: underline;
-            cursor: pointer;
-        }
-
-        /* Generic Regulatory Document Policy Sheet Modal */
-        .policy-modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0,0,0,0.4);
-            backdrop-filter: blur(4px);
-            z-index: 460;
-            display: none;
-            justify-content: center;
+            display: flex;
             align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease, background-color 0.3s;
         }
 
-        .policy-wrapper-box {
-            background: var(--bg-color);
-            border: 1px solid var(--border-color);
-            width: 90%;
-            max-width: 700px;
-            max-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            padding: 40px;
-            box-sizing: border-box;
+        #chat-trigger:hover {
+            transform: scale(1.05);
+            background-color: var(--brand-gold);
         }
 
-        .policy-box-title {
-            font-family: var(--font-display);
-            font-size: 1rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
+        #chat-trigger svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
         }
 
-        .policy-scrollable-body {
-            flex-grow: 1;
-            overflow-y: auto;
-            font-size: 0.88rem;
-            line-height: 1.7;
-            color: #333333;
-            padding-right: 10px;
-        }
-
-        .policy-scrollable-body h4 {
-            font-family: var(--font-display);
-            font-size: 0.75rem;
-            margin: 20px 0 8px 0;
-            letter-spacing: 1px;
-            color: var(--text-main);
-        }
-
-        /* Slide-Out Shopping Bag Drawer Layout Module */
-        .cart-drawer-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0,0,0,0.3);
-            z-index: 400;
-            display: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .cart-drawer-overlay.open {
-            display: block;
-            opacity: 1;
-        }
-        .cart-drawer {
-            position: fixed;
-            top: 0;
-            right: -450px;
-            width: 100%;
-            max-width: 450px;
-            height: 100vh;
-            background: var(--bg-color);
-            box-shadow: -10px 0 30px rgba(0,0,0,0.05);
-            z-index: 410;
-            display: flex;
-            flex-direction: column;
-            transition: right 0.3s ease;
-        }
-        .cart-drawer.open {
+        #chat-window {
+            position: absolute;
+            bottom: 80px;
             right: 0;
+            width: 380px;
+            height: 520px;
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
-        .cart-drawer-header {
-            padding: 30px;
+
+        #chat-window.open {
+            display: flex;
+        }
+
+        .chat-header {
+            padding: 20px;
+            background-color: rgba(255,255,255,0.02);
             border-bottom: 1px solid var(--border-color);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .cart-drawer-title {
-            font-family: var(--font-display);
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            font-weight: bold;
-        }
-        .cart-drawer-close {
-            background: none;
-            border: none;
-            font-size: 1.1rem;
-            cursor: pointer;
-            color: var(--text-main);
-        }
-        .cart-items-container {
-            flex-grow: 1;
-            overflow-y: auto;
-            padding: 30px;
-        }
-        .cart-empty-message {
+
+        .chat-header-title {
             font-size: 0.85rem;
-            color: var(--text-muted);
-            text-align: center;
-            margin-top: 50px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .cart-item-row {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .cart-item-thumb {
-            width: 70px;
-            height: 70px;
-            object-fit: cover;
-            background: var(--surface-color);
-            cursor: pointer;
-        }
-        .cart-item-meta {
-            flex-grow: 1;
-        }
-        .cart-item-name {
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .cart-item-price {
-            font-size: 0.85rem;
-            color: var(--accent-gold);
+            letter-spacing: 2px;
             font-weight: 600;
         }
-        .cart-item-remove {
-            background: none;
-            border: none;
-            color: #cc3333;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-        .cart-drawer-footer {
-            padding: 30px;
-            border-top: 1px solid var(--border-color);
-            background: var(--surface-color);
-        }
-        .cart-summary-row {
+
+        .chat-header-status {
+            font-size: 0.7rem;
+            color: var(--brand-gold);
             display: flex;
-            justify-content: space-between;
-            font-size: 0.95rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        .cart-total-amount {
-            color: var(--accent-gold);
-        }
-        .checkout-action-btn {
-            width: 100%;
-            background: #25D366;
-            color: #ffffff;
-            border: none;
-            padding: 15px;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
             align-items: center;
-            gap: 10px;
-            transition: background 0.2s;
-        }
-        .checkout-action-btn:hover {
-            background: #20ba5a;
+            gap: 6px;
         }
 
-        /* Professional Multi-Column Footer */
-        footer {
-            background-color: var(--surface-color);
-            border-top: 1px solid var(--border-color);
-            padding: 70px 5% 30px 5%;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.5fr repeat(3, 1fr);
-            gap: 40px;
-            max-width: 1400px;
-            margin: 0 auto 50px auto;
-        }
-
-        .footer-brand-column p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.7;
-            margin-top: 15px;
-            max-width: 320px;
-        }
-
-        .footer-column-heading {
-            font-family: var(--font-display);
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 25px;
-            color: var(--text-main);
-        }
-
-        .footer-links-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .footer-links-list li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links-list li a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.2s, padding-left 0.2s;
+        .chat-header-status::before {
+            content: '';
             display: inline-block;
-            cursor: pointer;
+            width: 6px;
+            height: 6px;
+            background-color: var(--brand-gold);
+            border-radius: 50%;
         }
 
-        .footer-links-list li a:hover {
-            color: var(--text-main);
-            padding-left: 4px;
-        }
-
-        /* Premium Newsletter Box */
-        .footer-newsletter-wrapper {
-            display: flex;
-            margin-top: 15px;
-            max-width: 300px;
-            border-bottom: 1px solid var(--text-muted);
-        }
-
-        .footer-newsletter-input {
+        .chat-close-btn {
             background: transparent;
             border: none;
-            padding: 10px 0;
-            color: var(--text-main);
-            font-family: var(--font-body);
-            font-size: 0.85rem;
-            flex-grow: 1;
-            outline: none;
-        }
-
-        .footer-newsletter-input::placeholder {
-            color: #999;
-        }
-
-        .footer-newsletter-btn {
-            background: transparent;
-            border: none;
-            color: var(--text-main);
-            cursor: pointer;
-            padding: 10px;
-            transition: color 0.2s;
-        }
-
-        .footer-newsletter-btn:hover {
-            color: var(--accent-gold);
-        }
-
-        .footer-social-icons {
-            display: flex;
-            gap: 20px;
-            margin-top: 25px;
-        }
-
-        .footer-social-icons a {
             color: var(--text-muted);
+            cursor: pointer;
             font-size: 1.1rem;
-            transition: color 0.2s;
         }
 
-        .footer-social-icons a:hover {
-            color: var(--accent-gold);
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
-        .footer-base-area {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding-top: 30px;
+        .message {
+            max-width: 85%;
+            padding: 12px 16px;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            border-radius: 8px;
+        }
+
+        .message.assistant {
+            background-color: rgba(255,255,255,0.04);
+            color: var(--text-main);
+            align-self: flex-start;
+            border-bottom-left-radius: 2px;
+        }
+
+        .message.user {
+            background-color: var(--brand-gold);
+            color: #000;
+            align-self: flex-end;
+            border-bottom-right-radius: 2px;
+            font-weight: 500;
+        }
+
+        .chat-input-area {
+            padding: 15px 20px;
             border-top: 1px solid var(--border-color);
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            gap: 10px;
+            background-color: rgba(0,0,0,0.2);
         }
 
-        .footer-copyright {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            letter-spacing: 0.5px;
-        }
-
-        .footer-payment-methods {
-            display: flex;
-            gap: 12px;
-            font-size: 1.3rem;
-            color: var(--text-muted);
-            opacity: 0.7;
-        }
-
-        /* Full Screen Zoom-Slide Lightbox Modal System */
-        .preview-modal-lightbox {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(255, 255, 255, 0.98);
-            z-index: 500;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        .lightbox-close-trigger {
-            position: absolute;
-            top: 25px;
-            right: 35px;
-            background: transparent;
-            border: none;
-            color: #111111;
-            font-size: 2rem;
-            cursor: pointer;
-            z-index: 510;
-            transition: transform 0.2s;
-        }
-
-        .lightbox-close-trigger:hover {
-            transform: scale(1.1);
-        }
-
-        .lightbox-zoom-instructions {
-            position: absolute;
-            bottom: 25px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #111111;
-            color: #ffffff;
-            padding: 8px 20px;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            border-radius: 20px;
-            pointer-events: none;
-            z-index: 510;
-        }
-
-        .lightbox-viewport-container {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: grab;
-        }
-
-        .lightbox-viewport-container:active {
-            cursor: grabbing;
-        }
-
-        .lightbox-view-img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-            transform-origin: center center;
-            transition: transform 0.1s ease-out;
-            will-change: transform;
-        }
-
-        /* DigitalGenius LiveChat Minimal Container Injection Styling Override */
-        #dg-chat-widget-container {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            z-index: 9999;
-        }
-
-        .dg-custom-trigger-btn {
-            background: var(--text-main);
-            color: var(--bg-color);
+        .chat-input-area input {
+            flex: 1;
+            background: rgba(255,255,255,0.03);
             border: 1px solid var(--border-color);
-            padding: 12px 24px;
-            font-family: var(--font-display);
-            font-size: 0.65rem;
-            letter-spacing: 2px;
-            font-weight: bold;
+            padding: 12px;
+            color: var(--text-main);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .chat-input-area input:focus {
+            outline: none;
+            border-color: var(--brand-gold);
+        }
+
+        .chat-send-btn {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 0 16px;
+            border-radius: 6px;
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.2s;
         }
 
-        .dg-custom-trigger-btn:hover {
-            background: var(--accent-gold);
-            transform: translateY(-2px);
+        .chat-send-btn:hover {
+            background-color: var(--text-main);
+            color: var(--bg-color);
         }
 
-        /* Responsive Breakpoints */
-        @media (max-width: 992px) {
-            .showcase-container {
-                grid-template-columns: 1fr;
+        /* --- Responsive Viewports --- */
+        @media(max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
             }
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 30px;
-            }
-        }
-
-        @media (max-width: 768px) {
             header {
-                padding: 15px 4%;
+                padding: 20px;
             }
             nav {
-                display: none;
+                display: none; /* Can map to a hamburger menu later */
             }
-            .hero-title {
-                font-size: 2rem;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-            .footer-base-area {
-                flex-direction: column;
-                text-align: center;
-            }
-            .announcement-controls {
-                display: none;
+            #chat-window {
+                width: calc(100vw - 40px);
+                right: -10px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Announcement Bar Matrix -->
-    <div class="announcement-bar">
-        <div class="announcement-ticker" id="announcement-text-node">
-            IINIKO DENIM & HERITAGE COLLECTION • FREE DELIVERY IN SOUTH AFRICA, KZN ACROSS ALL ORDERS OVER R1500
-        </div>
-        <div class="announcement-controls">
-            <div class="currency-select-wrapper">
-                <select id="global-currency-selector" onchange="switchGlobalCurrencyEngine(this.value)">
-                    <option value="ZAR">ZAR (R)</option>
-                    <option value="USD">USD ($)</option>
-                    <option value="EUR">EUR (€)</option>
-                    <option value="GBP">GBP (£)</option>
-                </select>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Global Header -->
+    <!-- Dynamic Layout Header Area -->
     <header>
-        <div class="logo-container">
-            <a href="#" class="logo-main">IINIKO</a>
-            <div class="logo-sub">CLOTHING</div>
-        </div>
+        <a href="#" class="logo">
+            IINIIKO
+            <span>ROOTED IN PURPOSE</span>
+        </a>
         <nav>
-            <ul>
-                <li><a href="#catalog" onclick="filterCatalog('all'); return false;">Shop All</a></li>
-                <li><a href="#catalog" class="badge-new" onclick="filterCatalog('new-arrivals'); return false;">New Arrivals</a></li>
-                <li><a href="#catalog" onclick="filterCatalog('prestige'); return false;">Prestige Drop</a></li>
-                <li><a href="#catalog" onclick="filterCatalog('tees'); return false;">T-Shirts</a></li>
-                <li><a href="#catalog" onclick="filterCatalog('hoodies'); return false;">Hoodies</a></li>
-                <li><a href="#catalog" onclick="filterCatalog('bottoms'); return false;">Bottoms</a></li>
-                <li><a href="#catalog" onclick="filterCatalog('outerwear'); return false;">Outerwear</a></li>
-            </ul>
+            <a href="#" class="active">Collections</a>
+            <a href="#">Archive</a>
+            <a href="#">Editorial</a>
+            <a href="#">About</a>
         </nav>
-        <div class="nav-actions">
-            <i class="fas fa-search" title="Search" onclick="toggleSearchOverlay(true)"></i>
-            <i class="far fa-user" title="Account" id="nav-profile-icon" onclick="toggleAuthOverlay(true)"></i>
-            <div class="cart-icon-wrapper" onclick="toggleCart(true)">
-                <i class="fas fa-shopping-bag"></i>
-                <span class="cart-count" id="header-cart-count">0</span>
-            </div>
-        </div>
     </header>
 
-    <!-- Main Full Height Hero Banner -->
-    <section class="hero-banner">
+    <!-- Kinetic Hero Showcase Container -->
+    <section class="hero-container">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <div class="hero-tagline">YORUBA ROOTS // GLOBAL VISION [Locations: Durban, South Coast, Chatsworth, KwaMashu, Mthwalume, Newlands West, Johannesburg ]</div>
-            <h1 class="hero-title">BORN IN CHAOS.<br>BUILT FOR MORE.</h1>
-            <p class="hero-description">
-                Welcome to the world of IINIKO CLOTHING. Engineered at the intersection of international independent fashion parameters and uncompromising cultural craftsmanship, IINIKO represents a global vision. Each garment functions as an architectural building block for a premium streetwear uniform, offering structured heavyweight silhouettes, raw vintage textile treatments, and deep narrative expressions of resilience. Purpose-built for independent minds traversing the modern diaspora.
-            </p>
-            <a href="#catalog" class="hero-btn">Explore Drop</a>
+            <h1>Heritage Transformed</h1>
+            <p>Premium Heavyweight Capsule Drops</p>
+            <a href="#catalogue" class="cta-btn">Explore Archive</a>
         </div>
     </section>
 
-    <!-- Manifesto Statement Bar -->
-    <div class="manifesto-stripe">
-        <div class="manifesto-text">Strength is not the absence of struggle, it is the existence of purpose.</div>
-    </div>
-
-    <!-- Touch & Play Interactive Lookbook Box Section -->
-    <section class="lookbook-section">
-        <h2 class="section-title">TOUCH & PLAY INTERACTIVE LOOK</h2>
-        <div class="section-subtitle">Tap structural hotspots to preview or click images directly to enter free zoom-slide preview</div>
-
-        <div class="showcase-container">
-            <!-- Left Side: Interactive Hotspot Stack Frame -->
-            <div class="interactive-lookbook-wrapper">
-                <img src="mod5.png" alt="Iniko Collection Showcase" class="interactive-image launch-preview">
-                
-                <div class="hotspot" id="spot-jacket" onclick="activateHotspotItem('jacket')"></div>
-                <div class="hotspot" id="spot-denim" onclick="activateHotspotItem('denim')"></div>
-                <div class="hotspot" id="spot-sneakers" onclick="activateHotspotItem('sneakers')"></div>
+    <!-- Main Store Catalog Area -->
+    <main id="catalogue">
+        <div class="section-header">
+            <div>
+                <h2>New Arrivals</h2>
+                <p>Curated Heavyweight Textiles & Silhouette Profiles</p>
             </div>
+            <p>Collection 2026</p>
+        </div>
 
-            <!-- Right Side: Smart Interactive Data Card Output -->
-            <div class="look-breakdown-panel">
-                <div class="look-meta-title">COLLECTION BREAKDOWN</div>
-                <div class="look-meta-desc">Every layer represents premium craftsmanship and deep historical identity detailing. Select individual uniform components below.</div>
-                
-                <div id="lookbook-list">
-                    <!-- Loaded dynamically via engine script -->
+        <div class="grid-container">
+            <!-- Product Item 1: 46664 Mandela Legacy Tee -->
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <span class="badge gold">Legacy Drop</span>
+                    <img src="ChatGPT Image Jul 17, 2026, 09_05_02 AM.png" alt="46664 Mandela Legacy Heavyweight Tee">
                 </div>
-
-                <button class="lookbook-buy-btn" onclick="addSelectedLookbookToBag()">Add Selected To Bag</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Product Grid Catalog System -->
-    <section id="catalog" style="background-color: var(--bg-color); padding: 40px 0; border-top: 1px solid var(--border-color);">
-        <h2 class="section-title">THE ARCHIVE CATALOGUE</h2>
-        <div class="section-subtitle">Premium quality. Purposeful design. Rooted in culture.</div>
-
-        <!-- Section Action Filters -->
-        <div class="catalog-filter-bar">
-            <button class="filter-btn active" id="btn-all" onclick="filterCatalog('all')">All Archive</button>
-            <button class="filter-btn" id="btn-new-arrivals" onclick="filterCatalog('new-arrivals')">New Arrivals ✨</button>
-            <button class="filter-btn" id="btn-prestige" onclick="filterCatalog('prestige')">Prestige Gold 🏆</button>
-            <button class="filter-btn" id="btn-tees" onclick="filterCatalog('tees')">Oversized Tees</button>
-            <button class="filter-btn" id="btn-hoodies" onclick="filterCatalog('hoodies')">Hoodies</button>
-            <button class="filter-btn" id="btn-bottoms" onclick="filterCatalog('bottoms')">Bottoms</button>
-            <button class="filter-btn" id="btn-outerwear" onclick="filterCatalog('outerwear')">Outerwear</button>
-        </div>
-
-        <!-- Render Target Grid -->
-        <div class="products-grid" id="catalog-products-target">
-            <!-- Injected programmatically via engine below -->
-        </div>
-    </section>
-
-    <!-- Full Screen Search Overlay System Module -->
-    <div class="search-modal-overlay" id="search-overlay">
-        <div class="search-modal-header">
-            <button class="cart-drawer-close" onclick="toggleSearchOverlay(false)"><i class="fas fa-times"></i></button>
-        </div>
-        <div class="search-input-wrapper">
-            <input type="text" class="search-field-input" id="search-dom-input" placeholder="Type to search archive..." oninput="executeArchiveSearchSearch(this.value)">
-        </div>
-        <div class="search-results-stats" id="search-stats-node">Enter catalog tags, names, or fabrics above.</div>
-        <div class="search-results-scrollable" id="search-results-target">
-            <!-- Populated via programmatic matching matrix -->
-        </div>
-    </div>
-
-    <!-- User Account Profile Identity Card Overlay -->
-    <div class="auth-modal-overlay" id="auth-overlay" onclick="toggleAuthOverlay(false)">
-        <div class="auth-container-card" onclick="event.stopPropagation()">
-            <button class="cart-drawer-close" style="position: absolute; top: 15px; right: 15px;" onclick="toggleAuthOverlay(false)"><i class="fas fa-times"></i></button>
-            
-            <div id="auth-state-logged-out">
-                <div class="auth-card-title" id="auth-panel-heading">SIGN IN TO ACCESS ARCHIVE</div>
-                <div class="auth-form-group">
-                    <label>Identity / Email Address</label>
-                    <input type="email" class="auth-form-field" id="auth-email-input" placeholder="name@domain.com">
+                <div class="product-info">
+                    <div>
+                        <div class="product-title">46664 Legacy Tee</div>
+                        <div class="product-meta">Oversized Fit • 260GSM Vintage Black</div>
+                    </div>
+                    <div class="product-price">R899</div>
                 </div>
-                <div class="auth-form-group" id="auth-password-wrapper">
-                    <label>Security Code / Password</label>
-                    <input type="password" class="auth-form-field" id="auth-password-input" placeholder="••••••••">
+            </div>
+
+            <!-- Product Item 2: Mandela Liberator Portrait Tee -->
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <span class="badge gold">Legacy Drop</span>
+                    <img src="ChatGPT Image Jul 17, 2026, 08_57_02 AM.png" alt="Mandela Liberator Portrait Tee">
                 </div>
-                <button class="auth-submit-action" onclick="processAccountIdentityAuthentication()">Verify Credentials</button>
-                <div class="auth-toggle-msg" id="auth-switcher-text">New to the family? <span class="auth-toggle-link" onclick="switchAuthViewPanel(true)">Create Account Profile</span></div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-title">Liberator Portrait Tee</div>
+                        <div class="product-meta">Oversized Fit • 260GSM Premium Cotton</div>
+                    </div>
+                    <div class="product-price">R950</div>
+                </div>
             </div>
 
-            <div id="auth-state-logged-in" style="display: none; text-align: center;">
-                <div class="auth-card-title">WELCOME BACK</div>
-                <i class="fas fa-crown" style="font-size: 2.5rem; color: var(--accent-gold); margin-bottom: 15px;"></i>
-                <h3 id="user-profile-display-name" style="text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-display); font-size: 1rem; margin-bottom: 5px;">Guest Member</h3>
-                <p id="user-profile-display-tier" style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px;">Prestige Archival Tier</p>
-                <button class="auth-submit-action" style="background: #cc3333;" onclick="terminateUserSessionAuthentication()">Sign Out Account</button>
+            <!-- Product Item 3: Yoruba Roots Head Graphic Tee -->
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <span class="badge">Culture Capsule</span>
+                    <img src="ChatGPT Image Jul 17, 2026, 07_34_23 AM.png" alt="Yoruba Roots Head Graphic Tee">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-title">Yoruba Roots Spirit Tee</div>
+                        <div class="product-meta">Oversized Fit • Acid Wash Finish</div>
+                    </div>
+                    <div class="product-price">R850</div>
+                </div>
+            </div>
+
+            <!-- Product Item 4: Origin Of Greatness Yoruba Roots Tee -->
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <span class="badge">Culture Capsule</span>
+                    <img src="ChatGPT Image Jul 17, 2026, 07_38_02 AM.png" alt="Origin Of Greatness Yoruba Roots Tee">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-title">Origin Of Greatness Tee</div>
+                        <div class="product-meta">Oversized Fit • Detailed Screenprint</div>
+                    </div>
+                    <div class="product-price">R899</div>
+                </div>
+            </div>
+
+            <!-- Product Item 5: Durban 031 Built Heritage Tee -->
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <span class="badge">Heritage Drop</span>
+                    <img src="ChatGPT Image Jul 17, 2026, 07_27_52 AM.png" alt="Durban 031 Built Heritage Tee">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-title">Durban 031 Edition Tee</div>
+                        <div class="product-meta">Box Fit Vintage Black • Localized Graphic</div>
+                    </div>
+                    <div class="product-price">R799</div>
+                </div>
+            </div>
+
+            <!-- Product Item 6: Triblad Times Longsleeve Jersey Prototype -->
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <span class="badge neon">Motorsport Drop</span>
+                    <img src="ChatGPT Image Jul 17, 2026, 07_18_15 AM.png" alt="Triblad Times Longsleeve Jersey Prototype">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-title">Triblad Times Longsleeve</div>
+                        <div class="product-meta">Heavy Knit Mesh • Technical Panel Layout</div>
+                    </div>
+                    <div class="product-price">R1,200</div>
+                </div>
+            </div>
+
+            <!-- Product Item 7: Master Collection Presentation Card -->
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <span class="badge neon">Limited Edition</span>
+                    <img src="ChatGPT Image Jul 11, 2026, 06_12_16 PM.png" alt="IINIIKO Racing Jersey Master Concept Board">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-title">Motorsport Racing Jersey</div>
+                        <div class="product-meta">Full Custom All-Over Print • Breathable Fabric</div>
+                    </div>
+                    <div class="product-price">R1,450</div>
+                </div>
             </div>
         </div>
-    </div>
+    </main>
 
-    <!-- Generic Legal/Compliance Policy Sheet Modal Framework -->
-    <div class="policy-modal-overlay" id="policy-overlay" onclick="togglePolicyOverlay(false)">
-        <div class="policy-wrapper-box" onclick="event.stopPropagation()">
-            <div class="policy-box-title" id="policy-dom-title">Document Reference</div>
-            <div class="policy-scrollable-body" id="policy-dom-body">
-                <!-- Legal language layout injected seamlessly -->
-            </div>
-            <button class="auth-submit-action" style="margin-top: 20px;" onclick="togglePolicyOverlay(false)">Acknowledge & Close</button>
-        </div>
-    </div>
-
-    <!-- Slide-Out Shopping Bag Drawer -->
-    <div class="cart-drawer-overlay" id="cart-overlay" onclick="toggleCart(false)"></div>
-    <div class="cart-drawer" id="cart-drawer">
-        <div class="cart-drawer-header">
-            <div class="cart-drawer-title">YOUR SHOPPING BAG (<span id="cart-items-qty">0</span>)</div>
-            <button class="cart-drawer-close" onclick="toggleCart(false)"><i class="fas fa-times"></i></button>
-        </div>
-        
-        <div class="cart-items-container" id="cart-items-wrapper">
-            <!-- Cart items render dynamically here -->
-        </div>
-
-        <div class="cart-drawer-footer">
-            <div class="cart-summary-row">
-                <span>Estimated Total:</span>
-                <span class="cart-total-amount" id="cart-total-display">R0.00</span>
-            </div>
-            <button class="checkout-action-btn" onclick="checkoutToWhatsApp()">
-                <i class="fab fa-whatsapp"></i> Checkout via WhatsApp
-            </button>
-        </div>
-    </div>
-
-    <!-- Full-Screen Interactive Zoom & Free Slide Lightbox Target Container -->
-    <div class="preview-modal-lightbox" id="preview-lightbox">
-        <button class="lightbox-close-trigger" onclick="closeImagePreview()"><i class="fas fa-times"></i></button>
-        <div class="lightbox-zoom-instructions">Drag/Slide to pan • Use Mouse Wheel / Pinch to Zoom</div>
-        <div class="lightbox-viewport-container" id="lightbox-pan-viewport">
-            <img src="" class="lightbox-view-img" id="lightbox-target-img" alt="Zoom Preview Asset">
-        </div>
-    </div>
-
-    <!-- Premium Multi-Column Footer -->
+    <!-- Brand Footer -->
     <footer>
-        <div class="footer-grid">
-            <div class="footer-brand-column">
-                <div class="logo-container" style="align-items: flex-start; margin-bottom: 15px;">
-                    <div class="logo-main" style="font-size: 1.2rem;">IINIKO</div>
-                    <div class="logo-sub" style="font-size: 0.5rem; letter-spacing: 5px;">CLOTHING</div>
-                </div>
-                <p>An international cultural movement engineered from the ground up, merging contemporary heavy streetwear design parameters with classic legacy expressions [Locations: Durban, South Coast, Chatsworth, KwaMashu, Mthwalume, Newlands West, Johannesburg ].</p>
-                <div class="footer-social-icons">
-                    <a href="https://www.instagram.com/iiniiko.world/" target="_blank" title="Instagram Profile"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/people/Iiniikoworldwide/100075902004916/" target="_blank" title="Facebook Page"><i class="fab fa-facebook-f"></i></a>
-                    <a href="mailto:iiniikocustomer@gmail.com" title="Direct Email Support Desk"><i class="far fa-envelope"></i></a>
-                </div>
-            </div>
-
-            <div>
-                <h3 class="footer-column-heading">Support Desk</h3>
-                <ul class="footer-links-list">
-                    <li><a onclick="launchLegalDocumentModal('tracking')">Track My Package</a></li>
-                    <li><a onclick="launchLegalDocumentModal('shipping')">Shipping & Returns Policy</a></li>
-                    <li><a onclick="launchLegalDocumentModal('sizing')">Size Blueprint Guide</a></li>
-                    <li><a href="mailto:iiniikocustomer@gmail.com">Direct Email Help Desk</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h3 class="footer-column-heading">Corporate</h3>
-                <ul class="footer-links-list">
-                    <li><a onclick="launchLegalDocumentModal('manifesto')">Our Origin Manifesto</a></li>
-                    <li><a onclick="launchLegalDocumentModal('slavery')">Modern Slavery Statement</a></li>
-                    <li><a onclick="launchLegalDocumentModal('terms')">Terms & Conditions</a></li>
-                    <li><a onclick="launchLegalDocumentModal('privacy')">Privacy Policy</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h3 class="footer-column-heading">Company</h3>
-                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 15px;">Join the inner circle to access exclusive tier archival releases and secret flash product launches first.</p>
-                <div class="footer-newsletter-wrapper">
-                    <input type="email" id="footer-newsletter-field" class="footer-newsletter-input" placeholder="Enter your email address">
-                    <button class="footer-newsletter-btn" onclick="subscribeNewsletterAction()"><i class="fas fa-arrow-right"></i></button>
-                </div>
-                <ul class="footer-links-list" style="margin-top: 20px;">
-                    <li><a onclick="launchLegalDocumentModal('cookies')" style="font-size: 0.75rem; text-decoration: underline;">Cookie Preferences</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="footer-base-area">
-            <div class="footer-copyright">
-                &copy; 2026 IINIKO CLOTHING LTD. All Rights Reserved. Conceptualized and Handcrafted in South Africa.
-            </div>
-            <div class="footer-payment-methods">
-                <i class="fab fa-cc-visa" title="Visa Payment"></i>
-                <i class="fab fa-cc-mastercard" title="Mastercard Payment"></i>
-                <i class="fab fa-cc-apple-pay" title="Apple Pay Secure"></i>
-                <i class="fas fa-money-check-alt" title="Instant EFT Verification"></i>
-            </div>
-        </div>
+        <div class="footer-logo">IINIIKO</div>
+        <div class="footer-text">Not an excuse. A purpose. A movement. A lifestyle. Built for more.</div>
+        <div class="footer-copy">&copy; 2026 IINIIKO WORLDWIDE. All Rights Reserved.</div>
     </footer>
 
-    <!-- Chat⚡ by IINIKO Interface Widget Container Entry Point -->
-    <div id="dg-chat-widget-container">
-        <button class="dg-custom-trigger-btn" onclick="triggerDigitalGeniusChatSession()">
-            <i class="fas fa-bolt"></i> Chat⚡ by IINIKO
+    <!-- Integrated OpenAI Premium Design Assistant Widget -->
+    <div id="chat-widget-container">
+        <button id="chat-trigger" title="Connect with Client Services">
+            <!-- Sleek Minimalist Conversation Bubble Icon -->
+            <svg viewBox="0 0 24 24">
+                <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+            </svg>
         </button>
+
+        <div id="chat-window">
+            <div class="chat-header">
+                <div>
+                    <div class="chat-header-title">IINIIKO Assistant</div>
+                    <div class="chat-header-status">Concierge Online</div>
+                </div>
+                <button class="chat-close-btn" id="chat-close" title="Minimize Window">&times;</button>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="message assistant">
+                    Welcome to IINIIKO WORLDWIDE client services. How can I assist you with our new arrivals or order distributions today?
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Inquire about collections..." autocomplete="off">
+                <button class="chat-send-btn" id="chat-send">Send</button>
+            </div>
+        </div>
     </div>
 
-    <!-- Frontend Core Application Engine Scripts -->
+    <!-- Interface and OpenAI Secure Request Routing Controller Script -->
     <script>
-        // GLOBAL APP MEMORY MATRIX STATE SETUP
-        let ACTIVE_CURRENCY_CODE = "ZAR";
-        let globalShoppingBag = [];
-        let isAuthFormRegisterView = false;
-        let authenticatedUserSessionObj = null;
-        let activeLookbookSelectionKey = "jacket";
+        // --- UI Interactions Controller ---
+        const chatTrigger = document.getElementById('chat-trigger');
+        const chatWindow = document.getElementById('chat-window');
+        const chatClose = document.getElementById('chat-close');
+        const chatInput = document.getElementById('chat-input');
+        const chatSend = document.getElementById('chat-send');
+        const chatMessages = document.getElementById('chat-messages');
 
-        // Lightbox tracking runtime variables
-        let isDraggingLightbox = false;
-        let lightboxScaleFactor = 1;
-        let lightboxCurrentOffsetX = 0;
-        let lightboxCurrentOffsetY = 0;
-        let lightboxStartPanX = 0;
-        let lightboxStartPanY = 0;
-
-        const CONVERSION_RATE_TABLE = {
-            "ZAR": 1.0,
-            "USD": 0.054,
-            "EUR": 0.050,
-            "GBP": 0.042
-        };
-        const CURRENCY_SYMBOL_TABLE = {
-            "ZAR": "R",
-            "USD": "$",
-            "EUR": "€",
-            "GBP": "£"
-        };
-
-        const PRODUCTS_DATABASE = [
-            // CATEGORY: NEW ARRIVALS & PRESTIGE LABELS INTEGRATION
-            { id: "tee-01", category: "tees", badge: "New Arrival", tags: ["new-arrivals", "280gsm"], name: "01 | INIKO STACK LOGO TEE", price: 400, desc: "Oversized silhouette vintage acid black wash featuring heavy front graphic panel typography lines.", img: "071cf124-158e-4e0a-8e49-779e777fab2b.png" },
-            { id: "tee-02", category: "tees", badge: "280GSM Heavy", tags: ["core"], name: "02 | BORN DURING TROUBLED TIMES TEE", price: 350, desc: "Premium relaxed streetwear build layout displaying custom bold front statement configurations.", img: "dd80383a-dc4f-4cf8-93e8-79872716c6a7.png" },
-            { id: "tee-03", category: "tees", badge: "Prestige Gold 🏆", tags: ["prestige", "limited"], name: "03 | RESILIENCE ARCHIVE TEE (PRESTIGE)", price: 350, desc: "Drop-shoulder relaxed premium profile finished with detailed heritage gold thread graphic accents.", img: "259e5691-d847-49ca-bbe3-b37f80fce655.png" },
-            { id: "tee-04", category: "tees", badge: "New Arrival", tags: ["new-arrivals"], name: "04 | YORUBA ROOTS LEGACY TEE", price: 350, desc: "Showcasing high density ancestral mask imagery screens over an intense premium combed cotton backdrop.", img: "5a262d37-8ebe-40cb-b32f-5a5ec9ab11f6.png" },
-            { id: "tee-05", category: "tees", badge: "280GSM Heavy", tags: ["core"], name: "05 | CHAOS TO GREATNESS TEE", price: 350, desc: "Dystopian modern luxury cut presenting high contrast alignment text branding layout systems.", img: "70101de8-1e7c-4c41-92bb-e34af1c8d703.png" },
-            
-            // HOODIES
-            { id: "hood-01", category: "hoodies", badge: "Prestige Gold 🏆", tags: ["prestige", "fleece"], name: "01 | INIKO STACK LOGO HOODIE", price: 400, desc: "Custom loopback dense fleece build carrying premium elevated embroidery detailing stamps.", img: "77e5233c-f500-41c8-85e1-dfc8dfb270c7.png" },
-            { id: "hood-02", category: "hoodies", badge: "New Arrival", tags: ["new-arrivals"], name: "02 | BORN DURING TROUBLED TIMES HOODIE", price: 650, desc: "Ultra heavyweight structure tailored with a spacious overlapping double wall hood arrangement.", img: "995f5d76-adb9-4ede-ba57-a44eda515cd4.png" },
-            { id: "hood-03", category: "hoodies", badge: "460GSM Fleece", tags: ["core"], name: "03 | RESILIENCE INDUSTRIAL HOODIE", price: 530, desc: "Thick rib knit tracking borders paired with deep comfort kangaroo pockets and dyed matching drawcords.", img: "649c1f57-3e78-4bc0-beba-29f33797c482.png" },
-            { id: "hood-04", category: "hoodies", badge: "460GSM Fleece", tags: ["core"], name: "04 | YORUBA ROOTS HERITAGE HOODIE", price: 430, desc: "Masterful oversized layout layout with heavy scale back panel legacy icon prints.", img: "9714d075-ae6c-4428-8085-f592ecf080e4.png" },
-            { id: "hood-05", category: "hoodies", badge: "460GSM Fleece", tags: ["core"], name: "05 | CHAOS TO GREATNESS HOODIE", price: 550, desc: "Brushed fleece interior utility framework executing heavy cultural structural screen print concepts.", img: "cc000f65-cb42-410d-8629-3688fbbc4d99.png" },
-
-            // BOTTOMS
-            { id: "bot-01", category: "bottoms", badge: "Prestige Gold 🏆", tags: ["prestige", "denim"], name: "MEN'S 01 | STACKED DYSTOPIA DENIM", price: 750, desc: "Premium custom distressed heavy wash denim built with extended lower column stacking frames.", img: "ce8d7e02-0375-4697-baaa-9a225d7de6a2.png" },
-            { id: "bot-02", category: "bottoms", badge: "Relaxed Fit", tags: ["core"], name: "MEN'S 02 | ARCHIVAL RELAXED WAIST DENIM", price: 750, desc: "Engineered street comfort straight silhouette layout wash featuring signature custom leather pocket decals.", img: "e297ed54-43a8-4643-9a4b-f8f91ef6ca7d.png" },
-            { id: "bot-03", category: "bottoms", badge: "New Arrival", tags: ["new-arrivals"], name: "MEN'S 03 | TROUBLED TIMES DIRTY JEANS", price: 800, desc: "Distinct dirty-wash indigo tone profiles detailed with heavy structural typography side print lines.", img: "445f0975-cfda-4916-9f69-19b8d14f5e1c.png" },
-            { id: "bot-04", category: "bottoms", badge: "Utility Heavy", tags: ["core"], name: "BOTTOMS 04 | APEX UTILITY CARGO PANTS", price: 750, desc: "Multi-pocket configuration constructed out of durable tactical reinforced stitch canvas lines.", img: "0a5aa0b7-c5f2-4eac-a0a8-54eb375217ae.png" },
-            { id: "bot-05", category: "bottoms", badge: "Loopback Fleece", tags: ["core"], name: "BOTTOMS 03 | YORUBA ROOTS SWEATPANTS", price: 550, desc: "Heavy street track pant tailored with comfort-fit leg panels and detailed ancestry screen layout bands.", img: "64296ad7-e866-4e70-9b0d-dc2574109ad6.png" },
-
-            // OUTERWEAR
-            { id: "out-01", category: "outerwear", badge: "Prestige Gold 🏆", tags: ["prestige", "jacket"], name: "01 | TECHNICAL ARCHIVE PUFFER JACKET", price: 1400, desc: "High collar thermal insulation framework completed with large striking identity rear panel seals.", img: "0d21b65a-1b8b-4bba-8e85-cfb6c6e21cae.png" },
-            { id: "out-02", category: "outerwear", badge: "Canvas Shell", tags: ["core"], name: "02 | APEX CANVAS UTILITY JACKET", price: 1200, desc: "Rigid heavy cotton canvas outerwear featuring metallic hardware clips and tailored sleeve insignias.", img: "0dbbeb6e-0b57-4938-b0b6-d3bb183c6c3a.png" },
-            { id: "out-03", category: "outerwear", badge: "New Arrival", tags: ["new-arrivals"], name: "03 | HOODED CHAOS PUFFER SHELL", price: 1500, desc: "Weatherproof luxury padding element designed with custom script alignments to block out winter cold.", img: "1c25e39a-96c5-4d58-ac6c-6d219699e73f.png" }
-        ];
-
-        const LOOKBOOK_STACK = [
-            { key: "jacket", name: "APEX CANVAS UTILITY JACKET", price: 1200, sub: "Rigid heavy cotton canvas outerwear featuring metallic hardware clips and tailored sleeve insignias", img: "0dbbeb6e-0b57-4938-b0b6-d3bb183c6c3a.png" },
-            { key: "denim", name: "ARCHIVAL RELAXED WAIST DENIM", price: 750, sub: "Engineered street comfort straight silhouette layout wash featuring signature custom leather pocket decals.", img: "e297ed54-43a8-4643-9a4b-f8f91ef6ca7d.png" },
-            { key: "sneakers", name: "ANCESTRAL SPIRIT | MONOGRAM LOW", price: 2750, sub: "Triple black luxury stealth colorway accented with custom cast mask configuration lace jewel plates.", img: "e0504ce9-4485-4a2b-8b31-0ee605d8b0e2.png" }
-        ];
-
-        // Primary initialization routine execution path
-        window.addEventListener('DOMContentLoaded', () => {
-            renderLookbookBreakdownPanel();
-            activateHotspotItem('jacket');
-            renderCatalogGrid(PRODUCTS_DATABASE);
-            initializeLightboxControlListeners();
+        // Toggle Widget Frame
+        chatTrigger.addEventListener('click', () => {
+            chatWindow.classList.toggle('open');
+            if (chatWindow.classList.contains('open')) {
+                chatInput.focus();
+            }
         });
 
-        // Price formatting localized engine matching global selectors
-        function formatPriceCurrencyEngine(baseZarPrice) {
-            let conversionFactor = CONVERSION_RATE_TABLE[ACTIVE_CURRENCY_CODE] || 1.0;
-            let targetSymbol = CURRENCY_SYMBOL_TABLE[ACTIVE_CURRENCY_CODE] || "R";
-            let evaluatedValue = (baseZarPrice * conversionFactor).toFixed(2);
-            return `${targetSymbol}${evaluatedValue}`;
+        chatClose.addEventListener('click', () => {
+            chatWindow.classList.remove('open');
+        });
+
+        // Append Node Element Utility
+        function appendMessage(text, sender) {
+            const msgDiv = document.createElement('div');
+            msgDiv.classList.add('message', sender);
+            msgDiv.innerText = text;
+            chatMessages.appendChild(msgDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
-        function switchGlobalCurrencyEngine(targetCurrencyValue) {
-            ACTIVE_CURRENCY_CODE = targetCurrencyValue;
-            renderLookbookBreakdownPanel();
-            
-            // Re-evaluate matching active active tab state configurations inside catalog
-            const currentActiveFilterBtn = document.querySelector('.filter-btn.active');
-            if(currentActiveFilterBtn) {
-                let idString = currentActiveFilterBtn.id.replace('btn-', '');
-                filterCatalog(idString);
-            } else {
-                renderCatalogGrid(PRODUCTS_DATABASE);
-            }
-            updateCartDOMState();
-        }
+        // --- Core OpenAI Stream Processor Logic ---
+        async function handleUserMessage() {
+            const prompt = chatInput.value.trim();
+            if (!prompt) return;
 
-        // Live Lookbook Panel Assembly Pipeline
-        function renderLookbookBreakdownPanel() {
-            const container = document.getElementById('lookbook-list');
-            container.innerHTML = '';
+            // Render user input bubble
+            appendMessage(prompt, 'user');
+            chatInput.value = '';
 
-            LOOKBOOK_STACK.forEach(item => {
-                const card = document.createElement('div');
-                card.className = `lookbook-item-card ${item.key === activeLookbookSelectionKey ? 'active' : ''}`;
-                card.innerHTML = `
-                    <img src="${item.img}" class="lookbook-item-image stop-prop-preview" alt="Thumbnail">
-                    <div class="lookbook-item-details" onclick="activateHotspotItem('${item.key}')">
-                        <div class="lookbook-item-name">${item.name}</div>
-                        <div class="lookbook-item-sub">${item.sub}</div>
-                    </div>
-                    <div class="lookbook-item-price" onclick="activateHotspotItem('${item.key}')">${formatPriceCurrencyEngine(item.price)}</div>
-                `;
-                
-                card.querySelector('.stop-prop-preview').addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    openImagePreview(item.img);
+            // Render a loading state placeholder
+            const loadingMsgDiv = document.createElement('div');
+            loadingMsgDiv.classList.add('message', 'assistant');
+            loadingMsgDiv.innerText = 'Thinking...';
+            chatMessages.appendChild(loadingMsgDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            try {
+                // Connecting to standard OpenAI chat/completions endpoint
+                const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        // Secure endpoint routing credentials configured via script string parameters
+                        'Authorization': 'Bearer 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'
+                    },
+                    body: JSON.stringify({
+                        model: 'gpt-4o-mini',
+                        messages: [
+                            {
+                                role: 'system',
+                                content: 'You are the official brand concierge for IINIIKO CLOTHING, a premium streetwear brand whose ethos is "Rooted in Purpose". You assist customers elegantly, keeping your responses concise, helpful, and highly sophisticated.'
+                            },
+                            {
+                                role: 'user',
+                                content: prompt
+                            }
+                        ],
+                        temperature: 0.7
+                    })
                 });
-                container.appendChild(card);
-            });
-        }
 
-        function activateHotspotItem(key) {
-            activeLookbookSelectionKey = key;
-            renderLookbookBreakdownPanel();
-            
-            document.querySelectorAll('.hotspot').forEach(el => {
-                el.style.transform = 'translate(-50%, -50%) scale(1)';
-                el.style.backgroundColor = 'rgba(179, 143, 79, 0.4)';
-            });
-            const activeNode = document.getElementById(`spot-${key}`);
-            if (activeNode) {
-                activeNode.style.transform = 'translate(-50%, -50%) scale(1.4)';
-                activeNode.style.backgroundColor = 'var(--accent-gold)';
+                const data = await response.json();
+                
+                // Clear the loading indicator string placeholder
+                chatMessages.removeChild(loadingMsgDiv);
+
+                if (data.choices && data.choices[0].message.content) {
+                    appendMessage(data.choices[0].message.content.trim(), 'assistant');
+                } else {
+                    appendMessage("Pardon me, I encountered an issue updating details. Please try again shortly.", 'assistant');
+                }
+
+            } catch (error) {
+                console.error("OpenAI Endpoint Connection Error:", error);
+                chatMessages.removeChild(loadingMsgDiv);
+                appendMessage("Connection error. Our distribution network channels are heavily loaded.", 'assistant');
             }
         }
 
-        function addSelectedLookbookToBag() {
-            const selectedItem = LOOKBOOK_STACK.find(i => i.key === activeLookbookSelectionKey);
-            if (selectedItem) {
-                addItemToCart(selectedItem.name, selectedItem.price, selectedItem.img);
-            }
-        }
-
-        // Core Catalog Management Engine
-        function renderCatalogGrid(products) {
-            const targetGrid = document.getElementById('catalog-products-target');
-            targetGrid.innerHTML = '';
-
-            if(products.length === 0) {
-                targetGrid.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding:60px; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px;">No archival designs found matching query criteria.</div>`;
-                return;
-            }
-
-            products.forEach(p => {
-                const card = document.createElement('div');
-                card.className = 'product-card';
-                card.innerHTML = `
-                    <div class="product-visual">
-                        <span class="product-badge">${p.badge}</span>
-                        <img src="${p.img}" class="product-main-img" alt="${p.name}" onclick="openImagePreview('${p.img}')">
-                    </div>
-                    <div class="product-info-panel">
-                        <span class="product-cat-lbl">${p.category}</span>
-                        <h3 class="product-title-lbl">${p.name}</h3>
-                        <p class="product-desc-lbl">${p.desc}</p>
-                        <div class="product-footer-row">
-                            <span class="product-price-lbl">${formatPriceCurrencyEngine(p.price)}</span>
-                            <button class="product-add-action" onclick="addItemToCart('${p.name}', ${p.price}, '${p.img}')" title="Add Item To Bag">
-                                <i class="fas fa-plus-circle"></i>
-                            </button>
-                        </div>
-                    </div>
-                `;
-                targetGrid.appendChild(card);
-            });
-        }
-
-        function filterCatalog(category) {
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            const selectedButton = document.getElementById(`btn-${category}`);
-            if (selectedButton) selectedButton.classList.add('active');
-
-            if (category === 'all') {
-                renderCatalogGrid(PRODUCTS_DATABASE);
-            } else if (category === 'new-arrivals' || category === 'prestige') {
-                const filtered = PRODUCTS_DATABASE.filter(item => item.tags.includes(category));
-                renderCatalogGrid(filtered);
-            } else {
-                const filtered = PRODUCTS_DATABASE.filter(item => item.category === category);
-                renderCatalogGrid(filtered);
-            }
-        }
-
-        // Search Overlay Sub-system Engine
-        function toggleSearchOverlay(openState) {
-            const el = document.getElementById('search-overlay');
-            el.style.display = openState ? 'flex' : 'none';
-            if(openState) {
-                const inputFld = document.getElementById('search-dom-input');
-                inputFld.value = '';
-                inputFld.focus();
-                executeArchiveSearchSearch('');
-            }
-        }
-
-        // Programmatic search filter logic execution
-        function executeArchiveSearchSearch(queryStr) {
-            const cleanQuery = queryStr.toLowerCase().trim();
-            const targetGrid = document.getElementById('search-results-target');
-            const statsNode = document.getElementById('search-stats-node');
-            
-            if(cleanQuery === '') {
-                targetGrid.innerHTML = '';
-                statsNode.textContent = "Enter tags, silhouettes, or naming conventions above.";
-                return;
-            }
-
-            const matches = PRODUCTS_DATABASE.filter(p => 
-                p.name.toLowerCase().includes(cleanQuery) || 
-                p.desc.toLowerCase().includes(cleanQuery) || 
-                p.category.toLowerCase().includes(cleanQuery)
-            );
-
-            statsNode.textContent = `Found ${matches.length} matches inside archive catalogue`;
-            targetGrid.innerHTML = '';
-
-            matches.forEach(p => {
-                const miniCard = document.createElement('div');
-                miniCard.className = 'product-card';
-                miniCard.innerHTML = `
-                    <div class="product-visual" style="aspect-ratio: 1/1;">
-                        <img src="${p.img}" class="product-main-img" alt="${p.name}" onclick="openImagePreview('${p.img}')">
-                    </div>
-                    <div style="padding:15px;">
-                        <h4 style="font-size:0.8rem; text-transform:uppercase; font-weight:600; color:var(--text-main);">${p.name}</h4>
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
-                            <span style="font-size:0.85rem; font-weight:bold; color:var(--accent-gold);">${formatPriceCurrencyEngine(p.price)}</span>
-                            <button onclick="addItemToCart('${p.name}', ${p.price}, '${p.img}'); toggleSearchOverlay(false);" style="background:none; border:none; color:var(--text-main); cursor:pointer;"><i class="fas fa-plus-circle"></i></button>
-                        </div>
-                    </div>
-                `;
-                targetGrid.appendChild(miniCard);
-            });
-        }
-
-        // Identity Profile Authentication Engine Modals
-        function toggleAuthOverlay(openState) {
-            document.getElementById('auth-overlay').style.display = openState ? 'flex' : 'none';
-        }
-
-        function switchAuthViewPanel(isRegister) {
-            isAuthFormRegisterView = isRegister;
-            const heading = document.getElementById('auth-panel-heading');
-            const switcherText = document.getElementById('auth-switcher-text');
-
-            if(isRegister) {
-                heading.textContent = "CREATE LUXURY MEMBER ACCOUNT";
-                switcherText.innerHTML = `Already registered? <span class="auth-toggle-link" onclick="switchAuthViewPanel(false)">Sign In</span>`;
-            } else {
-                heading.textContent = "SIGN IN TO ACCESS ARCHIVE";
-                switcherText.innerHTML = `New to the family? <span class="auth-toggle-link" onclick="switchAuthViewPanel(true)">Create Account Profile</span>`;
-            }
-        }
-
-        function processAccountIdentityAuthentication() {
-            const email = document.getElementById('auth-email-input').value.trim();
-            if(!email) { alert("Please supply a valid member entry identification point."); return; }
-            
-            // Build pseudo-session structural instance
-            authenticatedUserSessionObj = {
-                name: email.split('@')[0],
-                tier: "Prestige Elite Circle"
-            };
-
-            document.getElementById('auth-state-logged-out').style.display = 'none';
-            const loggedInView = document.getElementById('auth-state-logged-in');
-            loggedInView.style.display = 'block';
-            
-            document.getElementById('user-profile-display-name').textContent = authenticatedUserSessionObj.name;
-            document.getElementById('user-profile-display-tier').textContent = authenticatedUserSessionObj.tier;
-            
-            // Alter header visual node reference path indicators
-            const navIcon = document.getElementById('nav-profile-icon');
-            navIcon.className = "fas fa-user-check";
-            navIcon.style.color = "var(--accent-gold)";
-            
-            alert(`Access Granted. Welcome to the Circle, Member ${authenticatedUserSessionObj.name}.`);
-            toggleAuthOverlay(false);
-        }
-
-        function terminateUserSessionAuthentication() {
-            authenticatedUserSessionObj = null;
-            document.getElementById('auth-state-logged-in').style.display = 'none';
-            document.getElementById('auth-state-logged-out').style.display = 'block';
-            
-            const navIcon = document.getElementById('nav-profile-icon');
-            navIcon.className = "far fa-user";
-            navIcon.style.color = "var(--text-main)";
-            
-            alert("Session terminated securely.");
-            toggleAuthOverlay(false);
-        }
-
-        // Shopping Cart Logic Configuration
-        function toggleCart(openState) {
-            const overlay = document.getElementById('cart-overlay');
-            const drawer = document.getElementById('cart-drawer');
-            if (openState) { overlay.classList.add('open'); drawer.classList.add('open'); } 
-            else { overlay.classList.remove('open'); drawer.classList.remove('open'); }
-        }
-
-        function addItemToCart(name, price, img) {
-            globalShoppingBag.push({ id: Date.now() + Math.random(), name: name, price: price, img: img });
-            updateCartDOMState();
-            toggleCart(true); 
-        }
-
-        function removeCartItem(uniqueId) {
-            globalShoppingBag = globalShoppingBag.filter(item => String(item.id) !== String(uniqueId));
-            updateCartDOMState();
-        }
-
-        function updateCartDOMState() {
-            const countLabels = [document.getElementById('header-cart-count'), document.getElementById('cart-items-qty')];
-            const itemsWrapper = document.getElementById('cart-items-wrapper');
-            const totalDisplay = document.getElementById('cart-total-display');
-
-            countLabels.forEach(lbl => { if(lbl) lbl.textContent = globalShoppingBag.length; });
-            itemsWrapper.innerHTML = '';
-            
-            if (globalShoppingBag.length === 0) {
-                itemsWrapper.innerHTML = `<div class="cart-empty-message">Your shopping bag is empty.</div>`;
-                totalDisplay.textContent = formatPriceCurrencyEngine(0);
-                return;
-            }
-
-            let computedSum = 0;
-            globalShoppingBag.forEach(item => {
-                computedSum += item.price;
-                const row = document.createElement('div');
-                row.className = 'cart-item-row';
-                row.innerHTML = `
-                    <img src="${item.img}" class="cart-item-thumb" alt="Thumb" onclick="openImagePreview('${item.img}')">
-                    <div class="cart-item-meta">
-                        <div class="cart-item-name">${item.name}</div>
-                        <div class="cart-item-price">${formatPriceCurrencyEngine(item.price)}</div>
-                    </div>
-                    <button class="cart-item-remove" onclick="removeCartItem('${item.id}')">
-                        <i class="far fa-trash-can"></i>
-                    </button>
-                `;
-                itemsWrapper.appendChild(row);
-            });
-            totalDisplay.textContent = formatPriceCurrencyEngine(computedSum);
-        }
-
-        // Static Document Object Policy Data Sheets Mapping
-        const REGULATORY_POLICY_DATA_SHEETS = {
-            tracking: {
-                title: "Package Tracking Interface Protocol",
-                body: "<h4>REAL-TIME DISPATCH ROUTING</h4><p>All structured archive uniform iterations depart directly from localized corporate distribution points in South Africa. Once package verification completes at KZN clearance hubs, an operational tracking string is provided to you via your registered profile email address.</p><h4>LOCAL & TRANSIT TIMELINES</h4><p>Expect safe deliveries inside 48 hours within regional Durban sectors, and up to 4 working days for outlying provinces.</p>"
-            },
-            shipping: {
-                title: "Shipping & Returns Policy",
-                body: "<h4>COUTURE SHIPPING SPECIFICATIONS</h4><p>Free standard courier delivery parameters apply uniformly inside South African territories for all order files passing above R1500. Underneath this scale, a default base premium rate structure applies relative to operational distance metrics.</p><h4>RETURNS MATRIX POLICY</h4><p>Designs from standard drops can be returned for profile credit indexes inside 14 sequential calendar days from initial package signing. Items must be completely untampered with, carrying all original tags intact. Prestige tier garments are subject to final individual analysis parameters.</p>"
-            },
-            sizing: {
-                title: "Size Blueprint Structural Guide",
-                body: "<h4>FIT PROFILE CLASSIFICATION</h4><p>The majority of IINIKO CLOTHING pattern lines conform to structured oversized, drop-shoulder luxury streetwear configurations. If you aim to wear a true standard slim look profile, we recommend processing your checkout structural select one size smaller than standard industrial sizing benchmarks.</p>"
-            },
-            manifesto: {
-                title: "Our Origin Manifesto",
-                body: "<h4>BORN IN CHAOS. BUILT FOR MORE.</h4><p>IINIKO functions as an interconnected high fashion structural platform engineered to reflect historical cultural lines into modern global diaspora streetwear. Every fabric weight choice, hardware rivet selection, and distressing tone treatment details paths of raw resilience and elite focus metrics.</p>"
-            },
-            slavery: {
-                title: "Modern Slavery & Transparency Statement",
-                body: "<h4>ETHICAL CHAIN ARCHITECTURE</h4><p>IINIKO operates an uncompromising absolute zero-tolerance structural policy framework regarding human exploitation parameters across all manufacturing hubs. Every supplier, dye technician, and finish artisan functions inside clear safe wage standard indices, protecting the fundamental dignity of labor paths.</p>"
-            },
-            terms: {
-                title: "Terms & Conditions of Engagement",
-                body: "<h4>INTELLECTUAL FRAMEWORK LAWS</h4><p>By entering this portal or processing order files through WhatsApp tracking triggers, you acknowledge unconditional agreement with IINIKO CLOTHING legal provisions. All branding marks, bespoke product layout templates, typography arrangements, and graphical media sets remain the exclusive absolute property of IINIKO LTD.</p>"
-            },
-            privacy: {
-                title: "Corporate Privacy Policy",
-                body: "<h4>DATA PROTECTION PROTOCOLS</h4><p>Your identity parameters, address mappings, email tracking details, and profile activity history sets are completely encrypted using modern industry standards. We never trade individual metadata records with malicious marketing or analytical brokers. Secure user data sets are strictly deployed to finalize your immediate logistics fulfillment.</p>"
-            },
-            cookies: {
-                title: "Cookie Preferences Management",
-                body: "<h4>ANALYTICAL METRIC PREFERENCES</h4><p>This digital platform utilizes lightweight cookies strictly to preserve session persistence context—including maintaining your basket configuration states and remembering selected regional currency select indexes. You can switch off browser cookies without losing standard archive viewing access layers.</p>"
-            }
-        };
-
-        function togglePolicyOverlay(openState) {
-            document.getElementById('policy-overlay').style.display = openState ? 'flex' : 'none';
-        }
-
-        function launchLegalDocumentModal(documentKey) {
-            const documentDataObj = REGULATORY_POLICY_DATA_SHEETS[documentKey];
-            if(!documentDataObj) return;
-            
-            document.getElementById('policy-dom-title').textContent = documentDataObj.title;
-            document.getElementById('policy-dom-body').innerHTML = documentDataObj.body;
-            togglePolicyOverlay(true);
-        }
-
-        function subscribeNewsletterAction() {
-            const inputField = document.getElementById('footer-newsletter-field');
-            if(!inputField.value.includes('@')) { alert("Please provide a completely valid corporate email routing structure."); return; }
-            alert("Welcome to the list. Tier archival alert channels have been mapped directly to your address inbox.");
-            inputField.value = '';
-        }
-
-        // WhatsApp Direct Order Router
-        function checkoutToWhatsApp() {
-            if (globalShoppingBag.length === 0) { alert("Your shopping cart is empty!"); return; }
-
-            let orderNumber = Math.floor(1000 + Math.random() * 9000);
-            let messageText = `⚡ *NEW IINIKO ORDER #INK-${orderNumber}*\n`;
-            messageText += `=========================\n\n`;
-            
-            let computedTotal = 0;
-            globalShoppingBag.forEach((item, index) => {
-                messageText += `*${index + 1}.* ${item.name}\n`;
-                messageText += `   Price: ${formatPriceCurrencyEngine(item.price)}\n\n`;
-                computedTotal += item.price;
-            });
-            
-            messageText += `=========================\n`;
-            messageText += `💰 *TOTAL AMOUNT:* ${formatPriceCurrencyEngine(computedTotal)}\n\n`;
-            messageText += `Please send this message to coordinate sizing choices, final stock allocations, and direct payment clearance arrangements.`;
-
-            let encodedMessage = encodeURIComponent(messageText);
-            let targetWhatsAppURL = `https://wa.me/27735249935?text=${encodedMessage}`;
-            window.open(targetWhatsAppURL, '_blank');
-        }
-
-        // Setup triggers for model images
-        document.querySelectorAll('.launch-preview').forEach(img => {
-            img.addEventListener('click', () => {
-                openImagePreview(img.getAttribute('src'));
-            });
+        // Trigger Listeners
+        chatSend.addEventListener('click', handleUserMessage);
+        chatInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') handleUserMessage();
         });
-
-        // Immersive Image Preview Lightbox Mechanics
-        function openImagePreview(imageSource) {
-            const modal = document.getElementById('preview-lightbox');
-            const targetImg = document.getElementById('lightbox-target-img');
-            
-            lightboxScaleFactor = 1;
-            lightboxCurrentOffsetX = 0;
-            lightboxCurrentOffsetY = 0;
-            
-            targetImg.src = imageSource;
-            targetImg.style.transform = `translate(0px, 0px) scale(1)`;
-            
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; 
-        }
-
-        function closeImagePreview() {
-            document.getElementById('preview-lightbox').style.display = 'none';
-            document.body.style.overflow = 'auto'; 
-        }
-
-        function initializeLightboxControlListeners() {
-            const viewport = document.getElementById('lightbox-pan-viewport');
-            const targetImg = document.getElementById('lightbox-target-img');
-
-            viewport.addEventListener('mousedown', (e) => {
-                e.preventDefault();
-                isDraggingLightbox = true;
-                lightboxStartPanX = e.clientX - lightboxCurrentOffsetX;
-                lightboxStartPanY = e.clientY - lightboxCurrentOffsetY;
-            });
-
-            window.addEventListener('mousemove', (e) => {
-                if (!isDraggingLightbox) return;
-                lightboxCurrentOffsetX = e.clientX - lightboxStartPanX;
-                lightboxCurrentOffsetY = e.clientY - lightboxStartPanY;
-                targetImg.style.transform = `translate(${lightboxCurrentOffsetX}px, ${lightboxCurrentOffsetY}px) scale(${lightboxScaleFactor})`;
-            });
-
-            window.addEventListener('mouseup', () => { isDraggingLightbox = false; });
-
-            viewport.addEventListener('wheel', (e) => {
-                e.preventDefault();
-                let zoomIntensity = 0.12;
-                if (e.deltaY < 0) { lightboxScaleFactor += zoomIntensity; } 
-                else { lightboxScaleFactor = Math.max(0.6, lightboxScaleFactor - zoomIntensity); }
-                targetImg.style.transform = `translate(${lightboxCurrentOffsetX}px, ${lightboxCurrentOffsetY}px) scale(${lightboxScaleFactor})`;
-            }, { passive: false });
-        }
-
-        // CHAT⚡ BY DIGITALGENIUS INJECTION LOGIC FRAMEWORK
-        function triggerDigitalGeniusChatSession() {
-            console.log("Initializing dynamic connection string to DigitalGenius AI Core Routing Service...");
-            alert("⚡ Launching Chat by DigitalGenius...\n\nYour premium support interface session is starting. Feel free to query current manufacturing lines, international courier parameters, or trace order dispatch streams instantly.");
-        }
     </script>
 </body>
 </html>
