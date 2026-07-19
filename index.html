@@ -3,432 +3,861 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INIIKO CLOTHING | Official Store</title>
+    <title>IINIKO CLOTHING | Flagship Experience</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#121212',
+                        brandLight: '#f4f4f4',
+                        brandAccent: '#c5a880'
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica Neue', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- IonIcons for clean UI symbols -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <style>
-        /* --- Brand Identity Variables --- */
-        :root {
-            --bg-deep: #0b0b0b;
-            --bg-card: #121212;
-            --bg-hover: #171717;
-            --text-main: #ffffff;
-            --text-muted: #888888;
-            --accent-gold: #ffd700;
-            --accent-neon: #ccff00;
-            --border-color: #1a1a1a;
-            --font-display: 'Impact', 'Arial Black', sans-serif;
-            --font-body: 'Helvetica Neue', Arial, sans-serif;
-        }
-
-        /* --- Reset & Global Elements --- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-color: var(--bg-deep);
-            color: var(--text-main);
-            font-family: var(--font-body);
-            overflow-x: hidden;
-            line-height: 1.5;
-        }
-
-        /* --- Header Section --- */
-        header {
-            border-bottom: 1px solid var(--border-color);
-            padding: 2rem 1rem;
-            text-align: center;
-            background: linear-gradient(to bottom, #000000, var(--bg-deep));
-        }
-
-        .brand-logo {
-            font-family: var(--font-display);
-            font-size: 3rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
-
-        .brand-tagline {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-muted);
-        }
-
-        /* --- Catalog Filter Navigation --- */
-        .catalog-nav {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            padding: 2rem 1rem 1rem 1rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            background: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            padding: 0.6rem 1.5rem;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            background-color: var(--text-main);
-            color: #000000;
-            border-color: var(--text-main);
-        }
-
-        /* --- Product Catalog Section --- */
-        .catalog-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2.5rem;
-        }
-
-        /* --- Dynamic Product Card Structure --- */
-        .product-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 2px;
-            overflow: hidden;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-gold);
-        }
-
-        .product-image-wrapper {
-            position: relative;
-            width: 100%;
-            padding-top: 125%; /* Golden proportion aspect ratio for tees/jerseys */
-            background: var(--bg-hover);
-            overflow: hidden;
-        }
-
-        .prod-img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 0.4s ease;
-        }
-
-        .prod-img.back {
-            opacity: 0;
-        }
-
-        /* Smooth double-sided garment image reveal */
-        .product-image-wrapper:hover .prod-img.back {
-            opacity: 1;
-        }
-
-        .category-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: rgba(0, 0, 0, 0.85);
-            color: var(--text-main);
-            padding: 4px 10px;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            z-index: 2;
-            border: 1px solid #333;
-        }
-
-        .product-info {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .product-title {
-            font-family: var(--font-display);
-            text-transform: uppercase;
-            font-size: 1.35rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.5px;
-        }
-
-        .product-desc {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.4;
-            margin-bottom: 1.2rem;
-            flex-grow: 1;
-        }
-
-        .tag-container {
-            margin-bottom: 1.2rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .tag {
-            font-size: 0.65rem;
-            color: var(--accent-gold);
-            background: #1a1600;
-            padding: 2px 6px;
-            border: 1px solid #3a3200;
-            text-transform: uppercase;
-        }
-
-        /* Subtle styling switch for neon collections */
-        .product-card[data-tags*="Neon"] .tag {
-            color: var(--accent-neon);
-            background: #111a00;
-            border: 1px solid #293a00;
-        }
-
-        .product-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid var(--border-color);
-            padding-top: 1rem;
-            margin-top: auto;
-        }
-
-        .price {
-            font-weight: bold;
-            font-size: 1.2rem;
-            letter-spacing: 0.5px;
-        }
-
-        .add-to-cart-btn {
-            background: var(--text-main);
-            color: #000000;
-            border: none;
-            padding: 10px 18px;
-            font-weight: bold;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: background 0.2s ease;
-        }
-
-        .add-to-cart-btn:hover {
-            background: var(--accent-gold);
-        }
-
-        /* --- Footer Section --- */
-        footer {
-            text-align: center;
-            padding: 4rem 1rem;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap');
+        .brand-title { font-family: 'Cinzel', serif; letter-spacing: 0.15em; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #121212; }
+        ::-webkit-scrollbar-thumb { background: #c5a880; }
+        .modal-active { overflow: hidden; }
     </style>
 </head>
-<body>
+<body class="bg-brandDark text-brandLight antialiased selection:bg-brandAccent selection:text-brandDark">
 
-    <!-- Header / Brand Intro -->
-    <header>
-        <div class="brand-logo">INIIKO</div>
-        <div class="brand-tagline">Born in Chaos. Built for More.</div>
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="w-full bg-brandAccent text-brandDark text-center py-2 text-xs font-bold tracking-widest uppercase px-4 flex flex-wrap justify-between items-center gap-2">
+        <span class="mx-auto sm:mx-0">STRENGTH IS NOT THE ABSENCE OF STRUGGLE, IT IS THE EXISTENCE OF PURPOSE.</span>
+        
+        <!-- GLOBAL CURRENCY SELECTOR FRAMEWORK -->
+        <div class="flex items-center gap-1.5 bg-brandDark/20 px-2 py-0.5 rounded text-[10px] font-mono mx-auto sm:mx-0">
+            <ion-icon name="globe-outline" class="text-sm"></ion-icon>
+            <select id="currency-selector" onchange="switchGlobalCurrency(this.value)" class="bg-transparent text-brandDark font-bold focus:outline-none cursor-pointer uppercase">
+                <option value="USD">USD ($)</option>
+                <option value="ZAR">ZAR (R)</option>
+                <option value="GBP">GBP (£)</option>
+                <option value="JPY">JPY (¥)</option>
+                <option value="EUR">EUR (€)</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER NAV -->
+    <header class="sticky top-0 z-40 bg-brandDark/95 border-b border-white/10 backdrop-blur-md transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Left Side Menu Trigger -->
+            <button onclick="toggleNavMenu(true)" class="text-2xl hover:text-brandAccent transition flex items-center gap-2">
+                <ion-icon name="menu-outline"></ion-icon>
+                <span class="text-xs uppercase tracking-widest hidden sm:inline font-semibold">Menu</span>
+            </button>
+
+            <!-- Centered Brand Identity -->
+            <div class="text-center cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <h1 class="text-2xl sm:text-3xl font-bold tracking-[0.25em] uppercase text-white leading-none">IINIKO</h1>
+                <span class="text-[9px] sm:text-[10px] tracking-[0.5em] text-brandAccent block mt-1 font-light uppercase">C L O T H I N G</span>
+            </div>
+
+            <!-- Right Side Cart/Portal Utilities -->
+            <div class="flex items-center gap-6">
+                <button onclick="openPortal()" class="hidden md:flex items-center gap-2 text-xs font-bold tracking-widest uppercase border border-brandAccent/30 px-3 py-1.5 rounded hover:bg-brandAccent hover:text-brandDark transition duration-300">
+                    <ion-icon name="phone-portrait-outline" class="text-sm"></ion-icon>
+                    IINIKO Phones
+                </button>
+                <button onclick="toggleCart(true)" class="relative text-2xl hover:text-brandAccent transition">
+                    <ion-icon name="bag-handle-outline"></ion-icon>
+                    <span id="cart-badge" class="absolute -top-1 -right-2 bg-brandAccent text-brandDark font-bold text-[10px] w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+                </button>
+            </div>
+        </div>
     </header>
 
-    <!-- Catalog Selection Tabs -->
-    <nav class="catalog-nav">
-        <button class="filter-btn active" onclick="filterCatalog('All', this)">All Collections</button>
-        <button class="filter-btn" onclick="filterCatalog('T-Shirts', this)">T-Shirts</button>
-        <button class="filter-btn" onclick="filterCatalog('Jerseys', this)">Jerseys</button>
-        <button class="filter-btn" onclick="filterCatalog('Denim', this)">Denim</button>
-        <button class="filter-btn" onclick="filterCatalog('Sets', this)">Sets</button>
-    </nav>
-
-    <!-- Catalog Container -->
-    <main class="catalog-container">
-        <div class="products-grid" id="catalog-grid">
-            <!-- Dynamic Injection JavaScript Target -->
+    <!-- SLIDEOUT NAVIGATION OVERLAY -->
+    <div id="side-menu" class="fixed inset-0 bg-black/80 z-50 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="absolute left-0 top-0 h-full w-full max-w-md bg-brandDark p-8 border-r border-white/10 flex flex-col justify-between transform -translate-x-full transition-transform duration-300">
+            <div>
+                <div class="flex justify-between items-center mb-12">
+                    <h3 class="text-brandAccent tracking-widest font-bold uppercase text-sm">Navigation</h3>
+                    <button onclick="toggleNavMenu(false)" class="text-3xl hover:text-brandAccent transition"><ion-icon name="close-outline"></ion-icon></button>
+                </div>
+                <nav class="space-y-6 text-xl tracking-widest font-light uppercase">
+                    <a href="#new-arrivals" onclick="toggleNavMenu(false)" class="block hover:text-brandAccent font-bold text-white transition flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 bg-brandAccent rounded-full animate-ping"></span> New Arrivals
+                    </a>
+                    <a href="#lookbook" onclick="toggleNavMenu(false)" class="block hover:text-brandAccent transition">Editorial Lookbook</a>
+                    <a href="#apparel" onclick="toggleNavMenu(false)" class="block hover:text-brandAccent transition">Premium Apparel</a>
+                    <a href="#accessories" onclick="toggleNavMenu(false)" class="block hover:text-brandAccent transition">Bespoke Accessories</a>
+                    <a href="#footwear" onclick="toggleNavMenu(false)" class="block hover:text-brandAccent transition">Ancestral Footwear</a>
+                    <a href="#brand-ethos" onclick="toggleNavMenu(false)" class="block hover:text-brandAccent transition">Our Philosophy</a>
+                </nav>
+            </div>
+            <div class="border-t border-white/10 pt-6">
+                <p class="text-xs text-neutral-400 uppercase tracking-widest mb-2 font-bold">YORUBA ROOTS. GLOBAL VISION.</p>
+                <div class="flex gap-4 text-xl text-neutral-400">
+                    <a href="#" class="hover:text-brandAccent"><ion-icon name="logo-instagram"></ion-icon></a>
+                    <a href="#" class="hover:text-brandAccent"><ion-icon name="logo-tiktok"></ion-icon></a>
+                    <a href="#" class="hover:text-brandAccent"><ion-icon name="logo-facebook"></ion-icon></a>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <!-- HERO VISION SECTION -->
+    <section class="relative min-h-[85vh] bg-neutral-900 flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-neutral-800 via-brandDark to-brandDark opacity-75"></div>
+        <div class="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-30" style="background-image: url('mod6.png');"></div>
+        
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center">
+            <p class="text-brandAccent tracking-[0.4em] font-bold uppercase text-xs sm:text-sm mb-4">Collection Showcase 2024 / 2026</p>
+            <h2 class="text-4xl sm:text-6xl md:text-8xl font-extrabold tracking-tighter text-white uppercase mb-6 leading-none">
+                ROOTED IN HERITAGE<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brandAccent via-white to-neutral-400">BUILT FOR THE FUTURE</span>
+            </h2>
+            <p class="text-neutral-400 text-sm sm:text-base max-w-xl mx-auto mb-10 tracking-wide font-light">
+                A pristine fusion of sacred lineage, historical culture, and progressive street innovation. Every unique luxury garment carries a living testament of resilience, crafted intentionally to endure.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#new-arrivals" class="px-8 py-4 bg-brandAccent text-brandDark font-black tracking-widest text-xs uppercase hover:bg-white transition duration-300 rounded shadow-lg">Shop New Drops</a>
+                <a href="#apparel" class="px-8 py-4 border border-white/20 hover:border-brandAccent text-white font-bold tracking-widest text-xs uppercase transition duration-300 rounded">View Apparel Matrix</a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-2xl text-brandAccent">
+            <ion-icon name="arrow-down-outline"></ion-icon>
+        </div>
+    </section>
+
+    <!-- BRAND PHILOSOPHY BANNER -->
+    <section id="brand-ethos" class="bg-neutral-950 py-16 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <span class="text-brandAccent text-xs uppercase tracking-[0.3em] font-bold block mb-2">Meaning & Lineage</span>
+                    <h3 class="text-2xl sm:text-3xl font-bold uppercase tracking-wider text-white">WHAT IS IINIKO?</h3>
+                </div>
+                <div class="lg:col-span-2 text-neutral-400 font-light text-sm sm:text-base leading-relaxed tracking-wide space-y-4">
+                    <p>
+                        Stemming directly from rich Yoruba culture, <strong>IINIKO</strong> captures the precise and profound ontological meaning of <em>"being born during troubled times."</em> 
+                    </p>
+                    <p>
+                        Embraced and carried forward through layers of history and continuing to thrive in modern high-fashion and street expression, the name serves as an unbreakable armor—a direct testament to the raw strength, endurance, and definitive perseverance of those who choose to wear it.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN PRODUCT ARCHITECTURE MATRIX -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+
+        <!-- NEW ARRIVALS: FRESH CAPSULES (Mandela Legacy, Motorsport, etc.) -->
+        <div id="new-arrivals" class="mb-24 scroll-mt-24">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 pb-4 border-b border-white/10">
+                <div>
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="w-2 h-2 bg-brandAccent rounded-full animate-ping"></span>
+                        <span class="text-brandAccent text-xs font-bold uppercase tracking-widest block">Immediate Inventory Drop</span>
+                    </div>
+                    <h2 class="text-3xl font-black tracking-tight uppercase text-white">New Arrivals Capsule Releases</h2>
+                </div>
+                <span class="text-neutral-500 text-xs uppercase tracking-widest mt-2 md:mt-0 font-mono">Collection Ref: NEW-2026</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12" id="new-arrivals-container">
+                <!-- New Arrivals inject dynamically via JS -->
+            </div>
+        </div>
+        
+        <!-- SECTION 1: MASTER APPAREL DROP -->
+        <div id="apparel" class="mb-24">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 pb-4 border-b border-white/10">
+                <div>
+                    <span class="text-brandAccent text-xs font-bold uppercase tracking-widest block mb-1">Premium Streetwear Drop</span>
+                    <h2 class="text-3xl font-black tracking-tight uppercase text-white">Luxury Apparel & Heavy Garments</h2>
+                </div>
+                <span class="text-neutral-500 text-xs uppercase tracking-widest mt-2 md:mt-0 font-mono">Category Code: APP-01</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12" id="apparel-container">
+                <!-- Core Apparel items inject dynamically via JS -->
+            </div>
+        </div>
+
+        <!-- IN-STORE EDITORIAL MID-SECTION PANEL -->
+        <section id="lookbook" class="w-full mb-28 bg-neutral-950 border border-white/10 rounded-lg p-6 sm:p-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-4 space-y-6">
+                    <div class="inline-block bg-brandAccent/10 text-brandAccent text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded">
+                        Flagship Lookbook Panel
+                    </div>
+                    <h3 class="text-3xl font-extrabold uppercase tracking-tight text-white leading-tight">"ROOTED IN HERITAGE" MASTER SHOWCASE</h3>
+                    <p class="text-neutral-400 text-xs sm:text-sm font-light leading-relaxed tracking-wide">
+                        See the official design anatomy and styling index directly on display. This set breaks down our flagship Utility Jacket config, raw monogram technical print work, custom hardware setups, and our highly confidential custom footwear sole.
+                    </p>
+                    <div class="pt-2">
+                        <button onclick="openImageModal('6784d48a-7ec7-47c9-8c71-6cbf0c2172a2.png', 'Lookbook Editorial Overview')" class="w-full sm:w-auto px-6 py-3 bg-brandAccent text-brandDark font-bold tracking-widest text-xs uppercase hover:bg-white transition rounded shadow-md flex items-center justify-center gap-2">
+                            <ion-icon name="expand-outline"></ion-icon> Inspect Full Editorial Panel
+                        </button>
+                    </div>
+                </div>
+                <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="relative bg-brandDark border border-white/5 rounded overflow-hidden group cursor-pointer" onclick="openImageModal('mod6.png', 'Studio Puffer Set Config')">
+                        <img src="mod6.png" alt="Puffer Setup" class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent flex items-end p-4">
+                            <span class="text-[10px] uppercase font-bold tracking-widest text-brandAccent">Puffer & Cargo Denim Setup</span>
+                        </div>
+                    </div>
+                    <div class="relative bg-brandDark border border-white/5 rounded overflow-hidden group cursor-pointer" onclick="openImageModal('mod1.png', 'Studio Signature Set Config')">
+                        <img src="mod1.png" alt="Signature Tee Setup" class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent flex items-end p-4">
+                            <span class="text-[10px] uppercase font-bold tracking-widest text-brandAccent">Signature Tee & Fleece Joggers</span>
+                        </div>
+                    </div>
+                    <div class="relative bg-brandDark border border-white/5 rounded overflow-hidden group cursor-pointer" onclick="openImageModal('6784d48a-7ec7-47c9-8c71-6cbf0c2172a2.png', 'Lookbook Grid Panel')">
+                        <img src="6784d48a-7ec7-47c9-8c71-6cbf0c2172a2.png" alt="Lookbook Spec Sheet" class="w-full h-64 object-cover object-top transform group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent flex items-end p-4">
+                            <span class="text-[10px] uppercase font-bold tracking-widest text-brandAccent">Master Technical Look Index</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: BESPOKE HARDWARE ACCENTS & ACCESSORIES -->
+        <div id="accessories" class="mb-24">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 pb-4 border-b border-white/10">
+                <div>
+                    <span class="text-brandAccent text-xs font-bold uppercase tracking-widest block mb-1">Bespoke Hard-Goods Index</span>
+                    <h2 class="text-3xl font-black tracking-tight uppercase text-white">Premium High Hardware & Accents</h2>
+                </div>
+                <span class="text-neutral-500 text-xs uppercase tracking-widest mt-2 md:mt-0 font-mono">Category Code: HDW-02</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12" id="accessories-container">
+                <!-- Accessories inject dynamically via JS -->
+            </div>
+        </div>
+
+        <!-- SECTION 3: FOOTWEAR CONCEPTS -->
+        <div id="footwear" class="mb-12">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 pb-4 border-b border-white/10">
+                <div>
+                    <span class="text-brandAccent text-xs font-bold uppercase tracking-widest block mb-1">Ancestral Footwear Drops</span>
+                    <h2 class="text-3xl font-black tracking-tight uppercase text-white">Premium Footwear & Luxury Slides</h2>
+                </div>
+                <span class="text-neutral-500 text-xs uppercase tracking-widest mt-2 md:mt-0 font-mono">Category Code: FWR-03</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12" id="footwear-container">
+                <!-- Footwear injects dynamically via JS -->
+            </div>
+        </div>
+
     </main>
 
-    <!-- Footer -->
-    <footer>
-        &copy; 2026 INIIKO CLOTHING. STRENGTH IS NOT THE ABSENCE OF STRUGGLE, IT IS THE EXISTENCE OF PURPOSE.
+    <!-- THE EXCLUSIVE TECH PORTAL PANEL -->
+    <section id="portal-section" class="w-full bg-gradient-to-b from-brandDark via-neutral-950 to-black py-20 border-t border-brandAccent/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-neutral-900 border border-brandAccent/30 rounded-xl overflow-hidden shadow-2xl grid grid-cols-1 lg:grid-cols-12">
+                <div class="p-8 sm:p-12 lg:col-span-7 space-y-6 flex flex-col justify-center">
+                    <div class="flex items-center gap-3">
+                        <span class="bg-brandAccent text-brandDark font-black text-xs uppercase tracking-widest px-2.5 py-1 rounded">Exclusive Technology Portal</span>
+                        <span class="text-neutral-400 font-mono text-xs">Model Ref: EB8B12AE</span>
+                    </div>
+                    <h2 class="text-4xl font-extrabold uppercase tracking-tight text-white">IINIKO PHONES</h2>
+                    <p class="text-brandAccent tracking-widest font-bold text-xs uppercase">PREMIUM IPHONES. BETTER PRICES. 100% TRUSTED.</p>
+                    <p class="text-neutral-400 font-light text-sm leading-relaxed">
+                        At IINIKO, we explicitly unlock the barriers to premium technology by rendering premium flagship mobile tech highly accessible. Secure flawless, fully certified luxury devices for less without sacrificing a single drop of quality.
+                    </p>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2 text-center">
+                        <div class="p-3 bg-brandDark/50 rounded border border-white/5">
+                            <ion-icon name="checkmark-circle-outline" class="text-brandAccent text-xl mb-1"></ion-icon>
+                            <p class="text-[10px] font-bold uppercase tracking-widest text-white">100% Original</p>
+                        </div>
+                        <div class="p-3 bg-brandDark/50 rounded border border-white/5">
+                            <ion-icon name="shield-checkmark-outline" class="text-brandAccent text-xl mb-1"></ion-icon>
+                            <p class="text-[10px] font-bold uppercase tracking-widest text-white">Warranty Incl.</p>
+                        </div>
+                        <div class="p-3 bg-brandDark/50 rounded border border-white/5">
+                            <ion-icon name="cube-outline" class="text-brandAccent text-xl mb-1"></ion-icon>
+                            <p class="text-[10px] font-bold uppercase tracking-widest text-white">Sealed Box</p>
+                        </div>
+                        <div class="p-3 bg-brandDark/50 rounded border border-white/5">
+                            <ion-icon name="paper-airplane-outline" class="text-brandAccent text-xl mb-1"></ion-icon>
+                            <p class="text-[10px] font-bold uppercase tracking-widest text-white">Fast Delivery</p>
+                        </div>
+                    </div>
+                    <div class="pt-4 flex flex-wrap gap-4">
+                        <button onclick="openPortal()" class="px-6 py-3 bg-brandAccent hover:bg-white text-brandDark font-black tracking-widest text-xs uppercase transition rounded shadow-lg flex items-center gap-2">
+                            <ion-icon name="search-outline"></ion-icon> View Inventory Models
+                        </button>
+                        <a href="https://wa.me/#" target="_blank" class="px-6 py-3 border border-emerald-500/50 hover:bg-emerald-500/10 text-emerald-400 font-bold tracking-widest text-xs uppercase transition rounded flex items-center gap-2">
+                            <ion-icon name="logo-whatsapp" class="text-base"></ion-icon> DM Now to Order
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 relative bg-black flex items-center justify-center p-6 border-t lg:border-t-0 lg:border-l border-white/10 cursor-pointer group" onclick="openImageModal('eb8b12ae-87be-47ea-8df2-abb954ebe512.png', 'IINIKO Phones Catalogue View')">
+                    <img src="eb8b12ae-87be-47ea-8df2-abb954ebe512.png" alt="IINIKO Phones Billboard" class="w-full h-full object-cover rounded-md group-hover:opacity-90 transition duration-300">
+                    <div class="absolute inset-0 bg-brandDark/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="px-4 py-2 bg-brandDark/90 border border-brandAccent/50 rounded text-xs uppercase tracking-widest font-bold text-brandAccent flex items-center gap-2">
+                            <ion-icon name="expand-outline"></ion-icon> View Spec Poster
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GLOBAL HIGH-FIDELITY FOOTER -->
+    <footer class="bg-black border-t border-white/10 text-neutral-400 py-16 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="space-y-4">
+                <div class="inline-block">
+                    <h4 class="text-xl font-bold tracking-[0.2em] text-white uppercase leading-none">IINIKO</h4>
+                    <span class="text-[9px] tracking-[0.4em] text-brandAccent uppercase block mt-1">C L O T H I N G</span>
+                </div>
+                <p class="text-xs text-neutral-500 font-light leading-relaxed tracking-wide">
+                    An avant-garde engineering of global urban luxury, deeply honoring sacred ancestral Yoruba foundations. Built differently. Made to endure.
+                </p>
+            </div>
+            <div>
+                <h5 class="text-xs font-bold tracking-widest text-white uppercase mb-4">Master Drops</h5>
+                <ul class="space-y-2 text-xs uppercase tracking-widest font-light">
+                    <li><a href="#new-arrivals" class="hover:text-brandAccent transition">Mandela Legacy Edition</a></li>
+                    <li><a href="#new-arrivals" class="hover:text-brandAccent transition">Motorsport Heavy Fleece</a></li>
+                    <li><a href="#apparel" class="hover:text-brandAccent transition">Technical Outerwear</a></li>
+                    <li><a href="#accessories" class="hover:text-brandAccent transition">Bespoke Accessories</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-xs font-bold tracking-widest text-white uppercase mb-4">Enterprise Specs</h5>
+                <ul class="space-y-2 text-xs uppercase tracking-widest font-light">
+                    <li><a href="#portal-section" class="hover:text-brandAccent transition">IINIKO Tech Distribution</a></li>
+                    <li><a href="#" class="hover:text-brandAccent transition">Track Existing Order</a></li>
+                    <li><a href="#" class="hover:text-brandAccent transition">Authentication Registry</a></li>
+                    <li><a href="#" class="hover:text-brandAccent transition">Secure Escrow Support</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-xs font-bold tracking-widest text-white uppercase mb-4">Global Vision</h5>
+                <p class="text-xs text-neutral-500 font-light mb-4 leading-relaxed tracking-wide">
+                    Subscribe for access keys to upcoming conceptual drops and immediate private inventory restorations.
+                </p>
+                <div class="flex">
+                    <input type="email" placeholder="ENTER ACCESS EMAIL..." class="w-full bg-neutral-900 border border-white/10 px-3 py-2 text-xs font-mono text-white focus:outline-none focus:border-brandAccent rounded-l">
+                    <button class="bg-brandAccent text-brandDark font-black text-xs px-4 rounded-r tracking-widest uppercase hover:bg-white transition duration-300">Join</button>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center text-[11px] uppercase tracking-widest text-neutral-600 font-mono">
+            <p>&copy; 2024 - 2026 IINIKO CLOTHING. ALL RIGHTS RESERVED.</p>
+            <p class="mt-2 sm:mt-0">DESIGNED IN SOLIDARITY WITH SOUTH AFRICAN SOUND SYSTEMS & LABELS</p>
+        </div>
     </footer>
 
-    <!-- Functional Data & Catalog Filter Engine Script -->
+    <!-- INTERACTIVE SLIDEOUT E-COMMERCE CART OVERLAY -->
+    <div id="cart-drawer" class="fixed inset-0 bg-black/80 z-50 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="absolute right-0 top-0 h-full w-full max-w-md bg-brandDark p-6 sm:p-8 border-l border-white/10 flex flex-col justify-between transform translate-x-full transition-transform duration-300">
+            <div>
+                <div class="flex justify-between items-center mb-8 pb-4 border-b border-white/10">
+                    <div class="flex items-center gap-2">
+                        <h3 class="text-white tracking-widest font-black uppercase text-sm">YOUR BAG</h3>
+                        <span id="cart-count-title" class="bg-neutral-800 text-brandAccent text-[10px] font-mono px-2 py-0.5 rounded">0 ITEMS</span>
+                    </div>
+                    <button onclick="toggleCart(false)" class="text-2xl hover:text-brandAccent transition"><ion-icon name="close-outline"></ion-icon></button>
+                </div>
+                <div id="cart-items-wrapper" class="space-y-4 max-h-[60vh] overflow-y-auto pr-2">
+                    <div id="empty-cart-state" class="text-center py-16 text-neutral-500">
+                        <ion-icon name="basket-outline" class="text-5xl mb-3 text-neutral-600"></ion-icon>
+                        <p class="text-xs uppercase tracking-widest font-medium">Your premium inventory bag is completely empty.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="cart-summary-block" class="border-t border-white/10 pt-4 hidden">
+                <div class="flex justify-between text-xs uppercase tracking-widest text-neutral-400 mb-2">
+                    <span>Subtotal Baseline</span>
+                    <span id="cart-subtotal" class="font-mono text-white font-bold">$0.00</span>
+                </div>
+                <div class="flex justify-between text-xs uppercase tracking-widest text-neutral-400 mb-4">
+                    <span>Secured Global Courier</span>
+                    <span class="text-brandAccent font-bold">COMPLIMENTARY</span>
+                </div>
+                <div class="border-t border-white/5 pt-3 mb-6 flex justify-between items-center">
+                    <span class="text-xs font-bold uppercase tracking-widest text-white">Estimated Final Total</span>
+                    <span id="cart-total" class="font-mono text-lg font-bold text-brandAccent">$0.00</span>
+                </div>
+                <button onclick="triggerCheckoutDispatch()" class="w-full bg-brandAccent hover:bg-white text-brandDark font-black tracking-widest text-xs uppercase py-4 transition rounded shadow-lg flex items-center justify-center gap-2">
+                    <ion-icon name="lock-closed-outline"></ion-icon> Dispatch Order Securely
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- HIGH-FIDELITY PRODUCT INSPECTOR LIGHTBOX MODAL -->
+    <div id="image-modal" class="fixed inset-0 bg-black/95 z-50 opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4" onclick="closeImageModal()">
+        <button class="absolute top-6 right-6 text-white text-4xl hover:text-brandAccent transition z-50"><ion-icon name="close-outline"></ion-icon></button>
+        <div class="max-w-4xl max-h-[85vh] relative flex flex-col items-center" onclick="event.stopPropagation()">
+            <img id="modal-img-target" src="" alt="" class="max-w-full max-h-[75vh] object-contain rounded shadow-2xl border border-white/10">
+            <h4 id="modal-caption-target" class="text-brandAccent text-xs uppercase tracking-[0.25em] font-bold mt-4 text-center"></h4>
+        </div>
+    </div>
+
+    <!-- TECH PORTAL MODAL -->
+    <div id="portal-modal" class="fixed inset-0 bg-black/95 z-50 opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
+        <div class="bg-brandDark border border-brandAccent/40 max-w-4xl w-full rounded-xl overflow-hidden shadow-2xl relative max-h-[90vh] flex flex-col">
+            <div class="p-6 bg-neutral-900 border-b border-white/10 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <h3 class="text-white font-black uppercase tracking-tight text-lg">IINIKO PHONES DISTRIBUTION VAULT</h3>
+                    <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[9px] font-mono uppercase px-2 py-0.5 rounded">Vault Verified Live</span>
+                </div>
+                <button onclick="closePortal()" class="text-2xl text-neutral-400 hover:text-brandAccent transition"><ion-icon name="close-outline"></ion-icon></button>
+            </div>
+            <div class="p-6 overflow-y-auto space-y-6">
+                <div class="bg-brandAccent/5 border border-brandAccent/20 rounded p-4 text-xs text-neutral-300 flex items-start gap-3">
+                    <ion-icon name="information-circle-outline" class="text-brandAccent text-lg mt-0.5 flex-shrink-0"></ion-icon>
+                    <p class="leading-relaxed tracking-wide">
+                        All device stock options listed below represent flawless premium standard original grading. Backed completely by the unified <strong>IINIKO 100% Trust Registry Guarantee</strong>. To fulfill transaction dispatch, check off your model and send a direct order string block instantly to our logistics desks via WhatsApp.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="phones-grid-target">
+                    <!-- Phone Inventory Cards Rendered Here -->
+                </div>
+            </div>
+            <div class="p-6 bg-neutral-900 border-t border-white/10 flex justify-end">
+                <a href="https://wa.me/#?text=Hello%20IINIKO%20Logistics,%20I%20am%20inquiring%20about%20your%20certified%20premium%20iPhone%20inventory." target="_blank" class="px-6 py-3 bg-brandAccent text-brandDark font-black tracking-widest text-xs uppercase hover:bg-white transition rounded flex items-center gap-2">
+                    <ion-icon name="logo-whatsapp" class="text-base"></ion-icon> Initiate Private Whatsapp Bulk Quote
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- CORE PLATFORM ENGINE SCRIPT WITH MULTI-CURRENCY CONVERSION SYSTEM -->
     <script>
-        // Array catalog now containing all 10 verified items
-        const catalogProducts = [
-            {
-                id: "iniiko-46664-tee",
-                name: "46664 Mandela Vintage Tee",
-                category: "T-Shirts",
-                price: "R549.99",
-                description: "Oversized fit, 260GSM 100% cotton washed tee featuring Nelson Mandela 46664 back graphic.",
-                imageFront: "images/mandela-46664-front.png",
-                imageBack: "images/mandela-46664-back.png",
-                tags: ["Oversized", "Vintage Wash", "Heritage"]
-            },
-            {
-                id: "iniiko-mandela-quote-tee",
-                name: "Mandela 'Impossible' Graphic Tee",
-                category: "T-Shirts",
-                price: "R549.99",
-                description: "260GSM heavyweight cotton tee featuring classic Mandela quote and freedom rally collage map.",
-                imageFront: "images/mandela-quote-front.png",
-                imageBack: "images/mandela-quote-back.png",
-                tags: ["Oversized", "Graphic", "Statement"]
-            },
-            {
-                id: "iniiko-yoruba-greatness-tee",
-                name: "Origin of Greatness Tee",
-                category: "T-Shirts",
-                price: "R549.99",
-                description: "Yoruba Roots edition vintage wash black tee with neon yellow line-art graphics.",
-                imageFront: "images/yoruba-greatness-back.png",
-                imageBack: "",
-                tags: ["Yoruba Roots", "Neon", "Heavyweight"]
-            },
-            {
-                id: "iniiko-durban-031-tee",
-                name: "Durban 7 Vintage Tee",
-                category: "T-Shirts",
-                price: "R499.99",
-                description: "031 area code tribute graphic tee. Born In. Built For. Vintage wash black.",
-                imageFront: "images/durban-front.png",
-                imageBack: "images/durban-back.png",
-                tags: ["Durban", "031", "Streetwear"]
-            },
-            {
-                id: "iniiko-triblad-racing-jersey",
-                name: "Triblad Times Racing Jersey",
-                category: "Jerseys",
-                price: "R749.99",
-                description: "Neon yellow and purple graffiti font elements on a premium heavy long-sleeve racing silhouette.",
-                imageFront: "images/racing-jersey-front.png",
-                imageBack: "images/racing-jersey-back.png",
-                tags: ["Racing Team", "Neon", "Limited Drop"]
-            },
-            {
-                id: "iniiko-pro-racing-jersey-10",
-                name: "No. 10 INIIKO Pro Racing Jersey",
-                category: "Jerseys",
-                price: "R899.99",
-                description: "Premium mesh fabric racing inspired design featuring high-quality Yoruba Roots front emblem print.",
-                imageFront: "images/pro-jersey-front.png",
-                imageBack: "images/pro-jersey-back.png",
-                tags: ["Mesh Fabric", "All Over Print", "Premium"]
-            },
-            {
-                id: "iniiko-yoruba-roots-track-set",
-                name: "Chaos to Purpose Track Suit Set",
-                category: "Sets",
-                price: "R1499.99",
-                description: "Full washed black denim-style aesthetic track set with heavy vertical typography branding.",
-                imageFront: "images/mannequin-display.png",
-                imageBack: "",
-                tags: ["Co-ord", "Yoruba Roots", "Full Set"]
-            },
-            {
-                id: "iniiko-denim-collection-womens",
-                name: "INIIKO Women's Wide-Leg Denim",
-                category: "Denim",
-                price: "R999.99",
-                description: "Premium quality purposeful design denim, relaxed fit wide-leg silhouettes featuring tribal line-work.",
-                imageFront: "images/womens-denim-collection.png",
-                imageBack: "",
-                tags: ["Wide Leg", "Custom Hardware", "Washed Black"]
-            },
-            {
-                id: "iniiko-denim-collection-mens",
-                name: "INIIKO Men's Stacked Dystopia Denim",
-                category: "Denim",
-                price: "R1099.99",
-                description: "Extra length stacked fit and baggy fit heavy denim styles with premium embroidery detailing.",
-                imageFront: "images/mens-denim-collection.png",
-                imageBack: "",
-                tags: ["Stacked Fit", "Baggy Fit", "Distressed"]
-            },
-            {
-                id: "iniiko-spirit-yoruba-tee",
-                name: "INIIKO Spirit Yoruba Tee",
-                category: "T-Shirts",
-                price: "R549.99",
-                description: "Washed black vintage silhouette featuring a bold purple gradient front logotype and gold diety graphic back.",
-                imageFront: "images/spirit-front.png",
-                imageBack: "images/spirit-back.png",
-                tags: ["Yoruba Roots", "Gradient", "260GSM"]
-            }
+        // CURRENCY ARCHITECTURE CONFIGS
+        let ACTIVE_CURRENCY = 'USD';
+        const CURRENCY_DICTIONARY = {
+            USD: { symbol: '$', rate: 1.00 },
+            ZAR: { symbol: 'R', rate: 18.25 },
+            GBP: { symbol: '£', rate: 0.78 },
+            JPY: { symbol: '¥', rate: 155.40 },
+            EUR: { symbol: '€', rate: 0.92 }
+        };
+
+        // PLATFORM INVENTORY STRUCTURE WITH ADDED NEW ARRIVAL CAPSULES
+        const PLATFORM_INVENTORY = [
+            // CATEGORY 0: NEW ARRIVALS (Mandela Legacy, Motorsport, etc.)// Copy and paste these items directly into your existing catalog array:
+{
+  id: "iniiko-46664-tee",
+  name: "46664 Mandela Vintage Tee",
+  category: "T-Shirts",
+  price: "R549.99",
+  description: "Oversized fit, 260GSM 100% cotton washed tee featuring Nelson Mandela 46664 back graphic.",
+  imageFront: "images/mandela-46664-front.png",
+  imageBack: "images/mandela-46664-back.png",
+  tags: ["Oversized", "Vintage Wash", "Heritage"]
+},
+{
+  id: "iniiko-mandela-quote-tee",
+  name: "Mandela 'Impossible' Graphic Tee",
+  category: "T-Shirts",
+  price: "R549.99",
+  description: "260GSM heavyweight cotton tee featuring classic Mandela quote and freedom rally collage map.",
+  imageFront: "images/mandela-quote-front.png",
+  imageBack: "images/mandela-quote-back.png",
+  tags: ["Oversized", "Graphic", "Statement"]
+},
+{
+  id: "iniiko-yoruba-greatness-tee",
+  name: "Origin of Greatness Tee",
+  category: "T-Shirts",
+  price: "R549.99",
+  description: "Yoruba Roots edition vintage wash black tee with neon yellow line-art graphics.",
+  imageFront: "images/yoruba-greatness-back.png",
+  imageBack: "",
+  tags: ["Yoruba Roots", "Neon", "Heavyweight"]
+},
+{
+  id: "iniiko-durban-031-tee",
+  name: "Durban 7 Vintage Tee",
+  category: "T-Shirts",
+  price: "R499.99",
+  description: "031 area code tribute graphic tee. Born In. Built For. Vintage wash black.",
+  imageFront: "images/durban-front.png",
+  imageBack: "images/durban-back.png",
+  tags: ["Durban", "031", "Streetwear"]
+},
+{
+  id: "iniiko-triblad-racing-jersey",
+  name: "Triblad Times Racing Jersey",
+  category: "Jerseys",
+  price: "R749.99",
+  description: "Neon yellow and purple graffiti font elements on a premium heavy long-sleeve racing silhouette.",
+  imageFront: "images/racing-jersey-front.png",
+  imageBack: "images/racing-jersey-back.png",
+  tags: ["Racing Team", "Neon", "Limited Drop"]
+},
+{
+  id: "iniiko-pro-racing-jersey-10",
+  name: "No. 10 INIIKO Pro Racing Jersey",
+  category: "Jerseys",
+  price: "R899.99",
+  description: "Premium mesh fabric racing inspired design featuring high-quality Yoruba Roots front emblem print.",
+  imageFront: "images/pro-jersey-front.png",
+  imageBack: "images/pro-jersey-back.png",
+  tags: ["Mesh Fabric", "All Over Print", "Premium"]
+},
+{
+  id: "iniiko-yoruba-roots-track-set",
+  name: "Chaos to Purpose Track Suit Set",
+  category: "Sets",
+  price: "R1499.99",
+  description: "Full washed black denim-style aesthetic track set with heavy vertical typography branding.",
+  imageFront: "images/mannequin-display.png",
+  imageBack: "",
+  tags: ["Co-ord", "Yoruba Roots", "Full Set"]
+},
+{
+  id: "iniiko-denim-collection-womens",
+  name: "INIIKO Women's Wide-Leg Denim",
+  category: "Denim",
+  price: "R999.99",
+  description: "Premium quality purposeful design denim, relaxed fit wide-leg silhouettes featuring tribal line-work.",
+  imageFront: "images/womens-denim-collection.png",
+  imageBack: "",
+  tags: ["Wide Leg", "Custom Hardware", "Washed Black"]
+},
+{
+  id: "iniiko-denim-collection-mens",
+  name: "INIIKO Men's Stacked Dystopia Denim",
+  category: "Denim",
+  price: "R1099.99",
+  description: "Extra length stacked fit and baggy fit heavy denim styles with premium embroidery detailing.",
+  imageFront: "images/mens-denim-collection.png",
+  imageBack: "",
+  tags: ["Stacked Fit", "Baggy Fit", "Distressed"]
+},
+{
+  id: "iniiko-spirit-yoruba-tee",
+  name: "INIIKO Spirit Yoruba Tee",
+  category: "T-Shirts",
+  price: "R549.99",
+  description: "Washed black vintage silhouette featuring a bold purple gradient front logotype and gold diety graphic back.",
+  imageFront: "images/spirit-front.png",
+  imageBack: "images/spirit-back.png",
+  tags: ["Yoruba Roots", "Gradient", "260GSM"]
+}
+            { id: "new-1", category: "new-arrivals", name: '"Mandela Legacy" Premium Heavy Knit', file: "mod1.png", price: 160.00, desc: "Limited edition custom drop commemorating raw historical resilience. High-density woven thread embroidery and dynamic structured drop shoulders." },
+            { id: "new-2", category: "new-arrivals", name: '"IINIKO Motorsport" Tech Fleece Jacket', file: "mod6.png", price: 225.00, desc: "Heavyweight paneled technical outerwear engineered with custom track team detailing, bold typography, and extreme durability layers." },
+            { id: "new-3", category: "new-arrivals", name: '"Mandela Lineage" Silhouette Tee', file: "259e5691-d847-49ca-bbe3-b37f80fce655.png", price: 75.00, desc: "Premium textured garment-dyed lifestyle blank celebrating structural legacy aesthetics and powerful graphic alignments." },
+            { id: "new-4", category: "new-arrivals", name: '"Speed Circuit" Heavy Graphic Tee', file: "70101de8-1e7c-4c41-92bb-e34af1c8d703.png", price: 70.00, desc: "High-contrast motorsport subculture configuration utilizing custom typography and distressed screen-printed rear profile arrangements." },
+
+            // CATEGORY 1: APPAREL LAYER CONFIG
+            { id: "app-1", category: "apparel", name: '"Rooted in Heritage" Tech Puffer', file: "0d21b65a-1b8b-4bba-8e85-cfb6c6e21cae.png", price: 210.00, desc: "Heavyweight 700-down stitch form factor. Front identity typography block layout. High blueprint-style Yoruba mask layout masterfully silk-printed across the back structural panel." },
+            { id: "app-2", category: "apparel", name: '"Chaos to Greatness" Heavy Hoodie', file: "cc000f65-cb42-410d-8629-3688fbbc4d99.png", price: 145.00, desc: "Boxy dropped-shoulder structural design. Small front chest text brand identity patch. Heavy distressed aesthetic contrast photo-montage composition layer across spine alignment." },
+            { id: "app-3", category: "apparel", name: '"Rooted in Heritage" Blueprint Hoodie', file: "9714d075-ae6c-4428-8085-f592ecf080e4.png", price: 135.00, desc: "Premium acid-wash heavy luxury cotton construction. Technical clean line-art graphic breakdown structure of a Yoruba mask design detailing sacred geometry on the back panels." },
+            { id: "app-4", category: "apparel", name: '"Resilience" Queen Crown Hoodie', file: "649c1f57-3e78-4bc0-beba-29f33797c482.png", price: 150.00, desc: "Thick premium standard loopback fleece weave. Beautiful highly-detailed hyper-contrast front profile graphic art print of an African warrior queen wearing an elaborate high crown." },
+            { id: "app-5", category: "apparel", name: '"Born During Troubled Times" Path Hoodie', file: "995f5d76-adb9-4ede-ba57-a44eda515cd4.png", price: 140.00, desc: "Washed custom-dyed black knit utility weave. Back features high contrast art print portraying a lone journeyer navigating an arid pathway toward bright distant horizontal horizons." },
+            { id: "app-6", category: "apparel", name: '"IINIKO Signature" Wordmark Hoodie', file: "77e5233c-f500-41c8-85e1-dfc8dfb270c7.png", price: 125.00, desc: "Luxury heavy casual construction. Typographic centerpiece composition showing clean repeating structural text block alignments flowing gracefully downward along the rear spine." },
+            { id: "app-7", category: "apparel", name: '"Chaos to Greatness" Heavy Tee', file: "70101de8-1e7c-4c41-92bb-e34af1c8d703.png", price: 65.00, desc: "Drop-shoulder relaxed lifestyle blank. Beautiful technical distressed photo composition layout paired with clean bold layout typography statements covering the rear profile." },
+            { id: "app-8", category: "apparel", name: '"Rooted in Heritage" Blueprint Tee', file: "5a262d37-8ebe-40cb-b32f-5a5ec9ab11f6.png", price: 60.00, desc: "Raw custom luxury spun cotton tee. Featuring our master line-art technical blueprint illustration detailing a structural Yoruba protective mask graphic overlay across the back frame." },
+
+            // CATEGORY 2: HARDWARE ACCENTS & EYEWEAR
+            { id: "acc-1", category: "accessories", name: '"IINIKO Signature" Canvas Tote', file: "81707881-2cbf-4aab-8f2e-774fdf281110.png", price: 45.00, desc: "Ultra-heavy black denim canvas assembly. Triple vertical stacked bold typographical front motif flanked by our timeless subtext asset: 'BORN IN CHAOS. BUILT FOR MORE.'" },
+            { id: "acc-2", category: "accessories", name: '"INIKO" Heavy Wash Distressed Cap', file: "db45419a-1e07-4740-8051-915deee0e319.png", price: 35.00, desc: "Acid-washed six-panel unstructured style unstructured cotton crown. High-relief cream structural embroidery framing across front dome panels alongside an engraved metallic tribal side crest." },
+            { id: "acc-3", category: "accessories", name: '"IINIKO Shades" Premium Men Acetate', file: "1f096865-5aa6-445c-8f6b-0390ea6f128b.png", price: 110.00, desc: "High UV400 block rated optics. Premium grade hand-finished heavy black acetate frames incorporating premium durable 5-barrel metal hinges and beautiful solid 3D gold Yoruba side mask elements." },
+            { id: "acc-4", category: "accessories", name: '"IINIKO Shades" Premium Women Acetate', file: "bb7f8e42-cf4d-453f-b462-2a08aa87fd9d.png", price: 115.00, desc: "Flawless cat-eye tailored profile architecture constructed via premium luxury acetate frameworks. Features custom inner temple signature embossing and bright solid-gold tone facial crest accents." },
+
+            // CATEGORY 3: HIGH LUXURY URBAN FOOTWEAR
+            { id: "ftw-1", category: "footwear", name: '"Ancestral Spirit" Monogram Sneaker', file: "fcc125bf-efcf-428f-adda-f48f21f19e1e.png", price: 185.00, desc: "Crafted out of top tier raw black milled leather panels and technical textile uppers. Finished with custom lace-jewel hardware, distinct tongue patch branding, and a beautiful custom-molded high relief Yoruba mask outsole profile." },
+            { id: "ftw-2", category: "footwear", name: '"Ancestral Spirit" Monogram Elite', file: "e0504ce9-4485-4a2b-8b31-0ee605d8b0e2.png", price: 195.00, desc: "An exclusive variant execution displaying precise historical repeat monogram canvas text engraving across side mid-panels. Complete with full padded luxury dynamic comfort collars." },
+            { id: "ftw-3", category: "footwear", name: '"IINIKO Luxury Slide" Ivory Cream', file: "157ca7a4-83f8-480d-8743-d4fca84970f1.png", price: 85.00, desc: "Premium minimalist ergonomic layout dual-strap lifestyle slides. Finished with beautiful gold-embossed statement hardware buckles, custom contour footbeds, and full presentation box layouts." },
+            { id: "ftw-4", category: "footwear", name: '"IINIKO Luxury Slide" Stealth Black', file: "d3754570-c182-4c01-a3fc-f93405cc539c.png", price: 85.00, desc: "Black raw textured composite execution featuring sleek matching stealth-tone buckle sets. Adorned with clean tribal linear logo stamps along the lateral side wing straps." }
         ];
 
-        // Generator logic rendering products dynamically
-        function renderGrid(products) {
-            const grid = document.getElementById('catalog-grid');
-            grid.innerHTML = products.map(item => {
-                const tagString = item.tags.join(' ');
-                return `
-                    <div class="product-card" data-category="${item.category}" data-tags="${tagString}">
-                        <div class="product-image-wrapper">
-                            <img src="${item.imageFront}" alt="${item.name} Front" class="prod-img front">
-                            ${item.imageBack ? `<img src="${item.imageBack}" alt="${item.name} Back" class="prod-img back">` : ''}
-                            <span class="category-badge">${item.category}</span>
+        const PHONE_VAULT = [
+            { model: "iPhone 15 Pro Max", spec: "256GB / 512GB - Certified Flawless Grade A++ Titanium Finish", price: "Premium Rates Apply" },
+            { model: "iPhone 15 Pro", spec: "128GB / 256GB - Original Condition Factory Unlocked", price: "Vault Exclusive Price" },
+            { model: "iPhone 14 Pro", spec: "256GB - Space Black / Deep Purple Selection", price: "Trusted Value Option" },
+            { model: "iPhone 13", spec: "128GB - Midnight and Blue Stock Allocations Available", price: "Optimal Price Point" }
+        ];
+
+        let BAG_STATE = [];
+
+        // INITIALIZER LOADER
+        window.addEventListener('DOMContentLoaded', () => {
+            renderStoreMatrix();
+            renderPhoneVault();
+        });
+
+        // CURRENCY CONVERSION RENDER CALCULATION UTILITY
+        function formatPriceDisplay(basePriceInUSD) {
+            const currentCurrencyObject = CURRENCY_DICTIONARY[ACTIVE_CURRENCY];
+            const convertedPrice = basePriceInUSD * currentCurrencyObject.rate;
+            // Standard formatting across worldwide parameters
+            return `${currentCurrencyObject.symbol}${convertedPrice.toFixed(2)}`;
+        }
+
+        function switchGlobalCurrency(selectedCurrencyCode) {
+            if (CURRENCY_DICTIONARY[selectedCurrencyCode]) {
+                ACTIVE_CURRENCY = selectedCurrencyCode;
+                // Re-render completely with converted valuation indicators
+                renderStoreMatrix();
+                synchronizeBagState();
+            }
+        }
+
+        // SYSTEM LAYOUT BUILDER ENGINE
+        function renderStoreMatrix() {
+            const newArrivalsTarget = document.getElementById('new-arrivals-container');
+            const apparelTarget = document.getElementById('apparel-container');
+            const accTarget = document.getElementById('accessories-container');
+            const ftwTarget = document.getElementById('footwear-container');
+
+            // Reset layouts for fresh multi-currency rendering iterations
+            newArrivalsTarget.innerHTML = '';
+            apparelTarget.innerHTML = '';
+            accTarget.innerHTML = '';
+            ftwTarget.innerHTML = '';
+
+            PLATFORM_INVENTORY.forEach(product => {
+                const layoutCardHtml = `
+                    <div class="group bg-neutral-950 border border-white/5 rounded-lg p-4 flex flex-col justify-between transition-all duration-300 hover:border-brandAccent/40 hover:shadow-xl relative">
+                        <div>
+                            <!-- Visual Asset Component Window -->
+                            <div class="w-full h-72 sm:h-80 bg-brandDark rounded overflow-hidden relative mb-4 cursor-pointer" onclick="openImageModal('${product.file}', '${product.name.replace(/'/g, "\\'")}')">
+                                <img src="${product.file}" alt="${product.name}" class="w-full h-full object-cover object-center transform group-hover:scale-105 transition duration-500">
+                                <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition duration-300">
+                                    <span class="bg-black/80 backdrop-blur-md p-2 rounded text-white hover:text-brandAccent text-sm flex items-center">
+                                        <ion-icon name="scan-outline"></ion-icon>
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- Metadata Architecture with Reactive Currency Values -->
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-sm font-bold uppercase tracking-wide text-white group-hover:text-brandAccent transition duration-200">${product.name}</h3>
+                                <span class="font-mono text-xs text-brandAccent font-bold">${formatPriceDisplay(product.price)}</span>
+                            </div>
+                            <p class="text-neutral-500 text-[11px] font-light leading-relaxed mb-4 tracking-wide">${product.desc}</p>
                         </div>
-                        <div class="product-info">
-                            <h3 class="product-title">${item.name}</h3>
-                            <p class="product-desc">${item.description}</p>
-                            <div class="tag-container">
-                                ${item.tags.map(t => `<span class="tag">#${t}</span>`).join('')}
-                            </div>
-                            <div class="product-footer">
-                                <span class="price">${item.price}</span>
-                                <button class="add-to-cart-btn" onclick="triggerCartDrop('${item.id}')">Add to Drop</button>
-                            </div>
+                        <!-- Action Utility -->
+                        <button onclick="addItemToBag('${product.id}')" class="w-full bg-brandDark border border-white/10 hover:border-brandAccent group-hover:bg-brandAccent group-hover:text-brandDark text-white font-bold tracking-widest text-[10px] uppercase py-3 rounded transition duration-300 flex items-center justify-center gap-1.5">
+                            <ion-icon name="add-outline" class="text-sm"></ion-icon> Acquire Piece
+                        </button>
+                    </div>
+                `;
+
+                if (product.category === 'new-arrivals') newArrivalsTarget.insertAdjacentHTML('beforeend', layoutCardHtml);
+                else if (product.category === 'apparel') apparelTarget.insertAdjacentHTML('beforeend', layoutCardHtml);
+                else if (product.category === 'accessories') accTarget.insertAdjacentHTML('beforeend', layoutCardHtml);
+                else if (product.category === 'footwear') ftwTarget.insertAdjacentHTML('beforeend', layoutCardHtml);
+            });
+        }
+
+        function renderPhoneVault() {
+            const vaultContainer = document.getElementById('phones-grid-target');
+            vaultContainer.innerHTML = '';
+            PHONE_VAULT.forEach(phone => {
+                const itemHtml = `
+                    <div class="p-4 bg-brandDark rounded border border-white/5 hover:border-brandAccent/30 transition flex justify-between items-center group">
+                        <div>
+                            <h4 class="text-white text-xs font-black uppercase tracking-widest group-hover:text-brandAccent transition">${phone.model}</h4>
+                            <p class="text-[11px] text-neutral-500 font-light mt-0.5">${phone.spec}</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[10px] font-mono text-brandAccent block bg-brandAccent/10 px-2 py-1 rounded font-bold uppercase tracking-wider">${phone.price}</span>
                         </div>
                     </div>
                 `;
-            }).join('');
+                vaultContainer.insertAdjacentHTML('beforeend', itemHtml);
+            });
         }
 
-        // Processing tab selection filtering action
-        function filterCatalog(category, buttonComponent) {
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            buttonComponent.classList.add('active');
+        // BAG TECH LOGIC CORES
+        function addItemToBag(id) {
+            const coreItem = PLATFORM_INVENTORY.find(p => p.id === id);
+            const verifiedActiveItem = BAG_STATE.find(item => item.id === id);
 
-            if (category === 'All') {
-                renderGrid(catalogProducts);
+            if (verifiedActiveItem) {
+                verifiedActiveItem.quantity += 1;
             } else {
-                const filtered = catalogProducts.filter(p => p.category === category);
-                renderGrid(filtered);
+                BAG_STATE.push({ ...coreItem, quantity: 1 });
+            }
+
+            synchronizeBagState();
+            toggleCart(true);
+        }
+
+        function removeBagItem(id) {
+            BAG_STATE = BAG_STATE.filter(item => item.id !== id);
+            synchronizeBagState();
+        }
+
+        function changeQuantity(id, amount) {
+            const targetItem = BAG_STATE.find(item => item.id === id);
+            if (!targetItem) return;
+
+            targetItem.quantity += amount;
+            if (targetItem.quantity <= 0) {
+                removeBagItem(id);
+            } else {
+                synchronizeBagState();
             }
         }
 
-        // Interface event logger for customer drop interaction
-        function triggerCartDrop(itemId) {
-            alert(`Product added to drop selection roster: ${itemId}`);
+        function synchronizeBagState() {
+            const itemsWrapper = document.getElementById('cart-items-wrapper');
+            const emptyCartState = document.getElementById('empty-cart-state');
+            const summaryBlock = document.getElementById('cart-summary-block');
+            const badge = document.getElementById('cart-badge');
+            const countTitle = document.getElementById('cart-count-title');
+
+            let grossCount = 0;
+            let netSubtotalUSD = 0;
+
+            itemsWrapper.innerHTML = '';
+
+            if (BAG_STATE.length === 0) {
+                emptyCartState.style.display = 'block';
+                itemsWrapper.appendChild(emptyCartState);
+                summaryBlock.classList.add('hidden');
+                badge.classList.add('hidden');
+                countTitle.innerText = "0 ITEMS";
+                return;
+            }
+
+            emptyCartState.style.display = 'none';
+            summaryBlock.classList.remove('hidden');
+
+            BAG_STATE.forEach(item => {
+                grossCount += item.quantity;
+                netSubtotalUSD += (item.price * item.quantity);
+
+                const itemRowHtml = `
+                    <div class="flex gap-4 p-3 bg-neutral-950 rounded border border-white/5 items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <img src="${item.file}" alt="${item.name}" class="w-12 h-12 object-cover rounded bg-brandDark">
+                            <div>
+                                <h4 class="text-white font-bold uppercase text-[11px] tracking-wide max-w-[180px] truncate">${item.name}</h4>
+                                <span class="text-brandAccent font-mono text-xs block mt-0.5">${formatPriceDisplay(item.price * item.quantity)}</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="flex items-center border border-white/10 rounded bg-brandDark text-xs overflow-hidden">
+                                <button onclick="changeQuantity('${item.id}', -1)" class="px-2 py-1 text-neutral-400 hover:text-white hover:bg-neutral-800 transition">-</button>
+                                <span class="px-2 text-white font-mono text-xs font-bold">${item.quantity}</span>
+                                <button onclick="changeQuantity('${item.id}', 1)" class="px-2 py-1 text-neutral-400 hover:text-white hover:bg-neutral-800 transition">+</button>
+                            </div>
+                            <button onclick="removeBagItem('${item.id}')" class="text-neutral-500 hover:text-red-400 text-lg flex items-center transition">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                itemsWrapper.insertAdjacentHTML('beforeend', itemRowHtml);
+            });
+
+            badge.innerText = grossCount;
+            badge.classList.remove('hidden');
+            countTitle.innerText = `${grossCount} ITEM${grossCount > 1 ? 'S' : ''}`;
+
+            const activeFormattedTotal = formatPriceDisplay(netSubtotalUSD);
+            document.getElementById('cart-subtotal').innerText = activeFormattedTotal;
+            document.getElementById('cart-total').innerText = activeFormattedTotal;
         }
 
-        // Initial paint call logic sequence
-        window.addEventListener('DOMContentLoaded', () => {
-            renderGrid(catalogProducts);
-        });
+        // TRIGGER DISPATCH
+        function triggerCheckoutDispatch() {
+            if (BAG_STATE.length === 0) return;
+
+            let textStringBlock = `Hello IINIKO Clothing Team, I wish to securely request execution dispatch for the following active cart items (${ACTIVE_CURRENCY}):\n\n`;
+            BAG_STATE.forEach((item, index) => {
+                textStringBlock += `${index + 1}. [${item.name}] x Qty: ${item.quantity} -> (Unit Base: ${formatPriceDisplay(item.price)})\n`;
+            });
+
+            const grossSum = document.getElementById('cart-total').innerText;
+            textStringBlock += `\nEstimated Combined Baseline Total: ${grossSum}\nPlease confirm shipping parameters for my region. Thank you!`;
+
+            const parsedOutgoingUrl = `https://wa.me/#?text=${encodeURIComponent(textStringBlock)}`;
+            window.open(parsedOutgoingUrl, '_blank');
+        }
+
+        // TOGGLE UTILITY ACTIONS
+        function toggleNavMenu(open) {
+            const sideMenu = document.getElementById('side-menu');
+            const innerPanel = sideMenu.querySelector('div');
+            if (open) {
+                sideMenu.classList.remove('pointer-events-none');
+                sideMenu.classList.add('opacity-100');
+                innerPanel.classList.remove('-translate-x-full');
+                document.body.classList.add('modal-active');
+            } else {
+                sideMenu.classList.add('pointer-events-none');
+                sideMenu.classList.remove('opacity-100');
+                innerPanel.classList.add('-translate-x-full');
+                document.body.classList.remove('modal-active');
+            }
+        }
+
+        function toggleCart(open) {
+            const drawer = document.getElementById('cart-drawer');
+            const innerContainer = drawer.querySelector('div');
+            if (open) {
+                drawer.classList.remove('pointer-events-none');
+                drawer.classList.add('opacity-100');
+                innerContainer.classList.remove('translate-x-full');
+                document.body.classList.add('modal-active');
+            } else {
+                drawer.classList.add('pointer-events-none');
+                drawer.classList.remove('opacity-100');
+                innerContainer.classList.add('translate-x-full');
+                document.body.classList.remove('modal-active');
+            }
+        }
+
+        function openImageModal(src, caption) {
+            document.getElementById('modal-img-target').src = src;
+            document.getElementById('modal-caption-target').innerText = caption;
+            
+            const modal = document.getElementById('image-modal');
+            modal.classList.remove('pointer-events-none');
+            modal.classList.add('opacity-100');
+            document.body.classList.add('modal-active');
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('image-modal');
+            modal.classList.add('pointer-events-none');
+            modal.classList.remove('opacity-100');
+            document.body.classList.remove('modal-active');
+        }
+
+        /* PORTAL WINDOWS */
+        function openPortal() {
+            const portal = document.getElementById('portal-modal');
+            portal.classList.remove('pointer-events-none');
+            portal.classList.add('opacity-100');
+            document.body.classList.add('modal-active');
+        }
+
+        class closePortalConfig {
+            static execute() {
+                const portal = document.getElementById('portal-modal');
+                portal.classList.add('pointer-events-none');
+                portal.classList.remove('opacity-100');
+                document.body.classList.remove('modal-active');
+            }
+        }
+        function closePortal() { closePortalConfig.execute(); }
     </script>
 </body>
 </html>
