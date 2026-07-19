@@ -196,26 +196,26 @@
                         See the official design anatomy and styling index directly on display. This set breaks down our flagship Utility Jacket config, raw monogram technical print work, custom hardware engineering, and complete styling coordination across the full seasonal collection drop.
                     </p>
                     <div class="pt-2">
-                        <button onclick="openImageModal('mod5.png')" class="w-full sm:w-auto px-6 py-3 bg-brandAccent text-brandDark font-bold tracking-widest text-xs uppercase hover:bg-white transition duration-300 rounded flex items-center justify-center gap-2">
+                        <button onclick="openImageModal('mod5.png', 'Editorial Panel')" class="w-full sm:w-auto px-6 py-3 bg-brandAccent text-brandDark font-bold tracking-widest text-xs uppercase hover:bg-white transition duration-300 rounded flex items-center justify-center gap-2">
                             <ion-icon name="expand-outline"></ion-icon> Inspect Full Editorial Panel
                         </button>
                     </div>
                 </div>
                 <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <div class="relative bg-brandDark border border-white/5 rounded overflow-hidden group cursor-pointer" onclick="openImageModal('mod6.png')">
-                        <div class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500 bg-gradient-to-br from-neutral-800 to-neutral-900"></div>
+                    <div class="relative bg-brandDark border border-white/5 rounded overflow-hidden group cursor-pointer" onclick="openImageModal('mod6.png', 'Puffer & Cargo Denim Setup')">
+                        <img src="mod6.png" alt="Puffer & Cargo Denim Setup" class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent flex items-end p-4">
                             <span class="text-[10px] uppercase font-bold tracking-widest text-brandAccent">Puffer & Cargo Denim Setup</span>
                         </div>
                     </div>
-                    <div class="relative bg-brandDark border border-white/5 rounded overflow-hidden group cursor-pointer" onclick="openImageModal"mod1.png">
-                        <div class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500 bg-gradient-to-br from-neutral-800 to-neutral-900"></div>
+                    <div class="relative bg-brandDark border border-white/5 rounded overflow-hidden group cursor-pointer" onclick="openImageModal('mod1.png', 'Signature Tee & Fleece Joggers')">
+                        <img src="mod1.png" alt="Signature Tee & Fleece Joggers" class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent flex items-end p-4">
                             <span class="text-[10px] uppercase font-bold tracking-widest text-brandAccent">Signature Tee & Fleece Joggers</span>
                         </div>
                     </div>
-                    <div class="relative bg-brandDark border border-white/5 rounded overflow-hidden group cursor-pointer" onclick="openImageModal"mod2.png">
-                        <div class="w-full h-64 object-cover object-top transform group-hover:scale-105 transition duration-500 bg-gradient-to-br from-neutral-800 to-neutral-900"></div>
+                    <div class="relative bg-brandDark border border-white/5 rounded overflow-hidden group cursor-pointer" onclick="openImageModal('mod2.png', 'Master Technical Look Index')">
+                        <img src="mod2.png" alt="Master Technical Look Index" class="w-full h-64 object-cover object-top transform group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent flex items-end p-4">
                             <span class="text-[10px] uppercase font-bold tracking-widest text-brandAccent">Master Technical Look Index</span>
                         </div>
@@ -295,10 +295,8 @@
                         </a>
                     </div>
                 </div>
-                <div class="lg:col-span-5 relative bg-black flex items-center justify-center p-6 border-t lg:border-t-0 lg:border-l border-white/10 cursor-pointer group" onclick="openImageModal"mod2.png">
-                    <div class="w-full h-full object-cover rounded-md group-hover:opacity-90 transition duration-300 bg-gradient-to-br from-neutral-800 to-neutral-900 flex items-center justify-center">
-                        <ion-icon name="phone-portrait-outline" class="text-6xl text-brandAccent opacity-30"></ion-icon>
-                    </div>
+                <div class="lg:col-span-5 relative bg-black flex items-center justify-center p-6 border-t lg:border-t-0 lg:border-l border-white/10 cursor-pointer group" onclick="openImageModal('mod2.png', 'iPhone Spec Poster')">
+                    <img src="mod2.png" alt="iPhone Spec Poster" class="w-full h-full object-cover rounded-md group-hover:opacity-90 transition duration-300 max-h-96">
                     <div class="absolute inset-0 bg-brandDark/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
                         <span class="px-4 py-2 bg-brandDark/90 border border-brandAccent/50 rounded text-xs uppercase tracking-widest font-bold text-brandAccent flex items-center gap-2">
                             <ion-icon name="expand-outline"></ion-icon> View Spec Poster
@@ -397,7 +395,7 @@
 
     <!-- HIGH-FIDELITY PRODUCT INSPECTOR LIGHTBOX MODAL -->
     <div id="image-modal" class="fixed inset-0 bg-black/95 z-50 opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4" onclick="closeImageModal()">
-        <button class="absolute top-6 right-6 text-white text-4xl hover:text-brandAccent transition z-50"><ion-icon name="close-outline"></ion-icon></button>
+        <button onclick="closeImageModal()" class="absolute top-6 right-6 text-white text-4xl hover:text-brandAccent transition z-50"><ion-icon name="close-outline"></ion-icon></button>
         <div class="max-w-4xl max-h-[85vh] relative flex flex-col items-center" onclick="event.stopPropagation()">
             <img id="modal-img-target" src="" alt="" class="max-w-full max-h-[75vh] object-contain rounded shadow-2xl border border-white/10">
             <h4 id="modal-caption-target" class="text-brandAccent text-xs uppercase tracking-[0.25em] font-bold mt-4 text-center"></h4>
@@ -518,7 +516,8 @@
                     <div class="group bg-neutral-950 border border-white/5 rounded-lg p-4 flex flex-col justify-between transition-all duration-300 hover:border-brandAccent/40 hover:shadow-xl">
                         <div>
                             <div class="w-full h-72 sm:h-80 bg-brandDark rounded overflow-hidden relative mb-4 cursor-pointer" onclick="openImageModal('${product.file}', '${product.name.replace(/"/g, '&quot;')}')">
-                                <div class="w-full h-full bg-gradient-to-br from-neutral-800 to-neutral-900 flex items-center justify-center transform group-hover:scale-105 transition duration-500">
+                                <img src="${product.file}" alt="${product.name}" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500" onerror="this.style.display='none'">
+                                <div class="w-full h-full bg-gradient-to-br from-neutral-800 to-neutral-900 flex items-center justify-center transform group-hover:scale-105 transition duration-500 absolute inset-0" id="placeholder-${product.id}">
                                     <ion-icon name="image-outline" class="text-4xl text-brandAccent opacity-30"></ion-icon>
                                 </div>
                                 <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition duration-300">
