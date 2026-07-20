@@ -111,7 +111,7 @@
         .search-input {
             transition: all 0.3s ease;
         }
-ɓ        
+        
         .search-input:focus {
             box-shadow: 0 0 0 3px rgba(197, 168, 128, 0.1);
         }
@@ -228,7 +228,7 @@
             <div class="flex items-center gap-4">
                 <select id="currency-selector-desktop" onchange="switchCurrency(this.value)" class="bg-neutral-900 border border-white/10 px-2 py-1 rounded text-xs text-white focus:border-brandAccent focus:outline-none">
                     <option value="USD">USD</option>
-                    <option value="ZAR">ZAR</option>
+                    <option value="ZAR" selected>ZAR</option>
                     <option value="GBP">GBP</option>
                     <option value="JPY">JPY</option>
                     <option value="EUR">EUR</option>
@@ -392,7 +392,7 @@
                     
                     <select id="currency-selector" onchange="switchCurrency(this.value)" class="bg-neutral-900 border border-white/10 px-4 py-3 rounded text-sm text-white focus:border-brandAccent focus:outline-none">
                         <option value="USD">USD ($)</option>
-                        <option value="ZAR">ZAR (R)</option>
+                        <option value="ZAR" selected>ZAR (R)</option>
                         <option value="GBP">GBP (£)</option>
                         <option value="JPY">JPY (¥)</option>
                         <option value="EUR">EUR (€)</option>
@@ -559,8 +559,8 @@
                         <h2 class="text-3xl font-black uppercase tracking-tight text-white mb-8">Account</h2>
                         
                         <div class="space-y-4">
-                            <input type="iiniikocustomer@gmail.com="Email address" id="login-email" class="w-full bg-neutral-900 border border-white/10 px-4 py-3 rounded text-sm text-white placeholder-neutral-600 focus:border-brandAccent focus:outline-none">
-                            <input type="password" Zinhl3chiliz@3="Password" id="login-password" class="w-full bg-neutral-900 border border-white/10 px-4 py-3 rounded text-sm text-white placeholder-neutral-600 focus:border-brandAccent focus:outline-none">
+                            <input type="email" placeholder="Email address" id="login-email" class="w-full bg-neutral-900 border border-white/10 px-4 py-3 rounded text-sm text-white placeholder-neutral-600 focus:border-brandAccent focus:outline-none">
+                            <input type="password" placeholder="Password" id="login-password" class="w-full bg-neutral-900 border border-white/10 px-4 py-3 rounded text-sm text-white placeholder-neutral-600 focus:border-brandAccent focus:outline-none">
                             <button onclick="handleLogin()" class="w-full bg-brandAccent text-brandDark font-bold py-3 rounded tracking-widest text-xs uppercase hover:bg-white transition">Sign In</button>
                             <p class="text-center text-sm text-neutral-400">Create account with your email above</p>
                         </div>
@@ -618,11 +618,11 @@
             <div class="space-y-2 mb-4 text-sm">
                 <div class="flex justify-between text-neutral-400">
                     <span>Subtotal</span>
-                    <span id="cart-subtotal-mini" class="font-mono text-white font-bold">$0.00</span>
+                    <span id="cart-subtotal-mini" class="font-mono text-white font-bold">R0.00</span>
                 </div>
                 <div class="flex justify-between text-white font-bold border-t border-white/10 pt-2 mt-2">
                     <span>Total</span>
-                    <span id="cart-total-mini" class="text-brandAccent">$0.00</span>
+                    <span id="cart-total-mini" class="text-brandAccent">R0.00</span>
                 </div>
             </div>
             <button onclick="goToCheckout()" class="w-full bg-brandAccent text-brandDark font-black py-3 rounded tracking-widest text-xs uppercase hover:bg-white transition">Checkout</button>
@@ -751,9 +751,9 @@
             { id: "ftw-4", category: "footwear", name: '"IINIKO Queens Slide" Stealth Black', file: "d3754570-c182-4c01-a3fc-f93405cc539c.png", price: 66.00, desc: "Black raw textured composite." }
         ];
 
-        function formatPrice(zar) {
+        function formatPrice(usd) {
             const curr = CURRENCY_DICTIONARY[ACTIVE_CURRENCY];
-            return `${curr.symbol} return `${curr.symbol$(zar * curr.rate).toFixed(2)}`;
+            return `${curr.symbol}${(usd * curr.rate).toFixed(2)}`;
         }
 
         function switchCurrency(code) {
@@ -853,7 +853,6 @@
             modal.classList.remove('opacity-0', 'pointer-events-none');
             document.body.classList.add('modal-active');
 
-            // Store current product for add to cart
             window.currentModalProduct = product;
         }
 
@@ -1040,16 +1039,6 @@
             updateCart();
             updateCountdown();
             setInterval(updateCountdown, 1000);
-        });
-
-        // Close cart when clicking outside
-        document.addEventListener('click', (e) => {
-            const sidebar = document.getElementById('cart-sidebar');
-            if (!sidebar.contains(e.target) && !e.target.closest('[onclick*="toggleCart"]')) {
-                if (!sidebar.classList.contains('translate-x-full')) {
-                    // Keep open
-                }
-            }
         });
     </script>
 </body>
