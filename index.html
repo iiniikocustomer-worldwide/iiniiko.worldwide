@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#121212">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect fill='%23c5a880' width='180' height='180'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='80' font-weight='bold' fill='%23121212' font-family='serif'>Ι</text></svg>">
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect fill='%23c5a880' width='180' height='180'/><text x='50%' y='50%' font-size='100' font-weight='bold' fill='%23121212' text-anchor='middle' dominant-baseline='middle'>I</text></svg>">
     <title>IINIKO WORLDWIDE | Flagship Experience</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -266,8 +266,12 @@
                         A pristine fusion of sacred lineage, historical culture, and progressive street innovation.
                     </p>
                     <div class="flex flex-wrap justify-center gap-4 animate-slide-in" style="animation-delay: 0.3s">
-                        <button onclick="showPage('store')" class="px-8 py-4 bg-brandAccent text-brandDark font-black tracking-widest text-xs uppercase hover:bg-white transition duration-300 rounded shadow-lg">Shop Now</button>
-                        <button onclick="filterAndShow('new-arrivals')" class="px-8 py-4 border border-white/20 hover:border-brandAccent text-white font-bold tracking-widest text-xs uppercase transition duration-300 rounded">New Arrivals</button>
+                        <button onclick="showPage('store')" class="px-8 py-4 bg-brandAccent text-brandDark font-black tracking-widest text-xs uppercase hover:bg-white transition duration-300 rounded">
+                            Explore
+                        </button>
+                        <button onclick="filterAndShow('new-arrivals')" class="px-8 py-4 border border-white/20 hover:border-brandAccent text-white font-bold tracking-widest text-xs uppercase transition rounded">
+                            New Drops
+                        </button>
                     </div>
                 </div>
 
@@ -363,10 +367,10 @@
                         </div>
                         <div class="lg:col-span-2 text-neutral-400 font-light text-sm sm:text-base leading-relaxed tracking-wide space-y-4">
                             <p>
-                                Stemming directly from rich Yoruba culture, <strong>IINIKO</strong> captures the precise and profound ontological meaning of <em>"being born during troubled times."</em> 
+                                Stemming directly from rich Yoruba culture, <strong>IINIKO</strong> captures the precise and profound ontological meaning of <em>"being born during troubled times."</em>
                             </p>
                             <p>
-                                Embraced and carried forward through layers of history and continuing to thrive in modern high-fashion and street expression, the name serves as an unbreakable armor—a direct testament to the strength found in struggle.
+                                Embraced and carried forward through layers of history and continuing to thrive in modern high-fashion and street expression, the name serves as an unbreakable armour of resilience, heritage and cultural pride.
                             </p>
                         </div>
                     </div>
@@ -576,7 +580,7 @@
                                     <p class="text-neutral-500">Email</p>
                                     <p id="user-email" class="text-white font-bold">user@email.com</p>
                                 </div>
-                                <button onclick="handleLogout()" class="w-full mt-4 border border-brandAccent text-brandAccent py-2 rounded text-xs uppercase tracking-widest hover:bg-brandAccent/10 transition">Logout</button>
+                                <button onclick="handleLogout()" class="w-full mt-4 border border-brandAccent text-brandAccent py-2 rounded text-xs uppercase tracking-widest hover:bg-brandAccent/10 transition">Log Out</button>
                             </div>
                         </div>
 
@@ -647,7 +651,7 @@
                     
                     <div class="mb-6">
                         <label class="text-xs uppercase tracking-widest font-bold text-white mb-2 block">Size</label>
-                        <select id="modal-size" class="w-full bg-neutral-900 border border-white/10 px-4 py-2 rounded text-sm text-white">
+                        <select id="modal-size" class="w-full bg-neutral-900 border border-white/10 px-4 py-2 rounded text-sm text-white focus:border-brandAccent focus:outline-none">
                             <option>Select Size</option>
                             <option>XS</option>
                             <option>S</option>
@@ -660,7 +664,7 @@
 
                     <div class="flex gap-4">
                         <button onclick="addModalProductToBag()" class="flex-1 bg-brandAccent text-brandDark font-bold py-3 rounded tracking-widest text-xs uppercase hover:bg-white transition">Add to Bag</button>
-                        <button onclick="toggleCart(true)" class="flex-1 border border-white/10 text-white font-bold py-3 rounded tracking-widest text-xs uppercase hover:border-brandAccent transition">View Cart</button>
+                        <button onclick="toggleCart(true)" class="flex-1 border border-white/10 text-white font-bold py-3 rounded tracking-widest text-xs uppercase hover:border-brandAccent transition">View Bag</button>
                     </div>
                 </div>
             </div>
@@ -729,26 +733,26 @@
         };
 
         const PLATFORM_INVENTORY = [
-            { id: "new-1", category: "new-arrivals", name: '"Mandela Prisoner 46664" Premium Heavy Knit', file: "ChatGPT Image Jul 17, 2026, 09_05_02 AM.png", price: 30.40.00, desc: "Limited edition custom monogram knit honoring legacy of resilience." },
-            { id: "new-2", category: "new-arrivals", name: '"IINIKO Racing Jersey" Born During Times', file: "ChatGPT Image Jul 17, 2026, 07_18_15 AM.png", price: 72.95.00, desc: "Heavyweight panel construction with technical performance specifications." },
-            { id: "new-3", category: "new-arrivals", name: '"Greatness Origin" Silhouette Tee', file: "ChatGPT Image Jul 17, 2026, 07_38_02 AM.png", price: 30.40.00, desc: "Premium textured garment-dyed blank with intricate master print." },
-            { id: "new-4", category: "new-arrivals", name: '"No:11 Speed Racing" Heavy Graphic Jersey', file: "ChatGPT Image Jul 11, 2026, 06_12_16 PM.png", price: 125.00, desc: "High-contrast motorsport inspired graphics on luxury base." },
-            { id: "app-1", category: "apparel", name: '"Rooted in Heritage" Tech Puffer', file: "0d21b65a-1b8b-4bba-8e85-cfb6c6e21cae.png", price: 130.81.00, desc: "Heavyweight 700-down stitch performance insulation." },
-            { id: "app-2", category: "apparel", name: '"Chaos to Greatness" Heavy Hoodie', file: "cc000f65-cb42-410d-8629-3688fbbc4d99.png", price: 36.48.00, desc: "Boxy dropped-shoulder structural design with premium fleece." },
-            { id: "app-3", category: "apparel", name: '"Rooted in Heritage" Blueprint Hoodie', file: "9714d075-ae6c-4428-8085-f592ecf080e4.png", price: 36.48.00, desc: "Premium acid-wash heavy luxury construction." },
-            { id: "app-4", category: "apparel", name: '"Resilience" Queen Crown Hoodie', file: "649c1f57-3e78-4bc0-beba-29f33797c482.png", price: 30.40.00, desc: "Thick premium standard loopback fleece." },
-            { id: "app-5", category: "apparel", name: '"Born During Troubled Times" Path Hoodie', file: "995f5d76-adb9-4ede-ba57-a44eda515cd4.png", price: 36.48.00, desc: "Washed custom-dyed black knit with heritage messaging." },
-            { id: "app-6", category: "apparel", name: '"IINIKO Signature" Wordmark Hoodie', file: "77e5233c-f500-41c8-85e1-dfc8dfb270c7.png", price: 30.40.00, desc: "Luxury heavy casual construction." },
-            { id: "app-7", category: "apparel", name: '"Chaos to Greatness" Heavy Tee', file: "70101de8-1e7c-4c41-92bb-e34af1c8d703.png", price: 24.32.00, desc: "Drop-shoulder relaxed lifestyle blank." },
-            { id: "app-8", category: "apparel", name: '"Rooted in Heritage" Blueprint Tee', file: "5a262d37-8ebe-40cb-b32f-5a5ec9ab11f6.png", price: 24.32.00, desc: "Raw custom luxury spun cotton tee." },
-            { id: "acc-1", category: "accessories", name: '"IINIKO Signature" Canvas Tote', file: "81707881-2cbf-4aab-8f2e-774fdf281110.png", price: 21.28.00, desc: "Ultra-heavy black denim canvas assembly." },
-            { id: "acc-2", category: "accessories", name: '"IINIKO" Heavy Wash Distressed Cap', file: "db45419a-1e07-4740-8051-915deee0e319.png", price: 21.30.00, desc: "Acid-washed six-panel unstructured headwear." },
-            { id: "acc-3", category: "accessories", name: '"IINIKO Shades" Premium Men Acetate', file: "1f096865-5aa6-445c-8f6b-0390ea6f128b.png", price: 39.52.00, desc: "High UV400 block rated optics." },
-            { id: "acc-4", category: "accessories", name: '"IINIKO Shades" Premium Women Acetate', file: "bb7f8e42-cf4d-453f-b462-2a08aa87fd9d.png", price: 35.48.00, desc: "Flawless cat-eye tailored profile." },
-            { id: "ftw-1", category: "footwear", name: '"Ancestral Spirit" Monogram Sneaker', file: "fcc125bf-efcf-428f-adda-f48f21f19e1e.png", price: 185.00, desc: "Crafted from top tier raw black leather." },
-            { id: "ftw-2", category: "footwear", name: '"Ancestral Spirit" Monogram Elite', file: "e0504ce9-4485-4a2b-8b31-0ee605d8b0e2.png", price: 195.00, desc: "Exclusive variant execution." },
-            { id: "ftw-3", category: "footwear", name: '"IINIKO Queens Slide" Ivory Cream', file: "157ca7a4-83f8-480d-8743-d4fca84970f1.png", price: 65.00, desc: "Premium minimalist ergonomic design." },
-            { id: "ftw-4", category: "footwear", name: '"IINIKO Queens Slide" Stealth Black', file: "d3754570-c182-4c01-a3fc-f93405cc539c.png", price: 66.00, desc: "Black raw textured composite." }
+            { id: "new-1", category: "new-arrivals", name: '"Mandela Prisoner 46664" Premium Heavy Knit', file: "ChatGPT Image Jul 17, 2026, 09_05_02 AM.png", price: 3040.00, desc: "Limited edition heritage piece celebrating resilience." },
+            { id: "new-2", category: "new-arrivals", name: '"IINIKO Racing Jersey" Born During Times', file: "ChatGPT Image Jul 17, 2026, 07_18_15 AM.png", price: 7295.00, desc: "Heavyweight premium performance racing collection." },
+            { id: "new-3", category: "new-arrivals", name: '"Greatness Origin" Silhouette Tee', file: "ChatGPT Image Jul 17, 2026, 07_38_02 AM.png", price: 3040.00, desc: "Premium textured garment with iconic silhouette." },
+            { id: "new-4", category: "new-arrivals", name: '"No:11 Speed Racing" Heavy Graphic Jersey', file: "ChatGPT Image Jul 11, 2026, 06_12_16 PM.png", price: 125.00, desc: "High-contrast modern athletic wear piece." },
+            { id: "app-1", category: "apparel", name: '"Rooted in Heritage" Tech Puffer', file: "0d21b65a-1b8b-4bba-8e85-cfb6c6e21cae.png", price: 13081.00, desc: "Heavyweight 700-down stitched winter essential." },
+            { id: "app-2", category: "apparel", name: '"Chaos to Greatness" Heavy Hoodie', file: "cc000f65-cb42-410d-8629-3688fbbc4d99.png", price: 3648.00, desc: "Boxy dropped-shoulder structured luxury hoodie." },
+            { id: "app-3", category: "apparel", name: '"Rooted in Heritage" Blueprint Hoodie', file: "9714d075-ae6c-4428-8085-f592ecf080e4.png", price: 3648.00, desc: "Premium acid-wash heavy luxury construction." },
+            { id: "app-4", category: "apparel", name: '"Resilience" Queen Crown Hoodie', file: "649c1f57-3e78-4bc0-beba-29f33797c482.png", price: 3040.00, desc: "Thick premium standard loopback cotton blend." },
+            { id: "app-5", category: "apparel", name: '"Born During Troubled Times" Path Hoodie', file: "995f5d76-adb9-4ede-ba57-a44eda515cd4.png", price: 3648.00, desc: "Washed custom-dyed black heritage piece." },
+            { id: "app-6", category: "apparel", name: '"IINIKO Signature" Wordmark Hoodie', file: "77e5233c-f500-41c8-85e1-dfc8dfb270c7.png", price: 3040.00, desc: "Luxury heavy casual construction logo piece." },
+            { id: "app-7", category: "apparel", name: '"Chaos to Greatness" Heavy Tee', file: "70101de8-1e7c-4c41-92bb-e34af1c8d703.png", price: 2432.00, desc: "Drop-shoulder relaxed lifestyle basic tee." },
+            { id: "app-8", category: "apparel", name: '"Rooted in Heritage" Blueprint Tee', file: "5a262d37-8ebe-40cb-b32f-5a5ec9ab11f6.png", price: 2432.00, desc: "Raw custom luxury spun cotton premium shirt." },
+            { id: "acc-1", category: "accessories", name: '"IINIKO Signature" Canvas Tote', file: "81707881-2cbf-4aab-8f2e-774fdf281110.png", price: 2128.00, desc: "Ultra-heavy black denim canvas carry bag." },
+            { id: "acc-2", category: "accessories", name: '"IINIKO" Heavy Wash Distressed Cap', file: "db45419a-1e07-4740-8051-915deee0e319.png", price: 2130.00, desc: "Acid-washed six-panel unstructured hat piece." },
+            { id: "acc-3", category: "accessories", name: '"IINIKO Shades" Premium Men Acetate', file: "1f096865-5aa6-445c-8f6b-0390ea6f128b.png", price: 3952.00, desc: "High UV400 block rated oversized frames." },
+            { id: "acc-4", category: "accessories", name: '"IINIKO Shades" Premium Women Acetate', file: "bb7f8e42-cf4d-453f-b462-2a08aa87fd9d.png", price: 3548.00, desc: "Flawless cat-eye tailored women sunglasses." },
+            { id: "ftw-1", category: "footwear", name: '"Ancestral Spirit" Monogram Sneaker', file: "fcc125bf-efcf-428f-adda-f48f21f19e1e.png", price: 185.00, desc: "Crafted from top tier raw black leather materials." },
+            { id: "ftw-2", category: "footwear", name: '"Ancestral Spirit" Monogram Elite', file: "e0504ce9-4485-4a2b-8b31-0ee605d8b0e2.png", price: 195.00, desc: "Exclusive variant execution premium sneaker." },
+            { id: "ftw-3", category: "footwear", name: '"IINIKO Queens Slide" Ivory Cream', file: "157ca7a4-83f8-480d-8743-d4fca84970f1.png", price: 65.00, desc: "Premium minimalist ergonomic designed slide." },
+            { id: "ftw-4", category: "footwear", name: '"IINIKO Queens Slide" Stealth Black', file: "d3754570-c182-4c01-a3fc-f93405cc539c.png", price: 66.00, desc: "Black raw textured composite women slide." }
         ];
 
         function formatPrice(usd) {
@@ -776,6 +780,7 @@
             
             if (page === 'store') renderStore();
             if (page === 'customer') updateProfileSection();
+            if (page === 'home') renderNewArrivalsSlider();
             
             window.scrollTo(0, 0);
         }
@@ -832,7 +837,7 @@
                         <h3 class="text-sm font-bold uppercase text-white mb-2 flex-1">${p.name}</h3>
                         <div class="flex justify-between items-center">
                             <span class="font-black text-brandAccent">${formatPrice(p.price)}</span>
-                            <button onclick="event.stopPropagation(); addItemToBag('${p.id}')" class="text-brandAccent hover:text-white transition"><ion-icon name="add-circle-outline" class="text-xl"></ion-icon></button>
+                            <button onclick="event.stopPropagation(); addItemToBag('${p.id}')" class="text-brandAccent hover:text-white transition"><ion-icon name="add-circle-outline" class="text-2xl"></ion-icon></button>
                         </div>
                     </div>
                 </div>
@@ -1003,24 +1008,7 @@
         }
 
         function goToCheckout() {
-            const message = `New Order:\n${BAG_STATE.map(i => `${i.quantity}x ${i.name}`).join('\n')}\n\nTotal: ${document.getElementById('cart-total-mini').textContent}`;
-            window.open(`https://wa.me/27735249935?text=${encodeURIComponent(message)}`);
-        }
-
-        function updateCountdown() {
-            const nextDrop = new Date('2026-07-26').getTime();
-            const now = new Date().getTime();
-            const diff = nextDrop - now;
-
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const secs = Math.floor((diff % (1000 * 60)) / 1000);
-
-            document.getElementById('countdown-days').textContent = String(days).padStart(2, '0');
-            document.getElementById('countdown-hours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('countdown-mins').textContent = String(mins).padStart(2, '0');
-            document.getElementById('countdown-secs').textContent = String(secs).padStart(2, '0');
+            alert('Checkout functionality coming soon!');
         }
 
         function renderCurrentView() {
@@ -1028,17 +1016,11 @@
             if (CURRENT_PAGE === 'home') renderNewArrivalsSlider();
         }
 
-        function openPortal() {
-            alert('IINIKO Phones Portal Coming Soon! WhatsApp: +27735249935');
-        }
-
-        // Initialize
-        window.addEventListener('DOMContentLoaded', () => {
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
             renderNewArrivalsSlider();
-            updateProfileSection();
             updateCart();
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
+            updateProfileSection();
         });
     </script>
 </body>
